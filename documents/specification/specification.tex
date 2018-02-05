@@ -1,0 +1,334 @@
+\documentclass[a4paper,11pt,dvipsnames]{article}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=5mm,
+}
+\usepackage[linktocpage]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+
+%\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref} % should always be the last package
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+%\usepackage{pgfgantt}
+\usepackage[pdftex]{graphicx}   %Enable pdflatex
+\usepackage{pgfgantt}
+
+\newcounter{myWeekNum}
+\stepcounter{myWeekNum}
+%
+\newcommand{\myWeek}{\themyWeekNum
+	\stepcounter{myWeekNum}
+	\ifnum\themyWeekNum=53
+	\setcounter{myWeekNum}{1}
+	\else\fi
+}
+
+
+\pagestyle{fancy}
+\setlength{\headheight}{52pt}
+\rhead{\today}
+
+%\title{Blockchain and Smart Contracts }
+%Decentralized Reputation Model and General Trust Framework
+
+\begin{document}
+	\begin{center}
+		\textbf{\huge{Blockchain based Decentralized Reputation Model and 
+		General Trust Framework}}
+		\newline
+%		\large Blockchain and SmartContract. \\
+		\textsf{\large{Student: Sujata Tamang}}\\
+		\textsf{\large{Supervisor: Jonatan H. Bergquist }}\\
+		\textsf{\large{Reviewer: Björn Victor}}\\
+		\textsf{\large{Department of Information Technology, Uppsala University}}
+	\end{center}
+	
+	\section*{Background}
+%	In any online application, interaction between participating entities 
+%	requires them to trust each other based on the reputation system of 
+%	respective platform in use. During a buy/sell interaction, both buyer 
+%	and seller needs to be able to rely on one another for ensuring a 
+%	successful transaction. Similary, a news/blog platform needs to have 
+%	a trustworthy author/blogger. While censorship of information by editors 
+%	are prevalent, they only reflect the personal opinion of consortium of 
+%	people or organizations and in some cases may be biased. Every online 
+%	platforms have their own reputation system 
+
+	Online identities are an essential element in the process of digital 
+	interaction and requires unknown entities to trust each other based on 
+	reputation system of the platform in use. Let us take a simple
+	scenario to present the context. Alice wants to buy a pair of 
+	headphones. To achieve this, she browses the webshop, Dbay which is 
+	a buy/sell platform. She then finds a relevant ad placed by Bob who 
+	has good reviews. Alice picks up her credit card, submits required 
+	details and waits for her desired product to be delivered as promised. 
+	In this interaction, trustworthiness of Bob is fully reliant on Dbay. 
+	The entity claiming to be Bob could be Eve who found a way to bypass 
+	Dbay’s security and inflate his reputation on the system. Eve could 
+	delete the ad and associated account when the payment is complete or 
+	she could gather Alice’s personal details to misuse it later. Any 
+	malformed decision on trustworthiness of an entity could be expensive 
+	and deal severe damage to the user. A centrally governed system is more 
+	prone to directed attacks. One successful attack on Dbay can leave 
+	all its users vulnerable. Thus, a central point of authority is the 
+	single point of failure.\\
+	On the other hand information distributed over decentralized network 
+	would require simultaneous attacks on numerous accounts to achieve 
+	the same effect. Added layer of cryptographic security on this 
+	network would hugely raise the difficulty level of attack. In 2008, 
+	a solution was proposed as Bitcoin, a peer-to-peer electronic cash 
+	system \cite{Bitcoin_Satoshi} that eliminated the need for trusted central 
+	authority. The underlying technology, namely blockchain is a public 
+	ledger that allows anyone on the network to audit blockchains state 
+	changes and prove with mathematical certainity that transactions were 
+	made according to the specified blockchain rule.
+	\cite{enoughBitcoinForEthereum} It comes with a computationally expensive 
+	proof of work for nodes to maintain and update the blockchain database. 
+	Thus, blockchain ensures fault tolerance, zero downtime, tamper-resistant 
+	data. Leveraging this technology for implementing reputation system
+	could be an ideal solution. The use of right reputation algorithm 
+	integrated with Blockchain can ensure trustworthiness of online 
+	identities with high degree of certainity.	
+	
+	\section*{Task}
+	The goal of this thesis is to use blockchain technology and smart contracts 
+	to model a reputation system with graph theory and relevant reputation 
+	algorithms in use. It aims to have a trust framework that can assist 
+	decision making to either carry out the transaction or not.
+	A reference network will be created where nodes and their relationships 
+	will be studied to identify honest or malicious participants. The method to 
+	calculate reputation score and infer trust value of associated identity 
+	will be discussed and applied. Generalization of this reference network to 
+	other transactional network to serve various other use cases will also be 
+	discussed. 
+
+	% reputation model will determine validity of transaction: if dishonest nodes
+	% just endorsing each other with fake id's then the network flow algo will 
+	% calculate net flow and realize that that node is malicious.
+	Research questions that this project aims to address are : 
+	\begin{enumerate}
+		\item \textit{Reputation Model:} How can graph properties and similar 
+			algorithms be used to formulate reputation model such that 
+			malicious nodes are detected and trust transitivity is preserved 
+			for infering the trust value for each nodes in the network? 
+			Definition of the endorsement network, edges, direction, weight, 
+			vertices.
+			%and discouraged while honest nodes are incentivized to 
+			%encourage clean behaviour in the network? 
+
+		\item \textit{Blockchain:} What are the requirements for storing trust 
+			values and linking them to associated identities stored off 
+			blockchain network? How will the blockchain architecture look 
+			like for endorsing known and unknown entities to serve decision 
+			making process before two parties engage in any transaction? How can 
+			blockchain application be built to define a general trust framework 
+			for a transactional network? What should the overall system 
+			architecture look like? 
+		% Blockchain operations and its need.
+		%\item How can blockchain application be built for a general trust 
+		%	framework? What are the logic that needs to be considered  
+		%	on a contract level? 
+
+		\item \textit{UseCases:} How can the discussed endorsement network 
+			ensure trustworthiness while also preserving users anonymity and 
+			how can it be generalized to other transactional network or added 
+			on top of it to serve other usecases such as content filtering, 
+			E-Commerce etc? 
+	\end{enumerate}
+
+%	The task of this thesis project involves exploring current reputation 
+%	model and trust frameworks used in various online systems. A blockchain 
+%	based solution will be discussed and implemented as Proof-of-Concept for 
+%	computing the trust value of interacting entities whose reputation scores 
+%	are stored on public ledger for every nodes on the network to verify, 
+%	validate and guarantee their trustworthiness. Discussion on various 
+%	consensus algorithms for nodes to agree on a computational output will be
+%	presented. Specifically, the transaction on the network would be the 
+%	transfer of endorsement by known entities based on their physical or digital 
+%	acquaintance. Verifying acquaintance and preventing sybil
+%	attacks(i.e. attacker creates large number of pseudonymous identities 
+%	to inflate their reputation or damage someone else’s) will be 
+%	discussed as part of the reputation algorithm to be used. The aim
+%	is to identify and investigate the problems and solutions of reputation 
+%	model and trust frameworks used in current online systems.
+	
+	\paragraph{Main goal of the thesis project:}
+	The Main goal is to prove that discussed trust framework works to evaluate 
+	trustworthiness of participating entities via Proof of Concept(PoC).
+%	The main goal is to design a PoC that can calculate reputation score and 
+%	thus infer trust level of respective entities to aid in decision making 
+%	before interaction takes place by using smartcontracts based decentralized 
+%	reputation system.
+%	 The goal is to design a PoC that can identify and protect 
+%	 trustworthiness of interacting entities with higher degree of certianity 
+%	 using smart contract based decentralized reputation system.	
+	
+	\section*{Objective to support the main goal: }
+	\begin{itemize}
+		\item \textit{Definition:} Identify relevant concepts, Current 
+			reputation models, EigenTrust, Network flow convergence Algorithm.
+		\item \textit{Analysis:} Evolution of blockchains, types, consensus 
+			algorithms, other relevant blockchain concepts.
+		\item \textit{Requirement Analysis:} Pre-requisite for test setup, 
+			User stories, Determine user types, functions, functional and 
+			non functional requirement for the system, identities, storage.
+		\item \textit{Solution Design:} Formulate reputation as network flow 
+			problem, use graph properties, EigenTrust.
+		\item \textit{Implementation:} Write smartcontracts, deploy on ethereum 
+			test network. 
+		\item \textit{Result:} Measure, analyze, evaluate reputation scores 
+			and trust accuracy.
+		\item \textit{Documentation:} Write Report throughout the project 
+			timeline. 
+	\end{itemize}
+
+	\section*{Method}
+	Solidity, \cite{solidity} contract oriented programming language will be 
+	used for writing contracts that define transactions and their exchange 
+	methods on the peer-to-peer network of Ethereum. \cite{ethereum_whitepaper} 
+	Test and deployment will be performed on Ethereum test network. Cloud 
+	services(e.g.docker) may be used to test the validator nodes that follows 
+	discussed consensus. For frontend to communicate with the contracts, 
+	web3.js can be used. Git will be used as version control for the codes.
+	%docker kubernetes plays well , hashicorp: terraform, nomad , Apache mesos	
+	
+	\section*{Relevant Literature}
+	Some existing works carried out in relation to decentralized reputation 
+	based on graph theories and various trust metrics are provided in 
+	References section as:
+	\cite{literature1} \cite{literature2} \cite{ilprints562}
+
+	\section*{Relevant Courses}
+	The relevant courses that the student has undertaken at Uppsala University, 
+	are listed below. They are ordered based on their relevance to the project.
+	\begin{enumerate}
+		\item Cryptology, 5c
+		\item Secure Computer Systems, 5c
+		\item Applied Cloud Computing, 10c
+		\item Advanced Software Design, 5c
+		\item Programming Theory, 10c
+		\item Algorithms and Data Structures II, 5c
+	\end{enumerate}
+
+	\section*{Delimitations}
+	Given the time constraints, implementation will be limited to PoC for 
+	endorsement network. Discussion on several usecases will be presented 
+	but will not be experimented or tested with. Results will attempt to show 
+	accuracy, failure probability but they will not be experimentally compared 
+	to the existing systems for lack of time to search for appropriate datasets.
+	If time permits, frontend may be developed such that contracts can be 
+	interacted with from the web interface directly.
+	
+	\section*{Time Schedule}
+	\vspace{1.5cm}
+	\begin{center}
+		\begin{tabular}{ |m{1.5cm}|m{30em} | } 
+			\hline
+			\textbf{Week} & \textbf{Description}\\
+			\hline
+			5 - 6 & Identify Relevant concepts: EigenTrust, Flow convergence \\
+			7 - 8 & Evolution of blockchains, consensus algorithms \\
+			9 - 10 & Model Network flow using graph properties \\
+			11 - 13 & Setup test network, Write smartcontract code. \\
+			12 & Midterm meeting \\
+			14 - 16 & Results: Measure, Analyze \\
+			17 - 18 & Write analysis of results \\
+			19 - 20 & Write conclusion, futurework, complete final draft 
+			for feedback \\
+			21 - 22 & Prepare presentation, refactor code and documentation 
+			for prototype \\
+			23 & Backup time \\
+			24 & Update with feedback, finalize paper, and present orally \\	
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\setcounter{myWeekNum}{5}
+    \ganttset{%
+        calendar week text={\myWeek{}}%
+    }
+    \begin{figure}[h!bt]
+        \begin{center}
+            \begin{ganttchart}[
+                vgrid={*{6}{draw=none}, dotted},
+                hgrid={*{1}{draw=none}, dotted},
+                x unit=.08cm,
+                y unit title=.5cm,
+                y unit chart=.75cm,
+                newline shortcut=true,
+                bar label node/.append style={align=justify},
+                time slot format=isodate,
+                time slot format/start date=2018-02-01]{2018-02-01}{2018-06-15}
+                \ganttset{bar height=.6}
+                \gantttitlecalendar{year, month=name, week} \\
+                \ganttbar[bar/.append style={fill=BrickRed}]
+				{Literature\ganttalignnewline Survey\ganttalignnewline }
+                    {2018-02-01}{2018-02-09}\\
+
+                \ganttbar[bar/.append style={fill=Blue}]{\textbf{1.} Writing}
+                    {2018-02-05}{2018-05-18}\\
+
+                \ganttbar[bar/.append style={fill=Cerulean}]{\textbf{1.1}
+                Background}
+                    {2018-02-12}{2018-02-23}\\
+
+                \ganttbar[bar/.append style={fill=Emerald}]{\textbf{1.2}
+                Method and \ganttalignnewline Solution Design}
+                    {2018-03-01}{2018-03-09}\\
+%
+%                \ganttbar[bar/.append style={fill=SpringGreen}]{\textbf{1.3}
+%                Solution Design}
+%                    {2018-02-26}{2018-03-09}\\
+
+                \ganttbar[bar/.append style={fill=Periwinkle}]{\textbf{1.3}
+                Implementation Details}
+                    {2018-03-16}{2018-03-30}\\
+
+                \ganttbar[bar/.append style={fill=RedViolet}]{\textbf{1.4}
+                Analysis \&  Evaluation}
+                    {2018-04-27}{2018-05-04}\\
+
+                \ganttbar[bar/.append style={fill=Dandelion}]{\textbf{1.5}
+                Discussion \& Conclusion}
+                    {2018-05-07}{2018-05-18}\\
+
+                \ganttbar[bar/.append style={fill=SpringGreen}]
+                {Design}
+                    {2018-02-26}{2018-03-09}\\
+
+                \ganttbar[bar/.append style={fill=Periwinkle
+                }]{Implementation}{2018-03-12}{2018-03-30}\\
+
+                \ganttbar[bar/.append style={fill=PineGreen}]
+					{Testing}{2018-04-02}{2018-04-20}\\
+
+%                \ganttbar[bar/.append style={fill=Violet}]
+%					{Comparison}{2018-04-16}{2018-04-20}\\
+%
+                \ganttbar[bar/.append style={fill=RedViolet}]
+				{Analysis}{2018-04-23}{2018-05-04}\\
+
+                \ganttbar[bar/.append style={fill=Dandelion}]
+					{Presentation}{2018-06-11}{2018-06-15}\\
+
+            \end{ganttchart}
+        \end{center}
+        \caption{Time Plan}
+    \end{figure}		
+	\newpage
+	\nocite{*}	
+	\bibliographystyle{plain}
+	\bibliography{specification}
+	
+\end{document}
+
