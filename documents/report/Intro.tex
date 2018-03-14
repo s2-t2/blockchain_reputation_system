@@ -1,0 +1,167 @@
+%%% 1 Introduction/ %%%
+\chapter{Introduction} \label{ch:intro}
+%WHAT - what the reader needs to know to understand the presented 
+%work, explain the background of research
+
+\section{Definition}
+\subsection{Trust and Reputation}
+Trust and Reputation encompass a wide spectrum of domains and is
+context dependent. Therefore, a single definition that is universally
+agreed upon doesn't exist. If we take the game theoretic approach of
+viewing them, trust can be defined as a subjective probability, by
+which an individual, A expects another individual, B, to perform
+%\todo{to perform} a given
+a given action on which its welfare depends according to a previous 
+agreement.
+%\todo{according to a previous agreement}.
+Similarly, reputation can be 
+defined as the perception of an individuals character or standing
+\cite{Sabater2005}. Individuals in online systems are identified by
+their online identities which can be anything and not necessarily
+attached to real-world identities. Online identities play a crucial
+role in digital interactions and require unknown entities to trust each
+other based on the reputation system of the platform in use. The 
+client-server architecture of most online systems makes it easy to 
+attack them. For instance, performing a DOS attack would require
+attacking one central server and all the users whose information lives
+on that server will lose access during the time of the attack. The 
+architecture with a central point of authority has a centralized entity
+in control of the database. While users may be able to read or modify
+data, it is the central authority that one needs to rely on for
+providing trustworthy information enough to make a good decision on the
+network.  
+% For this reason, the central system cannot guarantee a 
+% tamper-resistant data. A malformed decision on trustworthiness of an 
+% entity could be expensive and deal severe damage to the user. 
+% On the other hand
+%gather statistics on attacks, fraud data. 
+%Problems of decentralized reputation 
+%trusted party will transact the trust value first to each other and those trust value 
+%will be used by untrusted parties in other transaction network. 
+%the trust value obtained in the endorsement network can be integrated with 
+%existing reputation model of other transaction network and both combined 
+%should give a higher accuracy for trustworthiness measure of entities(assumption)
+%need to test when the time is right :-)
+
+
+\subsection{Blockchain}
+% As the name suggests, Blockchain is a chain of blocks where each block 
+% is linked to the previous block by cryptographic hash and can be seen 
+% as a singly linked list. Thus, modifying information on a block would 
+% require one to go all the way back 
+Blockchain can be defined as a distributed 
+%public\todo{Really public? Not always.} 
+record of state changes that lets 
+anybody on the network audit state changes and prove with 
+mathematical certainty that the transactions were made according 
+to the blockchain rules \cite{enoughBitcoinForEthereum}. Each block consists 
+of lists of validated transactions and are linked by cryptographic hash 
+to previous block. Thus, it is practically impossible to modify a block 
+without being evident on the network. This technology came into being 
+in 2008 as Bitcoin, a peer-to-peer electronic cash system, 
+\cite{Bitcoin_Satoshi} which allowed unknown and not necessarily trusted 
+entities to transfer value to each other without the need of any central 
+trusted third party. Blockchain can be permissionless or permissioned, public or 
+private depending on the application and use cases. Different applications may 
+employ different consensus algorithms to maintain and update the blockchain 
+database. Blockchain ensures fault tolerant, zero downtime, and tamper resistant 
+data to be stored on its network. 
+%more stuffs here
+ 
+\section{Motivation}
+%WHY: why is it interesting to study reputation system/trust 
+% why blockchain based solution is relevant/interesting
+Any form of digital interaction that takes place online requires participating 
+entities to trust each other based on reputation system of platform in use. 
+Let us consider a simple scenario where Alice wants to buy a pair of headphones for 
+which she browses a buy/sell platform. She then finds a relevant ad placed by Bob 
+who has good reviews and rating in the respective platform. Alice picks up her 
+credit card, submits required details and waits for her desired product to be  
+delivered as promised. In this interaction, trustworthiness of Bob is fully 
+reliant on the reputation/rating system of the platform and the correctness of 
+information stored on their database. The entity claiming to 
+be Bob could be Eve who found a way to bypass the platform's security and inflate 
+his reputation on the system. Eve could delete the ad and associated account 
+when the payment is complete or she could gather Alice's personal details to 
+misuse it later. Any malformed decision on trustworthiness of an entity could be 
+expensive and deal severe damage to the user. Thus, it is interesting to study about 
+reputation systems and methods to make it more reliable and accurate in its measure.
+We can say reputation system offers a way to measure trustworthiness of entities to 
+aid interacting entities in making an informed decision about carrying forward 
+the transaction or dropping it. 
+%\todo{maybe this is too early to focus only on transactions, it's not clear why that is }. 
+Studying interactions between entities and analyzing their behaviour to generalize 
+a trust framework is therefore a riveting problem. Graph theory and network flow
+algorithms have been used in the past (cite) 
+to study interaction between nodes and prevent any possible malicious 
+behaviour in the network.
+Blockchain is a fairly new technology and various use cases are being proposed and developed. 
+%\todo{insert examples.} 
+To name a few of them, Sovrin(cite) is a blockchain based solution for self sovereign
+identity and decentralized trust. Wepower(cite) is another innovative use case that 
+aims to tokenize the renewable energy. Cardano is a blockchain platform 
+that uses a ouroboros, proof-of-stake consensus algorithm (cite). Similarly, 
+policypal(cite), uport(cite) are other blockchain based application focused on
+diverse use cases. 
+Leveraging blockchain technology to implement reputation system could be an ideal 
+solution for measuring trustworthiness and attempt to increase accuracy of trust. 
+
+
+%move to literature review later
+% Beaver(cite) is a proposed model for decentralized autonomous marketplace that utilizes zero knowledge proof for anonymizing the information of participants and thus enabling everyone to freely rate or provide feedback securely. EigenTrust is a reputation management algorithm based on the 
+% notion of transitive trust. i.e. If a peer i trusts a peer j, then it implies that 
+% i trusts all other peers trusted by j. Trustdavis(cite) makes translates the 
+% reputation model  
+
+\section{Purpose and research questions}
+%Goal of thesis
+%Research questions and approach that will be taken to answer 
+%them in brief.
+The main goal of this thesis is to use blockchain technology and 
+smart contracts to simulate an endorsement network where entities can 
+endorse each other based on physical or digital acquaintance. The 
+endorsement values will be quantified to infer reputation score and 
+a trust value that can be used on any transaction network. The nodes and 
+their relationship will be studied to identify honest or malicious 
+participants. Generalization of this endorsement network to serve 
+other use cases will also be discussed. 
+The research questions that this thesis aims to address are : 
+\begin{enumerate}
+\item How can graph theories and relevant reputation algorithms be used 
+to model the interaction between entities and detect/identify honest 
+and malicious nodes in the network? How can the interaction graph be
+modeled?
+\item What are the requirements for storing trust values and linking 
+them to associated identities stored off a blockchain network? How can a blockchain application be built to define a general trust framework for 
+a transactional network? How could the overall system architecture look like? 
+\item How can the discussed endorsement network ensure trustworthiness
+while also preserving users anonymity and how can it be generalized to
+other transactional network or added on top of it to serve other use 
+cases such as content filtering, E-Commerce etc? 
+\end{enumerate}
+
+
+\section{Scope} 
+%Identify goal, objective, timeplan, deliverables, 
+%what the project is supposed to do and the work required to meet 
+%the objective
+This thesis work attempts to answer all the research questions mentioned
+in section(refer section).
+ 
+For Research question1, literature survey will be performed on various 
+reputation algorithms in use and a background overview will be 
+performed that will lead to graph simulation of endorsement network.  
+For Research question2, methods to quantify reputation scores and trust 
+values will be devised. Blockchain storage and off blockchain storage 
+such as ipfs will be studied and both methods will be compared and 
+analysed. The system architecture for proposed trust framework will be 
+presented. For Research question3, Several use cases will be presented 
+and the network will be tested on with various predefined cases to see 
+how well it acts in the dynamic network. 
+
+\section{Structure of Report}
+% define in brief(oneline) what each preceding sections are about
+\subsection{acronyms}
+%\ac{aep}.
+
+

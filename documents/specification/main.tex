@@ -1,0 +1,433 @@
+\documentclass[a4paper,11pt,dvipsnames]{article}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=5mm,
+}
+\usepackage[linktocpage]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{url}
+\usepackage{hyperref} % should always be the last package
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{array}
+
+%\usepackage{pgfgantt}
+\usepackage[pdftex]{graphicx}   %Enable pdflatex
+\usepackage{pgfgantt}
+
+\newcounter{myWeekNum}
+\stepcounter{myWeekNum}
+%
+\newcommand{\myWeek}{\themyWeekNum
+	\stepcounter{myWeekNum}
+	\ifnum\themyWeekNum=53
+	\setcounter{myWeekNum}{1}
+	\else\fi
+}
+
+
+\pagestyle{fancy}
+\setlength{\headheight}{52pt}
+\rhead{\today}
+
+\begin{document}
+	\begin{center}
+		\textbf{\huge{Blockchain based Decentralized Reputation Model and 
+		General Trust Framework}}
+		\newline
+%		\large Blockchain and SmartContract. \\
+		\textsf{\large{Student: Sujata Tamang}}\\
+		\textsf{\large{Supervisor: Jonatan Bergquist }}\\
+		\textsf{\large{Reviewer: Björn Victor}}\\
+		\textsf{\large{Department of Information Technology, Uppsala University}}
+	\end{center}
+	
+	\section*{Background}
+	%Define Reputation and Trust
+	Online identities are an essential element in the process of digital 
+	interaction and requires unknown entities to trust each other based on 
+	the reputation system of platform in use. The reputation systems that are 
+	widely used in today's online systems are application specific and each 
+	service provider has their own rating system whereby users can leave 
+	rating/feedback for a good or bad experience encountered.
+	These models have various limitations and fail to provide a precise 
+	accuracy range of user's trustworthiness.
+	\cite{Josang:2007:STR:1225318.1225716} Any malformed decision on the 
+	trustworthiness of an entity could be expensive and deal severe damage to 
+	the user. A centrally governed system is more prone to directed attacks as 
+	it has a single point of failure. 
+	
+	On the other hand, information distributed over a decentralized network would	require simultaneous attacks on numerous accounts to achieve the same effect.
+	In 2008, a solution was proposed called Bitcoin, a peer-to-peer electronic 
+	cash system \cite{Bitcoin_Satoshi} that eliminated the need for trusted 
+	central authority. The underlying technology, namely blockchain, is a 
+	public ledger that allows anyone on the network to audit blockchains state 
+	changes and prove with mathematical certainty that transactions were made 
+	according to the specified blockchain rule. \cite{enoughBitcoinForEthereum} 
+	Different blockchain comes with various consensus algorithms based on the 
+	application and use cases to maintain and update the blockchain database. 
+	Blockchain ensures fault tolerance, zero downtime, and tamper resistant 
+	data to be stored on its network. Leveraging this technology for 
+	implementing reputation system could be an ideal solution. The use of 
+	right reputation algorithm integrated with blockchain can ensure 
+	trustworthiness of online identities with a high degree of certainty. 
+
+	Previous work that has been done in context of reputation management 
+	for online systems can be seen in \cite{literature1}\cite{literature2}
+	\cite{COIN:COIN202}. EigenTrust \cite{ilprints562} is a reputation managemen 
+	algorithm that is based on the notion of transitive trust(i.e. If a peer 
+	\textit{i} trusts a peer \textit{j} then it implies that \textit{i} trusts 
+	all other peers trusted by \textit{j}) and can be used on P2P network. 
+	Bayesian network based trust model has been studied 
+	by \cite{1231515} to build reputation based on recommendations in 
+	P2P networks. Similarly, TrustDavis \cite{trustdavis} presents 
+	an interesting method for non-exploitable online reputation system by 
+	defining important characteristics of honest and malicious participants 
+	and provides an incentive for accurate ratings of trust. 
+%	Other existing works carried out in relation to decentralized reputation 
+%	based on graph theories and various trust metrics can be seen in 
+%	\cite{literature1} \cite{literature2}
+
+
+%	EigenTrust is a reputation management algorithm for a P2P network that 
+%	is based on the notion of transitive trust. \cite{ilprints562}. Similarly, 
+	
+
+%	Most reputation models base the trustworthiness of entity on difference 
+%	of positive and negative feedbacks received in a given time frame.(cite) 
+%	These methods have several problems and limitations. 
+
+%	There is no standard definition of trust and reputation that is universally 
+%	agreed upon. Therefore the definition varies depending upon the domain 
+%	and context in use. For a peer-to-peer network, trust can be defined as a 
+%	peer's belief in another peer's capabilities, honesty and reliability based 
+%	on its own direct experiences whereas reputation is a peer's belief in 
+%	another peer's capabilities, honesty and reliability based on
+%	recommendations received from other peers. (cite) Most of the existing 
+%	online applications calculate trust as difference in positive and negative 
+%	ratings. (cite) Online identities are an essential element in the process 
+%	of digital interaction and requires unknown entities to trust each other 
+%	based on reputation system of the platform in use. The outcome of 
+%	transaction is dependent on the accuracy range of respective reputation 
+%	model. 
+%	
+%	Reputation system helps to 
+%	determine the trustworthiness of an entity and predict the outcome of 
+%	a transaction as success or failure beforehand. Many online systems 
+%	use reputation system specific to their application and there is no 
+%	general framework that fits all applications need. (cite) 
+%
+%
+%	Several centrally governed system have reputation model that provide 
+%	unreliable ratings and are often erroneous. As a central point of 
+%	authority, its also a central point of failure so users need to rely on 
+%	the trusted third party which is usually the online system admin or 
+%	moderator. One could easily attack the system 
+%	Use of EigenTrust has been studied for Reputation Management in Peer to 
+%	peer network that calculates local and global trust of entities and 
+%	trust transitivity. Graph theories has been used to study the property 
+%	between nodes and analyze the peers interaction in the network. cite
+%	However, there central system have their own limitation and decentralized 
+%	reputation systems face various challenges when it comes to distinguishing 
+%	between honest and malicious users and studying the interaction. Recent 
+%	innovation of blockchain technology has been researched by various 
+%	domains experts to experiment on different use cases, reputation being 
+%	one. Blockchain based application such as steemit, akasha are already 
+%	using reputation model built on blockchain that can filter content and 
+%	rank them based on the peers voting. Sovrin is another blockchain based 
+%	implementation that aims to provide ssi and decentralized trust by 
+%	attesting real world physical identities. Blockchain ensures immutable 
+%	data on a decentralized network that can be verified by anyone on the 
+%	network. Consensus algorithms require everyone to agree on the block to 
+%	be added to the chain. Proof of work requires a computationally expensive 
+%	problem to be solved such that the transactions in the block can be 
+%	written by miner who solved it. This ensures immutability and tamper 
+%	resistance properties. Using Blockchain for reputation can greatly 
+%	improve performance of reputation system and provide high degree of 
+%	certainity for trustworthiness of entity. 
+
+	\section*{Task}
+	The goal of this thesis is to use blockchain technology and smart contracts 
+	to model a reputation system with graph theory and relevant reputation 
+	algorithms in use. It aims to have a trust framework that can assist 
+	decision making to either carry out transaction or not.
+	An endorsement network will be simulated where participants can endorse 
+	each other based on physical or digital acquaintance. The nodes and 
+	their relationships will be studied to identify honest or malicious 
+	participants. The method to calculate reputation score and infer trust 
+	value of associated identity will be discussed and applied. Generalization 
+	of this endorsement network to other transactional networks to serve 
+	various other use cases will also be discussed. 
+
+	Research questions that this project aims to address are : 
+	\begin{enumerate}
+	  \item \textit{Reputation Model:} Definition of nodes, edges, direction, 
+		  weight, vertices in the endorsement network. How can graph theories 
+		  and relevant reputation algorithms be used to model the 
+		  interaction between entities and detect/identify honest or malicious 
+		  nodes? 
+%		  reputation system and trust framework such that participating entities 
+%		  can endorse each other based on physical or digital acquaintance that 
+%		  can generate value in the network? 
+		% graph - interaction between entities, interaction is endorsement transfer
+		% detect and identify honest and malicious nodes.
+
+		\item \textit{Blockchain:} What are the requirements for storing trust 
+			values and linking them to associated identities stored off a
+			blockchain network? How can a blockchain application be built to 
+			define a general trust framework for a transactional network? How 
+			could the overall system architecture look like? 
+
+		% Blockchain operations and its need.
+		%\item How can blockchain application be built for a general trust 
+		%	framework? What are the logic that needs to be considered  
+		%	on a contract level? 
+
+		\item \textit{Use Cases:} How can the discussed endorsement network 
+			ensure trustworthiness while also preserving users anonymity and 
+			how can it be generalized to other transactional network or added 
+			on top of it to serve other use cases such as content filtering, 
+			E-Commerce etc? 
+	\end{enumerate}
+	
+	\paragraph{Main goal of the thesis project:}
+	The main goal is to design a PoC to simulate an endorsement network that 
+	can compute reputation score and identify trustworthiness of interacting 
+	entities using smart contract based decentralized reputation model. 
+
+
+%	\section*{Objective to support the main goal: }
+%	\begin{itemize}
+%		\item \textit{Definition:} Identify relevant concepts, Current 
+%			reputation models, EigenTrust, Network flow convergence Algorithm.
+%		\item \textit{Analysis:} Evolution of blockchains, types, consensus 
+%			algorithms, other relevant blockchain concepts.
+%		\item \textit{Requirement Analysis:} Pre-requisite for test setup, 
+%			User stories, Determine user types, functions, functional and 
+%			non functional requirement for the system, identities, storage.
+%		\item \textit{Solution Design:} Formulate reputation as network flow 
+%			problem, use graph properties, EigenTrust.
+%		\item \textit{Implementation:} Write smartcontracts, deploy on ethereum 
+%			test network. 
+%		\item \textit{Result:} Measure, analyze, evaluate reputation scores 
+%			and trust accuracy.
+%		\item \textit{Documentation:} Write Report throughout the project 
+%			timeline. 
+%	\end{itemize}
+
+	\section*{Method}
+	The methodology for this project will follow an incremental approach that 
+	will start with definition of problem supported by literature review and 
+	followed by solution design and implementation. The steps can be broken 
+	down into: 
+	\begin{itemize}
+	  \item \textit{Definition:} Identify relevant concepts, algorithms, 
+		current reputation models, evolution of blockchains, consensus 
+		algorithms, other relevant blockchain concepts.
+		%Read and write
+	  \item \textit{Analysis:} pre-requisite for test setup, user stories, 
+		determine user types, functions, functional and nonfunctional 
+		requirements for the system, identities, on chain vs. off-chain storage. 
+	  \item \textit{Solution Design:} Formulate reputation model using graph 
+		properties, methods to quantify reputation score, trust values.
+		%relevant axioms to be studied.
+	  \item \textit{Implementation:} Write smart contract code, deploy on the 
+		test network. 
+	  \item \textit{Result:} Measure, analyze, evaluate reputation scores and 
+		trust accuracy range.
+	  \item \textit{Documentation:} Write report throughout the project timeline.
+	\end{itemize}
+	Solidity, \cite{solidity} a contract oriented programming language will be 
+	used for writing contracts that define transactions and their exchange 
+	methods on the peer-to-peer network of Ethereum. \cite{ethereum_whitepaper} 
+	Test and deployment will be performed on Ethereum test network. Cloud 
+	services such as docker may be used to test the validator nodes that follow 
+	discussed consensus. Neo4j can be used for graph simulation.
+	node.js can be used as a javascript run time and web3.js API may be used 
+	to build a web application that can communicate with the smart contract. 
+	Solc will be used to compile solidity code and Git will be used as version 
+	control for the codes.
+%	%docker kubernetes plays well , hashicorp: terraform, nomad , Apache mesos	
+	
+%	\section*{Relevant Literature}
+%	Some existing works carried out in relation to decentralized reputation 
+%	based on graph theories and various trust metrics are provided in 
+%	References section as:
+%	\cite{literature1} \cite{literature2} \cite{ilprints562}
+
+	\section*{Relevant Courses}
+	The relevant courses that the student has undertaken at Uppsala University, 
+	are listed below. They are ordered based on their relevance to the project.
+	\begin{enumerate}
+		\item Cryptology, 5c
+		\item Secure Computer Systems, 5c
+		\item Applied Cloud Computing, 10c
+		\item Advanced Software Design, 5c
+		\item Programming Theory, 10c
+		\item Algorithms and Data Structures II, 5c
+	\end{enumerate}
+
+	\section*{Delimitations}
+	Given the time constraints, implementation will be limited to a PoC for 
+	endorsement network. Discussion on several use cases will be presented 
+	but will not be experimented or tested with. Results will attempt to show 
+	reputation accuracy and failure probability but will not be experimentally 
+	compared to the existing systems for lack of time to search for appropriate 
+	datasets. If time permits, frontend may be developed such that contracts can 
+	be interacted with from the web interface directly.
+	
+	\section*{Time Schedule}
+	The week column in the time table corresponds to the respective week 
+	shown in figure ~\ref{gantt}.
+%	\vspace{1.5cm}
+	\begin{center}
+		\begin{tabular}{ |m{1.5cm}|m{30em} | } 
+			\hline
+			\textbf{Week} & \textbf{Description}\\
+			\hline
+			1 - 2 & Literature survey: Reputation algorithms, Identify relevant 
+			concepts, Refine specification\\
+			3 - 4 & Background: Evolution of blockchains, Consensus algorithms \\
+			5 - 6 & Method \& Design: Model network using graph properties \\
+			7 - 10 & Implementation: Setup test network, Write smart contract 
+			code. \\
+			10 & Midterm meeting \\
+			11 - 12 & Testing: Measure, Analyze, evaluate \\
+			13 - 14 & Analysis: Write analysis of results \\
+			15 - 16 & Discussion \& Conclusion: Write conclusion, futurework, 
+			complete final draft for feedback \\
+			17 - 18 & Refactor code, documentation, prepare presentation \\
+			%Prepare presentation, refactor code and documentation 
+			%for prototype \\
+			19 & Backup time \\
+			20 & Presentation: Update with feedback, finalize paper, 
+			and present orally \\	
+			\hline
+		\end{tabular}
+	\end{center}
+
+	\setcounter{myWeekNum}{1}
+    \ganttset{%
+        calendar week text={\myWeek{}}%
+    }
+    \begin{figure}[h!bt]
+        \begin{center}
+            \begin{ganttchart}[
+                vgrid={*{6}{draw=none}, dotted},
+                hgrid={*{1}{draw=none}, dotted},
+                x unit=.07cm,
+                y unit title=.5cm,
+                y unit chart=.70cm,
+                newline shortcut=true,
+                bar label node/.append style={align=justify},
+                time slot format=isodate,
+                time slot format/start date=2018-02-01]{2018-02-01}{2018-06-15}
+                \ganttset{bar height=.6}
+                \gantttitlecalendar{year, month=name, week} \\
+                \ganttbar[bar/.append style={fill=gray}]
+				{Literature\ganttalignnewline Survey\ganttalignnewline }
+                    {2018-02-01}{2018-02-09}\\
+
+                \ganttbar[bar/.append style={fill=Blue}]{\textbf{1.} Writing}
+                    {2018-02-05}{2018-05-18}\\
+
+                \ganttbar[bar/.append style={fill=Cerulean}]{\textbf{1.1}
+                Background}
+                    {2018-02-12}{2018-02-23}\\
+
+                \ganttbar[bar/.append style={fill=SpringGreen}]{\textbf{1.2}
+                Method and \ganttalignnewline Solution Design}
+                    {2018-03-01}{2018-03-09}\\
+%
+%                \ganttbar[bar/.append style={fill=SpringGreen}]{\textbf{1.3}
+%                Solution Design}
+%                    {2018-02-26}{2018-03-09}\\
+
+                \ganttbar[bar/.append style={fill=Periwinkle}]{\textbf{1.3}
+                Implementation Details}
+                    {2018-03-18}{2018-04-06}\\
+
+                \ganttbar[bar/.append style={fill=RedViolet}]{\textbf{1.4}
+                Analysis \&  Evaluation}
+                    {2018-04-27}{2018-05-04}\\
+
+                \ganttbar[bar/.append style={fill=Dandelion}]{\textbf{1.5}
+                Discussion \& Conclusion}
+                    {2018-05-07}{2018-05-18}\\
+
+                \ganttbar[bar/.append style={fill=SpringGreen}]
+                {System Design}
+                    {2018-02-26}{2018-03-09}\\
+
+                \ganttbar[bar/.append style={fill=Periwinkle
+                }]{Implementation}{2018-03-11}{2018-04-06}\\
+
+                \ganttbar[bar/.append style={fill=PineGreen}]
+					{Testing}{2018-04-08}{2018-04-20}\\
+
+%                \ganttbar[bar/.append style={fill=Violet}]
+%					{Comparison}{2018-04-16}{2018-04-20}\\
+%
+                \ganttbar[bar/.append style={fill=RedViolet}]
+				{Analysis}{2018-04-23}{2018-05-04}\\
+
+
+                \ganttbar[bar/.append style={fill=Dandelion}]
+				{Refactor Code}{2018-05-20}{2018-05-31}\\
+
+                \ganttbar[bar/.append style={fill=BrickRed}]
+					{Presentation}{2018-06-11}{2018-06-15}
+%
+					\node (a) [fill=Gray,draw,anchor=west,minimum width=0.5cm] at ([yshift=-68pt]current bounding box.north east){};
+
+				\node (b) [fill=Blue,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]a.south west){};
+				\node (c) [fill=Cerulean,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]b.south west){};
+				\node (d) [fill=SpringGreen,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]c.south west){};
+				\node (e) [fill=Periwinkle,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]d.south west){};
+
+				\node (f) [fill=PineGreen,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]e.south west){};
+
+				\node (g) [fill=RedViolet,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]f.south west){};
+
+				\node (h) [fill=Dandelion,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]g.south west){};
+
+				\node (i) [fill=BrickRed,draw,anchor=west, minimum width=0.5cm] at ([yshift=-10pt]h.south west){};
+
+				\node (j) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]a.north east){Preliminary Reading};
+
+				\node (k) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]b.north east){Writing};
+
+				\node (l) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]c.north east){Preliminary Writing};
+
+				\node (m) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]d.north east){Design};
+
+				\node (n) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]e.north east){Implementation};
+
+
+				\node (o) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]f.north east){Test};
+
+				\node (p) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]g.north east){Analysis};
+
+
+				\node (q) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]h.north east){Conclusion};
+
+
+				\node (q) [fill=White,anchor=west,minimum width=0.5cm] at ([yshift=-5pt]i.north east){Presentation};
+            \end{ganttchart}
+        \end{center}
+        \caption{Time Plan}
+		\label{gantt}
+    \end{figure}		
+	\newpage
+	\nocite{*}	
+	\bibliographystyle{plain}
+	\bibliography{sample}
+	
+\end{document}
+
