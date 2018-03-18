@@ -1,3 +1,5 @@
 eth.coinbase
 eth.accounts
 eth.getBalance(eth.accounts[0])
+eth.accounts
+loadScript('contracts/target/mortal.abi')
