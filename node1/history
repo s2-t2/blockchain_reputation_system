@@ -1,0 +1,3 @@
+eth.coinbase
+eth.accounts
+eth.getBalance(eth.accounts[0])

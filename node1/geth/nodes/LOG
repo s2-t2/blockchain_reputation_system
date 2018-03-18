@@ -1,0 +1,36 @@
+=============== Mar 18, 2018 (CET) ===============
+20:33:08.861425 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+20:33:08.894923 db@open opening
+20:33:08.900194 version@stat F·[] S·0B[] Sc·[]
+20:33:08.904535 db@janitor F·2 G·0
+20:33:08.904548 db@open done T·9.592265ms
+20:36:50.232976 db@close closing
+20:36:50.233114 db@close done T·131.515µs
+=============== Mar 18, 2018 (CET) ===============
+20:37:46.592665 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+20:37:46.592979 version@stat F·[] S·0B[] Sc·[]
+20:37:46.593000 db@open opening
+20:37:46.593096 journal@recovery F·1
+20:37:46.597900 journal@recovery recovering @1
+20:37:46.615333 memdb@flush created L0@2 N·7814 S·289KiB "n:\x00..ail,v2719":"version,v1"
+20:37:46.616562 version@stat F·[1] S·289KiB[289KiB] Sc·[0.25]
+20:37:46.625671 db@janitor F·3 G·0
+20:37:46.625689 db@open done T·32.680143ms
+21:01:54.375900 db@close closing
+21:01:54.376035 db@close done T·132.283µs
+=============== Mar 18, 2018 (CET) ===============
+21:12:00.610927 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:12:00.611352 version@stat F·[1] S·289KiB[289KiB] Sc·[0.25]
+21:12:00.611359 db@open opening
+21:12:00.611384 journal@recovery F·1
+21:12:00.612775 journal@recovery recovering @3
+21:12:00.678896 memdb@flush created L0@5 N·29770 S·905KiB "n:\x00..ing,v30092":"n:\xff..ing,v24192"
+21:12:00.680126 version@stat F·[2] S·1MiB[1MiB] Sc·[0.50]
+21:12:00.689699 db@janitor F·4 G·0
+21:12:00.689735 db@open done T·78.354092ms
+21:12:00.698573 table@compaction L0·2 -> L1·0 S·1MiB Q·37589
+21:12:00.719498 table@build created L1@8 N·18175 S·930KiB "n:\x00..ing,v30092":"version,v1"
+21:12:00.719540 version@stat F·[0 1] S·930KiB[0B 930KiB] Sc·[0.00 0.01]
+21:12:00.724170 table@compaction committed F-1 S-264KiB Ke·0 D·19409 T·25.559183ms
+21:12:00.724335 table@remove removed @5
+21:12:00.724443 table@remove removed @2
