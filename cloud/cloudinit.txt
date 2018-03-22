@@ -1,0 +1,44 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+packages:
+ - ethereum 
+ - build-essential
+byobu_default: system 
+
+write_files:
+  - path: /home/ubuntu/runOnFirstLogin
+    content: |
+      sudo chown -R ubuntu: /home/ubuntu/
+      . .bashrc
+      echo "update and install essentials"
+      apt-get update
+      apt-y dist-upgrade
+      apt install software-properties-common
+      add-apt-repository -y ppa:ethereum/ethereum
+      echo "install ethereum and go"
+      apt-get install ethereum -y
+      mkdir -p /home/ubuntu/go
+      cd /home/ubuntu/go
+      wget https://dl.google.com/go/go1.9.4.linux-amd64.tar.gz
+      tar -xvf go1.9.4.linux-amd64.tar.gz
+      mv go /usr/local
+      cd /home/ubuntu
+      git clone https://github.com/ethereum/go-ethereum
+      echo "--- Change .profile ---"
+      echo "export GOROOT=/usr/local/go" >> /home/ubuntu/.profile
+      echo "export GOPATH=$HOME/Projects/Proj1" >> /home/ubuntu/.profile
+      echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH"
+      source /home/ubuntu/.profile
+      cd go-ethereum
+      make geth
+
+runcmd:
+ - echo "--- Running BASH commands ---"
+ - mv /home/ubuntu/runOnFirstLogin /home/ubuntu/runOnFirstLogin.sh
+ - chmod +x /home/ubuntu/runOnFirstLogin.sh
+ - ./runOnFirstLogin.sh
+final_message: "------ The system is finally up, after $UPTIME seconds --------"
+
+
