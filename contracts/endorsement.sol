@@ -4,28 +4,42 @@ contract Endorsement {
 
 	struct Endorsee {
 		string name;
-		uint impact;
+		uint trustScore;
 		uint nER;
+		uint nEG;
 		//uint trustScore;
 		// endorse id only or subset of info ??
 	}
 	struct Endorser {
+		string name;
 		uint nEG; 
-		uint ei; 
+		uint nER;
+		uint trustScore;
 	}
 	
 	address public owner;
 //	address public endorser;
 //	address public endorsee;
-	address public arbiter; //maybe an insurer in the middle??
+	//address public arbiter; //maybe an insurer in the middle??
 	mapping (address => Endorser) public endorsers;
 	Endorsee[] public endorsees;
 
-	mapping (address => uint) public edsValues;
-	mapping (address => uint) public ei;
-	uint public TOTAL = 3000000000000000000; 
-	uint public iep = 1;
+	//mapping (address => uint) public edsValues;
+	//mapping (address => uint) public ei;
+
+	//uint public TOTAL = 3000000000000000000;  
 	uint public nEG = 0;
+	uint public iep = 10000000000000;
+
+	modifier endorserOnly() { 
+		require(msg.sender = endorsers);
+		_;
+	}
+
+	modifier endorseeOnly() {
+		require(msg.sender = endorsee);
+		_;
+	}
 	
 	//event to notify when transfer is complete
 	event Delivered(address from, address to, uint amount);

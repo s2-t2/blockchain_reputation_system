@@ -1,4 +1,7 @@
-node1/geth/chaindata/
-node1/geth/nodes/
-node1/history
+privatenet/geth/chaindata/
+privatenet/geth/nodes/
+privatenet/keystore/
+privatenet/password.sec
+privatenet/geth
+
 
