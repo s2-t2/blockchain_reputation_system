@@ -3,5 +3,6 @@ privatenet/geth/nodes/
 privatenet/keystore/
 privatenet/password.sec
 privatenet/geth
+privatenet/history
 
 
