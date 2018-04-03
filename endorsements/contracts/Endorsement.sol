@@ -1,6 +1,8 @@
 pragma solidity ^0.4.18;
 
-contract Endorsement {
+import "./EDSToken.sol";
+
+contract Endorsement is EDSToken {
 
 	//owner
 	address owner;
@@ -23,12 +25,20 @@ contract Endorsement {
 //		uint nER;
 	}
 
+	struct Trust { 
+		address user;
+		uint usedPower;
+		uint impact;
+		uint totalImpact;
+	}
+
 	//state variables
 	address endorsee;
 	string name;
-	uint impact;
-	uint totalImpact;
 	uint edsRecieved;
+
+	//storage variables
+	Trust [] public trust;
 
 	mapping (address => Endorser ) public endorsers;
 
@@ -44,19 +54,29 @@ contract Endorsement {
 		_;
 	}
 
+
 	//constructor
 	function Endorsement() public { 
+		//EDSToken( );
 		owner = msg.sender;
+		myToken(2100000000, "EDS", "%" );
+
 	}
+
 
 	//deactivate the contract
 	function kill() public onlyOwner { 
 		selfdestruct(owner);
 	}
 
+	//EDSToken (2100000, "EDS", "%" );
+
 
 	// send endorsement
-	function sendEndorsement(address _endorsee, string _name) { 
+	function sendEndorsement(address _endorsee, string _name) public { 
+		//cannot self endorse
+		require (msg.sender != _endorsee );
+		
 		endorsee = _endorsee;
 		name = _name;
 		nEG[ msg.sender ] = nEG[ msg.sender ] + 1 ;
@@ -66,12 +86,21 @@ contract Endorsement {
 			//nER: 
 		});
 
+		//EDSTransfer ( msg.sender, 100 );
 		nER[endorsee ] = nER[endorsee ] + 1;
 
+	}
+
+	//compute trust score
+	function computeTrust ( address _user ) { 
 
 
 	}
+
+	
+
 }
+
 
 
 
