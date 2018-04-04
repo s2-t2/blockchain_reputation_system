@@ -32,6 +32,11 @@ contract EDSToken {
 	
 	}
 
+	function withdrawEDS ( address _to ) public { 
+		require (EDSBalance[msg.sender] == 0);
+		EDSBalance[msg.sender] += 300;
+	}
+
 
 	//notify client about the amount burnt
 	event Burn ( address indexed from, uint256 value );

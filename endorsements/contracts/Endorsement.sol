@@ -73,31 +73,41 @@ contract Endorsement is EDSToken {
 
 
 	// send endorsement
-	function sendEndorsement(address _endorsee, string _name) public { 
+	function sendEndorsement(address _endorsee, string _name) public payable { 
 		//cannot self endorse
 		require (msg.sender != _endorsee );
 		
 		endorsee = _endorsee;
 		name = _name;
 		nEG[ msg.sender ] = nEG[ msg.sender ] + 1 ;
+
 		endorsers[msg.sender ] = Endorser({
 			endorsee: endorsee,
 			nameEndorsee: name
 			//nER: 
 		});
 
+//		if (nEG [msg.sender] == 1) { 
+//			EDSTransfer(msg.sender, 300 );
+//		} 
+
+
 		//EDSTransfer ( msg.sender, 100 );
 		nER[endorsee ] = nER[endorsee ] + 1;
 
 	}
 
-	//compute trust score
-	function computeTrust ( address _user ) { 
+	function Division( uint _numerator, uint _denominator, uint _precision) public constant returns (uint _quotient) {
+		uint numerator = _numerator * 10 ** (_precision + 1);
+		uint quotient = ((numerator / _denominator) + 5  ) / 10;
 
-
+		return (quotient);		
 	}
 
-	
+	//compute trust score
+	function computeTrust ( address _user ) { 
+		//nEG
+	}
 
 }
 
