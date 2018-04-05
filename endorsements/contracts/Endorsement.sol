@@ -11,6 +11,8 @@ contract Endorsement is EDSToken {
 		//uint id;
 		address endorsee;
 		string nameEndorsee;
+		uint usedPower;
+		uint nEG;
 	//	uint [] givenTo;
 	}
 
@@ -45,10 +47,11 @@ contract Endorsement is EDSToken {
 
 	mapping (address => uint ) public nEG; //no. of eds given by a specific id
 	mapping (address => uint ) public nER; //no. of eds received
-	mapping (address => uint ) public trustScore; // total impact
+	mapping (address => uint ) public usedPower;
+	mapping (address => uint ) public RE;
 
 	// modifiers
-	modifier onlyOwner( ) { 
+	modifier onlyOwner() { 
 		require(msg.sender == owner );
 		_;
 	}
@@ -71,14 +74,19 @@ contract Endorsement is EDSToken {
 	//EDSToken (2100000, "EDS", "%" );
 
 	struct TrackConnection { 
-		address givenTo;
+		//address givenTo;
 		address receivedFrom;
 	}
 
 	TrackConnection [] public connections; 
 
+	mapping (address => TrackConnection ) hasReceivedFrom; 
+	
+	//mapping (address =>  ) endorsers;
+
 //	mapping (address => trackConnection ) To;
 //	mapping (address => receivedFrom[] ) From; 
+
 
 
 	// send endorsement
@@ -90,39 +98,51 @@ contract Endorsement is EDSToken {
 		address endorser = msg.sender;
 		name = _name;
 		nEG[ msg.sender ] = nEG[ msg.sender ] + 1 ;
+		usedPower[msg.sender] = Division(1, (nEG[msg.sender ]), 9);
+		uint uP = Division(1, nEG[msg.sender],9 );
 
 		endorsers[msg.sender ] = Endorser({
 			endorsee: endorsee,
-			nameEndorsee: name
+			nameEndorsee: name,
+			usedPower: uP,
+			nEG: nEG[msg.sender]
 		});
 
 		nER[ _endorsee] = nER[ _endorsee] + 1;
+		RE[_endorsee] = RE[_endorsee] + usedPower[msg.sender];
 
-		TrackConnection memory newConnections = TrackConnection({
-			givenTo: endorsee,
-			receivedFrom: endorser 
-		});
-
-		connections.push(newConnections );
+//		TrackConnection memory newConnections = TrackConnection({
+//			givenTo: endorsee,
+//			receivedFrom: endorser 
+//		});
+//
+//		connections.push(newConnections );
 	}
 
-	function ReceivedEDS ( address _user) public returns (uint _RE ) {
+	function receivedEndorsement( address _user ) public view { 
+		//usedPower(address from where _user has received + all addresses from where its received)
+		//loop until the length of array and sum all elements
+		//hasReceivedFrom 
+
+	}
+
+//	function ReceivedEDS ( address _user) public returns (uint _RE ) {
 		//for i in list  of endorsees of user, 
 		//get the used power of each of them and add all together.
 
 
-	}
+//	}
 	
 	//some helper functions for calculations
 
-	function Division( uint _numerator, uint _denominator, uint _precision) public constant returns (uint _quotient) {
+	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;
 
 		return (quotient);		
 	}
 
-	function max (uint x, uint y ) public constant returns (uint) {
+	function max (uint x, uint y ) internal pure returns (uint) {
 		if (x < y) {
 			return y;
 		} else  {  
@@ -130,7 +150,7 @@ contract Endorsement is EDSToken {
 		}
 	}
 
-	function min (uint x, uint y ) public constant returns (uint) { 
+	function min (uint x, uint y ) internal pure returns (uint) { 
 		if (x < y) { 
 			return x;
 		} else {
@@ -142,12 +162,21 @@ contract Endorsement is EDSToken {
 	//supports decimal upto 9 place
 	//can convert to decimal by dividing all values with 1e9 and get the exact score on 
 	//client side
-	function computeTrust ( address _user ) { 
-//		user = _user;
-//		ratio = Division( ( nEG[  _user] ), ( nER[ _user ] ), 9 );
-//		usedPower = Division(1, (nEG[_user ]), 9 );
-//		receivedEDS = ReceivedEDS( _user );
-	//	totalImpact = ratio + up + RE;  
+	function computeTrust( address _user) public view returns (uint) { 
+		address user = _user;
+		require (nEG[user] >= 1 );
+		uint temp1 = (min(nEG[user], nER[user]));
+		uint temp2 = (max(nEG[user], nER[user]));
+		uint ratio = Division( temp1, temp2, 9 );
+
+		return ratio;
+		//uint  
+		
+		//return usedPower;
+		//ratio = Division( ( nEG[  _user] ), ( nER[ _user ] ), 9 );
+		//usedPower = Division(1, (nEG[_user ]), 9 );
+		//receivedEDS = ReceivedEDS( _user );
+		//totalImpact = ratio  up  RE;  
 
 	}
 
