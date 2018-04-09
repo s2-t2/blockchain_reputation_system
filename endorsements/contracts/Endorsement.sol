@@ -3,53 +3,61 @@ pragma solidity ^0.4.18;
 import "./EDSToken.sol";
 
 contract Endorsement is EDSToken {
-
-	//owner
 	address owner;
-
-	struct Endorser { 
-		//uint id;
-		address endorsee;
-		string nameEndorsee;
-		uint usedPower;
-		uint nEG;
-	//	uint [] givenTo;
-	}
-
-	struct Endorsee { 
-		//uint id;
-		//string nameEndorser;
-		address endorser;
-	//	uint [] receivedFrom;
-
-	}
-
-	struct Trust { 
-		address user;
-		uint ratio;
-		uint usedPower;
-		uint receivedEDS;
-		uint impact;
-		uint totalImpact;
-	}
-
-	//state variables
-	address endorsee;
-	string name;
-	uint edsRecieved;
-
-	//storage variables
-	Trust [] public trust;
-
-	mapping (address => Endorser ) public endorsers;
-
-	mapping (address => Endorsee ) public endorsees;
-
-	mapping (address => uint ) public nEG; //no. of eds given by a specific id
-	mapping (address => uint ) public nER; //no. of eds received
-	mapping (address => uint ) public usedPower;
-	mapping (address => uint ) public RE;
-
+    
+    struct Participant { 
+        address identifier;
+        string name;
+        // uint nEG;
+        // uint nER;
+        // uint RE;
+        // uint usedPower;
+    }
+    
+    struct Endorser {
+        address sender;
+        uint nEG;
+        uint usedPower;
+        address[] givenTo;
+        mapping(address => bool) hasGivenTo;
+    }
+    
+    struct Endorsee { 
+        address receiver;
+        uint nER;
+        uint RE;
+        address[] receivedFrom;
+        mapping(address => bool) hasReceivedFrom;
+    }
+    
+    struct Profile { 
+        address identifier;
+        uint nER;
+        uint nEG;
+        address[] receivedFrom;
+        uint RE;
+    }
+    
+    mapping(address => uint) nEG;
+    mapping(address => uint) nER;
+    mapping(address => uint) RE;
+    mapping(address => uint) usedPower;
+    mapping(address => uint) impact;
+    mapping(address => uint) totalImpact;
+    
+    mapping(address => bool) joined;
+    
+    mapping(address => address[]) public outGoingConnections;
+    mapping(address => address[]) public inComingConnections;
+    
+    Participant [] public participants;
+    //Endorser [] public endorsers;
+    
+    mapping(address => Endorser[]) endorsers; 
+    
+    Endorsee [] public endorsees;
+    Profile [] public profiles;
+    
 	// modifiers
 	modifier onlyOwner() { 
 		require(msg.sender == owner );
@@ -61,80 +69,115 @@ contract Endorsement is EDSToken {
 	function Endorsement() public { 
 		//EDSToken( );
 		owner = msg.sender;
-		myToken(2100000000, "EDS", "%" );
-
 	}
-
 
 	//deactivate the contract
 	function kill() public onlyOwner { 
 		selfdestruct(owner);
 	}
-
-	//EDSToken (2100000, "EDS", "%" );
-
-	struct TrackConnection { 
-		//address givenTo;
-		address receivedFrom;
-	}
-
-	TrackConnection [] public connections; 
-
-	mapping (address => TrackConnection ) hasReceivedFrom; 
 	
-	//mapping (address =>  ) endorsers;
+	function joinNetwork(string _userName) public{
+	    require(!joined[msg.sender]);
+	    joined[msg.sender] = true;
+	    Participant memory newParticipant = Participant({
+	        identifier: msg.sender,
+	        name: _userName
+	    });
+	    participants.push(newParticipant);
+	}
+	
+	function endorse(uint _index) public {
+	    address receiver = participants[_index].identifier;
+	    require(receiver != 0x0);
+	    require(receiver != msg.sender);
+	    nEG[msg.sender]++;
+	    nER[receiver]++;
+	    usedPower[msg.sender] = Division(1,nEG[msg.sender],9);
+	    Endorser memory newEndorser = Endorser({
+	        sender: msg.sender,
+	        nEG: nEG[msg.sender],
+	        usedPower: Division(1,nEG[msg.sender],9),
+	        givenTo: new address[](0)
+	        
+	    });
+	    //with address to Endorser[] mapping
+	    endorsers[msg.sender].push(newEndorser);
+	    
+	    //with array Endorser [] public endorsers
+	    //endorsers.push(newEndorser);
+	   // endorsers[endorsers.length-1].givenTo.push(receiver);
+	   // endorsers[endorsers.length-1].hasGivenTo[receiver] = true;
+	    
+	    outGoingConnections[msg.sender].push(receiver);
+	    //check outGoingConnections[address,index_of_array]
+	    
+	    //uint RE = RE[receiver];
+	    
+	    
+	    //udpate participants for endorser identifier
+	    
+	   // Participant memory newParticipant = Participant({
+	   //     identifier: participants[_index].identifier,
+	   //     name: participants[_index].name,
+	   //     nEG: nEG[participants[_index].identifier],
+	   //     nER: nER[participants[_index].identifier],
+	   //     usedPower: usedPower[participants[_index].identifier],
+	   // });
+	    
+	   // Endorsee memory newEndorsee = Endorsee({
+	   //    receiver: receiver,
+	   //    nER: nER[receiver],
+	   //    //RE: RE[receiver] + endorsers[endorsers.length-1].usedPower,
+	   //    receivedFrom: new address[](0)
+	   // });
+	   // endorsees.push(newEndorsee);
+	   // endorsees[endorsees.length-1].receivedFrom.push(msg.sender);
+	   // endorsees[endorsees.length-1].hasReceivedFrom[msg.sender] = true;
+	    
+	   // inComingConnections[receiver].push(msg.sender);
+	    
+	    
+	    
+	    
+	    //updateParticipants code - new function
+	   // Participant memory newParticipant = Participant({
+	        
+	        
+	   // });
+	    
+	    //updateParticipants(_index);
+	}
+	
 
-//	mapping (address => trackConnection ) To;
-//	mapping (address => receivedFrom[] ) From; 
-
-
-
-	// send endorsement
-	function sendEndorsement(address _endorsee, string _name) public payable { 
-		//cannot self endorse
-		require (msg.sender != _endorsee );
-		
-		endorsee = _endorsee;
-		address endorser = msg.sender;
-		name = _name;
-		nEG[ msg.sender ] = nEG[ msg.sender ] + 1 ;
-		usedPower[msg.sender] = Division(1, (nEG[msg.sender ]), 9);
-		uint uP = Division(1, nEG[msg.sender],9 );
-
-		endorsers[msg.sender ] = Endorser({
-			endorsee: endorsee,
-			nameEndorsee: name,
-			usedPower: uP,
-			nEG: nEG[msg.sender]
-		});
-
-		nER[ _endorsee] = nER[ _endorsee] + 1;
-		RE[_endorsee] = RE[_endorsee] + usedPower[msg.sender];
-
-//		TrackConnection memory newConnections = TrackConnection({
-//			givenTo: endorsee,
-//			receivedFrom: endorser 
-//		});
-//
-//		connections.push(newConnections );
+	function computeImpact(uint _index) public view returns (uint){
+	    //compute score for users in participants array, give index of array
+	    address user = participants[_index].identifier;
+	    require(joined[user]);
+	    uint minVal = min((nEG[user]), (nER[user]));
+	    uint maxVal = max((nEG[user]),(nER[user]));
+	    uint ratio = Division(minVal,maxVal, 9);
+	    
+	    //summation of usedpower of all endorsers for the given user,
+	    //no other way but to iterate the array which can be of max size 300
+	    uint len = inComingConnections[user].length;
+	    //address incomingConns = inComingConnections[user](0);
+	    uint points = usedPower[user];
+	    uint totalReceivedPower;
+	    for (uint i=0; i< len; i++) {
+	        //totalReceivedPower = usedPower(inComingConnections[user](i));
+	        //inComingConnections[user,i]
+	    }
+	    
+	    return points;
+	    
+	    
 	}
 
-	function receivedEndorsement( address _user ) public view { 
-		//usedPower(address from where _user has received + all addresses from where its received)
-		//loop until the length of array and sum all elements
-		//hasReceivedFrom 
-
-	}
-
-//	function ReceivedEDS ( address _user) public returns (uint _RE ) {
-		//for i in list  of endorsees of user, 
-		//get the used power of each of them and add all together.
 
 
-//	}
+
 	
 	//some helper functions for calculations
-
 	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;
@@ -162,14 +205,16 @@ contract Endorsement is EDSToken {
 	//supports decimal upto 9 place
 	//can convert to decimal by dividing all values with 1e9 and get the exact score on 
 	//client side
-	function computeTrust( address _user) public view returns (uint) { 
-		address user = _user;
-		require (nEG[user] >= 1 );
-		uint temp1 = (min(nEG[user], nER[user]));
-		uint temp2 = (max(nEG[user], nER[user]));
-		uint ratio = Division( temp1, temp2, 9 );
-
-		return ratio;
+//	function computeTrust( address _user) public view returns (uint) { 
+//		address user = _user;
+//		require (nEG[user] >= 1 );
+//		uint temp1 = (min(nEG[user], nER[user]));
+//		uint temp2 = (max(nEG[user], nER[user]));
+//		uint ratio = Division( temp1, temp2, 9 );
+//		
+//		uint edsImpact = ratio * usedPower( user ) *  RE(user)
+//
+//		return ratio;
 		//uint  
 		
 		//return usedPower;
@@ -178,7 +223,7 @@ contract Endorsement is EDSToken {
 		//receivedEDS = ReceivedEDS( _user );
 		//totalImpact = ratio  up  RE;  
 
-	}
+//	}
 
 }
 
