@@ -1,0 +1,210 @@
+pragma solidity ^0.4.18;
+
+contract Endorsement {
+	
+	address owner;
+    
+    struct Participant { 
+        address identifier;
+        string name;
+    }
+    
+    struct Endorser {
+        address sender;
+        uint nEG;
+        uint usedPower;
+        address[] givenTo;
+        mapping(address => bool) hasGivenTo;
+    }
+    
+    struct Endorsee { 
+        address receiver;
+        uint nER;
+        uint RE;
+        address[] receivedFrom;
+        mapping(address => bool) hasReceivedFrom;
+    }
+    
+    struct Profile { 
+        address identifier;
+        uint nEG;
+        uint nER;
+        address[] receivedFrom;
+        address[] givenTo;
+    }
+    
+    mapping (address => Profile) profiles;
+    address[] public profileAccts; 
+    
+    mapping(address => bool) joined;
+    
+    //State variables
+    mapping (address => uint) nEG;
+    mapping (address => uint) nER;
+    mapping (address => uint) usedPower;
+    mapping (address => uint) totalReceivedPoints;
+    
+    mapping(address => address[]) public outGoingConnections;
+    mapping(address => address[]) public inComingConnections;
+    
+    Participant [] public participants;
+    
+    //mapping(address => Endorser) endorsers;
+    
+    Endorser[] public endorsers;
+    
+    Endorsee [] public endorsees;
+    
+    
+    
+	// modifiers
+	modifier onlyOwner() { 
+		require(msg.sender == owner );
+		_;
+	}
+
+
+	//constructor
+	function Endorsement() public { 
+		//EDSToken( );
+		owner = msg.sender;
+	}
+
+	//deactivate the contract
+	function kill() public onlyOwner { 
+		selfdestruct(owner);
+	}
+	
+	function joinNetwork(string _userName) public{
+	    require(!joined[msg.sender]);
+	    joined[msg.sender] = true;
+	    Participant memory newParticipant = Participant({
+	        identifier: msg.sender,
+	        name: _userName
+	    });
+	    participants.push(newParticipant);
+	}
+	
+	function endorse(uint _index) public {
+	    address receiver = participants[_index].identifier;
+	    require(receiver != 0x0);
+	    require(receiver != msg.sender);
+	    nEG[msg.sender]++;
+	    nER[receiver]++;
+	    usedPower[msg.sender] = Division(1,nEG[msg.sender],9);
+	    Endorser memory newEndorser = Endorser({
+	        sender: msg.sender,
+	        nEG: nEG[msg.sender],
+	        usedPower: Division(1,nEG[msg.sender],9),
+	        givenTo: new address[](0)
+	        
+	    });
+	    endorsers.push(newEndorser);
+	    endorsers[endorsers.length-1].givenTo.push(receiver);
+	    endorsers[endorsers.length-1].hasGivenTo[receiver] = true;
+	    
+	    setProfile({_sender:msg.sender, _receiver:receiver});
+	    
+	   // Endorsee memory newEndorsee = Endorsee({
+	   //    receiver:
+	   //    nER: 
+	       
+	   // });
+	    
+	   }
+	   
+	   function setProfile(address _sender, address _receiver) public { 
+	       var profile = profiles[_sender];
+	       
+	       profile.identifier = _sender;
+	       profile.nEG = nEG[_sender];
+	       profile.nER = nER[_sender];
+	       profile.givenTo.push(_receiver);
+	       profile.receivedFrom.push(_sender);
+	       
+	       profileAccts.push(_sender) - 1;
+	   }
+	   
+	   function getProfiles() view public returns (address[]) { 
+	       return profileAccts;
+	   }
+	   
+	   function getReceivedFrom(address _user) public view returns (address[]) { 
+	       return(profiles[_user].receivedFrom);
+	   }
+	   
+	
+	//some helper functions for calculations
+	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
+		uint numerator = _numerator * 10 ** (_precision + 1);
+		uint quotient = ((numerator / _denominator) + 5  ) / 10;
+
+		return (quotient);		
+	}
+
+	function max (uint x, uint y ) internal pure returns (uint) {
+		if (x < y) {
+			return y;
+		} else  {  
+			return x;
+		}
+	}
+
+	function min (uint x, uint y ) internal pure returns (uint) { 
+		if (x < y) { 
+			return x;
+		} else {
+			return y;
+		}
+	}
+
+	//compute trust score
+	//supports decimal upto 9 place
+	//can convert to decimal by dividing all values with 1e9 and get the exact score on 
+	//client side
+//	function computeTrust( address _user) public view returns (uint) { 
+//		address user = _user;
+//		require (nEG[user] >= 1 );
+//		uint temp1 = (min(nEG[user], nER[user]));
+//		uint temp2 = (max(nEG[user], nER[user]));
+//		uint ratio = Division( temp1, temp2, 9 );
+//		
+//		uint edsImpact = ratio * usedPower( user ) *  RE(user)
+//
+//		return ratio;
+		//uint  
+		
+		//return usedPower;
+		//ratio = Division( ( nEG[  _user] ), ( nER[ _user ] ), 9 );
+		//usedPower = Division(1, (nEG[_user ]), 9 );
+		//receivedEDS = ReceivedEDS( _user );
+		//totalImpact = ratio  up  RE;  
+
+//	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
