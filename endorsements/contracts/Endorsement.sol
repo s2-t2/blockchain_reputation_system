@@ -10,6 +10,7 @@ contract Endorsement {
     }
     
     struct Endorser {
+		uint index;
         address sender;
         uint nEG;
         uint usedPower;
@@ -18,6 +19,7 @@ contract Endorsement {
     }
 
 	struct Endorsee { 
+		uint index;
 		address receiver;
 		uint nER;
 		//uint receivedPoints;
@@ -53,7 +55,7 @@ contract Endorsement {
 	function joinNetwork(string _userName) public{
 	    require(!joined[msg.sender]);
 	    joined[msg.sender] = true;
-	    
+
 	    Participant memory newParticipant = Participant({
 	        identifier: msg.sender,
 	        name: _userName
@@ -71,6 +73,7 @@ contract Endorsement {
 	    
 	    Endorser storage endorser = endorsers[msg.sender];
 	    
+		endorser.index++;
 	    endorser.sender = msg.sender;
 	    endorser.nEG++;
 	    endorser.usedPower =Division(1,endorser.nEG, 9);
@@ -86,11 +89,25 @@ contract Endorsement {
 	function updateEndorsee(address _receiver, address _sender) internal { 
 		Endorsee storage endorsee = endorsees[_receiver];
 		endorsee.receiver = _receiver;
+		endorsee.index++;
 		endorsee.nER++;
 		endorsee.receivedFrom.push(_sender);
 		endorsee.hasReceivedFrom[_sender] = true;
 
 		endorseeAccts.push(_receiver) - 1;
+	}
+
+	function removeEndorsement(address _endorsee) public returns(uint) { 
+		if (endorsers[msg.sender].hasGivenTo[_endorsee]) { 
+			//remove _endorsee from endorsers[msg.sender].givenTo
+			//and .hasGivenTo, change bool to false
+
+
+			//remove msg.sender key from endorsees[_receiver].receivedFrom
+			//and .hasReceivedFrom , change bool to false
+		}
+		return endorsers[msg.sender].index;
+		
 	}
 
 	function computeReceivedPoints(address _endorsee) public view returns(uint) { 
@@ -157,7 +174,6 @@ contract Endorsement {
 
 	
 	//some helper  functions for calculations
-
 	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;

@@ -1,0 +1,204 @@
+{
+  "type": "Component",
+  "scope": "Smart Contract",
+  "description": "The component diagram for the Endorsement System's smartcontract container .",
+  "size": "A5_Landscape",
+
+
+  "elements": [
+    {
+      "type": "Person",
+      "name": "Endorser",
+      "description": "An endorser of the system.",
+      "tags": "",
+      "position": "1040,10"
+    },
+    {
+      "type": "Person",
+      "name": "Endorsee",
+      "description": "An endorsee of the system.",
+      "tags": "",
+      "position": "1040,10"
+    },
+    {
+      "type": "Software System",
+      "name": "Endorsement System",
+      "description": "Allows endorsers to view their trust scores and send endorsement.",
+      "tags": "Internal",
+      "containers": [
+        {
+          "type": "Container",
+          "name": "Smart Contract",
+          "description": "Provides all of the Internet banking functionality to customers.",
+          "technology": "Solidity",
+          "tags": "",
+          "components": [
+            {
+              "type": "Component",
+              "name": "Smart Contract",
+              "description": "instantiates",
+              "technology": "Solidity",
+              "tags": "",
+              "position": "1015,501"
+            },
+            {
+              "type": "Component",
+              "name": "Endorsement Contract",
+              "description": "instantiates",
+              "technology": "Solidity",
+              "tags": "",
+              "position": "1015,501"
+            },
+            {
+              "type": "Component",
+              "name": "Computation",
+              "description": "compute and aggregate endorsement impact.",
+              "technology": "Solidity",
+              "tags": "",
+              "position": "173,501"
+            },
+            {
+              "type": "Component",
+              "name": "Users",
+              "description": "interact with the contract.",
+              "technology": "Solidity",
+              "tags": "",
+              "position": "1015,892"
+            },
+            {
+              "type": "Component",
+              "name": "Users database",
+              "description": "list of info for addresses and associated scores.",
+              "technology": "Solidity",
+              "tags": "",
+              "position": "1856,501"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Software System",
+      "name": "Blockchain",
+      "description": "Stores all of the core information about endorsers, accounts, transactions, etc.",
+      "tags": "Internal",
+      "position": "1015,1318",
+      "containers": []
+    }
+  ],
+
+
+  "relationships": [
+    {
+      "source": "Smart Contract",
+      "description": "instantiates",
+      "technology": "Solidity",
+      "destination": "Endorsement Contract",
+      "tags": ""
+    },
+    {
+      "source": "Endorsement Contract",
+      "description": "verifies transaction",
+      "technology": "client node",
+      "destination": "Computation",
+      "tags": ""
+    },
+    {
+      "source": "Users",
+      "description": "interacts",
+      "technology": "client node",
+      "destination": "Endorsement Contract",
+      "tags": ""
+    },
+    {
+      "source": "Computation",
+      "description": "update info",
+      "technology": "Solidity",
+      "destination": "Users database",
+      "tags": ""
+    },
+    {
+      "source": "Users database",
+      "description": "syncs state",
+      "technology": "ABI",
+      "destination": "Blockchain",
+      "tags": ""
+    }
+  ],
+
+
+  "styles": [
+    {
+      "type": "element",
+      "tag": "Component",
+      "width": "",
+      "height": "",
+      "background": "#85bbf0",
+      "color": "#000000",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": ""
+    },
+    {
+      "type": "element",
+      "tag": "Container",
+      "width": "",
+      "height": "",
+      "background": "#438dd5",
+      "color": "",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": ""
+    },
+    {
+      "type": "element",
+      "tag": "Database",
+      "width": "",
+      "height": "",
+      "background": "",
+      "color": "",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": "Cylinder"
+    },
+    {
+      "type": "element",
+      "tag": "Element",
+      "width": "",
+      "height": "",
+      "background": "",
+      "color": "#ffffff",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": ""
+    },
+    {
+      "type": "element",
+      "tag": "Person",
+      "width": "",
+      "height": "",
+      "background": "#08427b",
+      "color": "",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": "Person"
+    },
+    {
+      "type": "element",
+      "tag": "Software System",
+      "width": "",
+      "height": "",
+      "background": "#1168bd",
+      "color": "",
+      "fontSize": "",
+      "border": "",
+      "opacity": "",
+      "shape": ""
+    }
+  ]
+}
