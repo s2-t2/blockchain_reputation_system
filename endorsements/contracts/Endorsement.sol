@@ -28,6 +28,8 @@ contract Endorsement {
 	}
     
     Participant [] public participants;
+	
+	uint numberOfParticipants;
     
     mapping(address => bool) joined;
     
@@ -52,6 +54,10 @@ contract Endorsement {
 		owner = msg.sender;
 	}
 
+	event LogJoinNetwork(address _participant, string _name);  
+
+	event LogEndorse(address _endorser, address _endorsee);
+
 	function joinNetwork(string _userName) public{
 	    require(!joined[msg.sender]);
 	    joined[msg.sender] = true;
@@ -61,6 +67,10 @@ contract Endorsement {
 	        name: _userName
 	    });
 	    participants.push(newParticipant);
+
+		LogJoinNetwork(msg.sender, _userName);
+
+		numberOfParticipants++;
 	}
 	
 	function endorse(uint _index) public { 
@@ -69,7 +79,6 @@ contract Endorsement {
 	    require(receiver != 0x0);
 	    require(receiver != msg.sender);
 		require(joined[msg.sender]);
-	    
 	    
 	    Endorser storage endorser = endorsers[msg.sender];
 	    
@@ -83,6 +92,8 @@ contract Endorsement {
 	    endorserAccts.push(msg.sender) - 1;
 
 		updateEndorsee(receiver, msg.sender);
+
+		LogEndorse(msg.sender, receiver);
 	    
 	}
 
@@ -137,7 +148,14 @@ contract Endorsement {
 		uint impact = ratio * usedUpByParticipant * RE;
 
 		return impact;
+	}
 
+	function getProfile(address _participant) public view returns (uint) { 
+		//get profile for specific address
+		uint endorsementImpact = computeImpact(_participant);
+		uint totalImpact = endorsementImpact * endorsers[_participant].nEG;
+
+		return totalImpact;
 	}
 	
 	function getEndorsers() view public returns (address []) { 

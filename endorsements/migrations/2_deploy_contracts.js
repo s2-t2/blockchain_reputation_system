@@ -1,8 +1,9 @@
-var edstoken = artifacts.require("./EDSToken.sol" );
-var endorsement = artifacts.require("./Endorsement.sol" );
+var endorsement = artifacts.require("./Endorsement.sol");
+var MarketPlace = artifacts.require("./MarketPlace.sol");
 
 module.exports = function(deployer) {
 	deployer.deploy(endorsement);
+	deployer.deploy(MarketPlace);
 };
 
 
