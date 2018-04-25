@@ -65,21 +65,18 @@ user and discouraging dishonest behaviour.
 % robust environment using bitcoin and zcash that uses zero knowledge proof. 
 
 \section{Problems \& Limitations}
-The major problem with centralized system is their central point of authority. Therefore, 
-it is hard to always trust the ratings shown there. Since, a human is in control of 
-the database, they might change it to meet their need or an attacker can gain access 
-to it and manipulate the system to meet their need. Therefore, they cannot assure a 
-tamper resistant, always available and verifiable data with their architecture. 
-The problem with decentralized system is Sybil attack where a user creates multiple 
-pseudonymous identities to exploit the system and inflate his reputation. This is 
-usually difficult to detect and have been proven to be practically impossible to 
-prevent in a distributed computing environment (cite). Another issue is shilling attack 
-where a user intentionally provides dishonest feedback for a transaction. There is also 
-a possibility for multiple users to collude and manipulate the system to inflate the 
-group members reputation. 
-%There have been several researches done to resist these 
-% attack and are on going.
-%need to write more 
+Existing reputation models aggregate feedbacks and evaluate actions and
+interactions of users and store them in a centralized database. i.e., A trusted
+node has the access control and rights to publish information to the network
+which implies that it could tamper with the data at will. The traditional
+client-server architecture is also susceptible to DDOS attack as the target is
+known and holds a single point of failure. Another challenge that is not
+limited to the centralized system is Sybil attack. In any digital platform that
+doesn't require one to reveal personally identifiable information, creating
+multiple pseudonymous identities to exploit the system is usually cheaper with
+nothing to lose. Sybil attack is one of the most significant challenges in a
+distributed computing environment. It is usually challenging to detect and has
+been mathematically proven to be impossible to prevent in a distributed environment.
 
 \subsection{Sybil Attack}
 Sybil attack is a widely used attack model in the peer-to-peer 

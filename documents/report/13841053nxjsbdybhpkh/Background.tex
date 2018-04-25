@@ -9,7 +9,7 @@ graphically. A graph G is an ordered triple (V,E,$\varphi$$_{G}$) where V is a n
 of vertices v, E is a non empty set of edges e that connects two vertices and 
 $v \in V, e \in E$. $\varphi$$_{G}$ is an incidence function that assigns pair of vertices
 to each edge of the graph G. $\varphi$$_{G}$(e) = uv represents that e is an edge that 
-joins vertices u and v. Graph properties can be leveraged to represent an interaction 
+joins vertices u and v. Graph properties can be leveraged to serve as an interaction 
 graph of network for reputation system. Each node on the network, v can represent 
 individuals and the edges that connect the nodes can represent the relationships 
 between those nodes. The edge can have varying weights to represent the strength of 
@@ -88,36 +88,26 @@ detect anomaly.(example diagram)
 %cite: Decentralized Reputation system for transaction network. 
 %Net flow convergence is used by (cite) and seems useful in detecting sybil node. 
 
-\subsection{Binomial Random Walk}
+%\subsection{Binomial Random Walk}
 
 \section{Cryptography}
 \subsection{Basic Concepts}
-Cryptography offers algorithms to achieve confidentiality, integrity, authenticity 
-and non repudiation. Confidentiality and integrity ensures that the information 
-being communicated is not disclosed or has been modified to or by any unauthorized 
-parties. The data is hidden or encrypted such that only the authorized parties can 
-make sense out of it i.e. decrypt using the previously agreed upon key. 
-An illustration of 
-sending encrypted messages that can only be decrypted with the shared key is presented 
-% in figure ~\ref{fig:basic terminology}
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width = 1.0\textwidth]{symmetric-alice-bob.jpg}
-% \caption{Symmetric Key in use \cite{symmetrickey} }
-% \label{fig:basic terminology}
-% \end{figure}
-%cite : http://securitycerts.org/review/symmetric-key-in-use.htm
-Authenticity and non repudiation are another properties that makes sure that 
-the sender is who he claims to be and that the sender cannot deny having sent 
-the message. For these properties, symmetric key cryptography wouldn't be 
-enough. This is where Asymmetrical cryptography or public key cryptography comes 
-in which uses key pairs, private key known only to the owner and public key that 
-can be distributed publicly. Public key verifies the holder of the private key 
-and encryption of message. This encrypted message can only be decrypted by that 
-paired private key. One of the major application of public key cryptography is 
-Digital Signatures, described in more detail in section (Blockchain section ..) 
-which is useful in preserving the properties of authenticity and non 
-repudiation. 
+Cryptography offers algorithms to achieve confidentiality, integrity,
+authenticity, and non-repudiation. Confidentiality and integrity ensure that
+the information being communicated is not disclosed or has been modified to or
+by any unauthorized parties. The data is hidden or encrypted such that only the
+authorized parties can make sense out of it, i.e. decrypt using the previously
+agreed upon key. 
+
+Asymmetric key cryptography makes use of key pairs, private key, known only to
+the owner and public key, that can be publicly distributed. It ensures
+authenticity, a proof that sender is who he claims to be and non-repudiation,
+the sender cannot deny having sent the message. Public key verifies the holder
+of the private key and encryption of the message. That paired private key can
+only decrypt this encrypted message. One of the significant application of
+public key cryptography is Digital Signatures, described in more detail in
+section (Blockchain section ..) which is useful in preserving the properties of
+authenticity and non repudiation.
 
 A cryptosystem can be seen as a five tuple (P,C,K,E,D) that satisfies the following
 conditions: \\ 
@@ -141,25 +131,24 @@ $d_{k}(e_{k}(m))$ = m for every plaintext m $\in$ P. \\
 %encryption, decryption 
 
 \subsection{Hash functions}
-Cryptographic hash functions are one way function, also known as mathematical trap door function that transforms an input message into a fixed length binary output. It 
-is one way because although transforming a message input to a hash value or a message 
-digest can be done in constant time, reversing the operation is practically 
-impossible to achieve as its computationally inefficient. 
-Earlier hash functions include 
-MD5 which produces a 128 bit hash value but is vulnerable and can be cracked by brute 
-force attack. The predecessors hash functions are sha-256 preceeded by sha-1, sha-2
-and others. 
-Their applications include digital signature, message authentication both of 
-which are interesting for blockchain as will be discussed in section(name). The
-important characteristics of hash functions are their deterministic output, meaning
-given a fixed input, it will always generate the same output. It offers collision 
-resistant property i.e. it is 
-impossible or extremely rare to get the same hash value for two different messages. 
-If m1 and m2 are the message and h(m1) and h(m2) are hash functions applied to them 
-respectively, collision resistant ensures that h(m1) != h(m2). 
-Another important characteristic of hash function is that the hash value provides no 
-indication of the original information that was hashed thus making it efficient for 
-hiding information. 
+Cryptographic hash functions are a one-way function, also known as mathematical
+trapdoor function that transforms an input message into a fixed length binary
+output. It is one way because although converting a message input to a hash
+value or a message digest can be done in constant time, reversing the operation
+is practically impossible to achieve as its computationally inefficient.
+Earlier hash functions include MD5 which produces a 128-bit hash value but is
+vulnerable and can be cracked by brute force attack.  The predecessors hash
+functions are sha-256 preceeded by sha-1, sha-2 and others. Their applications
+include the digital signature, message authentication both of which are
+interesting for blockchain as will be discussed in section(name). The essential
+characteristics of hash functions are their deterministic output, meaning given
+a fixed input; it will always generate the same output. It offers collision
+resistant property, i.e. it is impossible or extremely rare to get the same
+hash value for two different messages.  If m1 and m2 are the message and h(m1)
+and h(m2) are hash functions applied to them respectively, collision resistant
+ensures that h(m1) != h(m2). Another important characteristic of a hash
+function is that the hash value does not indicate the original information that
+was hashed thus making it efficient for hiding information.
 
 %deterministic output 
 %computationally efficient
@@ -168,10 +157,14 @@ hiding information.
 %sha-1, sha-2, sha-256 
 
 \subsection{Digital Signature}
-%public key , private key, sign message, verify 
-Digital signatures 
-%RSA
-%Sign with private key, verify with public key
+A digital signature is a mathematical scheme to present authenticity of
+messages or digital documents. It acts as an intermediary to prove that an
+entity A, has the password without ever requiring A to reveal it. To create a
+digital signature, one would need to apply signing algorithm to the private key
+along with the message. Likewise, anyone can verify the generated signature by
+applying it to a verification algorithm along with the public key and the
+corresponding message.
+
 
 % \subsection{Proof-Of-Work}
 % solve a computationally expensive problem and show a proof before being able to do 
