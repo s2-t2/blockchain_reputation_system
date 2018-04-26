@@ -65,19 +65,18 @@ in the table(cite)
 		\hline
 		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
 		\hline
-		\multirow{2}{Endorser} & join network using  only public address& R1.1 \\\cline{2-3} 
+		\multirow{2}{Endorser} & join network using  only public address and a pseudonym& R \\\cline{2-3} 
 		& view/edit my profile information and access permission 
-		for other participants & R1.2 \\\cline{2-3}
+		for other participants & R \\\cline{2-3}
 		& send endorsement to known acquaintances that are registered 
-		on the network & R1.2 \\\cline{2-3}
-		& view trustscore of all the participants &  \\\cline{2-3}
-		& identify myself for any transactions  & R1.2 \\\cline{2-3}
-		& view trustscore for all the addresses stored in the network. & R1.2 \\\cline{2-3}
+		on the network & R \\\cline{2-3}
+		& view/compute trustscore of all the participants &  \\\cline{2-3}
+		& identify myself for any transactions  & R \\\cline{2-3}
 		& remove endorsement that i had previously sent if i dont trust them 
-		anymore & R1.3 \\\cline{2-3} 
+		anymore & R \\\cline{2-3} 
 		\hline
-		\multirow{2}{*}{Endorsee} & securely login to the network & R2.1 \\\cline{2-3}
-		& identify myself for any transactions using only the public address & 2 \\\cline{2-3}
+		\multirow{2}{*}{Endorsee} & join the network & R2.1 \\\cline{2-3}
+		& identify myself for any transactions allowed by the network using only the public address & 2 \\\cline{2-3}
 		& receive endorsement and have the total impact aggregated & 4 \\\cline{2-3}
 		& view trustscore of all participants in the network & 1 \\\cline{2-3}
 		& view/edit my profile information and access permission 
@@ -86,7 +85,6 @@ in the table(cite)
 		\hline
 	\end{tabular}
 \end{center}
-
 
 
 The non-functional requirements are associated with the architecture and are 
@@ -270,15 +268,31 @@ common free rider problem discussed earlier.
 %How is trust measured?
 %What is required for it to be a correct solution? 
 %objective way of accepting or rejecting the work
-\section{Token and Incentive}
-%value in the network
-%method to encourage good behaviour in the network
-%everyone wants to have higher trust value 
-%reward for validator nodes.
 
 \section{Design of PoC}
 %Architecture
 %various layers and their communication
+
+Any registered user can assume both the role of endorser and endorsee. An
+endorser, A must be able to join the network and start sending endorsement
+right away to existing participants in the network. The only requirement for an
+entity to send or receive endorsement is that they both must have joined the
+network before transacting.  The maximum limit is set to 300 for a participant
+to send or receive an endorsement. Based on the theory of Dunbar's number, it
+is the cognitive limit to the number of people one can maintain the social
+relationship with. There is nothing to stop a participant from creating
+multiple identities and endorsing itself but doing so would require twice the
+time which when spent on receiving or sending honest endorsement can be worth
+much more.  The initial points received keeps getting replenished until the
+number hits the maximum limit. The contract also allows for eliminating any
+endorsement previously assigned. Thus, even when a maximum limit is reached,
+users can still actively participate in the network.  Other additional
+requirement includes, A node cannot self-endorse or endorse any node more than
+once. 
+
+
+
+
 \section{Sequence Diagram}
 %optional: 
 \section{Smart contracts}

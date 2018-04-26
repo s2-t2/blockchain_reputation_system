@@ -157,53 +157,91 @@ was hashed thus making it efficient for hiding information.
 %sha-1, sha-2, sha-256 
 
 \subsection{Digital Signature}
-A digital signature is a mathematical scheme to present authenticity of
-messages or digital documents. It acts as an intermediary to prove that an
-entity A, has the password without ever requiring A to reveal it. To create a
-digital signature, one would need to apply signing algorithm to the private key
-along with the message. Likewise, anyone can verify the generated signature by
-applying it to a verification algorithm along with the public key and the
-corresponding message.
+A digital signature acts as an intermediary to prove that an entity A, has the
+password without ever requiring A to reveal it. To create a digital signature,
+one would need to apply signing algorithm to the private key along with the
+message. Likewise, anyone can verify the generated signature by applying it to
+a verification algorithm along with the public key and the message.  If a node
+A intends to send a transaction to B on a blockchain network, A needs to prove
+that he is the rightful owner of the public address from where the message
+originated.  This is done by creating a digital signature using A's private key
+from the transaction message. Once the transaction is broadcasted, any node in
+the network can verify that signature corresponds with A's public key. The
+signature is dependent on the message, and thus any attempt by a malicious node
+on the network to modify the message will refute the signature. 
 
+%figure showing basic process
 
 % \subsection{Proof-Of-Work}
 % solve a computationally expensive problem and show a proof before being able to do 
 % something on the network. 
 
 \section{Blockchain Technology}
-Simply put, blockchain is a mutual distributed digital ledger on a 
-decentralized infrastructure. A formal standard definition is under 
-development as ISO/TC 307
-\footnote{https://www.iso.org/committee/6266604/x/catalogue/p/0/u/1/w/0/d/0}. 
-Blockchain ensures elimination of double spend problem by making use of 
-public key cryptography where each agent has public-private key pair and 
-digital signature is created for each transaction message that gets 
-broadcasted to the network. 
-\cite{pilkington201611}
+Blockchain, as the name suggests is a chain of blocks, where each block had the
+consensus of all the nodes on the network before being unlocked. A block
+consists of a list of transactions that a miner accumulated at a particular
+point in time. Blockchain shows the ordering of transactions in the network.\\
+
+Block0 -> Block 1 -> Block 2 -> . . . \\
+----------------------Time-----------------> 
+
+
+%\cite{pilkington201611}
+
 %\subsection{Basic Concepts}
 %transaction, message, signature, broadcast, verify, network, miners, validate, write blocks 
 
-
 \subsection{Evolution \& Categories}
-\textbf{Bitcoin}
-Bitcoin 
+Bitcoin was the first application that made use of Blockchain technology which
+was a peer-to-peer electronic cash system. The major contribution of this
+project was distributed trust at scale without using a trusted intermediary.
+Along the dimension of validation and access control, blockchain can be
+categorized as public permissionless, public permissioned, private
+permissioned. 
 
+%figure
 
-\textbf{Ethereum}
-Ethereum is an open blockchain platform that lets anyone build and use 
-decentralized blockchain based application. 
-\cite{buterin2013ethereum} 
+While various use cases and diverse domains have shown an interest in the
+technology, it is crucial to make a distinction on when and for what purpose
+does it make more sense.
+%https://eprint.iacr.org/2017/375.pdf
 
+Hashgraph, which is a new project that claims to have solved the scalability issue of blockchain while maintaining security describes the different stages of evolution as:
+Leader Based System \\
+Proof-of-work blockchain \\
+Economy based systems \\
+Voting based systems \\
+Hashgraph with virtual voting \\
 
+% https://bitcoin.org/bitcoin.pdf
+% https://www.hederahashgraph.com/
 
-%Bitcoin,Ethereum, private permissioned
+%\textbf{Ethereum}
+%Ethereum is an open blockchain platform that lets anyone build and use 
+%decentralized blockchain based application. 
+%\cite{buterin2013ethereum} 
 
 \subsection{Consensus algorithms}
-proof of work, proof of stake, proof of validatioin, proof of authority, and others
+Consensus algorithm is the defining element in any blockchain network based on
+which all nodes agree about the transactions ordering and timestamps of all
+messages.  \\
+proof-of-work: This was the first consensus algorithm in use and
+has been proven to be robust regarding security. However, it comes with a trade
+offs such as scalability. \\
 
+proof-of-stake :  \\
+
+DAGs:  Byzantine Fault Tolerance \\ 
+
+
+% proof of work, proof of stake, proof of validatioin, proof of authority, and others
 
 \subsection{Smart contracts}
-define,explain
+Smart Contracts 
+
+
+
+
 \subsection{Applications}
 
 
