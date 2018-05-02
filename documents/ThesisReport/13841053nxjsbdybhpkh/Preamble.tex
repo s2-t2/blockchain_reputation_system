@@ -1,0 +1,170 @@
+\documentclass[listof=totoc, bibliography=totoc, listof=entryprefix, numbers=noendperiod]{scrreprt} 
+
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+
+%%% Language settings %%%
+\usepackage[english]{babel}
+%\addto\captionsUSenglish{%
+%  \renewcommand{\figurename}{Fig.}%
+%  \renewcommand{\tablename}{Tab.}%
+%}
+\renewcaptionname{english}{\contentsname}{Table of Contents}
+\renewcaptionname{english}{\bibname}{Literature}
+
+\BeforeStartingTOC[lof]{\def\autodot{:}}
+\BeforeStartingTOC[lot]{\def\autodot{:}}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\addtokomafont{disposition}{\rmfamily} %Headings in font with serifs (default: no serifs)
+\addtokomafont{descriptionlabel}{\rmfamily} %Description labels in serifs
+
+%%% Page settings %%%
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{240mm}
+\setlength{\footskip}{10mm}
+\setlength{\belowcaptionskip}{0pt}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[justification=raggedright, singlelinecheck=false]{caption}
+\usepackage{printlen}
+\usepackage{pdflscape}
+\usepackage{microtype}
+\usepackage{xhfill}
+\usepackage[colorinlistoftodos]{todonotes}\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+
+%%% Headers and footers %%%
+\usepackage{fancyhdr}
+\pagestyle{fancy} %own pagestyle
+\fancyhf{} %clear all headers and footers
+\fancyhead[L]{\slshape \nouppercase{\leftmark}} %header left
+\fancyhead[C]{} %centered header
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[R]{\slshape \thepage} %header right
+\renewcommand{\headrulewidth}{0.5pt} %headrule
+\fancyfoot[L]{\slshape \copyright\, Uppsala University} %footer left
+\fancyfoot[R]{\slshape Sujata Tamang} %footer right
+\renewcommand{\footrulewidth}{0.5pt} %footrule
+\fancypagestyle{plain}{}
+
+\usepackage{pdfpages}
+
+%%% Math, table and figure settings %%%
+\usepackage{mdwlist}
+\usepackage{mathtools}
+\usepackage{amsmath} %equations ragged right
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{lmodern}
+\usepackage{multirow}
+\usepackage{kpfonts}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{longtable}
+\usepackage{ltablex}
+\usepackage[babel]{csquotes}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{colortbl}	%to enable background color for table cells
+\usepackage{multicol}
+\usepackage{verbatim} %allows command: \comment{}
+
+
+\usepackage{ragged2e} % add more options for the formatting of tables
+\newcolumntype{Z}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{Q}{>{\centering\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{>{\small}m{#1}} %align rows in a tabularx table vertically
+\usepackage{multirow,booktabs}
+\usepackage{eurosym} % include € character
+\usepackage{siunitx} %packages that are needed for siunitx
+\usepackage{xfrac}
+\DeclareSIUnit{\EUR}{\text{\euro}}
+\DeclareSIUnit{\year}{y}
+\sisetup{per-mode=symbol} % print units as fractions
+%\sisetup{output-decimal-marker = {,}} % set decimal separator
+%\sisetup{range-phrase={\,und\,}} %set range word
+\sisetup{exponent-product = \cdot}
+%\sisetup{digitsep=period}
+\sisetup{range-phrase=--} %instead of "to" for ranges
+
+\usepackage{cancel}
+\usepackage{helvet}
+\usepackage{mathpazo}
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{textcomp}
+
+%% include MATLAB code %%%
+\usepackage[numbered]{matlab-prettifier} % include code nicely
+\usepackage{etoolbox} % http://ctan.org/pkg/etoolbox
+\makeatletter
+\patchcmd{\lst@GLI@}% <command>
+  {\def\lst@firstline{#1\relax}}% <search>
+  {\def\lst@firstline{#1\relax}\def\lst@firstnumber{#1\relax}}% <replace>
+  {\typeout{listings firstnumber=firstline}}% <success>
+  {\typeout{listings firstnumber not set}}% <failure>
+\makeatother
+
+%%% List of acronyms %%%
+\usepackage[printonlyused]{acronym}
+
+% No single lines at the beginning of paragraphs
+\clubpenalty=10000
+% No single lines at the end of paragraphs
+\widowpenalty= 10000 
+\displaywidowpenalty = 10000 
+
+%%% Define university colors %%%
+\definecolor{unired}{RGB}{153, 0, 0} % main color red for UU
+\definecolor{unigray1}{RGB}{130, 130, 130} %dark gray
+\definecolor{unigray2}{RGB}{190, 190, 190} %middle gray
+\definecolor{unigray3}{RGB}{230, 230, 230} %light gray
+\usepackage{enumitem} % change bullet points
+\setitemize{label={\color{unired}\raisebox{.075ex}{\scalebox{1}{$\bullet$}}}} % small circles in uni color scheme
+
+
+%%% Bibliography settings %%%
+\usepackage[backend=bibtex, style=ieee, date=long, urldate=long, dateabbrev=false, doi=false, isbn=false, maxcitenames=2, mincitenames=1, maxbibnames=99, url=false, hyperref]{biblatex} % define citation style
+\usepackage{url}
+\renewcommand*{\bibfont}{\raggedright} % format reference entries ragged right
+\setlength{\bibitemsep}{0.5\baselineskip}
+\addbibresource{library.bib} % include bib-file
+\urlstyle{same}
+%\DeclareFieldFormat{url}{\url{#1}\addcomma}
+%\DeclareFieldFormat{urldate}{\bibstring{urlseen}\space#1}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\DefineBibliographyStrings{english}{urlseen = {accessed}} % Format date online sources
+
+%\DeclareFieldFormat[article]{volume}{\bibstring{volume}\addnbspace #1} % Adds volume and number for articles from journals
+%\DeclareFieldFormat[article]{number}{\bibstring{number}\addnbspace #1}
+
+\DeclareFieldFormat[online]{title}{{'#1'}} %Title of online sources in "..."
+
+\DeclareLabeldate{\field{date}\field{eventdate} \field{origdate}\literal{nodate}} % add n.d. for references without a date
+
+\DefineBibliographyStrings{english}{%
+  sequens = {},
+  sequentes = {},
+}
+
+\usepackage[pdftex,
+			colorlinks=true,
+            bookmarks=true,
+            pdfstartview=FitV,
+            linkcolor=black,
+            citecolor=black,
+            urlcolor=black,
+            plainpages=false,
+            pdfpagelabels,
+            breaklinks=true]{hyperref}
+           
+\usepackage{cleveref}

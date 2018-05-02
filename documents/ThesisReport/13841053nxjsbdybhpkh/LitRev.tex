@@ -1,0 +1,104 @@
+%%% 2LiteratureReview/ %%%
+\chapter{Literature Review} \label{ch:litrev}
+\section{Existing Reputation Systems}
+
+
+
+%\subsection{Centralized}
+%%probably can move this to motivation section rather than here. 
+%Currently, most of the reputation models deal with users feedback after they 
+%have completed a transaction in their online platform of choice. Popular auction 
+%site, ebay(footnote) is widely believed to be the biggest and best known for its
+%reputation model. It uses a transaction based system where users are able to leave
+%feedback about the interaction they had and can leave ratings as 0(neutral),
+%1(positive) or -1(negative). These values are aggregated to compute a net score of
+%users trustworthiness.
+%Similarly, Q\&A websites such as Quora(footnote), Stackexchange(footnote) have their own 
+%proprietary reputation model to calculate the users standings in their network. 
+%Almost all the methods used are explained in web of trust(cite paper) where 
+%badges, karma, activity level of users are brought into play. The common issue 
+%with all of them are that they are centralized system with central point of
+%authority and thus lacks transparency in correctness of information displayed.
+%i.e. It is hard to tell if the information displayed about a users standing is 
+%really the aggregated total of received feedback from honest users or there 
+%were human intervention in the process. As it is a centralized system, it is 
+%certainly possible for the admin/mod to change the rating for their 
+%favored user. Other possibilities include an attacker getting access to the 
+%system and changing the values to match their need. 
+%
+%%Since,    Also, the central point of 
+%%authority implies a single point of failure making them more prone to attacks. 
+%
+%
+%\subsection{Decentralized}
+%There have also been various studies and implementations for decentralized systems 
+%such as BitTorrent, gnutella network to employ an efficient reputation system. 
+%Tribler(cite) uses blockchain based solution to keep track of users activity in the 
+%network. Similarly, Beaver(cite) is a decentralized anonymous marketplace where 
+%reputation scores and trust values are inferred from the participating users feedback 
+%but they are left completely anonymous. TrustDavis(cite) presents a solution for 
+%non exploitable online reputation system by defining important characteristics of 
+%honest and malicious participants and incentivizing accurate ratings provided by the 
+%user and discouraging dishonest behaviour.  
+%\section{Existing reputation systems} \label{sec:sectionlabel}
+% \subsection{Centralized}
+% %ebay, yelp, feedback system
+% Most of the online systems today deploy feedback system where all registered users 
+% can rate or give feedback after they have made a transaction. Depending on the 
+% amount of stars and positive comment, one might be assumed to be trustworthy to 
+% start a transaction with. While these regular methods do provide assurance at a 
+% certain level, they are simply not enough. First, they are based on centralized trust
+% model of PKI which relies on certificate authority(cite).  
+% %wot - remove untrustworthy middle man , blockchain - remove untrustwothy first person 
+% % most popular reputation system in a centralized system is eBay,  
+
+% \subsection{Decentralized}
+% %P2P filesystem, Bittorrent, tribler, others
+% EigenTrust (cite) is a reputation management algorithm for P2P system that is based on the 
+% notion of transitive trust. i.e. If a peer \textit{i} trusts peer \textit{j} then \textit{i} 
+% trusts all other peers trusted by \textit{j}. This method lets node generate a local trust 
+% value for all the nodes it has interacted with and provides a unique global trust value for 
+% the node in the network. It aims to reduce number of inauthentic files upload from untrusted 
+% peers. Similarly, TrustDavis(cite) presents important distinction between honest and 
+% malicious nodes behaviour in the network based on which a reputation model is proposed. 
+% It makes use of max-flow network to calculate the maximum value that can flow between 
+% two participating nodes. Another contribution of trustdavis is it puts insurer in the 
+% middle that can vaguely be seen as escrow but have different foundation.
+% Beaver, Decentralized Anonymous marketplace for doing transactions in a anonymous and 
+% robust environment using bitcoin and zcash that uses zero knowledge proof. 
+
+\section{Problems \& Limitations}
+Existing reputation models aggregate feedbacks and evaluate actions and
+interactions of users and store them in a centralized database. i.e., A trusted
+node has the access control and rights to publish information to the network
+which implies that it could tamper with the data at will. The traditional
+client-server architecture is also susceptible to DDOS attack as the target is
+known and holds a single point of failure. Another challenge that is not
+limited to the centralized system is Sybil attack. In any digital platform that
+doesn't require one to reveal personally identifiable information, creating
+multiple pseudonymous identities to exploit the system is usually cheaper with
+nothing to lose. Sybil attack is one of the most significant challenges in a
+distributed computing environment. It is usually challenging to detect and has
+been mathematically proven to be impossible to prevent in a distributed environment.
+
+\subsection{Sybil Attack}
+Sybil attack is a widely used attack model in the peer-to-peer 
+reputation system. Peers in the network create multiple 
+pseudonymous identities with a purpose of inflating their 
+reputation or damaging some other peers reputation. If a peer gets
+a bad reputation in the system for its activity or other reputation
+models defined parameters, then usually it is both cheaper and  
+faster to create a new identity and start afresh then to try and 
+recuperate the damaged reputation. As the network makes it so easy
+to create identities with nothing at stake, participants opt for it 
+and exploit this feature to perform Sybil attack. 
+%%gather data on attacks on current system.
+% %possibilities of sybil attacks and mitigations assumed
+% \subsection{Shilling Attack}
+% %provides dishonest feedback
+% %challenges and detection mechanism
+% \subsection{Others}
+% %other attacks/limitations of existing reputation models
+% TASK: Literature Review covers a comprehensive presentation of the relevant scientific papers.\\
+
+% Description of the state of the art regarding the problem/issue via scientific articles, reports, relevant publications, other data sources. Relevant literature is reviewed and forms the background to the study

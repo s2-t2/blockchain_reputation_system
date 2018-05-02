@@ -1,0 +1,320 @@
+%%% Ch.3: Methodology %%%
+\chapter{Methodology and Implementation} \label{ch:method}
+The problem of measuring the trustworthiness of communicating entities is an
+essential aspect of any online system where they interact with each other for
+any purpose, be it shopping, content delivery or file sharing. This chapter
+follows on a discussion of a proposed endorsement network where physically or
+digitally acquainted entities can endorse each other or their presented
+information. The model will address several concerns such as the roles and
+requirements of participants as endorser and endorsee, why a participant would
+play by the rule and what is to stop them from not doing so, threat models,
+etc. With a system of smart contracts, PoC design will confer interaction
+between entities, aggregation of information and assignment of scores for final
+computation. The storage of data both on and off-chain will be discussed.  
+
+\section{Problem Statement}
+To be able to rely on the trustworthiness of an entity as presented by any
+online systems, the underlying reputation system needs to be robust and as
+transparent as possible. The assurance that available information has not been
+tampered with and correctness of claimed identity should be provided to sustain
+minimal risk of fraud. The immutable, trustless, decentralized and distributed
+attribute of blockchain protocol is a recommended solution on a public
+permissionless network.
+
+\section{ User stories \& Requirements}
+Anyone can join the network and become a participant in the endorsement system.
+The two notable roles of a user are endorser and endorsee. An endorser can
+initiate the transaction by sending an endorsement to the participant they
+trust which is accepted by the endorsee.  The same user can assume both
+positions as long as a set of predefined requirements are met.  \\ 
+
+The system requirements can be listed in points as : \\
+\begin{enumerate}
+	\item Allow anyone to join the network and become a member of endorsement
+		system. Once registered, there must be a way for users to add profile
+		information and view/edit them. 
+	\item Any registered user must be allowed to send an endorsement which
+		should be immediately transferred to the specified receiver's address.
+		The endorser must securely sign this transaction in a way that
+		identifies them such that any other participants in the network can
+		verify it.
+	\item All the successfully recorded endorsements should have immutable
+		traceability so that anyone can go back and verify the chain of
+		ownership and order in a time when it took place. Each endorsement must
+		have a mapping from endorser to endorsee to trace list of endorser for
+		a given endorsee and vice-versa.
+	\item Allow the elimination/update of the relevant state variable if an
+		endorser decides to take back the endorsement given in the past. This
+		change should be evident on the network.  
+	\item It must be possible for anyone within or outside the endorsement
+		network to compute the total endorsement impact of any members.
+	\item The public key hashes of network participants must be linked to their
+		respective final score(total endorsement impact). This score must be
+		publicly visible to anyone while preserving the anonymity. i.e., no
+		personally identifiable information is shared publicly.
+	\item Any form of an attempt to change the successfully recorded ledger
+		should be evident on the network. 
+\end{enumerate}
+
+The functional requirement for each user types specifically are presented 
+in the table(cite)
+\begin{center}
+	\begin{tabular} {| l | p{9cm} | l |}
+		\hline
+		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
+		\hline
+		\multirow{2}{*}{Endorser} &  send an endorsement to anyone I wish to as
+		long as they are registered on the network so that it contributes to
+		the positive impact on the system.& R2
+		\\\cline{2-3} 
+		& remove previously assigned endorsement so that my trust towards my
+		endorsees can be reflected in real time.  & R4 \\\cline{2-3}
+		& view a list of endorsees so that i can see to whom i have sent
+		endorsements.& R2 \& R4 \\\cline{2-3}
+		& view or edit my personal information so that i can keep it up to
+		date& R1 \\\cline{2-3}
+		\hline
+		\multirow{2}{*}{Endorsee} & view a list of endorsers so that I can see
+		from whom I have received endorsements.& R2.1 \\\cline{2-3}
+		& identify me in a cryptographically secure manner so that anyone can
+		verify my claim of a score on the network before the transaction. & R3 
+		\\\cline{2-3}
+		& view or edit my profile information so that i can keep it up to date.
+		& R1 \\\cline{2-3}
+		\hline
+		\multirow{2}{*}{anyone} & compute the total endorsement
+		impact(i.e., final computed score) of any registered participants on
+		the network so that I can make an informed decision about the future
+		transaction.  & R5 \\\cline{2-3}
+		& join the network so that I can start sending/receiving endorsements.
+		& R1 \\\cline{2-3}
+		\hline
+	\end{tabular}
+\end{center}
+
+The non-functional requirements are associated with the architecture and are 
+of interest to the network participants: \\
+\begin{itemize}
+\item Security: 
+\item Reliability:
+\end{itemize}
+
+\section{Component Diagram}
+
+
+
+\section{The Model - Endorsement Network}
+The initial assumption is that all nodes are honest, thereby all nodes that join 
+the network are given an initial endorsement power of 1. The value is 1 to avoid 
+misuse of high values later on in the game by a single node to just inflate their 
+impact. This value keeps getting diluted with each interaction of given  
+endorsement. This process will be further clarified later with an example.
+
+Terminologies that will be used for this network are briefly described below : \\
+\textit{nEG}: The number of connection to whom a peer has given endorsement.
+
+\textit{nER}: The number of connection from whom a peer has received endorsement. 
+
+
+\textit{Initial Endorsement Power (iep)}: This is the initial endorsement power 
+granted by the network for being a participating node in the network. 
+it{Endorsement power (ep):} Endorsement power is measured by how much points 
+has been given by the endorser which can be determined by the number of 
+connections. If a peer \textit{i} uses his \textit{iep} to give to \textit{n} 
+number of peers, then the $ep_i$ is 1/n. For instance, if A endorses 
+20 acquaintances, then $ep_a$ will be 1/20, if A endorses 50 
+acquaintances, $ep_a$ will be 1/50 and so on. 
+
+\textit{Endorsement impact (ei)}: Endorsement impact is not only associated with 
+how much endorsement an entity has given but also with how much it has received. 
+The ratio of endorsement given (EG) and of endorsement received (ER) has to be 
+taken into account to create a balance in the network for each nodes. Assume the 
+EG:ER is x and y respectively, let total value of received endorsement be RE , 
+the ei can be calculated as \\
+\begin{equation}
+	ei = \frac{min(x,y)}{max(x,y)} * ep * RE 
+\end{equation}
+This is to ensure that EG and ER and not too far off from each other. \\ 
+
+Received endorsement, RE is the total sum of all the endorsement received.
+If a peer receives endorsement from \textit{n} peers, then the RE is given by: 
+
+\begin{equation}
+	RE = \sum_{i=0}^{n}ep_{i}
+\end{equation}
+%Ignore if the  received endorsement fron one connection is  1. 
+%RE should be less  than the no. of connection from whom eds is received
+
+\textit{Total endorsement impact(tei)}: The total endorsement impact determines the 
+impact a node has on the network. To get a value for this, we would simply have to 
+multiply the \textit{ei} with the number of connections to which they have given
+endorsement. Assuming a peer \textit{i} has given endorsement to \textit{n} 
+peers in the network, then the \textit{tei} would be: 
+\begin{equation}
+	tei = ei * n 
+\end{equation}
+
+It shows how much impact they have made on the network. This value corresponds to 
+the trust score and higher the score, higher is the trustworthiness of an entity.
+
+% With this model, there are three cases that can be expected. \\
+% Case1 : EG > ER \\
+ 
+ 
+ 
+ 
+% Case2 : ER > EG \\
+ 
+ 
+ 
+ 
+ 
+ 
+% Case3 : EG $\simeq$ ER \\
+
+
+
+
+% The idea is not to exclude malicious behavior in the network, rather include them 
+% but give them no value. The endorsement power diminishes every time an entity 
+% gives it to someone so the right thing to do for any entity would be to use 
+% them wisely. 
+% It can be analogous to a gameplay where a player is not restricted to 
+% drink a life potion when his lifebar is full but he will waste it if he does with 
+% no impact and when the time comes to use it, there won't be any more potion left. 
+
+% Endorsement given (EG) \\
+% Endorsement received (ER) \\
+
+% x = 1/EG * ER \\
+% y = G:R = no. of people to whom endorsement given : no. of people from whom ends. received \\
+
+% ep = x * y \\ 
+
+% tep = ep * (no. of connection to whom eds given) \\
+% drinking potion when you have full life 
+% 
+
+
+%consensus algorithm - 
+%what stops someone from making 250 nodes and just endorsing 
+%themself.  - net flow rate convergence ,
+% would detect this. as we can all 250 nodes are created just to endorse this one 
+% node, and so those nodes value would soon converge to zero. 
+
+
+
+
+ 
+%  tep determines the total impact of the node in the network, and can refer to the 
+%  trustworthiness of the node in network. 
+%  Cases : 
+%  Case1 : EG > ER \\
+%  Case2 : ER > EG \\
+%  Case3 : EG ~ ER \\
+ 
+%  The assumption is that all nodes start honest so everyone starts with 1 as iep. 
+%  the ep keeps diluting as they start transfering more and more endorsements out. 
+%   The goal is for the ratio to be almost close to each other such that it maintains a 
+%  sort of balance. 
+%  It makes no sense to give too much to a node or too less to a node so sybil attack 
+%  is almost useless as creating multiple accounts just to endorse someone wont give too 
+%  much value. One needs to give/send eds and build trust over time in the network. 
+ 
+%  Problem: What happens if someone plays well in the network for a long time and in 
+%  the end decides to betray the whole network. (spy)
+
+% The goal is : once a dishonest node is detected by reputation algorithm in a 
+% transaction network, all their endorsement given or received is automatically removed 
+% from the network so that will change the values in the dishonest node and other nodes 
+% that were connected to it in the past. 
+
+% Question: Modeling this dynamic network and how long it would take or how efficient is it 
+% to compute these values within blockchain network? 
+% If it makes sense to do the computation in blockchain or off-chain. 
+% Only store trust value in the bc network and do other computation elsewhere? 
+
+% net flow rate convergence can also be used to determine anomaly in the network. 
+
+% incentivize honest behaviour.
+
+
+%Model as interaction graph
+%quantify endorsement as reputation score and translate to trust value
+%mention reputation algorithm as necessary to be used on the n/w. 
+
+
+
+\section{Honest vs. Malicious Nodes}
+In endorsement network, honest nodes are assumed to endorse only the
+nodes on whom they have full confidence that they will perform the
+fair/legitimate action on the system. In other words, they are ready
+to take the risk if the identities they trusted performs malicious
+activity. It takes time to build a reputation and gain enough trust value
+and therefore giving it all up by endorsing malicious node would not
+be a rational decision. Another assumption is that an honest node will
+have a negligibly low difference between nEG and nER. On the other hand,
+a malicious node will have imbalanced ration between nEG and nER. Using
+the ratio of nEG and nER as one of the metrics may also alleviate the
+common free rider problem discussed earlier.
+
+%free rider problem is solved. as given and received balance
+%colluding to inflate or damage
+% is unanimous with the network and has 
+% maximum trust score 
+%profile types: progressive, consistent, fluctuating
+%Definition and characteristic
+%discourage malicious behaviour and encourage honest behaviour
+\section{Trust Metrics}
+%central nodes, 
+%How is trust measured?
+%What is required for it to be a correct solution? 
+%objective way of accepting or rejecting the work
+Every node keeps track of its neighbouring node and whenever an intera
+
+
+
+
+
+
+\section{Design of PoC}
+%Architecture
+%various layers and their communication
+
+Any registered user can assume both the role of endorser and endorsee. An
+endorser, A must be able to join the network and start sending endorsement
+right away to existing participants in the network. The only requirement for an
+entity to send or receive endorsement is that they both must have joined the
+network before transacting.  The maximum limit is set to 300 for a participant
+to send or receive an endorsement. Based on the definition of Dunbar's number, it
+is the cognitive limit to the number of people one can maintain the social
+relationship with. There is nothing to stop a participant from creating
+multiple identities and endorsing itself but doing so would require twice the
+time which when spent on receiving or sending honest endorsement can be worth
+much more.  The initial points received keeps getting replenished until the
+number hits the maximum limit. The contract also allows for eliminating any
+endorsement previously assigned. Thus, even when a maximum limit is reached,
+users can still actively participate in the network.  Other additional
+requirement includes, A node cannot self-endorse or endorse any node more than
+once. 
+
+
+\section{Sequence Diagram}
+%optional: 
+
+
+
+\section{Smart contracts}
+%logic, functionalities, transactions, messages, 
+The Endorsement contract handles the logic for sending and receiving endorsemets.  
+
+
+\section{Experimental Setup} \label{sec:sectionlabel}
+%Test Network describe, no. of nodes, level of difficulty etc.
+
+
+\section{second section}
+% It may include: Description of the methodological, theoretical, conceptual or empirical framework; design of the
+% experiment; relevant steps of reasoning; data description and sources.
+
+% Describe the approach and method(s) used to address the scientific problem. Also reflect on the particular choice of method and justify it.
