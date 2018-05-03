@@ -21,9 +21,9 @@
       "containers": [
         {
           "type": "Container",
-          "name": "Blockchain",
+          "name": "Ethereum Network",
           "description": "synced stated",
-          "technology": "Blockchain",
+          "technology": "Ethereum Network",
           "tags": "",
           "position": "1445,1870",
           "components": []
@@ -116,21 +116,21 @@
       "source": "Ethereum Nodes",
       "description": "broadcast transaction",
       "technology": "",
-      "destination": "Blockchain",
+      "destination": "Ethereum Network",
       "tags": ""
     },
     {
       "source": "File Storage",
       "description": "store hash of file",
       "technology": "",
-      "destination": "Blockchain",
+      "destination": "Ethereum Network",
       "tags": ""
     },
     {
       "source": "SmartContracts",
       "description": "sync state",
       "technology": "",
-      "destination": "Blockchain",
+      "destination": "Ethereum Network",
       "tags": ""
     }
   ],

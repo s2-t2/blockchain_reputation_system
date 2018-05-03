@@ -103,7 +103,15 @@ in the table(cite)
 The non-functional system requirements are : \\ 
 \begin{itemize}
 \item Security: 
-\item Reliability:
+\item Reliability: 
+	\item It must be possible for anyone within or outside the endorsement
+		network to compute the total endorsement impact of any members.
+	\item The public key hashes of network participants must be linked to their
+		respective final score(total endorsement impact). This score must be
+		publicly visible to anyone while preserving the anonymity. i.e., no
+		personally identifiable information is shared publicly.
+	\item Any form of an attempt to change the successfully recorded ledger
+		should be evident on the network. 
 \item Performance: 
 \end{itemize}
 
@@ -114,12 +122,22 @@ d
 \end{figure}
 
 
-
 \section{The Model - Endorsement Network}
 The initial assumption is that all nodes are honest and as such receive equal
-points that they can spend at will once registered on the network. The initial
-point is one that keeps depleting with every endorsement interaction. In other
-words, sending an endorsement is using up the points one owns. 
+points that they can spend at will once registered on the network. The received
+points are the consumable power that keeps depleting with every endorsement
+connection made along the way. As depicted in figure ~\ref{consumablePoint} ,
+these points follow a convergent sequence that converges to the limit 0 as the
+number of connection `n' increases. As such, increasing the number of
+connection alone will not be enough to achieve a higher impact on the network.
+\\
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{Images/ConsumablePoints.eps}
+	\caption{Convergent behaviour of consumable points as 'n' increases}
+	\label{consumablePoint}
+\end{figure}
+
 
 Terminologies that will be used for this network are briefly described below : \\
 \textit{nEG}: The number of connection to whom a peer has given endorsement.

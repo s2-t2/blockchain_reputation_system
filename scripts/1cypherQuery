@@ -1,0 +1,20 @@
+//Create nodes Alice, Bob, Charlie
+
+CREATE(n:Participants {name:"Alice"})
+CREATE(n:Participants {name:"Bob"})
+CREATE(n:Participants {name:"Charlie"})
+
+
+//Create relationships between all nodes
+MATCH(a:Participants), (b:Participants) WHERE a.name="Alice" AND b.name = "Bob" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
+MATCH(a:Participants), (b:Participants) WHERE a.name="Alice" AND b.name = "Charlie" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
+MATCH(a:Participants), (b:Participants) WHERE a.name="Bob" AND b.name = "Alice" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
+MATCH(a:Participants), (b:Participants) WHERE a.name="Bob" AND b.name = "Charlie" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
+MATCH(a:Participants), (b:Participants) WHERE a.name="Charlie" AND b.name = "Alice" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
+MATCH(a:Participants), (b:Participants) WHERE a.name="Charlie" AND b.name = "Bob" CREATE (a) -[r:endorses]->(b) RETURN type(r)
+
