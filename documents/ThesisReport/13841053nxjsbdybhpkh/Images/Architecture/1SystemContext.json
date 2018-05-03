@@ -2,7 +2,7 @@
   "type": "System Context",
   "scope": "Endorsement System",
   "description": "The system context diagram for the Endorsement System.",
-  "size": "A5_Landscape",
+  "size": "A4_Landscape",
 
 
   "elements": [
@@ -16,7 +16,7 @@
     {
       "type": "Software System",
       "name": "Endorsement System",
-      "description": "Allows endorsers to view information about their endorsements and trust scores",
+      "description": "records endorsements and allow anyone to view info/trustscores for a specified user.",
       "tags": "Internal",
       "position": "995,875",
       "containers": []
@@ -33,15 +33,15 @@
 
   "relationships": [
     {
-      "source": "Endorsee",
-      "description": "Uses",
+      "source": "Endorsement System",
+      "description": "receives endorsement",
       "technology": "",
-      "destination": "Endorsement System",
+      "destination": "Endorsee",
       "tags": ""
     },
     {
       "source": "Endorser",
-      "description": "Uses",
+      "description": "sends endorsement",
       "technology": "",
       "destination": "Endorsement System",
       "tags": ""

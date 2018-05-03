@@ -2,23 +2,16 @@
   "type": "Container",
   "scope": "Endorsement System",
   "description": "The container diagram for the Endorsement System.",
-  "size": "A5_Landscape",
+  "size": "A4_Landscape",
 
 
   "elements": [
     {
       "type": "Person",
-      "name": "Endorser",
-      "description": "An endorser of the system",
-      "tags": "",
-      "position": "450,92"
-    },
-    {
-      "type": "Person",
       "name": "Endorsee",
       "description": "An endorsee of the system",
       "tags": "",
-      "position": "450,92"
+      "position": "2060,25"
     },
     {
       "type": "Software System",
@@ -28,11 +21,20 @@
       "containers": [
         {
           "type": "Container",
+          "name": "Blockchain",
+          "description": "synced stated",
+          "technology": "Blockchain",
+          "tags": "",
+          "position": "1445,1870",
+          "components": []
+        },
+        {
+          "type": "Container",
           "name": "client application",
           "description": "Submits transaction.",
           "technology": "web3",
           "tags": "web3, client",
-          "position": "425,1236",
+          "position": "1400,630",
           "components": []
         },
         {
@@ -41,17 +43,7 @@
           "description": "sign transaction",
           "technology": "geth,parity",
           "tags": "geth, parity, nodes",
-          "position": "425,1236",
-          "components": []
-        },
-        
-        {
-          "type": "Container",
-          "name": "SmartContracts",
-          "description": "communicates via ABI to contract .",
-          "technology": "ABI",
-          "tags": "",
-          "position": "425,714",
+          "position": "1425,1160",
           "components": []
         },
         {
@@ -60,37 +52,31 @@
           "description": "store/write client side assets/files.",
           "technology": "IPFS",
           "tags": "",
-          "position": "425,714",
+          "position": "2075,1160",
           "components": []
         },
         {
           "type": "Container",
-          "name": "Blockchain",
-          "description": "synced stated",
-          "technology": "Blockchain",
+          "name": "SmartContracts",
+          "description": "communicates via ABI to contract .",
+          "technology": "ABI",
           "tags": "",
-          "position": "425,714",
+          "position": "760,1125",
           "components": []
         }
-	  ]
-	}
+      ]
+    },
+    {
+      "type": "Person",
+      "name": "Endorser",
+      "description": "An endorser of the system",
+      "tags": "",
+      "position": "800,20"
+    }
   ],
 
+
   "relationships": [
-    {
-      "source": "Endorser",
-      "description": "Uses",
-      "technology": "web3",
-      "destination": "client application",
-      "tags": ""
-    },
-    {
-      "source": "Endorsee",
-      "description": "Uses",
-      "technology": "web3",
-      "destination": "client application",
-      "tags": ""
-    },
     {
       "source": "client application",
       "description": "Uses",
@@ -100,7 +86,7 @@
     },
     {
       "source": "client application",
-      "description": "communicates with ",
+      "description": "communicates with",
       "technology": "ABI",
       "destination": "SmartContracts",
       "tags": ""
@@ -113,23 +99,37 @@
       "tags": ""
     },
     {
-      "source": "Ethereum Nodes",
-      "description": "broadcast transaction",
-      "technology": "Blockchain",
-      "destination": "Blockchain",
+      "source": "Endorsee",
+      "description": "Uses",
+      "technology": "web3",
+      "destination": "client application",
       "tags": ""
     },
     {
-      "source": "SmartContracts",
-      "description": "sync state",
-      "technology": "Blockchain",
+      "source": "Endorser",
+      "description": "Uses",
+      "technology": "web3",
+      "destination": "client application",
+      "tags": ""
+    },
+    {
+      "source": "Ethereum Nodes",
+      "description": "broadcast transaction",
+      "technology": "",
       "destination": "Blockchain",
       "tags": ""
     },
     {
       "source": "File Storage",
       "description": "store hash of file",
-      "technology": "Blockchain",
+      "technology": "",
+      "destination": "Blockchain",
+      "tags": ""
+    },
+    {
+      "source": "SmartContracts",
+      "description": "sync state",
+      "technology": "",
       "destination": "Blockchain",
       "tags": ""
     }

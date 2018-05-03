@@ -28,6 +28,14 @@ initiate the transaction by sending an endorsement to the participant they
 trust which is accepted by the endorsee.  The same user can assume both
 positions as long as a set of predefined requirements are met.  \\ 
 
+%figure - System Context Diagram
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Images/1SystemContext.eps}
+	\caption{Context Layer}
+\end{figure}
+
+
 The system requirements can be listed in points as : \\
 \begin{enumerate}
 	\item Allow anyone to join the network and become a member of endorsement
@@ -92,23 +100,26 @@ in the table(cite)
 	\end{tabular}
 \end{center}
 
-The non-functional requirements are associated with the architecture and are 
-of interest to the network participants: \\
+The non-functional system requirements are : \\ 
 \begin{itemize}
 \item Security: 
 \item Reliability:
+\item Performance: 
 \end{itemize}
 
 \section{Component Diagram}
+d
+\begin{figure}
+	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
+\end{figure}
 
 
 
 \section{The Model - Endorsement Network}
-The initial assumption is that all nodes are honest, thereby all nodes that join 
-the network are given an initial endorsement power of 1. The value is 1 to avoid 
-misuse of high values later on in the game by a single node to just inflate their 
-impact. This value keeps getting diluted with each interaction of given  
-endorsement. This process will be further clarified later with an example.
+The initial assumption is that all nodes are honest and as such receive equal
+points that they can spend at will once registered on the network. The initial
+point is one that keeps depleting with every endorsement interaction. In other
+words, sending an endorsement is using up the points one owns. 
 
 Terminologies that will be used for this network are briefly described below : \\
 \textit{nEG}: The number of connection to whom a peer has given endorsement.
