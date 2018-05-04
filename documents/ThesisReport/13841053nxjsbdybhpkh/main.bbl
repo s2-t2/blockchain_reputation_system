@@ -161,5 +161,35 @@
   networks}
     \field{year}{2003}
   \endentry
+
+  \entry{hill2003social}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HRA}{%
+         family={Hill},
+         familyi={H\bibinitperiod},
+         given={Russell\bibnamedelima A},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DRI}{%
+         family={Dunbar},
+         familyi={D\bibinitperiod},
+         given={Robin\bibnamedelima IM},
+         giveni={R\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{HRADRI1}
+    \strng{fullhash}{HRADRI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{53\bibrangedash 72}
+    \field{title}{Social network size in humans}
+    \field{volume}{14}
+    \field{journaltitle}{Human nature}
+    \field{year}{2003}
+  \endentry
 \enddatalist
 \endinput

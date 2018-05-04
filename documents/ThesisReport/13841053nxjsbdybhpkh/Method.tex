@@ -21,7 +21,7 @@ minimal risk of fraud. The immutable, trustless, decentralized and distributed
 attribute of blockchain protocol is a recommended solution on a public
 permissionless network.
 
-\section{ User stories \& Requirements}
+\section{ User stories \& Requirements} \label{ch:UserStories}
 Anyone can join the network and become a participant in the endorsement system.
 The two notable roles of a user are endorser and endorsee. An endorser can
 initiate the transaction by sending an endorsement to the participant they
@@ -115,8 +115,8 @@ The non-functional system requirements are : \\
 \item Performance: 
 \end{itemize}
 
-\section{Component Diagram}
-d
+%\section{Component Diagram}
+%d
 \begin{figure}
 	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
 \end{figure}
@@ -155,7 +155,7 @@ terminologies which is briefly discussed below. \\
 ensures that sent and received endorsement are not far off from  each other.
 \textit{$ratio_A$} is always assumed to be less than 1 and is given by: 
 \begin{equation}
-	ratio_A = \frac{min(nEG_A)}{max(nER_A)} 
+	ratio_A = \frac{min(nEG_A,nER_A)}{max(nEG_A,nER_A)} 
 \end{equation}
 
 \textit{$cp_A$}: Total amounts of points spent by a participant 'A' out of the
@@ -176,20 +176,103 @@ Finally, the total endorsement impact made by 'A' is given by: \\
 	TEI_a = ratio_a * cp_a * TRP_a
 \end{equation}
 
-
-
-
 %
 %ratio of nEG and nER to create a balance in the network
 %final score considers both given and received, and how much impact endorser of
 %an endorsee has made already
 
+\section{Design of PoC}
+This chapter focuses on overview and design details of PoC based on the
+requirements mentioned in section \ref{ch:UserStories} on page
+\pageref{ch:UserStories}. It starts with smart contract setup, data storage
+solution and computation viability discussion on and off blockchain. 
+
+\subsection{SmartContract} 
+There is primarily one main contract that performs the core logic of the
+endorsement system. However, for ease of use and readability purpose, one could
+slice it up based on indicative functionalities such that it covers distinct
+characteristics. \\
+
+Regarding endorsement contract, they would be: \\
+(a) \textit{Endorsement Transaction:} sending and receiving endorsements \\
+(b) \textit{Computation:} perform the mathematical calculation based on the values of
+state variables and post an update to the network accordingly. \\
+
+The activity flow of sending an endorsement would look like figure
+~\ref{fig:activity} on page ~\pageref{fig:activity}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagram.eps}
+	\caption{Activity Diagram for sending an endorsement}
+	\label{fig:activity}
+\end{figure}
+Given, that the pre-conditions are met, the endorsement would be instantly
+transferred to the designated address without requiring the endorsee to accept
+or reject it. However, with an attempt to model the social behavior, the number
+of endorsements that the participants can send/receive is limited to Dunbar's
+number\cite{hill2003social}. Therefore, the transfer would fail if the endorser
+or endorsee already has reached this limit. Another important consideration
+taken into account was the possibility of dynamic behavior on the network.
+i.e., If Alice trusts Bob today but decides not to trust him anymore for
+whatever reason, Alice can always take back the endorsement and revert the
+relevant state.  
 
 
-% With this model, there are three cases that can be expected. \\
-% Case1 : EG > ER \\
-% Case2 : ER > EG \\
-% Case3 : EG $\simeq$ ER \\
+
+%Architecture
+%various layers and their communication
+
+%Any registered user can assume both the role of endorser and endorsee. An
+%endorser, A must be able to join the network and start sending endorsement
+%right away to existing participants in the network. The only requirement for an
+%entity to send or receive endorsement is that they both must have joined the
+%network before transacting.  The maximum limit is set to 300 for a participant
+%to send or receive an endorsement. Based on the definition of Dunbar's number, it
+%is the cognitive limit to the number of people one can maintain the social
+%relationship with. There is nothing to stop a participant from creating
+%multiple identities and endorsing itself but doing so would require twice the
+%time which when spent on receiving or sending honest endorsement can be worth
+%much more.  The initial points received keeps getting replenished until the
+%number hits the maximum limit. The contract also allows for eliminating any
+%endorsement previously assigned. Thus, even when a maximum limit is reached,
+%users can still actively participate in the network.  Other additional
+%requirement includes, A node cannot self-endorse or endorse any node more than
+%once. 
+%
+
+
+\section{Smart contracts}
+%logic, functionalities, transactions, messages, 
+The Endorsement contract handles the logic for sending and receiving endorsemets.  
+
+
+
+\section{Sequence Diagram}
+%optional: 
+
+
+\section{Honest vs. Malicious Nodes}
+The 
+
+
+In endorsement network, honest nodes are assumed to endorse only the
+nodes on whom they have full confidence that they will perform the
+fair/legitimate action on the system. In other words, they are ready
+to take the risk if the identities they trusted performs malicious
+activity. It takes time to build a reputation and gain enough trust value
+and therefore giving it all up by endorsing malicious node would not
+be a rational decision. Another assumption is that an honest node will
+have a negligibly low difference between nEG and nER. On the other hand,
+a malicious node will have imbalanced ration between nEG and nER. Using
+the ratio of nEG and nER as one of the metrics may also alleviate the
+common free rider problem discussed earlier.
+
+%User profile : 
+% consistent
+% declining reputation
+% progressing reputation
+
 
 % The idea is not to exclude malicious behavior in the network, rather include them 
 % but give them no value. The endorsement power diminishes every time an entity 
@@ -246,18 +329,6 @@ Finally, the total endorsement impact made by 'A' is given by: \\
 
 
 
-\section{Honest vs. Malicious Nodes}
-In endorsement network, honest nodes are assumed to endorse only the
-nodes on whom they have full confidence that they will perform the
-fair/legitimate action on the system. In other words, they are ready
-to take the risk if the identities they trusted performs malicious
-activity. It takes time to build a reputation and gain enough trust value
-and therefore giving it all up by endorsing malicious node would not
-be a rational decision. Another assumption is that an honest node will
-have a negligibly low difference between nEG and nER. On the other hand,
-a malicious node will have imbalanced ration between nEG and nER. Using
-the ratio of nEG and nER as one of the metrics may also alleviate the
-common free rider problem discussed earlier.
 
 %free rider problem is solved. as given and received balance
 %colluding to inflate or damage
@@ -278,43 +349,18 @@ Every node keeps track of its neighbouring node and whenever an intera
 
 
 
-\section{Design of PoC}
-%Architecture
-%various layers and their communication
-
-Any registered user can assume both the role of endorser and endorsee. An
-endorser, A must be able to join the network and start sending endorsement
-right away to existing participants in the network. The only requirement for an
-entity to send or receive endorsement is that they both must have joined the
-network before transacting.  The maximum limit is set to 300 for a participant
-to send or receive an endorsement. Based on the definition of Dunbar's number, it
-is the cognitive limit to the number of people one can maintain the social
-relationship with. There is nothing to stop a participant from creating
-multiple identities and endorsing itself but doing so would require twice the
-time which when spent on receiving or sending honest endorsement can be worth
-much more.  The initial points received keeps getting replenished until the
-number hits the maximum limit. The contract also allows for eliminating any
-endorsement previously assigned. Thus, even when a maximum limit is reached,
-users can still actively participate in the network.  Other additional
-requirement includes, A node cannot self-endorse or endorse any node more than
-once. 
-
-
-\section{Sequence Diagram}
-%optional: 
 
 
 
-\section{Smart contracts}
-%logic, functionalities, transactions, messages, 
-The Endorsement contract handles the logic for sending and receiving endorsemets.  
+
+
 
 
 \section{Experimental Setup} \label{sec:sectionlabel}
 %Test Network describe, no. of nodes, level of difficulty etc.
 
 
-\section{second section}
+%\section{second section}
 % It may include: Description of the methodological, theoretical, conceptual or empirical framework; design of the
 % experiment; relevant steps of reasoning; data description and sources.
 
