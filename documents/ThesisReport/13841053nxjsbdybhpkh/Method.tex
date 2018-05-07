@@ -187,6 +187,114 @@ requirements mentioned in section \ref{ch:UserStories} on page
 \pageref{ch:UserStories}. It starts with smart contract setup, data storage
 solution and computation viability discussion on and off blockchain. 
 
+%\subsection{Formalization}
+%The endorsement network as a distributed system can be formally defined by : 
+%
+%\begin{itemize}
+%	\item{P: set of participants $\{p_1,p_2,.. ..,p_j\}$ where 'j' is the total
+%		number of participants.} 
+%	\item{endorse(x,y): x has sent endorsement to y where $x,y \in P$}
+%	\item{receive(y,x): y has received endorsement where $x,y \in P$ }
+%	\item{Each participant 'p' has a set of endorsers $\{e_1,e_2,.. ..,e_m\}$
+%		and a set of endorsees $\{r_1,r_2,.. ..,r_n\}$ if endorse(e,r) and
+%		receive(r,e) is true. Here, 'm'is $nEG_p$	and 'n' is $nER_p$.}
+%\end{itemize}
+
+\subsection{Design Consideration}
+Honest and malicious participation in the network and the possible behavior
+that can result from the interaction between nodes were considered during the
+design. From a game-theoretic perspective of a behavioral outcome, following
+definition were made for network influencing factors. 
+
+\begin{enumerate}
+	\item \label{item:fakeeds} \textbf{Fake endorsements with pseudonymous
+		identities:}Endorsement system being on a
+		distributed, public permissionless blockchain network allows anyone to
+		join and start sending endorsements immediately to whoever they wish
+		to. This creates the possibility that an entity could create multiple
+		pseudonymous identities with an aim to inflate their impact on the
+		network by increasing nEG or nER for their associated persona.  There
+		is no straightforward way to detect and stop this behavior right away.
+		However, if doing so doesn't provide any significant advantage, then
+		the assumption is that a rational decision would be not to do it.  One
+		factor that is believed to stop a participant from making too many
+		endorsements is the convergent behavior of consumable points. While,
+		there is no limit to the amount of connection a participant can form,
+		as the number of connection increases, the value of consumable points
+		decreases. 
+	\item \textbf{Transaction cost:} Ethereum is a programmable blockchain that
+		supports a Turing complete programming language. Thus, to avoid running
+		in infinite loops or DDOS attacks, gas was introduced. Every operation
+		has a gas cost. One could write a program to do anything they wish to
+		do on the network as long as the account that initiates the transaction
+		can pay the gas cost of all operations. The gas consumption is an
+		imperative aspect of endorsement system for two reasons. \\
+		\begin{itemize}
+			\item \textit{Standard transactions on Ethereum:} A participant
+				that makes a call to 'sendEndorsement' function is responsible
+				for paying all the required gas costs. This function updates
+				the state variable nEG and nER. While the price may not seem
+				too high for making one transaction, a malicious node with
+				multiple pseudonymous identities has to pay for all the
+				operations initiated by all personas. For instance, given the
+				interaction graph in the figure, if Alice is an honest node,
+				then she only needs to pay for the operation of one
+				transaction. Whereas if both Bob and Charlie are the
+				pseudonymous identities of Alice, she needs to pay for six
+				transactions. Thus, the assumption is that they may make ether
+				transfer at some point between their accounts. This information
+				is publicly available for anyone on the ethereum blockchain
+				network to view the chain of ownership.  If some interactions
+				in the endorsement network look suspicious, one could look up
+				this detail. This method is not guaranteed to detect a Sybil
+				node on the endorsement network but is just another additional
+				factor that might be useful before making a decision. 
+			\item \textit{ Local information of all neighbouring nodes:}
+				Whenever an endorser makes a new connection, the nEG, and
+				consumable point change accordingly. This change in consumable
+				point has to be reflected for the list of all endorsees. This
+				is not to be confused with a one time update. Every new
+				connection made by an endorser changes the state for all
+				his/her old endorsees. Therefore, all the neighboring nodes of
+				an endorser should be stored previously. The impact of a
+				participant is dependent on his/her direct interaction as well
+				as the endorsers(the participants that have endorsed them).
+				There is no way to make constant cost lookups and updates for
+				this operation. It requires iterating through the list of
+				arrays and computing the impact of every endorsee based on the
+				updated state variable. While solidity does allow iterating
+				through items in the array, the general recommendation is to
+				avoid them if possible. One could surely assume that the list
+				will not grow too big for two reasons: (a)A rational node will
+				not make too many connections for reasons mentioned earlier in
+				~\ref{item:fakeeds} (b)Dunbar's number suggests a cognitive
+				limit of 150-250 stable social relationships for humans. \\
+				One way to approach this problem is to store the list of
+				endorsees and endorsers for a participant but not change the
+				state. The computation can be done on the client-side using
+				language such as javascript. The final score will be done by
+				the client. However, all the variables necessary to compute the
+				final score will be stored and updated on blockchain as a
+				publicly verifiable information.
+		\end{itemize}
+	\item \textbf{Dynamism:} The dynamic social behavior of human is that trust
+		between two entities is not perpetual. Alice may have trusted Bob
+		yesterday but refuses to endorse him today. Trust is dynamic and so is
+		the endorsement decision that an entity can take. Therefore, the design
+		also considers removal of endorsement previously assigned. The removal
+		of endorsement is captured by this activity diagram. 
+	\item \textbf{Free-Riders Problem:} Free riders problem is addressed by
+		making it necessary to maintain the ratio between nEG and nER. A peer
+		without a balanced proportion cannot have a significant impact score on
+		the endorsement network. This method also discourages Sybil nodes
+		because each identity needs to have an almost equal bi-directional
+		connection. If they are only receiving from their own pseudo identity
+		that don't have too many connections, then the impact is ignorant and
+		thus useless and not worth the time.
+\end{enumerate}
+
+
+
 \subsection{SmartContract} 
 There is primarily one main contract that performs the core logic of the
 endorsement system. However, for ease of use and readability purpose, one could
@@ -338,6 +446,7 @@ common free rider problem discussed earlier.
 %Definition and characteristic
 %discourage malicious behaviour and encourage honest behaviour
 \section{Trust Metrics}
+
 %central nodes, 
 %How is trust measured?
 %What is required for it to be a correct solution? 
@@ -346,17 +455,10 @@ Every node keeps track of its neighbouring node and whenever an intera
 
 
 
-
-
-
-
-
-
-
-
-
-
 \section{Experimental Setup} \label{sec:sectionlabel}
+% 
+% 
+
 %Test Network describe, no. of nodes, level of difficulty etc.
 
 
