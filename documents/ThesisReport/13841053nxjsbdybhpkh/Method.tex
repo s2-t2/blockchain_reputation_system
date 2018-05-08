@@ -293,21 +293,88 @@ definition were made for network influencing factors.
 		thus useless and not worth the time.
 \end{enumerate}
 
-
-
 \subsection{SmartContract} 
-There is primarily one main contract that performs the core logic of the
-endorsement system. However, for ease of use and readability purpose, one could
-slice it up based on indicative functionalities such that it covers distinct
-characteristics. \\
+The startup process for registering the contract on the public blockchain
+network is shown in ~\ref{fig:startup}. Smart contracts can be either
+deterministic which doesn't require any information from outside blockchain or
+non-deterministic which does need to get oracles from external sources. For
+this PoC, endorsement contract is deterministic and so all the data and
+variables required are stored and executed on the blockchain.
 
-Regarding endorsement contract, they would be: \\
-(a) \textit{Endorsement Transaction:} sending and receiving endorsements \\
-(b) \textit{Computation:} perform the mathematical calculation based on the values of
-state variables and post an update to the network accordingly. \\
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagramStartUpBC.eps}
+	\caption{Startup activity for registering contract on the network}
+	\label{fig:startup}
+\end{figure}
 
-The activity flow of sending an endorsement would look like figure
-~\ref{fig:activity} on page ~\pageref{fig:activity}.
+The system of smart contracts on the component level is depicted in
+~\ref{fig:smartcontracts}. The main contracts written for this PoC are : 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
+	\caption{Smart contract system}
+	\label{fig:smartcontracts}
+\end{figure}
+
+\begin{itemize}
+	\item Ownable: tracks the owner of the contract. i.e., the creator of
+		contract. 
+	\item killable: inherits from ownable and can be killed by owner only. 
+	\item Participants: set participant and store their information. An index
+		to access each participant is also stored. 
+	\item Endorsement: It inherits from participants and can be called by
+		participants only. Endorsement contract handles the core logic of
+		endorsement system, accesses/queries addresses from Participants and is
+		used for storage of data along with CRUD operations on them.  
+	\item Computation: inherits from Endorsement contract and allows anyone to
+		get the final score by accessing the current state from an Endorsement
+		contract.
+	\item Marketplace: stores the buyers, sellers information and allows them
+		to buy or sell the product. Also, allows buyer/seller to compute the
+		score of the involved entity before doing a transaction.  
+\end{itemize}
+
+'Marketplace' contract was written to test the endorsement network on a
+transactional network. However, when deploying endorsement system in the real
+world, other transactional network/online systems are assumed to have their
+reputation platform. The reputation platform should have assigned a score to
+the corresponding users based on the behavior on that network. The endorsement
+system can act as additional conformity for deciding on a transaction. Say,
+Alice is registered on Endorsement network and has made a decent score. If she
+wants to sell a product on Marketplace(or any other transactional network), she
+can claim about her score and anyone who wants to buy from Alice can verify the
+claim by checking the score that corresponds to her public address. If both
+Alice and buyer are registered on the endorsement network on the blockchain,
+they can send a pre-transaction message to each other to verify that Alice is
+who she claims to be and vice-versa. In case the buyer is not registered on the
+endorsement network then Alice can prove the claim by signing a cryptographic
+challenge with her private key. 
+
+\subsection{Data and variables on and off blockchain}
+For this PoC, the data required to identify the users are stored on the
+blockchain. But, it does preserve the anonymity requirement mentioned in
+section 4.1.1, as the only public information is the link between the public
+key hash and individual trust score. Even though the users are required to
+register with a pseudonym, it is not needed that the aliases be linked to
+real-world identity. A user might like to share more information(other online
+account ids, address, etc.).  As mentioned earlier in the gas consumption
+section, every non-zero byte data or code of a transaction costs a certain
+amount of gas. (cite: eth yellow paper)(cite: eth gas station chart on the gas
+section above). Storing this data can become an expensive operation for
+real-world usage. The right approach can be to use an off-blockchain storage
+solution such as IPFS, swarm (cite). The hash that points to the file in IPFS
+can then be stored on the blockchain. Generally, client-side assets (HTML, js)
+are stored on these distributed off-chain file system that can communicate to
+the contracts registered on blockchain network. 
+
+\subsection{Blockchain and Consensus algorithms}
+
+
+
+%The activity flow of sending an endorsement would look like figure
+%~\ref{fig:activity} on page ~\pageref{fig:activity}.
 
 \begin{figure}
 	\centering
