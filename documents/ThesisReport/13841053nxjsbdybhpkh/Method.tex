@@ -382,18 +382,6 @@ the contracts registered on blockchain network.
 	\caption{Activity Diagram for sending an endorsement}
 	\label{fig:activity}
 \end{figure}
-Given, that the pre-conditions are met, the endorsement would be instantly
-transferred to the designated address without requiring the endorsee to accept
-or reject it. However, with an attempt to model the social behavior, the number
-of endorsements that the participants can send/receive is limited to Dunbar's
-number\cite{hill2003social}. Therefore, the transfer would fail if the endorser
-or endorsee already has reached this limit. Another important consideration
-taken into account was the possibility of dynamic behavior on the network.
-i.e., If Alice trusts Bob today but decides not to trust him anymore for
-whatever reason, Alice can always take back the endorsement and revert the
-relevant state.  
-
-
 
 %Architecture
 %various layers and their communication
@@ -417,31 +405,21 @@ relevant state.
 %
 
 
-\section{Smart contracts}
-%logic, functionalities, transactions, messages, 
-The Endorsement contract handles the logic for sending and receiving endorsemets.  
-
-
-
-\section{Sequence Diagram}
-%optional: 
-
-
-\section{Honest vs. Malicious Nodes}
-The 
-
-
-In endorsement network, honest nodes are assumed to endorse only the
-nodes on whom they have full confidence that they will perform the
-fair/legitimate action on the system. In other words, they are ready
-to take the risk if the identities they trusted performs malicious
-activity. It takes time to build a reputation and gain enough trust value
-and therefore giving it all up by endorsing malicious node would not
-be a rational decision. Another assumption is that an honest node will
-have a negligibly low difference between nEG and nER. On the other hand,
-a malicious node will have imbalanced ration between nEG and nER. Using
-the ratio of nEG and nER as one of the metrics may also alleviate the
-common free rider problem discussed earlier.
+%\section{Honest vs. Malicious Nodes}
+%The 
+%
+%
+%In endorsement network, honest nodes are assumed to endorse only the
+%nodes on whom they have full confidence that they will perform the
+%fair/legitimate action on the system. In other words, they are ready
+%to take the risk if the identities they trusted performs malicious
+%activity. It takes time to build a reputation and gain enough trust value
+%and therefore giving it all up by endorsing malicious node would not
+%be a rational decision. Another assumption is that an honest node will
+%have a negligibly low difference between nEG and nER. On the other hand,
+%a malicious node will have imbalanced ration between nEG and nER. Using
+%the ratio of nEG and nER as one of the metrics may also alleviate the
+%common free rider problem discussed earlier.
 
 %User profile : 
 % consistent
