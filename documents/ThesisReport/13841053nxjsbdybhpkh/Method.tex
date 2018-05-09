@@ -34,89 +34,54 @@ positions as long as a set of predefined requirements are met.  \\
 	\includegraphics[width=0.8\textwidth]{Images/1SystemContext.eps}
 	\caption{Context Layer}
 \end{figure}
-
-
-The system requirements can be listed in points as : \\
-\begin{enumerate}
-	\item Allow anyone to join the network and become a member of endorsement
-		system. Once registered, there must be a way for users to add profile
-		information and view/edit them. 
-	\item Any registered user must be allowed to send an endorsement which
-		should be immediately transferred to the specified receiver's address.
-		The endorser must securely sign this transaction in a way that
-		identifies them such that any other participants in the network can
-		verify it.
-	\item All the successfully recorded endorsements should have immutable
-		traceability so that anyone can go back and verify the chain of
-		ownership and order in a time when it took place. Each endorsement must
-		have a mapping from endorser to endorsee to trace list of endorser for
-		a given endorsee and vice-versa.
-	\item Allow the elimination/update of the relevant state variable if an
-		endorser decides to take back the endorsement given in the past. This
-		change should be evident on the network.  
-	\item It must be possible for anyone within or outside the endorsement
-		network to compute the total endorsement impact of any members.
-	\item The public key hashes of network participants must be linked to their
-		respective final score(total endorsement impact). This score must be
-		publicly visible to anyone while preserving the anonymity. i.e., no
-		personally identifiable information is shared publicly.
-	\item Any form of an attempt to change the successfully recorded ledger
-		should be evident on the network. 
-\end{enumerate}
-
-The functional requirement for each user types specifically are presented 
-in the table(cite)
+The user stories for each role that defines the system requirements for each
+user type is presented in the table below. 
 \begin{center}
 	\begin{tabular} {| l | p{9cm} | l |}
 		\hline
 		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
 		\hline
-		\multirow{2}{*}{Endorser} &  send an endorsement to anyone I wish to as
-		long as they are registered on the network so that it contributes to
-		the positive impact on the system.& R2
+		\multirow{2}{*}{Endorser} & send an endorsement so that the endorsement
+		is received by the endorsee.& R1
 		\\\cline{2-3} 
-		& remove previously assigned endorsement so that my trust towards my
-		endorsees can be reflected in real time.  & R4 \\\cline{2-3}
+		& remove endorsement so that the endorsement is removed from the
+		endorsee.  & R2 \\\cline{2-3}
 		& view a list of endorsees so that i can see to whom i have sent
 		endorsements.& R2 \& R4 \\\cline{2-3}
 		& view or edit my personal information so that i can keep it up to
 		date& R1 \\\cline{2-3}
 		\hline
-		\multirow{2}{*}{Endorsee} & view a list of endorsers so that I can see
+		\multirow{2}{*}{Endorsee} & view a list of endorsees so that I can see
 		from whom I have received endorsements.& R2.1 \\\cline{2-3}
-		& identify me in a cryptographically secure manner so that anyone can
-		verify my claim of a score on the network before the transaction. & R3 
-		\\\cline{2-3}
 		& view or edit my profile information so that i can keep it up to date.
 		& R1 \\\cline{2-3}
 		\hline
-		\multirow{2}{*}{anyone} & compute the total endorsement
-		impact(i.e., final computed score) of any registered participants on
-		the network so that I can make an informed decision about the future
-		transaction.  & R5 \\\cline{2-3}
-		& join the network so that I can start sending/receiving endorsements.
+		\multirow{2}{*}{other users} & join the network so that I can start
+		sending/receiving endorsements. & R5 \\\cline{2-3}
+		& compute the total endorsement impact(i.e., final computed score) of
+		any registered members so that I can make an informed decision about
+		the future transactions. 
 		& R1 \\\cline{2-3}
 		\hline
 	\end{tabular}
 \end{center}
 
-The non-functional system requirements are : \\ 
-\begin{itemize}
-\item Security: 
-\item Reliability: 
-	\item It must be possible for anyone within or outside the endorsement
-		network to compute the total endorsement impact of any members.
-	\item The public key hashes of network participants must be linked to their
-		respective final score(total endorsement impact). This score must be
-		publicly visible to anyone while preserving the anonymity. i.e., no
-		personally identifiable information is shared publicly.
-	\item Any form of an attempt to change the successfully recorded ledger
-		should be evident on the network. 
-\item Performance: 
-\end{itemize}
+The functional requirements can be listed in points as : \\
+\begin{enumerate}
+	\item It must be impossible to make an Endorsement if the endorser and
+		endorsee is same address or not a registered participant
+	\item It must be impossible to remove an endorsement if the endorser
+		doesn't belong to the list of endorsers for the given endorsee.
+	\item All the endorsements must be stored such that, it is possible to see: 
+		\begin{itemize}
+			\item endorser and endorsee for the given endorsement.
+			\item degree of incoming and outgoing connections for all endorsers
+		\end{itemize}
+	\item There must be a way to link the public key hashes to the
+		corresponding computed trust scores. 
+\end{enumerate}
 
-%\section{Component Diagram}
-%d
+
 \begin{figure}
 	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
 \end{figure}
