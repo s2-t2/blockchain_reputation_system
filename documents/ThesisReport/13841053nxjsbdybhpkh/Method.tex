@@ -81,12 +81,6 @@ The functional requirements can be listed in points as : \\
 		corresponding computed trust scores. 
 \end{enumerate}
 
-
-\begin{figure}
-	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
-\end{figure}
-
-
 \section{The Model - Endorsement Network}
 The initial assumption is that all nodes are honest and as such receive equal
 points that they can spend at will once registered on the network. This received
@@ -149,8 +143,16 @@ Finally, the total endorsement impact made by 'A' is given by: \\
 \section{Design of PoC}
 This chapter focuses on overview and design details of PoC based on the
 requirements mentioned in section \ref{ch:UserStories} on page
-\pageref{ch:UserStories}. It starts with smart contract setup, data storage
-solution and computation viability discussion on and off blockchain. 
+\pageref{ch:UserStories}. It starts with design considerations, smart contract
+setup, data storage on and off blockchain. The high level system overview is
+presented in ~\ref{fig:SystemContainer} 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
+	\caption{Container Layer}
+	\label{fig:SystemContainer}
+\end{figure}
 
 %\subsection{Formalization}
 %The endorsement network as a distributed system can be formally defined by : 
@@ -227,7 +229,7 @@ definition were made for network influencing factors.
 				There is no way to make constant cost lookups and updates for
 				this operation. It requires iterating through the list of
 				arrays and computing the impact of every endorsee based on the
-				updated state variable. While solidity does allow iterating
+				updated state variable. While it is possible to iterate 
 				through items in the array, the general recommendation is to
 				avoid them if possible. One could surely assume that the list
 				will not grow too big for two reasons: (a)A rational node will
@@ -247,7 +249,7 @@ definition were made for network influencing factors.
 		yesterday but refuses to endorse him today. Trust is dynamic and so is
 		the endorsement decision that an entity can take. Therefore, the design
 		also considers removal of endorsement previously assigned. The removal
-		of endorsement is captured by this activity diagram. 
+		of endorsement is captured by the figure  ~\ref{fig:removeEds}. 
 	\item \textbf{Free-Riders Problem:} Free riders problem is addressed by
 		making it necessary to maintain the ratio between nEG and nER. A peer
 		without a balanced proportion cannot have a significant impact score on
@@ -257,12 +259,19 @@ definition were made for network influencing factors.
 		that don't have too many connections, then the impact is ignorant and
 		thus useless and not worth the time.
 \end{enumerate}
+\begin{figure}
+	\centering
+	\includegraphics{Images/ActivityDiagramRemoveEDS.eps}
+	\caption{Activity diagram for removing endorsement}
+	\label{fig:removeEds}
+\end{figure}
+
 
 \subsection{SmartContract} 
 The startup process for registering the contract on the public blockchain
-network is shown in ~\ref{fig:startup}. Smart contracts can be either
+network is shown in figure ~\ref{fig:startup}. Smart contracts can be either
 deterministic which doesn't require any information from outside blockchain or
-non-deterministic which does need to get oracles from external sources. For
+non-deterministic which does need to get oracles from external sources.(cite) For
 this PoC, endorsement contract is deterministic and so all the data and
 variables required are stored and executed on the blockchain.
 
@@ -276,19 +285,13 @@ variables required are stored and executed on the blockchain.
 The system of smart contracts on the component level is depicted in
 ~\ref{fig:smartcontracts}. The main contracts written for this PoC are : 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
-	\caption{Smart contract system}
-	\label{fig:smartcontracts}
-\end{figure}
 
 \begin{itemize}
 	\item Ownable: tracks the owner of the contract. i.e., the creator of
 		contract. 
 	\item killable: inherits from ownable and can be killed by owner only. 
 	\item Participants: set participant and store their information. An index
-		to access each participant is also stored. 
+		to access each participant. 
 	\item Endorsement: It inherits from participants and can be called by
 		participants only. Endorsement contract handles the core logic of
 		endorsement system, accesses/queries addresses from Participants and is
@@ -333,6 +336,13 @@ solution such as IPFS, swarm (cite). The hash that points to the file in IPFS
 can then be stored on the blockchain. Generally, client-side assets (HTML, js)
 are stored on these distributed off-chain file system that can communicate to
 the contracts registered on blockchain network. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
+	\caption{Smart contract system}
+	\label{fig:smartcontracts}
+\end{figure}
 
 \subsection{Blockchain and Consensus algorithms}
 
