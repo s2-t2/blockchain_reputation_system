@@ -24,19 +24,21 @@ permissionless network.
 \section{ User stories \& Requirements} \label{ch:UserStories}
 Anyone can join the network and become a participant in the endorsement system.
 The two notable roles of a user are endorser and endorsee. An endorser can
-initiate the transaction by sending an endorsement to the participant they
-trust which is accepted by the endorsee.  The same user can assume both
-positions as long as a set of predefined requirements are met.  \\ 
+initiate the transaction by sending an endorsement to the participant they wish
+to. The same user can assume both the roles of endorser and endorsee as long as
+a set of predefined requirements are met.  \\ 
 
 %figure - System Context Diagram
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{Images/1SystemContext.eps}
 	\caption{Context Layer}
+	\label{fig:context}
 \end{figure}
+
 The user stories for each role that defines the system requirements for each
-user type is presented in the table below. 
-\begin{center}
+user type is presented in table ~\ref{table:userstories}. 
+\begin{center} \label{table:userstories}
 	\begin{tabular} {| l | p{9cm} | l |}
 		\hline
 		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
@@ -47,20 +49,19 @@ user type is presented in the table below.
 		& remove endorsement so that the endorsement is removed from the
 		endorsee.  & R2 \\\cline{2-3}
 		& view a list of endorsees so that i can see to whom i have sent
-		endorsements.& R2 \& R4 \\\cline{2-3}
-		& view or edit my personal information so that i can keep it up to
-		date& R1 \\\cline{2-3}
+		endorsements.& R3 \\\cline{2-3}
+		& view/edit my personal information so that i can keep it up to
+		date& R5 \\\cline{2-3}
 		\hline
-		\multirow{2}{*}{Endorsee} & view a list of endorsees so that I can see
-		from whom I have received endorsements.& R2.1 \\\cline{2-3}
-		& view or edit my profile information so that i can keep it up to date.
-		& R1 \\\cline{2-3}
+		\multirow{2}{*}{Endorsee} & view a list of endorsers so that I can see
+		from whom I have received endorsements.& R3 \\\cline{2-3}
 		\hline
-		\multirow{2}{*}{other users} & join the network so that I can start
-		sending/receiving endorsements. & R5 \\\cline{2-3}
-		& compute the total endorsement impact(i.e., final computed score) of
-		any registered members so that I can make an informed decision about
-		the future transactions. 
+		\multirow{2}{*}{other users} & compute the total endorsement
+		impact(i.e., final computed score) of any registered members so that I
+		can make an informed decision about the future transactions.
+		& R4 \\\cline{2-3}
+		& make a request to join the endorsement network so that I can start
+		sending/receiving endorsements.  
 		& R1 \\\cline{2-3}
 		\hline
 	\end{tabular}
@@ -69,16 +70,24 @@ user type is presented in the table below.
 The functional requirements can be listed in points as : \\
 \begin{enumerate}
 	\item It must be impossible to make an Endorsement if the endorser and
-		endorsee is same address or not a registered participant
+		endorsee is same address or not a registered participant.
 	\item It must be impossible to remove an endorsement if the endorser
 		doesn't belong to the list of endorsers for the given endorsee.
 	\item All the endorsements must be stored such that, it is possible to see: 
 		\begin{itemize}
 			\item endorser and endorsee for the given endorsement.
-			\item degree of incoming and outgoing connections for all endorsers
+			\item degree of incoming and outgoing connections for all endorsers and endorsees.
 		\end{itemize}
 	\item There must be a way to link the public key hashes to the
 		corresponding computed trust scores. 
+	\item It must be possible for a participant to edit their own profile if
+		the editor is the same as the profile owner. 
+\end{enumerate}
+
+The non-functional system requirements are : \\
+\begin{enumerate}
+	\item Security: smartcontract security.  
+	\item Reliability: reliability of data, tamperproof and verifiable,immutable traceability.
 \end{enumerate}
 
 \section{The Model - Endorsement Network}
