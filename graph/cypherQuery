@@ -1,0 +1,32 @@
+//Load user.json
+call apoc.load.json("file:/home/sujata/Documents/Masters-Thesis/graph/standardJson/user.json") YIELD value AS user RETURN user LIMIT 10
+
+//Import user.json
+//for each user object in this user.json file, create the node labled 'user', set the user_id property
+//on that node, alias with u, that can be used later on cypher query as u. 
+CALL apoc.load.json("file:/home/sujata/Documents/Masters-Thesis/graph/standardJson/user.json") YIELD value AS user 
+MERGE (u:User {user_id: user.user_id})
+
+SET u.name			=	user.name,
+	u.review_count	=	user.review_count,
+	u.average_stars =	user.average_stars,
+	u.fans			=	user.fans
+
+// Import business.json
+CALL apoc.load.json("file:/home/sujata/Documents/Masters-Thesis/graph/standardJson/business.json")
+YIELD value as business
+MERGE (b:Business {business_id: business.business_id})
+SET b.address = business.address,
+		b.lat	= business.latitude,
+		b.lon	= business.longitude,
+		b.name	= business.name,
+		b.city	= business.city,
+		b.postal_code	= business.postal_code,
+		b.state	= business.state,
+		b.review_count	= business.review_count,
+		b.stars	= business.stars,
+		b.neighborhood	= business.neighborhood
+WITH b, business.categories AS categories
+UNWIND categories AS cat
+MERGE (c:Category {name:cat})
+MERGE (b)-[:IN_CATEGORY]->(c)
