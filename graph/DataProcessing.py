@@ -13,7 +13,7 @@ source = []
 target = []
 
 nER = {}
-with open('./soc-sign-bitcoinalpha-label.csv', newline='' ) as File : 
+with open('./testfile.csv', newline='' ) as File : 
     #reader = csv.reader(File)
     reader = csv.DictReader(File)
     for row in reader:
@@ -57,13 +57,18 @@ for i in range(0,len(target)) :
 connectionsFile = open("connections.txt","w" )
 print ("nEG", file=connectionsFile)
 print (nEG, file=connectionsFile )
-print ("nER" )
+#print ("nER" )
 print ("nER", file=connectionsFile )
 print (nER, file=connectionsFile )
 
+#print ("length of source" );
+#print (len(uniqueSource) )
+#print ("length of target" )
+#print (len(uniqueTarget ) )
 #print (source)
 #print (target)
 #print (uniqueSource)
 #print (uniqueTarget)
-print (nER)
-print (nEG)
+
+#print (nER)
+#print (nEG)
