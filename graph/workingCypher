@@ -1,0 +1,14 @@
+//UNIQUE NODE WITH ENDORSE RELATIONSHIPS
+
+LOAD CSV WITH HEADERS FROM "file:///home/sujata/Documents/Masters-Thesis/graph/testfile.csv" 
+AS line 
+MERGE (n:Userid{id:(line.source)} ) 
+WITH line,n 
+MERGE (m:Userid{id:(line.target)}) 
+WITH m,n 
+MERGE (n)-[:RATED]->(m)
+
+//RETURN A Node with particular id along with all its relationships
+MATCH (a:Userid {id:"2853"})-[r]-(b)
+ RETURN r, a, b
+

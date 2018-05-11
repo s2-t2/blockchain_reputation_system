@@ -30,3 +30,24 @@ WITH b, business.categories AS categories
 UNWIND categories AS cat
 MERGE (c:Category {name:cat})
 MERGE (b)-[:IN_CATEGORY]->(c)
+
+//Load CSV
+LOAD CSV WITH HEADERS FROM "file:///home/sujata/Documents/Masters-Thesis/graph/soc-sign-bitcoinalpha-label.csv" AS row 
+CREATE(:Users{userSource:toInt(row.source), userTarget:toInt(row.target), userRating:toInt(row.rating), userTime:row.time  } );
+
+//UNIQUE NODES
+LOAD CSV WITH HEADERS FROM "file:///home/sujata/Documents/Masters-Thesis/graph/soc-sign-bitcoinalpha-label.csv" AS line
+MERGE (u1:User{source:(line.source) } )
+WITH line,u1
+MERGE (u2:User{target:(line.target) } )
+WITH u1,u2
+MERGE(u1)-[:RATED]->(u2);
+
+//WORKING on TEST FILE UNIQUE NODE 
+LOAD CSV WITH HEADERS FROM "file:///home/sujata/Documents/Masters-Thesis/graph/testfile.csv" 
+AS line 
+MERGE (n:Userid{id:(line.source)} ) 
+WITH line,n 
+MERGE (m:Userid{id:(line.target)}) 
+WITH m,n 
+MERGE (n)-[:RATED]->(m)
