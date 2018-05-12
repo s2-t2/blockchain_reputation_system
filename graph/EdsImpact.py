@@ -2,7 +2,6 @@
 
 from DataProcessing import nEG, nER, uniqueSource,uniqueTarget,source,target
 
-
 #usedPower , uniqueTarget, nEG
 usedPower = ({key: None for key in uniqueTarget} )
 for i in uniqueTarget:
@@ -32,6 +31,12 @@ for i in range(0, len(uniqueSource)):
     minVal = min(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
     maxVal = max(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
     ratio[uniqueSource[i]] = minVal/maxVal 
+impact = {}
+for i in range(0, len(uniqueSource) ): 
+    tempratio = ratio[uniqueSource[i] ]
+    tempusedPower = usedPower[uniqueSource[i ] ]
+    tempreceivedPoints = receivedPoints[uniqueSource[i ] ]
+    impact[uniqueSource[i] ] = tempratio * tempusedPower * tempreceivedPoints 
 
 print (hasReceivedFrom['1'] )
 print (len(hasReceivedFrom ) )
