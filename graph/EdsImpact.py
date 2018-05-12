@@ -21,9 +21,17 @@ for i in range(0,len(uniqueSource)):
 
 #compute received points - sum of all usedpower of hasreceivedfrom
 receivedPoints = {}
-
-for i in range(1,3):
-    print ( "'" + i + "'" );  
+for i in range(0,len(uniqueSource) ):
+    receivedPoints[uniqueSource[i]] = 0
+    for j in hasReceivedFrom[uniqueSource[i] ]:
+        receivedPoints[uniqueSource[i]] = receivedPoints[uniqueSource[i]] + usedPower[j]
+    
+#ratio 
+ratio = {}
+for i in range(0, len(uniqueSource)):
+    minVal = min(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
+    maxVal = max(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
+    ratio[uniqueSource[i]] = minVal/maxVal 
 
 print (hasReceivedFrom['1'] )
 print (len(hasReceivedFrom ) )
