@@ -138,6 +138,11 @@ contract Endorsement {
 		uint nER = endorsees[_participant].nER;
 		uint _RE = computeReceivedPoints(_participant);
 
+		if (nEG <=1 && nER <=1 ) { 
+			uint impact = 0;
+			//return impact and exit here
+		}
+
 		uint minVal = min(nEG,nER);
 		uint maxVal = max(nEG,nER);
 

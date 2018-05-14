@@ -17,33 +17,115 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
-  \entry{castelfranchi2000trust}{article}{}
+  \entry{mcknight1996meanings}{article}{}
     \name{author}{2}{}{%
-      {{hash=CC}{%
-         family={Castelfranchi},
-         familyi={C\bibinitperiod},
-         given={Cristiano},
-         giveni={C\bibinitperiod},
+      {{hash=MDH}{%
+         family={McKnight},
+         familyi={M\bibinitperiod},
+         given={D\bibnamedelima Harrison},
+         giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
       }}%
-      {{hash=FR}{%
-         family={Falcone},
-         familyi={F\bibinitperiod},
-         given={Rino},
-         giveni={R\bibinitperiod},
+      {{hash=CNL}{%
+         family={Chervany},
+         familyi={C\bibinitperiod},
+         given={Norman\bibnamedelima L},
+         giveni={N\bibinitperiod\bibinitdelim L\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Taylor \& Francis}%
+      {Citeseer}%
     }
-    \strng{namehash}{CCFR1}
-    \strng{fullhash}{CCFR1}
+    \strng{namehash}{MDHCNL1}
+    \strng{fullhash}{MDHCNL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{number}{8}
-    \field{pages}{799\bibrangedash 823}
-    \field{title}{Trust and control: A dialectic link}
-    \field{volume}{14}
-    \field{journaltitle}{Applied Artificial Intelligence}
+    \field{title}{The meanings of trust}
+    \field{year}{1996}
+  \endentry
+
+  \entry{mcknight2001trust}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=MDH}{%
+         family={McKnight},
+         familyi={M\bibinitperiod},
+         given={D\bibnamedelima Harrison},
+         giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=CNL}{%
+         family={Chervany},
+         familyi={C\bibinitperiod},
+         given={Norman\bibnamedelima L},
+         giveni={N\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{MDHCNL1}
+    \strng{fullhash}{MDHCNL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Trust in Cyber-societies}
+    \field{pages}{27\bibrangedash 54}
+    \field{title}{Trust and distrust definitions: One bite at a time}
+    \field{year}{2001}
+  \endentry
+
+  \entry{gambetta2000can}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=GD}{%
+         family={Gambetta},
+         familyi={G\bibinitperiod},
+         given={Diego},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GD+1}
+    \strng{fullhash}{GD+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{213\bibrangedash 237}
+    \field{title}{Can we trust trust}
+    \field{volume}{13}
+    \field{journaltitle}{Trust: Making and breaking cooperative relations}
+    \field{year}{2000}
+  \endentry
+
+  \entry{zacharia2000collaborative}{article}{}
+    \name{author}{3}{}{%
+      {{hash=ZG}{%
+         family={Zacharia},
+         familyi={Z\bibinitperiod},
+         given={Giorgos},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Moukas},
+         familyi={M\bibinitperiod},
+         given={Alexandros},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MP}{%
+         family={Maes},
+         familyi={M\bibinitperiod},
+         given={Pattie},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{ZG+1}
+    \strng{fullhash}{ZGMAMP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{371\bibrangedash 388}
+    \field{title}{Collaborative reputation mechanisms for electronic
+  marketplaces}
+    \field{volume}{29}
+    \field{journaltitle}{Decision support systems}
     \field{year}{2000}
   \endentry
 
@@ -95,6 +177,250 @@
     \field{journaltitle}{Artificial Intelligence Review}
     \field{year}{2005}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{castelfranchi2000trust}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CC}{%
+         family={Castelfranchi},
+         familyi={C\bibinitperiod},
+         given={Cristiano},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=FR}{%
+         family={Falcone},
+         familyi={F\bibinitperiod},
+         given={Rino},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{CCFR1}
+    \strng{fullhash}{CCFR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{8}
+    \field{pages}{799\bibrangedash 823}
+    \field{title}{Trust and control: A dialectic link}
+    \field{volume}{14}
+    \field{journaltitle}{Applied Artificial Intelligence}
+    \field{year}{2000}
+  \endentry
+
+  \entry{josang2007survey}{article}{}
+    \name{author}{3}{}{%
+      {{hash=JA}{%
+         family={J{\o}sang},
+         familyi={J\bibinitperiod},
+         given={Audun},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=IR}{%
+         family={Ismail},
+         familyi={I\bibinitperiod},
+         given={Roslan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Boyd},
+         familyi={B\bibinitperiod},
+         given={Colin},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{JA+1}
+    \strng{fullhash}{JAIRBC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{2}
+    \field{pages}{618\bibrangedash 644}
+    \field{title}{A survey of trust and reputation systems for online service
+  provision}
+    \field{volume}{43}
+    \field{journaltitle}{Decision support systems}
+    \field{year}{2007}
+  \endentry
+
+  \entry{rasmusson1996simulated}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=RL}{%
+         family={Rasmusson},
+         familyi={R\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={Jansson},
+         familyi={J\bibinitperiod},
+         given={Sverker},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{RLJS1}
+    \strng{fullhash}{RLJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 1996 workshop on New security
+  paradigms}
+    \field{pages}{18\bibrangedash 25}
+    \field{title}{Simulated social control for secure Internet commerce}
+    \field{year}{1996}
+  \endentry
+
+  \entry{mui2002notions}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=ML}{%
+         family={Mui},
+         familyi={M\bibinitperiod},
+         given={Lik},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Mohtashemi},
+         familyi={M\bibinitperiod},
+         given={Mojdeh},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Halberstadt},
+         familyi={H\bibinitperiod},
+         given={Ari},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{ML+1}
+    \strng{fullhash}{MLMMHA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the first international joint conference
+  on Autonomous agents and multiagent systems: part 1}
+    \field{pages}{280\bibrangedash 287}
+    \field{title}{Notions of reputation in multi-agents systems: a review}
+    \field{year}{2002}
+  \endentry
+
+  \entry{carbone2003formal}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={Carbone},
+         familyi={C\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nielsen},
+         familyi={N\bibinitperiod},
+         given={Mogens},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Sassone},
+         familyi={S\bibinitperiod},
+         given={Vladimiro},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{CM+1}
+    \strng{fullhash}{CMNMSV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Software Engineering and Formal Methods, 2003.
+  Proceedings. First International Conference on}
+    \field{pages}{54\bibrangedash 61}
+    \field{title}{A formal model for trust in dynamic networks}
+    \field{year}{2003}
+  \endentry
+
+  \entry{Bitcoin_Satoshi}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Satoshi},
+         familyi={S\bibinitperiod},
+         given={Nakamoto},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Bitcoin}%
+    }
+    \strng{namehash}{SN1}
+    \strng{fullhash}{SN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
+  \url{https://bitcoin.org/bitcoin.pdf}}
+    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+    \field{year}{Oct 31, 2008}
+  \endentry
+
+  \entry{miller2010trust}{article}{}
+    \name{author}{3}{}{%
+      {{hash=MKW}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Keith\bibnamedelima W},
+         giveni={K\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Voas},
+         familyi={V\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Laplante},
+         familyi={L\bibinitperiod},
+         given={Phil},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{MKW+1}
+    \strng{fullhash}{MKWVJLP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{10}
+    \field{pages}{85\bibrangedash 87}
+    \field{title}{In trust we trust}
+    \field{volume}{43}
+    \field{journaltitle}{Computer}
+    \field{year}{2010}
+  \endentry
+
+  \entry{swan2015blockchain}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SM}{%
+         family={Swan},
+         familyi={S\bibinitperiod},
+         given={Melanie},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {" O'Reilly Media, Inc."}%
+    }
+    \strng{namehash}{SM1}
+    \strng{fullhash}{SM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Blockchain: Blueprint for a new economy}
+    \field{year}{2015}
   \endentry
 
   \entry{bondy1976graph}{book}{}
@@ -159,36 +485,6 @@
     \field{pages}{640\bibrangedash 651}
     \field{title}{The eigentrust algorithm for reputation management in p2p
   networks}
-    \field{year}{2003}
-  \endentry
-
-  \entry{hill2003social}{article}{}
-    \name{author}{2}{}{%
-      {{hash=HRA}{%
-         family={Hill},
-         familyi={H\bibinitperiod},
-         given={Russell\bibnamedelima A},
-         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=DRI}{%
-         family={Dunbar},
-         familyi={D\bibinitperiod},
-         given={Robin\bibnamedelima IM},
-         giveni={R\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{HRADRI1}
-    \strng{fullhash}{HRADRI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{1}
-    \field{pages}{53\bibrangedash 72}
-    \field{title}{Social network size in humans}
-    \field{volume}{14}
-    \field{journaltitle}{Human nature}
     \field{year}{2003}
   \endentry
 \enddatalist

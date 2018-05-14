@@ -5,87 +5,164 @@
 
 \section{Definition}
 \subsection{Trust and Reputation}
-Trust and Reputation encompass a broad spectrum of domains and is context
-dependent. Therefore, a universally agreed upon single definition doesn’t
-exist. From a game theoretic sense, trust can be interpreted as a subjective
-probability, by which an individual, A, expects another individual, B, to
-perform a given action on which its welfare depends according to a previous
-agreement. \cite{castelfranchi2000trust} Reputation, on the other hand, is the perception of an individuals
-character or standing. Individuals in online systems are identified by their
-online identities which can be anything and not necessarily attached to
-real-world identities.\cite{Sabater2005} Online identities play a crucial role in digital
-interactions and require unknown entities to trust each other based on the
-reputation system of the platform in use.
+Trust encompasses a broad spectrum of domains and is context dependent.
+Therefore, its definition varies based on context and discipline and as such
+lacks collective consensus among researchers \cite{mcknight1996meanings} 
+\cite{mcknight2001trust}.
+Using the classification from McKnight et al., 1996, Trust can be either
+Personal/Interpersonal, Dispositional or Impersonal/Structural.
+Personal trust is when one person trusts another specific person, persons, or
+things in a particular situation. Interpersonal trust involves more than one
+trusting entities. i.e., two or more people (or groups) trust each other.
+Dispositional trust refers to a more general trust that is based on personality
+attribute of the trusting party. It can be seen as a sense of basic
+trust(attitude) and is cross-contextual. While the trust mentioned above are
+implicitly directed towards a person, Impersonal/structural trust is more
+likely to refer to an institutional structure such as a judiciary system.\\\\ 
+Trust can be generally seen as an entity's reliance on another interacting
+entity to perform a specific set of the task given a specific situation.  As
+pointed out by \cite{gambetta2000can} ``Trust is the subjective probability by
+which an agent assesses that other agent or group of agents will perform a
+particular action that is beneficial or at least not detrimental."
+For an entity, 'A' to trust another entity 'B' or to evaluate B's
+trustworthiness, the reputation of 'B' plays a central role. Broadly defined,
+Reputation is the perception of an individuals character or standing. Like
+Trust, reputation is context-dependent. e.g., Alice may be trusted to 
+answer or use Linux questions efficiently but not Windows related questions.
+\cite{zacharia2000collaborative}
+A significant difference between trust and
+reputation is that the former takes the subjective measure as input whereas the
+latter takes an objective standard (e.g., transaction history, ratings) as an
+input to yield a resulting score that can aid in detecting
+reliability/trustworthiness of an entity. \cite{Sabater2005} \cite{castelfranchi2000trust} \\
 
+The classification of trust and reputation measures based on 
+ \cite{ josang2007survey}: 
+\begin{center}
+	\begin{tabularx}{\textwidth }{|c| c| c| }
+		\hline
+		 & Specific, vector-based & General, Synthesized \\
+		 \hline
+		Subjective & Survey questionnaires & eBay, voting \\
+		\hline
+		Objective & Product tests & Synthesised general score from product tests, D\&B rating 
+		\hline
+	\end{tabularx}
+	\caption{Trust and Reputation measures classification}
+\end{center}
+Individuals in online systems are identified by their online identities which
+can be anything and not necessarily linked to their real-world identities.
+Online identities play a crucial role in digital interaction and require
+unknown entities to trust each other based on the reputation system of the
+platform in use. As mentioned in \cite{rasmusson1996simulated}, trust and
+reputation are soft security mechanisms where it is up to the participants
+rather than the software/system to maintain security. Unlike hard security
+mechanism such as access control, capabilities, authentication where a user can
+be allowed or rejected access to the resource. Reputation system aids in
+calculating the probability of success or risk of failure of a transaction
+between interacting parties.\cite{mui2002notions}\cite{carbone2003formal} 
 
-%References: 
-% \cite{Sabater2005}
-% Trust and Control:  A dialectic link-  Cristiano Castelfranchi & Rino Falcone 
-
-% For this reason, the central system cannot guarantee a 
-% tamper-resistant data. A malformed decision on trustworthiness of an 
-% entity could be expensive and deal severe damage to the user. 
-% On the other hand
 %gather statistics on attacks, fraud data. 
-%Problems of decentralized reputation 
-%trusted party will transact the trust value first to each other and those trust value 
-%will be used by untrusted parties in other transaction network. 
 %the trust value obtained in the endorsement network can be integrated with 
 %existing reputation model of other transaction network and both combined 
 %should give a higher accuracy for trustworthiness measure of entities(assumption)
-%need to test when the time is right :-)
-
 
 \subsection{Blockchain}
 Blockchain can be defined as a distributed record of state changes that let
-anybody on the network audit state changes and proves with mathematical
-certainty that the transactions transpired according to the blockchain rules.
+anybody on the network audit state changes and prove with mathematical
+certainty that the transactions transpired according to the blockchain
+rules\footnote{https://media.consensys.net/time-sure-does-fly-ed4518792679}.
 There exist several definitions of blockchain technology each specific to their
 closest use case. A formal standard definition of Blockchain is under
-development as ISO/TC
-307.\footnote{https://www.iso.org/committee/6266604/x/catalogue/p/0/u/1/w/0/d/0}
-Vitalik Buterin, the founder of Ethereum, puts it this way.  "A blockchain is a
-magic computer that anyone can upload programs to and leave the programs to
-self-execute, where the current and all previous states of every program are
-always publicly visible, and which carries a very strong cryptoeconomically
-secured guarantee that programs running on the chain will continue to execute
-in exactly the way that the blockchain protocol specifies."  This definition
-provides a broad overview of what blockchain
-does.\footnote{https://blog.ethereum.org/2015/04/13/visions-part-1-the-value-of-blockchain-technology}
-As a continually developing discipline, it needs to keep adapting to a new
-definition while maintaining the essence. This thesis will discuss the topic in
-more detail in the background section.
-% \cite{enoughBitcoinForEthereum}
-% \cite{Bitcoin_Satoshi }
-% https://blog.ethereum.org/2015/04/13/visions-part-1-the-value-of-blockchain-technology
-% https://www.iso.org/committee/6266604/x/catalogue/p/0/u/1/w/0/d/0
+development as ISO/TC 307.
+\footnote{https://www.iso.org/committee/6266604/x/catalogue/p/0/u/1/w/0/d/0} \\
 
+Vitalik Buterin, the founder of Ethereum, puts it this way:  
+\begin{quote}
+	\centering
+	"A blockchain is a magic computer that anyone can upload programs to and
+	leave the programs to self-execute, where the current and all previous
+	states of every program are always publicly visible, and which carries a
+	very strong cryptoeconomically secured guarantee that programs running on
+	the chain will continue to execute in exactly the way that the blockchain
+	protocol specifies."
+	\footnote{https://blog.ethereum.org/2015/04/13/visions-part-1-the-value-of-blockchain-technology} 
+\end{quote}
+This definition provides a broad overview of what blockchain does. As a
+continually developing discipline, it keeps adapting to a new definition while
+maintaining the essence. The major innovation of blockchain as an architecture
+is distributed, decentralized trustless transactions\cite{Bitcoin_Satoshi}. It
+completely removed the need for an intermediary trusted third party by building
+trust in the system itself. One dimension of trust as mentioned by
+\cite{miller2010trust} is trust in data which is based on stored data's
+integrity. Trusting data ensures that the data is appropriate for use:
+accurate, precise, available, and uncorrupted\cite{miller2010trust}.
+Blockchain achieves this by use of cryptographic schemes(cite section) assuring
+tamper-resistant, fault-tolerance, zero-downtime
+characteristics\cite{swan2015blockchain}. 
+\newpage
+
+% \cite{enoughBitcoinForEthereum}
  
 \section{Motivation}
 %WHY: why is it interesting to study reputation system/trust 
 % why blockchain based solution is relevant/interesting
 Consider a simple scenario where Alice wants to buy a pair of headphones for
 which she browses a buy/sell platform. When she finds a relevant product on the
-platform published by Bob, unknown entity to Alice, she needs to rely on the
-ratings/feedback that Bob has received on the platform from his previous
-customers and also on the platform in use for not tampering with the data in
-any form.  The entity claiming to be Bob could be Eve who found a way to bypass
-the platform's security and inflate his reputation on the system. Eve could
-delete the ad and associated account when the payment is complete, or she could
-gather Alice’s personal details to misuse it later. Any malformed decision on
-the trustworthiness of an entity could be expensive and deal severe damage to
-the user. Thus, it is interesting to study about reputation model and methods
-to make it more reliable and accurate in its measure. Reputation model offers a
-way to measure the trustworthiness of entities to aid interacting users in
-making an informed decision about carrying forward the transaction or dropping
-it. 
+platform published by Bob, unknown entity to Alice, the success or failure of
+the transaction is dependent on two factors that may or may not be transparent.\\
+(i)Bob's reputation: Bob's reputation can be inferred from his history of
+transactions, ratings provided by previous buyers that have dealt with him,
+reputation system of the platform in use, the integrity of all these relevant
+data. 
+(II) Platform's reputation: Reputation of the platform can also be inferred
+similarly based on the history of services it has been able to provide, a
+general perception in the community, etc. 
+Here, the platform in use acts as the trusted third party that Alice must trust
+to present correctly computed, untampered data about Bob. The entity claiming
+to be Bob could be Eve who found a way to bypass the platform's security and
+inflate his reputation. Eve could delete the ad and associated account when the
+payment is complete, or she could gather Alice's details to misuse it later.
+Any malformed decision on the trustworthiness of an entity could be expensive
+and deal severe damage to the user.\\ 
+Statistics suggest that online shopping is the most adapted online
+activity.\footnote{https://www.experian.com/assets/decision.../reports/global-fraud-report-2018.pdf}
+Reports by Experia
+\footnote{https://www.experian.com/blogs/ask-experian/the-state-of-online-shopping-fraud/}
+and Javelin
+\footnote{https://www.javelinstrategy.com/press-release/identity-fraud-hits-all-t
+ime-high-167-million-us-victims-2017-according-new-javelin} indicate that
+E-commerce fraud has risen to 30\% in 2017 from 2016 while identity fraud
+victims have risen by 8\% in 2017(16.7 million U.S victims). 
 
-Studying interactions between entities and analyzing their behavior to
-generalize a trust framework is, therefore, a riveting problem. Graph theory
-and network flow algorithms have been researched in both centralized and
-decentralized environment before. This thesis proposes a blockchain based
-solution to record users behavior and compute a trust score for each of them. 
+Additionally, reports on fake news
+\footnote{https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research}
+\footnote{https://www.prnewswire.com/news-releases/84-percent-of-businesses-could-reduce-fraud-risk-if-certain-about-customers-identity-300587192.html}
+that leads to spread of misinformation from malicious users or portals, attack
+on an existing system continues.
 
+A recent report on Finland's data breach exposed
+\footnote{https://thehackernews.com/2018/04/helsingin-uusyrityskeskus-hack.html}
+130,000 users login details while Facebook has admitted to the compromise of
+2.2 billion of its user's
+data\footnote{https://thehackernews.com/2018/04/facebook-data-privacy.html}.
+While there are several security reasons that have led to attack at such scale.
+One major reason is the client-server architecture where everything is stored
+on a centralized server and data flows in and out from the same source. On the
+other hand, distributing information over a decentralized network would require
+a simultaneous attack to achieve the same effect, thereby increasing the
+difficulty level of attack. Similarly, Reputation models can help in measuring
+the reliability of interacting entities so that users can make an informed
+decision before participating in any transactions. Thus, a reputation system
+should be secure, robust, always available and aim for higher accuracy. The use
+of right reputation algorithms with Blockchain technology can help to ensure
+trustworthiness of online entities with correctness of data and a high degree
+of accuracy.  
+
+%generalize a trust framework is, therefore, a riveting problem. Graph theory
+%and network flow algorithms have been researched in both centralized and
+%decentralized environment before. This thesis proposes a blockchain based
+%solution to record users behavior and compute a trust score for each of them. 
 
 
 %To name a few of them, Sovrin(cite) is a blockchain based solution for self sovereign

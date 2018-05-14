@@ -31,6 +31,7 @@ for i in range(0, len(uniqueSource)):
     minVal = min(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
     maxVal = max(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
     ratio[uniqueSource[i]] = minVal/maxVal 
+
 impact = {}
 for i in range(0, len(uniqueSource) ): 
     tempratio = ratio[uniqueSource[i] ]
