@@ -1,6 +1,63 @@
 %%% 2LiteratureReview/ %%%
 \chapter{Literature Review} \label{ch:litrev}
-\section{Existing Reputation Systems}
+The earliest and most known internet reputation is that of
+eBay\footnote{https://www.ebay.com/}.  It uses a feedback based rating system
+where a user can rate a transaction along with some textual feedback. The range
+of values used being [1, 0, -1], positive, neutral and negative respectively.
+The final aggregated score is computed by subtracting the total of positive and
+negative ratings. This system \cite{resnick2002trust} \cite{resnick2006value}
+could be judged as working based on the sales volume and the observation that
+more than half the buyers usually engage in providing feedback). However, this
+method fails to address issues such as Sybil attack, inactive
+participation(e.g., users fear retaliation from giving negative feedback).
+There are many none E-commerce online systems such as StackExchange
+\footnote{https://stackexchange.com/}, Yelp \footnote{https://www.yelp.com/},
+Quora\footnote{https://www.quora.com/}, Reddit
+\footnote{https://www.reddit.com/} e.t.c, that make use of similar reputation
+mechanism to filter the participating users and avoid serving malicious
+participation. Most of the E-commerce systems employ a client-server
+architecture which lets a central entity in control of stored data. However,
+Peer-to-Peer(P2P) systems(cite) for applications such as file sharing, content
+delivery e.t.c. have studied and implemented reputation systems as well for
+detecting the quality of file/content as well the peers that upload them.
+\cite{resnick2000reputation}points out that a reputation system should be able
+to provide enough information to help infer the trustworthiness of
+participating users, encourage a user to be trustworthy and discourages the
+dishonest behavior.\cite{defigueiredo2005trustdavis} is a reputation system
+that addresses these concerns. It introduces the role of insurers between
+interacting entities such that a user can ask to be insured for their
+transaction or insure someone else's transaction in exchange for a reward. The
+system relies on the insurer's capability of estimating failure probability. 
+
+\cite{schaub2016trustless} proposes a block-chain based reputation model that
+uses a blind signature(cited) to disconnect the link between customer and
+ratings. Doing so lets a customer freely rate/review the transaction without
+fear of retaliation. It is more customer-centric in the sense that it allows
+only a customer to rate the transaction. Thus, Sybil identities is not a
+concern here as a customer is allowed to make multiple identities and in fact,
+a unique identifier is recommended for a unique transaction. The obvious
+problem here is the unfair rating attack. A buyer can transact with a service
+provider provide negative feedback with an intention to damage the service
+provider's reputation despite their honest behavior in the network. 
+
+
+%To name a few of them, Sovrin(cite) is a blockchain based solution for self sovereign
+%identity and decentralized trust. Wepower(cite) is another innovative use case that
+%aims to tokenize the renewable energy. Cardano is a blockchain platform
+%that uses a ouroboros, proof-of-stake consensus algorithm (cite). Similarly,
+%policypal(cite), uport(cite) are other blockchain based application focused on
+%diverse use cases.
+%Leveraging blockchain technology to implement reputation system could be an ideal
+%solution for measuring trustworthiness and attempt to increase accuracy of trust.
+%
+
+%move to literature review later
+% Beaver(cite) is a proposed model for decentralized autonomous marketplace that utilizes zero knowledge proof for anonymizing the information of participants and thus enabling everyone to freely rate or provide feedback securely. EigenTrust is a reputation management algorithm based on the
+% notion of transitive trust. i.e. If a peer i trusts a peer j, then it implies that
+% i trusts all other peers trusted by j. Trustdavis(cite) makes translates the
+% reputation model
+
+\section{Reputation Algorithms}
 
 
 
@@ -67,31 +124,31 @@
 % Beaver, Decentralized Anonymous marketplace for doing transactions in a anonymous and 
 % robust environment using bitcoin and zcash that uses zero knowledge proof. 
 
-\section{Problems \& Limitations}
-Existing reputation models aggregate feedbacks and evaluate actions and
-interactions of users and store them in a centralized database. i.e., A trusted
-node has the access control and rights to publish information to the network
-which implies that it could tamper with the data at will. The traditional
-client-server architecture is also susceptible to DDOS attack as the target is
-known and holds a single point of failure. Another challenge that is not
-limited to the centralized system is Sybil attack. In any digital platform that
-doesn't require one to reveal personally identifiable information, creating
-multiple pseudonymous identities to exploit the system is usually cheaper with
-nothing to lose. Sybil attack is one of the most significant challenges in a
-distributed computing environment. It is usually challenging to detect and has
-been mathematically proven to be impossible to prevent in a distributed environment.
+%\section{Problems \& Limitations}
+%Existing reputation models aggregate feedbacks and evaluate actions and
+%interactions of users and store them in a centralized database. i.e., A trusted
+%node has the access control and rights to publish information to the network
+%which implies that it could tamper with the data at will. The traditional
+%client-server architecture is also susceptible to DDOS attack as the target is
+%known and holds a single point of failure. Another challenge that is not
+%limited to the centralized system is Sybil attack. In any digital platform that
+%doesn't require one to reveal personally identifiable information, creating
+%multiple pseudonymous identities to exploit the system is usually cheaper with
+%nothing to lose. Sybil attack is one of the most significant challenges in a
+%distributed computing environment. It is usually challenging to detect and has
+%been mathematically proven to be impossible to prevent in a distributed environment.
 
-\subsection{Sybil Attack}
-Sybil attack is a widely used attack model in the peer-to-peer 
-reputation system. Peers in the network create multiple 
-pseudonymous identities with a purpose of inflating their 
-reputation or damaging some other peers reputation. If a peer gets
-a bad reputation in the system for its activity or other reputation
-models defined parameters, then usually it is both cheaper and  
-faster to create a new identity and start afresh then to try and 
-recuperate the damaged reputation. As the network makes it so easy
-to create identities with nothing at stake, participants opt for it 
-and exploit this feature to perform Sybil attack. 
+%\subsection{Sybil Attack}
+%Sybil attack is a widely used attack model in the peer-to-peer 
+%reputation system. Peers in the network create multiple 
+%pseudonymous identities with a purpose of inflating their 
+%reputation or damaging some other peers reputation. If a peer gets
+%a bad reputation in the system for its activity or other reputation
+%models defined parameters, then usually it is both cheaper and  
+%faster to create a new identity and start afresh then to try and 
+%recuperate the damaged reputation. As the network makes it so easy
+%to create identities with nothing at stake, participants opt for it 
+%and exploit this feature to perform Sybil attack. 
 %%gather data on attacks on current system.
 % %possibilities of sybil attacks and mitigations assumed
 % \subsection{Shilling Attack}

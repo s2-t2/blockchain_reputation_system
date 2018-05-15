@@ -423,6 +423,189 @@
     \field{year}{2015}
   \endentry
 
+  \entry{resnick2002trust}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=RP}{%
+         family={Resnick},
+         familyi={R\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zeckhauser},
+         familyi={Z\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Emerald Group Publishing Limited}%
+    }
+    \strng{namehash}{RPZR1}
+    \strng{fullhash}{RPZR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{The Economics of the Internet and E-commerce}
+    \field{pages}{127\bibrangedash 157}
+    \field{title}{Trust among strangers in Internet transactions: Empirical
+  analysis of eBay's reputation system}
+    \field{year}{2002}
+  \endentry
+
+  \entry{resnick2006value}{article}{}
+    \name{author}{4}{}{%
+      {{hash=RP}{%
+         family={Resnick},
+         familyi={R\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zeckhauser},
+         familyi={Z\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Swanson},
+         familyi={S\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lockwood},
+         familyi={L\bibinitperiod},
+         given={Kate},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{RP+1}
+    \strng{fullhash}{RPZRSJLK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{2}
+    \field{pages}{79\bibrangedash 101}
+    \field{title}{The value of reputation on eBay: A controlled experiment}
+    \field{volume}{9}
+    \field{journaltitle}{Experimental economics}
+    \field{year}{2006}
+  \endentry
+
+  \entry{resnick2000reputation}{article}{}
+    \name{author}{4}{}{%
+      {{hash=RP}{%
+         family={Resnick},
+         familyi={R\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KK}{%
+         family={Kuwabara},
+         familyi={K\bibinitperiod},
+         given={Ko},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zeckhauser},
+         familyi={Z\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=FE}{%
+         family={Friedman},
+         familyi={F\bibinitperiod},
+         given={Eric},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{RP+1}
+    \strng{fullhash}{RPKKZRFE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{12}
+    \field{pages}{45\bibrangedash 48}
+    \field{title}{Reputation systems}
+    \field{volume}{43}
+    \field{journaltitle}{Communications of the ACM}
+    \field{year}{2000}
+  \endentry
+
+  \entry{defigueiredo2005trustdavis}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=DDB}{%
+         family={DeFigueiredo},
+         familyi={D\bibinitperiod},
+         given={Dd\bibnamedelima B},
+         giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=BET}{%
+         family={Barr},
+         familyi={B\bibinitperiod},
+         given={Earl\bibnamedelima T},
+         giveni={E\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{DDBBET1}
+    \strng{fullhash}{DDBBET1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{E-Commerce Technology, 2005. CEC 2005. Seventh IEEE
+  International Conference on}
+    \field{pages}{274\bibrangedash 283}
+    \field{title}{Trustdavis: A non-exploitable online reputation system}
+    \field{year}{2005}
+  \endentry
+
+  \entry{schaub2016trustless}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SA}{%
+         family={Schaub},
+         familyi={S\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Bazin},
+         familyi={B\bibinitperiod},
+         given={R{\'e}mi},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HO}{%
+         family={Hasan},
+         familyi={H\bibinitperiod},
+         given={Omar},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Brunie},
+         familyi={B\bibinitperiod},
+         given={Lionel},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{SA+1}
+    \strng{fullhash}{SABRHOBL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{IFIP International Information Security and Privacy
+  Conference}
+    \field{pages}{398\bibrangedash 411}
+    \field{title}{A trustless privacy-preserving reputation system}
+    \field{year}{2016}
+  \endentry
+
   \entry{bondy1976graph}{book}{}
     \true{moreauthor}
     \name{author}{2}{}{%
