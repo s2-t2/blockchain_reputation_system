@@ -85,6 +85,13 @@ contract Endorsement {
 		endorser.index++;
 	    endorser.sender = msg.sender;
 	    endorser.nEG++;
+		
+//		if (endorser.nEG >1 ){ 
+//			endorser.usedPower = Division(1, endorser.nEG,9);
+//		} else {
+//			endorser.usedPower = 0;
+//		}
+		
 	    endorser.usedPower =Division(1,endorser.nEG, 9);
 	    endorser.givenTo.push(receiver);
 	    endorser.hasGivenTo[receiver] = true;
@@ -109,16 +116,19 @@ contract Endorsement {
 	}
 
 	function removeEndorsement(address _endorsee) public returns(uint) { 
-		if (endorsers[msg.sender].hasGivenTo[_endorsee]) { 
-			//remove _endorsee from endorsers[msg.sender].givenTo
-			//and .hasGivenTo, change bool to false
+		Endorser storage endorser = endorsers[msg.sender];
+		Endorsee storage endorsee = endorsees[_endorsee];
 
-
-			//remove msg.sender key from endorsees[_receiver].receivedFrom
-			//and .hasReceivedFrom , change bool to false
+		if (endorser.hasGivenTo[_endorsee]) { 
+			endorser.hasGivenTo[_endorsee] = false;
+			endorser.nEG--;
+			//remove endorsee from endorser.givenTo array 
+			
+			endorsee.hasReceivedFrom[msg.sender] = false;
+			endorsee.nER--;
+			//remove endorser address from endorsee.receivedFrom array
 		}
 		return endorsers[msg.sender].index;
-		
 	}
 
 	function computeReceivedPoints(address _endorsee) public view returns(uint) { 
@@ -137,23 +147,25 @@ contract Endorsement {
 		uint nEG = endorsers[_participant].nEG;
 		uint nER = endorsees[_participant].nER;
 		uint _RE = computeReceivedPoints(_participant);
+		uint impact;
 
 		if (nEG <=1 && nER <=1 ) { 
-			uint impact = 0;
+			impact = 0;
 			//return impact and exit here
+		} else { 
+
+			uint minval = min(nEG,nER);
+			uint maxval = max(nEG,nER);
+
+			uint ratio = Division(minval, maxval,9);
+			uint usedUpByParticipant = endorsers[_participant].usedPower;
+			uint RE = _RE; 
+
+			impact = ratio * usedUpByParticipant * RE;
 		}
-
-		uint minVal = min(nEG,nER);
-		uint maxVal = max(nEG,nER);
-
-		uint ratio = Division(minVal, maxVal,9);
-		uint usedUpByParticipant = endorsers[_participant].usedPower;
-		uint RE = _RE; 
-
-		uint impact = ratio * usedUpByParticipant * RE;
-
 		return impact;
 	}
+
 
 	function getProfile(address _participant) public view returns (uint) { 
 		//get profile for specific address
