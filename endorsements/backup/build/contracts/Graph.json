@@ -1,0 +1,412 @@
+{
+  "contractName": "Graph",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_node",
+          "type": "address"
+        }
+      ],
+      "name": "netFlow",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b60a98061001d6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063dcc1b4e7146044575b600080fd5b3415604e57600080fd5b6078600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050607a565b005b505600a165627a7a723058201ce2f1f622c6e6c5453534eff48894220f4432aedb817548a5c5dffa4378cab30029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063dcc1b4e7146044575b600080fd5b3415604e57600080fd5b6078600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050607a565b005b505600a165627a7a723058201ce2f1f622c6e6c5453534eff48894220f4432aedb817548a5c5dffa4378cab30029",
+  "sourceMap": "26:132:4:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:132:4:-;;;;;;;;;;;;;;;;;;;;;;;;117:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract Graph {\n\tstruct nodes {\n\t\tuint inDegree;\n\t\tuint outDegree;\n\t\tuint neighbor;\n\t}\n\n\n\tfunction netFlow(address _node) {\n\t\n\t}\n\n}\n",
+  "sourcePath": "/home/sujata/Documents/Masters-Thesis/endorsements/contracts/graph.sol",
+  "ast": {
+    "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/contracts/graph.sol",
+    "exportedSymbols": {
+      "Graph": [
+        1129
+      ]
+    },
+    "id": 1130,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1115,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1129,
+        "linearizedBaseContracts": [
+          1129
+        ],
+        "name": "Graph",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Graph.nodes",
+            "id": 1122,
+            "members": [
+              {
+                "constant": false,
+                "id": 1117,
+                "name": "inDegree",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "61:13:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1116,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "61:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1119,
+                "name": "outDegree",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "78:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1118,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "78:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1121,
+                "name": "neighbor",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "96:13:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1120,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "96:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "nodes",
+            "nodeType": "StructDefinition",
+            "scope": 1129,
+            "src": "44:69:4",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1127,
+              "nodeType": "Block",
+              "src": "149:6:4",
+              "statements": []
+            },
+            "id": 1128,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "netFlow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1125,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1124,
+                  "name": "_node",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1128,
+                  "src": "134:13:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1123,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "134:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "133:15:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1126,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "149:0:4"
+            },
+            "scope": 1129,
+            "src": "117:38:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1130,
+        "src": "26:132:4"
+      }
+    ],
+    "src": "0:159:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/contracts/graph.sol",
+    "exportedSymbols": {
+      "Graph": [
+        1129
+      ]
+    },
+    "id": 1130,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1115,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1129,
+        "linearizedBaseContracts": [
+          1129
+        ],
+        "name": "Graph",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Graph.nodes",
+            "id": 1122,
+            "members": [
+              {
+                "constant": false,
+                "id": 1117,
+                "name": "inDegree",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "61:13:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1116,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "61:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1119,
+                "name": "outDegree",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "78:14:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1118,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "78:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1121,
+                "name": "neighbor",
+                "nodeType": "VariableDeclaration",
+                "scope": 1122,
+                "src": "96:13:4",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1120,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "96:4:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "nodes",
+            "nodeType": "StructDefinition",
+            "scope": 1129,
+            "src": "44:69:4",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1127,
+              "nodeType": "Block",
+              "src": "149:6:4",
+              "statements": []
+            },
+            "id": 1128,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "netFlow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1125,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1124,
+                  "name": "_node",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1128,
+                  "src": "134:13:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1123,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "134:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "133:15:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1126,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "149:0:4"
+            },
+            "scope": 1129,
+            "src": "117:38:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1130,
+        "src": "26:132:4"
+      }
+    ],
+    "src": "0:159:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-05-15T13:34:53.448Z"
+}

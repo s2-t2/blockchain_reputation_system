@@ -1,14 +1,26 @@
 {
-  "name": "endorsements",
+  "name": "endorsement",
   "version": "1.0.0",
-  "description": "",
-  "main": "truffle-config.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "dev": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "ganache-cli": "^6.0.3",
+    "mocha": "^4.1.0",
+    "next": "^4.1.4",
+    "next-routes": "^1.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.77.2",
+    "solc": "^0.4.19",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "1.0.0-beta.26"
+  },
+  "description": ""
 }
