@@ -17,7 +17,7 @@ class ParticipantIndex extends Component {
 			return {
 				header: address,
 				description: (
-					<Link route={`/participants/${ address}`}>
+					<Link route={`/participants/${address}/` }>
 						<a>View Details </a>
 					</Link>
 				),
