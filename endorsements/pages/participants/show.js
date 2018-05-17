@@ -1,8 +1,10 @@
 import React, {Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Button, Form, Input, Message, Group, Grid } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Endorsement from '../../ethereum/participants';
 import eds from '../../ethereum/eds';
+import web3 from '../../ethereum/web3';
+import Endorse from '../../components/Endorse';
 
 class ParticipantShow extends Component {
 	static async getInitialProps(props) {
@@ -12,6 +14,9 @@ class ParticipantShow extends Component {
 		const user = Endorsement(props.query.address);
 
 		const summary = await eds.methods.getProfile(props.query.address).call();
+		const impact = await eds.methods.computeImpact(props.query.address).call();
+		const index = await eds.methods.getParticipantIndex(props.query.address).call();
+		const name = await eds.methods.participants(index).call();
 		//console.log(summary );
 //		user.methods
 //			.getProfile(props.query.address)
@@ -22,8 +27,13 @@ class ParticipantShow extends Component {
 		
 
 		//user.methods.getProfile(props.query.address).call().then(function(instance){summary=instance;});
-
+		
 		return {
+			index: index,
+			name: name[1],
+			address: props.query.address,
+			impact: impact,
+
 			outDegree: summary[0],
 			usedPower: summary[1],
 			outConns: summary[2],
@@ -42,11 +52,27 @@ class ParticipantShow extends Component {
 			outConns,
 			inDegree,
 			receivedPoints,
-			inConns
+			inConns,
+			impact,
+			name	
 		} = this.props;
 
 
 		const items = [
+			{ 
+				header:this.props.address,
+				meta:'Public key used when joining the network',
+				description: 'Public key of the participant',
+				style: {overflowWrap: 'break-word'}
+			
+			},
+			{
+				header: name,
+				meta: 'User Name',
+				description: 'Pseudonym used when joining the network',
+				style: {overflowWrap: 'break-word'}
+			
+			},
 			{
 				header: outDegree,
 				meta: 'nEG',
@@ -72,6 +98,12 @@ class ParticipantShow extends Component {
 				style: {overflowWrap:'break-word'}
 			},
 			{
+				header: impact,
+				meta: 'Endorsement Impact',
+				description: 'Total Endorsement Impact made by the participant',
+				style: {overflowWrap:'break-word'}
+			},
+			{
 				header: outConns,
 				meta: 'Outgoing Connections',
 				description: 'Array of addresses to whom the participant has endorsed',
@@ -85,16 +117,21 @@ class ParticipantShow extends Component {
 			}
 		];
 		return <Card.Group items={items} />;
-	
 	}
-
 
 	render( ) {
 		
 		return (
 			<Layout>
 				<h3> Participant Details </h3>
-				{this.renderCards() }
+				<Grid>
+					<Grid.Column width={10 }>
+						{this.renderCards()}
+					</Grid.Column>
+					<Grid.Column width={6 }>
+						<Endorse id={this.props.index} /> 
+					</Grid.Column>
+				</Grid>
 			</Layout>
 			);
 	}

@@ -60,6 +60,9 @@ contract Endorsement {
 
 	address [] public allParticipants;
 
+	mapping (address => uint ) participantIndex;
+
+
 	function joinNetwork(string _userName) public{
 	    require(!joined[msg.sender]);
 	    joined[msg.sender] = true;
@@ -74,11 +77,17 @@ contract Endorsement {
 
 		numberOfParticipants++;
 
+		participantIndex[msg.sender] = numberOfParticipants-1;
+
 		allParticipants.push(msg.sender);
 	}
 
 	function getAllParticipants() public view returns(address[]) {
 		return allParticipants;
+	}
+
+	function getParticipantIndex(address _participant) public view returns (uint ) {
+		uint userIndex = participantIndex[_participant];
 	}
 	
 	function endorse(uint _index) public { 

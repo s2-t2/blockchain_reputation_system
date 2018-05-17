@@ -3,6 +3,6 @@ import eds from './build/Endorsement.json';
 
 const instance = new web3.eth.Contract(
 	JSON.parse(eds.interface ),
-	'0x3C6625FEAb7Fb17576a1285da7e3a9fE577d2C2A'
+	'0x0F1Dafc529292B97f7989D872408550B525EcD30'
 );
 export default instance;
