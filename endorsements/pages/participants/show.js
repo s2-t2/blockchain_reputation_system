@@ -4,29 +4,21 @@ import Layout from '../../components/Layout';
 import Endorsement from '../../ethereum/participants';
 import eds from '../../ethereum/eds';
 import web3 from '../../ethereum/web3';
-import Endorse from '../../components/Endorse';
+//import Endorse from '../../components/Endorse';
 
 class ParticipantShow extends Component {
 	static async getInitialProps(props) {
+
+		const accounts = await web3.eth.getAccounts();
 		//props.query.address=address of the actual participant that we show
 		//console.log(props.query.address);
-		//const address = props.query.address;
+		const address = props.query.address;
 		const user = Endorsement(props.query.address);
 
 		const summary = await eds.methods.getProfile(props.query.address).call();
 		const impact = await eds.methods.computeImpact(props.query.address).call();
 		const index = await eds.methods.getParticipantIndex(props.query.address).call();
 		const name = await eds.methods.participants(index).call();
-		//console.log(summary );
-//		user.methods
-//			.getProfile(props.query.address)
-//			.call()
-//			.then( (summary) => {
-//				console.log( summary )
-//			}) ;
-		
-
-		//user.methods.getProfile(props.query.address).call().then(function(instance){summary=instance;});
 		
 		return {
 			index: index,
@@ -42,8 +34,23 @@ class ParticipantShow extends Component {
 			receivedPoints: summary[4],
 			inConns: summary[5]
 		};
+
+
+		}
+
+	onHandleClick = async() => {
+		const accounts = await web3.eth.getAccounts();
+		await eds.methods.endorse(this.props.index).send({
+			from: accounts[0]
+		});
+
+		console.log("hello");
+		//console.log(this.props.address);
 	
 	}
+
+	
+	
 
 	renderCards( ) {
 		const {
@@ -128,8 +135,12 @@ class ParticipantShow extends Component {
 					<Grid.Column width={10 }>
 						{this.renderCards()}
 					</Grid.Column>
-					<Grid.Column width={6 }>
-						<Endorse id={this.props.index} /> 
+				</Grid>
+				<Grid>
+					<Grid.Column width={15}>
+					<Button color="green" basic onClick={this.onHandleClick}>
+						Endorse this Participant!
+					</Button>
 					</Grid.Column>
 				</Grid>
 			</Layout>

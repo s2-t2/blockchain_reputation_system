@@ -12,6 +12,7 @@ class ParticipantIndex extends Component {
 	
 	}
 
+
 	renderParticipants(){
 		const items = this.props.participants.map(address => {
 			return {

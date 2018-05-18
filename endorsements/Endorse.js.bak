@@ -1,0 +1,57 @@
+import React, {Component } from 'react';
+import {Form, Input, Message, Button } from 'semantic-ui-react';
+import eds from '../ethereum/eds';
+import Endorsement from '../ethereum/participants';
+import web3 from '../ethereum/web3';
+
+class Endorse extends Component {
+
+	state = { 
+		value:'',
+		errorMessage:'',
+		loading: false,
+	};
+
+	onSubmit = async (event) => {
+		event.preventDefault();
+
+		const participant = Endorsement(this.props.address);
+
+		this.setState({ loading:true, errorMessage: '' });
+
+		//console.log(participant );
+
+		try {
+			const accounts = await web3.eth.getAccounts();
+			//const index = await eds.methods.getParticipantIndex(props.query.address).call();
+			await participant.methods.endorse(this.props.index,{from: accounts[0] });
+		
+		} catch (err){
+		
+		};
+	
+	};
+
+	render( ) {
+		return (
+			<Form onSubmit={this.onSubmit() }>
+				<Form.Field>
+					<label>Address of this participant</label>
+					<Input 
+						//value={eds.methods.getParticipantIndex(this.state.value).call()}
+						value={this.state.value}
+						onChange= {event => this.setState({value: event.target.value })}
+						label="address" 
+						labelPosition="right" 
+					/>
+				</Form.Field>
+				<Message error header="Oops!" content={this.state.errorMessage} />
+				<Button primary loading = {this.state.loading} > 
+					Endorse this Participant
+				</Button>  
+			</Form>
+		);
+	}
+}
+
+export default Endorse;
