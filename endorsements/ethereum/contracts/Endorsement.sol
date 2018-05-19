@@ -88,6 +88,13 @@ contract Endorsement {
 
 	function getParticipantIndex(address _participant) public view returns (uint ) {
 		uint userIndex = participantIndex[_participant];
+		return userIndex;
+	}
+
+	function getName(uint _index ) public view returns (string ) {
+		string name = participants[_index].name;
+		return name;
+	
 	}
 	
 	function endorse(uint _index) public { 
@@ -168,6 +175,7 @@ contract Endorsement {
 
 		if (nEG <=1 && nER <=1 ) { 
 			impact = 0;
+			return impact;
 			//return impact and exit here
 		} else { 
 
@@ -184,13 +192,13 @@ contract Endorsement {
 	}
 
 	function getProfile(address _participant) public view returns (
-		uint,uint, address[], uint, uint, address[] ) { 
-		//get profile for specific address
-
-//		uint endorsementImpact = computeImpact(_participant);
-//		uint totalImpact = endorsementImpact * endorsers[_participant].nEG;
-//
-//		return totalImpact;
+		uint,
+		uint, 
+		address[], 
+		uint, 
+		uint, 
+		address[] ) 
+		{ 
 
 		uint outDegree = endorsers[_participant].nEG;
 		uint usedPower = endorsers[_participant].usedPower;
@@ -211,18 +219,16 @@ contract Endorsement {
 		);
 	}
 
-//	function getSummary() public view returns(uint, uint, uint, address[], uint, address[]) {
-//		return (
-//			endorsers.index,
-//			endorsers.nEG,
-//			endorsers.usedPower,
-//			endorsers.givenTo,
-//
-//			endorsees.nER,
-//			endorsees.receivedFrom
-//		);
-//	}
-//
+	function getConnections(address _participant) public view returns (
+		address [],
+		address []
+	){
+		address [] inConns = endorsees[_participant].receivedFrom;
+		address [] outConns = endorsers[_participant].givenTo;
+
+		return (inConns, outConns);
+	}
+
 	function getCount( ) public view returns (uint) {
 		return numberOfParticipants;
 	}
@@ -240,6 +246,11 @@ contract Endorsement {
 	    return (endorsers[_endorser].givenTo);
 	    
 	}
+
+	function getGivenToCount(address _endorser ) view public returns (uint) {
+		return (endorsers[_endorser].givenTo).length;
+	
+	}
 	
 	function gethasGivenTo(address _endorser, address _endorsee) view public returns(bool) {
 	    return (endorsers[_endorser].hasGivenTo[_endorsee]);
@@ -253,6 +264,10 @@ contract Endorsement {
 	function getReceivedFrom(address _endorsee) view public returns(address []) {
 	    return (endorsees[_endorsee].receivedFrom);
 	    
+	}
+
+	function getReceivedFromCount(address _endorsee) view public returns (uint ) {
+		return (endorsees[_endorsee].receivedFrom).length;
 	}
 	
 	function gethasReceivedFrom(address _endorser, address _endorsee) view public returns(bool) {
@@ -286,28 +301,3 @@ contract Endorsement {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
