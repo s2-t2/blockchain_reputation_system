@@ -635,40 +635,70 @@
     \field{year}{1976}
   \endentry
 
-  \entry{kamvar2003eigentrust}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=KSD}{%
-         family={Kamvar},
-         familyi={K\bibinitperiod},
-         given={Sepandar\bibnamedelima D},
-         giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
-      }}%
-      {{hash=SMT}{%
-         family={Schlosser},
+  \entry{SzaboSmart1994}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Szabo},
          familyi={S\bibinitperiod},
-         given={Mario\bibnamedelima T},
-         giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod},
-      }}%
-      {{hash=GMH}{%
-         family={Garcia-Molina},
-         familyi={G\bibinitperiod-M\bibinitperiod},
-         given={Hector},
-         giveni={H\bibinitperiod},
+         given={Nick},
+         giveni={N\bibinitperiod},
       }}%
     }
-    \list{organization}{1}{%
-      {ACM}%
-    }
-    \strng{namehash}{KSD+1}
-    \strng{fullhash}{KSDSMTGMH1}
+    \strng{namehash}{SN2}
+    \strng{fullhash}{SN2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 12th international conference on World
-  Wide Web}
-    \field{pages}{640\bibrangedash 651}
-    \field{title}{The eigentrust algorithm for reputation management in p2p
-  networks}
-    \field{year}{2003}
+    \field{title}{Smart Contracts
+  \url{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html}}
+    \field{year}{1994}
+  \endentry
+
+  \entry{szabo1996smart}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Szabo},
+         familyi={S\bibinitperiod},
+         given={Nick},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SN2}
+    \strng{fullhash}{SN2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Smart contracts: building blocks for digital markets}
+    \field{journaltitle}{EXTROPY: The Journal of Transhumanist Thought,(16)}
+    \field{year}{1996}
+  \endentry
+
+  \entry{szabo1997formalizing}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Szabo},
+         familyi={S\bibinitperiod},
+         given={Nick},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SN2}
+    \strng{fullhash}{SN2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{9}
+    \field{title}{Formalizing and securing relationships on public networks}
+    \field{volume}{2}
+    \field{journaltitle}{First Monday}
+    \field{year}{1997}
+  \endentry
+
+  \entry{whataresmartcontracts}{misc}{}
+    \list{organization}{1}{%
+      {ChainFrog}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{What are Smart Contracts,
+  \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf}}
+    \field{year}{2017}
   \endentry
 \enddatalist
 \endinput
