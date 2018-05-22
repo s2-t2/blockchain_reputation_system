@@ -58,7 +58,25 @@ provider's reputation despite their honest behavior in the network.
 % reputation model
 
 \section{Reputation Algorithms}
-
+The most known and widely used reputation algorithm in a P2P network is
+EigenTrust(cite). It recommends a method to aggregate local trust values of all
+peers. It has the notion of transitive trust and lets peers rate another peer
+as either positive or negative just like eBay does [-1,+1]. Based on the
+aggregated score, a user can decide if a peer can be considered trustworthy for
+a download source or not. Drawbacks (cite 2) of EigenTrust is that peers are
+likely to center around a static set of pre-trusted peers(cite). Pre-trusted
+peer is a notion of trust where first few peers that joined the network are
+assumed trustworthy by design. This notion is also used by Advogato's trust
+metric. There have been proposals to improve upon EigenTrust such as
+Incremental Trust, Honest Peer algorithm.  There are two main methods in a
+reputation method system(cite): peer-based reputation system and file-based
+reputation systems. The former tries to rate a peer and associate a value with
+the peers that are actually participating in the network. The latter checks the
+integrity of a file that is being delivered/served on the network regardless of
+who(peer) owns or serves it. [AuthenticPeer++] is a trust management system for
+P2P networks that combines both of this reputation system. As such, it only
+allows trusted peers to rank the file after they download it and uses DHT-based
+structure to manage the integrity of file information. 
 
 
 %\subsection{Centralized}

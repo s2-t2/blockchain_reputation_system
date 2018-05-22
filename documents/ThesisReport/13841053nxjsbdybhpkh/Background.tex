@@ -14,62 +14,66 @@ graph of network for reputation system. Each node on the network, v can represen
 individuals and the edges that connect the nodes can represent the relationships 
 between those nodes. The edge can have varying weights to represent the strength of 
 relationship between the nodes. \cite{bondy1976graph}
+
+
+
+
 %cite graph theories and applications:
 %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.721.3161&rep=rep1&type=pdf
 %more concept based on what is needed to know when representing/modeling the network.
 
-\subsection{EigenTrust}
-EigenTrust is a reputation management algorithm for P2P network that aims to minimize 
-malicious behaviour in the network and is based on the notion of transitive trust.
-i.e. If a peer \textit{i} trusts a peer \textit{j} then all other peers trusted by 
-\textit{j} is also trusted by \textit{i}. 
-In EigenTrust, global reputation of each peer \textit{i} is given by local trust value 
-assigned to peer \textit{i} by other peers and is weighted by the global reputation 
-of assigning peers. 
-A local trust value $s_{ij}$ is calculated by 
-each peer \textit{i} which represents the opinion \textit{i} has of \textit{j}. $s_{ij}$
-is the difference of satisfactory and unsatisfactory transactions peer \textit{i} had 
-with other peers \textit{j}.
-\begin{equation}
-	s_{ij} = sat(i,j) - unsat(i,j) \\ 
-\end{equation}
-where sat(i,j) represents number of satisfactory transactions that \textit{i} had with 
-\textit{j} whereas unsat(i,j) represents number of unsatisfactory transactions. \\
-To prevent malicious peers from assigning arbitrarily high local trust values to 
-other malicious peers, the local trust value is normalized as $c_{ij}$ before aggregating 
-them. 
-\begin{equation}
-	c_{ij} = \frac{max(s_{ij},0)}{\sum_{j}max(s_{ij},0)}
-\end{equation}
-$C_{ij}$ keeps changing depending on the good or bad interaction between peer \textit{i} 
-and peer \textit{j}.
-Based on the local trust value assigned by other peers, each peer has a global trust 
-value that determines their standing in the network. To aggregate the normalized local 
-trust values, the approach used is friend-friend reference where a peer \textit{i} 
-would ask its acquaintances about their opinion about other peers. Trust that 
-peer \textit{i} places in peer \textit{k} by asking his friends can be denoted by 
-$t_{ik}$ as : 
-\begin{equation}
-	t_{ik} = \sum_{j} c_{ij} c_{jk}
-\end{equation}
-Each peer asks other peers about their opinion which is weighted based on how much peer 
-\textit{i} trusts them. 
-If we define C as a matrix $[c_{ij}]$ and $t_{i}$ as a vector containing values 
-$t_{ik}$, then $t_{ik}$ = $C^T\vec{c_{i}}$. This helps a peer get a wider view of 
-the network more than its own experience. This can continue for many nodes until peer 
-\textit{i} asks his friend's friend's and friend's friend can be consulted further to 
-receive a broader view of the network. For \textit{n} nodes, we can represent \textit{t}
-as t = $(C^T)^n c_{i}$. For a large enough value of \textit{n} , trust vector 
-$\vec{t_{i}}$ will converge to same vector for every peer \textit{i} and could give 
-complete view of the network. 
-\textit{t} is the global trust vector where $t_{j}$ quantifies the trust system places in 
-peer \textit{j}. 
-EigenTrust is robust to malicious peers and good for decreasing inauthentic file downloads 
-in a P2P network. However, it doesn't address the issues such as inactive peers, where a 
-peer doesn't download from anywhere else, malicious collectiveness, where malicious peers 
-collude to inflate the trust value. It also doesn't have a way to calculate negative trust 
-and is entirely based on user feedback. \cite{kamvar2003eigentrust}
-
+%\subsection{EigenTrust}
+%EigenTrust is a reputation management algorithm for P2P network that aims to minimize 
+%malicious behaviour in the network and is based on the notion of transitive trust.
+%i.e. If a peer \textit{i} trusts a peer \textit{j} then all other peers trusted by 
+%\textit{j} is also trusted by \textit{i}. 
+%In EigenTrust, global reputation of each peer \textit{i} is given by local trust value 
+%assigned to peer \textit{i} by other peers and is weighted by the global reputation 
+%of assigning peers. 
+%A local trust value $s_{ij}$ is calculated by 
+%each peer \textit{i} which represents the opinion \textit{i} has of \textit{j}. $s_{ij}$
+%is the difference of satisfactory and unsatisfactory transactions peer \textit{i} had 
+%with other peers \textit{j}.
+%\begin{equation}
+%	s_{ij} = sat(i,j) - unsat(i,j) \\ 
+%\end{equation}
+%where sat(i,j) represents number of satisfactory transactions that \textit{i} had with 
+%\textit{j} whereas unsat(i,j) represents number of unsatisfactory transactions. \\
+%To prevent malicious peers from assigning arbitrarily high local trust values to 
+%other malicious peers, the local trust value is normalized as $c_{ij}$ before aggregating 
+%them. 
+%\begin{equation}
+%	c_{ij} = \frac{max(s_{ij},0)}{\sum_{j}max(s_{ij},0)}
+%\end{equation}
+%$C_{ij}$ keeps changing depending on the good or bad interaction between peer \textit{i} 
+%and peer \textit{j}.
+%Based on the local trust value assigned by other peers, each peer has a global trust 
+%value that determines their standing in the network. To aggregate the normalized local 
+%trust values, the approach used is friend-friend reference where a peer \textit{i} 
+%would ask its acquaintances about their opinion about other peers. Trust that 
+%peer \textit{i} places in peer \textit{k} by asking his friends can be denoted by 
+%$t_{ik}$ as : 
+%\begin{equation}
+%	t_{ik} = \sum_{j} c_{ij} c_{jk}
+%\end{equation}
+%Each peer asks other peers about their opinion which is weighted based on how much peer 
+%\textit{i} trusts them. 
+%If we define C as a matrix $[c_{ij}]$ and $t_{i}$ as a vector containing values 
+%$t_{ik}$, then $t_{ik}$ = $C^T\vec{c_{i}}$. This helps a peer get a wider view of 
+%the network more than its own experience. This can continue for many nodes until peer 
+%\textit{i} asks his friend's friend's and friend's friend can be consulted further to 
+%receive a broader view of the network. For \textit{n} nodes, we can represent \textit{t}
+%as t = $(C^T)^n c_{i}$. For a large enough value of \textit{n} , trust vector 
+%$\vec{t_{i}}$ will converge to same vector for every peer \textit{i} and could give 
+%complete view of the network. 
+%\textit{t} is the global trust vector where $t_{j}$ quantifies the trust system places in 
+%peer \textit{j}. 
+%EigenTrust is robust to malicious peers and good for decreasing inauthentic file downloads 
+%in a P2P network. However, it doesn't address the issues such as inactive peers, where a 
+%peer doesn't download from anywhere else, malicious collectiveness, where malicious peers 
+%collude to inflate the trust value. It also doesn't have a way to calculate negative trust 
+%and is entirely based on user feedback. \cite{kamvar2003eigentrust}
+%
 % The approach used for deriving these 
 % values are past history and friend-friend reference. 
 
@@ -177,13 +181,27 @@ on the network to modify the message will refute the signature.
 % something on the network. 
 
 \section{Blockchain Technology}
-Blockchain, as the name suggests is a chain of blocks, where each block had the
-consensus of all the nodes on the network before being unlocked. A block
-consists of a list of transactions that a miner accumulated at a particular
-point in time. Blockchain shows the ordering of transactions in the network.\\
+Blockchain Technology is a variant of distributed database on a P2P network. As
+the name suggests, it is a chain of blocks where each block consists of a list
+of transactions that are collected by validators/miners defined by the network.
+The linking and ordering of transactions are also the responsibility of these
+defined validators. One of the validators proposes a block that the whole
+network can accept or reject. A consensus algorithm(cite) comes into play
+during the proposal of a block. If a consensus is reached, then the block is
+accepted and refused otherwise. Several consensus mechanisms are discussed in
+section(cite). The proposed block is then chained with the rest of the blocks
+and linked directly to the block before it. The hash value of the previous
+block points to the current block and the current block's hash value will point
+to the future block. 
 
-Block0 -> Block 1 -> Block 2 -> . . . \\
-----------------------Time-----------------> 
+Each block is linked together to a previous block by a hash value(cite figure).
+Thus, this chain of blocks is unalterable as altering one block would require
+modifying every other previous block in the chain that is linked together. One
+could view this order as a singly linked list data structure. The chain of the
+block shows the ordering of transactions that met consensus at the given time
+whereas transactions chain shows the chain of ownership. i.e., each transaction
+that is linked together in a block.
+
 
 
 %\cite{pilkington201611}
@@ -194,52 +212,76 @@ Block0 -> Block 1 -> Block 2 -> . . . \\
 \subsection{Evolution \& Categories}
 Bitcoin was the first application that made use of Blockchain technology which
 was a peer-to-peer electronic cash system. The major contribution of this
-project was distributed trust at scale without using a trusted intermediary.
-Along the dimension of validation and access control, blockchain can be
-categorized as public permissionless, public permissioned, private
+application was solving distributed trust at scale without using a trusted
+intermediary. 
+Along the dimension of validation and access control(cite), blockchains can be
+categorized as a public permissionless system, public permissioned, and private
 permissioned. 
-
-%figure
-
-While various use cases and diverse domains have shown an interest in the
-technology, it is crucial to make a distinction on when and for what purpose
-does it make more sense.
-%https://eprint.iacr.org/2017/375.pdf
-
-Hashgraph, which is a new project that claims to have solved the scalability issue of blockchain while maintaining security describes the different stages of evolution as:
-Leader Based System \\
-Proof-of-work blockchain \\
-Economy based systems \\
-Voting based systems \\
-Hashgraph with virtual voting \\
-
-% https://bitcoin.org/bitcoin.pdf
-% https://www.hederahashgraph.com/
-
-%\textbf{Ethereum}
-%Ethereum is an open blockchain platform that lets anyone build and use 
-%decentralized blockchain based application. 
-%\cite{buterin2013ethereum} 
-
-\subsection{Consensus algorithms}
-Consensus algorithm is the defining element in any blockchain network based on
-which all nodes agree about the transactions ordering and timestamps of all
-messages.  \\
-proof-of-work: This was the first consensus algorithm in use and
-has been proven to be robust regarding security. However, it comes with a trade
-offs such as scalability. \\
-
-proof-of-stake :  \\
-
-DAGs:  Byzantine Fault Tolerance \\ 
+\begin{itemize}
+	\item Public Permissionless:Anyone can join the network and become a writer
+		of the block as long as they can solve a problem or reach the consensus
+		that satisfies the underlying protocol. The records are publicly
+		available and thus publicly verifiable. 
+	\item Public Permissioned: Anyone can still join the network, but a writer
+		of the block is known but not necessarily trusted entity. The records
+		are publicly verifiable. 
+	\item Private Permissioned: This is similar to a Public permissioned
+		setting, but the records are not made public and therefore doesn't
+		offer public verifiability. This kind of setup is more specific to
+		business use-cases where one business doesn't need to know about other
+		business policies or customer information etc. 
+\end{itemize}
+[Paper] provides a detailed discussion on various blockchain types and their
+uses.
 
 
-% proof of work, proof of stake, proof of validatioin, proof of authority, and others
+\subsection{Consensus Mechanisms}
+As a distributed database with multiple writers, there has to be a way for
+everyone to reach a consensus on a shared global view of the network. Consensus
+mechanisms allow doing so. Based on consensus mechanisms, systems can be
+distinctly categorized into [Note: taken from hashgraph presentation slides]
+\begin{itemize}
+	\item Leader Based System: In this case, there is a pre-selected leader
+		that collects all the transactions and appends new records to the
+		blockchain.  Having a small group or consortium, it has low
+		computational requirements. As a blockchain protocol, it offers an
+		immutable audit of the records. However, just like any other
+		centralized system, this system is susceptible to DDOS attacks and
+		third-party(leader) interference. Generally used in a private or
+		permissioned blockchain setup, it offers higher throughput compared to
+		public permissionless blockchains. Examples include Hyperledger Fabric,
+		R3 Corda, IOTA, etc. 
+	\item Proof-Of-Work: This is the most widely used consensus mechanism in a
+		public permissionless setup. As the name suggests, a validator/miner
+		needs to provide the proof to the network that it has done a
+		significant amount of work. This work requires miners to invest a
+		substantial amount of computational resource. The reason for this is
+		that everyone(all miners) compete to be the writer of the next block
+		for which they need to solve a cryptographic puzzle. Mainly, they need
+		to find a hash value that can be associated with the proposed block.
+		The only way to find this value is by brute-forcing. The apparent
+		advantage of such consensus mechanism is that it makes the system DDOS
+		resistant while offering immutable audit trail and scalability.
+		However, miners can still decide upon the order of transactions to
+		include in the block although they cannot modify the transaction. As
+		such, one could term this as 'unfair' since the transaction doesn't get
+		picked up in order of when it was broadcasted to the network. 
+	\item Economy based systems: Consensus mechanisms such as Proof-of-stake or
+		delegated proof-of-stake can be seen as an economy based system. Unlike
+		PoW, miners don't compete with each other to be the writer of next
+		block thus saving lots of computational resources. The general idea is
+		that participants can put the respective platform based native token
+		they own at stake to validate a block. Whoever has the highest value at
+		stake gets to write the next block. If the participation turned out to
+		be a malicious one, then all the tokens that were at stake get lost. As
+		such, it puts scarce resource at stake. However, this includes problem
+		such as nothing-at-stake(cite). i.e., a node could vouch for two forks
+		of the same blockchain with nothing to lose. Other drawbacks of this
+		approach are that there is no certainty of consensus, and often has no
+		total ordering of transactions. Examples include Casper, IOTA, etc. 
+\end{itemize}
 
 \subsection{Smart contracts}
-Smart Contracts 
-
-
 
 
 \subsection{Applications}
