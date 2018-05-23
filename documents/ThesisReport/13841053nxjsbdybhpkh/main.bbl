@@ -700,5 +700,71 @@
   \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf}}
     \field{year}{2017}
   \endentry
+
+  \entry{snapnets}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=LJ}{%
+         family={Leskovec},
+         familyi={L\bibinitperiod},
+         given={Jure},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Krevl},
+         familyi={K\bibinitperiod},
+         given={Andrej},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LJKA1}
+    \strng{fullhash}{LJKA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{http://snap.stanford.edu/data}}
+    \field{title}{{SNAP Datasets}: {Stanford} Large Network Dataset Collection}
+    \field{month}{06}
+    \field{year}{2014}
+  \endentry
+
+  \entry{kumar2016edge}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=KS}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Srijan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SF}{%
+         family={Spezzano},
+         familyi={S\bibinitperiod},
+         given={Francesca},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Subrahmanian},
+         familyi={S\bibinitperiod},
+         given={VS},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=FC}{%
+         family={Faloutsos},
+         familyi={F\bibinitperiod},
+         given={Christos},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{KS+1}
+    \strng{fullhash}{KSSFSVFC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Data Mining (ICDM), 2016 IEEE 16th International
+  Conference on}
+    \field{pages}{221\bibrangedash 230}
+    \field{title}{Edge weight prediction in weighted signed networks}
+    \field{year}{2016}
+  \endentry
 \enddatalist
 \endinput

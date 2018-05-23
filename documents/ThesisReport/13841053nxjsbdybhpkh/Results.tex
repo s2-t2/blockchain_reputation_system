@@ -1,21 +1,38 @@
 %%% Results %%%
 \chapter{Results} \label{ch:results}
-
+This chapter evaluates the result of endorsement model as presented in section
+~\ref{ch:method} by using interaction graph on existing dataset. Results
+will be presented along with the discussion of measurement metrics and analyzed
+to see if the requirements mentioned in section ~\ref{ch:UserStories} are met.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interaction graph}
+In order to simulate the interaction graph, existing dataset from SNAP
+\cite{snapnets} was used. The dataset was extracted from Bitcoin Alpha trust
+\footnote{https://alphabtc.com/blockchain/}
+weighted signed network which was essentially a who-trusts-whom network of
+people that trade on Bitcoin Alpha platform. Participants on this network rated
+each other on a scale of -10 to +10 where negative value represented total
+distrust whereas positive value represented total trust. It consists of 3,783
+nodes that made 24,186 edges out of which 93\% of the edges were marked as
+positive edges\cite{kumar2016edge}. 
 
-A participant sends an endorsement to their acquaintances. There is no absolute
-way to find out if it's an honest interaction or not. i.e., if the
-participating nodes are the distinct or pseudonymous identity of the same node.
-The only information visible about the participants on the network are the
-public address and information they chose to disclose to selected members.
-Therefore, an ideal way is to view the endorsements as an interaction graph
-where nodes are entities participating and edges define the interaction along
-with the direction. Graph algorithms can help to determine the anamoly in the
-network. Using Net flow rate convergence, anamoly detection is simplified and
-explained further. 
+
+
+
+
+
+%A participant sends an endorsement to their acquaintances. There is no absolute
+%way to find out if it's an honest interaction or not. i.e., if the
+%participating nodes are the distinct or pseudonymous identity of the same node.
+%The only information visible about the participants on the network are the
+%public address and information they chose to disclose to selected members.
+%Therefore, an ideal way is to view the endorsements as an interaction graph
+%where nodes are entities participating and edges define the interaction along
+%with the direction. Graph algorithms can help to determine the anamoly in the
+%network. Using Net flow rate convergence, anamoly detection is simplified and
+%explained further. 
 
 
 \section{Analysis}

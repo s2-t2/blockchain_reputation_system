@@ -1,74 +1,86 @@
 #!/usr/bin/python
-
 import csv
-
 from pandas import read_csv
-
-#df = read_csv('soc-sign-bitcoinalpha.csv')
-#df.columns=['source','target','rating','time']
-#df.to_csv('soc-sign-bitcoinalpha-label.csv')
 
 myDict = {}
 source = []
 target = []
 
 nER = {}
-with open('./testfile.csv', newline='' ) as File : 
+
+myData =[["source","target","rating","time"]]
+
+with open('./soc-sign-bitcoinalpha-label.csv', newline='' ) as File : 
+    reader = csv.DictReader(File)
+    for row in reader:
+        if int(row['rating']) > 1:
+            myData.append([row['source'],row['target'],row['rating'],row['time']])
+
+myFile = open('positive.csv','w')
+
+with myFile:
+    writer = csv.writer(myFile)
+    writer.writerows(myData)
+print ("writing complete!!" )
+
+with open('./positive.csv', newline='' ) as File : 
     #reader = csv.reader(File)
     reader = csv.DictReader(File)
     for row in reader:
         source.append(row['source'] )
         target.append(row['target'])
-        #print (row['source'], row['target'])
-        #key = row['source']
-        #value = row['target']
-
-        #myDict[key].append(value)
-
 
 uniqueSource = []
 uniqueTarget = []
-
+allUniqueNodes =[]
 for i in source : 
-    if i not in uniqueSource :
+    if i not in allUniqueNodes :
+        allUniqueNodes.append(i)
+for i in target:
+    if i not in allUniqueNodes:
+        allUniqueNodes.append(i)
+for i in source:
+    if i not in uniqueSource:
         uniqueSource.append(i)
-for i in target: 
+for i in target:
     if i not in uniqueTarget:
         uniqueTarget.append(i)
 
-nER =  ({key: None for key in uniqueSource } )
-#nEG = {}
-for i in range(0,len(source)) :
+nER =  ({key: None for key in uniqueTarget } )
+for i in range(0, len(allUniqueNodes)):
     counter = 0;
-    for j in range(0, len(target) ):
-        if source[i] in target[j] :
-            counter = counter + 1
-            #nEG = nEG + {source[i]: target[j] }
-            nER[(source[i])] = counter;
-
-nEG = ({key: None for key in uniqueTarget } )
-for i in range(0,len(target)) :
-    counter =0 
-    for j in range(0, len(source ) ):
-        if target[i] in source[j] :
+    for j in range(0,len(target)):
+        if allUniqueNodes[i] in target[j]:
             counter = counter + 1;
-            nEG[target[i] ] = counter
+            nER[target[j]] = counter;
 
-connectionsFile = open("connections.txt","w" )
-print ("nEG", file=connectionsFile)
-print (nEG, file=connectionsFile )
-#print ("nER" )
-print ("nER", file=connectionsFile )
-print (nER, file=connectionsFile )
+nEG = ({key: None for key in uniqueSource } )
+for i in range(0, len(allUniqueNodes ) ):
+    counter =0;
+    for j in range(0, len(source)):
+        if allUniqueNodes[i] in source[j]:
+            counter = counter +1;
+            nEG[source[j]] = counter
 
-#print ("length of source" );
-#print (len(uniqueSource) )
-#print ("length of target" )
-#print (len(uniqueTarget ) )
-#print (source)
-#print (target)
-#print (uniqueSource)
-#print (uniqueTarget)
+degreeOutgoing =({key: None for key in allUniqueNodes})
+for i in range(0, len(allUniqueNodes ) ):
+    counter = 0;
+    for j in range(0, len(source ) ):
+        if allUniqueNodes[i] in source[j]:
+            counter = counter + 1;
+            degreeOutgoing[source[j] ]=counter
 
-#print (nER)
-#print (nEG)
+degreeIncoming =  ({key: None for key in allUniqueNodes } )
+for i in range(0, len(allUniqueNodes)):
+    counter = 0;
+    for j in range(0,len(target)):
+        if allUniqueNodes[i] in target[j]:
+            counter = counter + 1;
+            degreeIncoming[target[j]] = counter;
+
+
+givenFile = open("test_given.txt","w" )
+#print ("nEG", file=givenFile)
+receivedFile = open("test_received.txt","w")
+#print ("nER", file=receivedFile )
+

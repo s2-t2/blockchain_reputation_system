@@ -1,43 +1,66 @@
 #!/usr/bin/python
-
-from DataProcessing import nEG, nER, uniqueSource,uniqueTarget,source,target
+import csv
+from DataProcessing import nEG, degreeOutgoing, degreeIncoming, allUniqueNodes, uniqueSource,uniqueTarget,source,target
 
 #usedPower , uniqueTarget, nEG
-usedPower = ({key: None for key in uniqueTarget} )
-for i in uniqueTarget:
-    usedPower[i] = 1/nEG[i]
+usedPower = ({key: None for key in uniqueSource} )
+for i in uniqueSource:
+    if 1/nEG[i] >= 1.0 :
+        usedPower[i] = 0.0;
+    else:
+        usedPower[i] = 1/degreeOutgoing[i];
 
-# Received Endorsement
-hasReceivedFrom = {}
-#hasReceivedFrom = ({key: None for key in uniqueSource } )
-for i in range(0,len(uniqueSource)):
-    sender = []
-    for j in range(0, len(target)):
-        if uniqueSource[i] == target[j] :
-            sender.append(source[j])
-            hasReceivedFrom[uniqueSource[i]] = sender 
+#Received Endorsement
+myDict = []
+sender = ({key:None for key in uniqueTarget})
+with open('./positive.csv', newline='' ) as positiveFile:
+    reader = csv.DictReader(positiveFile)
+    for row in reader:
+        myDict.append(row )
 
+receivedFrom = {}
+for i in allUniqueNodes:
+    listOfSenders = [] 
+    for row in myDict:
+        if (i == row['target'] ):
+            listOfSenders.append(row['source'])
+            receivedFrom[i] = listOfSenders
 
-#compute received points - sum of all usedpower of hasreceivedfrom
+#received points
 receivedPoints = {}
-for i in range(0,len(uniqueSource) ):
-    receivedPoints[uniqueSource[i]] = 0
-    for j in hasReceivedFrom[uniqueSource[i] ]:
-        receivedPoints[uniqueSource[i]] = receivedPoints[uniqueSource[i]] + usedPower[j]
-    
+for i in range(0, len(uniqueTarget)):
+    receivedPoints[uniqueTarget[i] ] = 0;
+    for j in receivedFrom[uniqueTarget[i]]:
+        receivedPoints[uniqueTarget[i] ] = receivedPoints[uniqueTarget[i]] + usedPower[j]
+
+
 #ratio 
 ratio = {}
-for i in range(0, len(uniqueSource)):
-    minVal = min(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
-    maxVal = max(nEG[uniqueSource[i ] ], nER[uniqueSource[i] ] )
-    ratio[uniqueSource[i]] = minVal/maxVal 
+for i in range(0, len(allUniqueNodes)):
+    outgoing = degreeOutgoing[allUniqueNodes[i]];
+    incoming = degreeIncoming[allUniqueNodes[i]];
+    outVal = (0 if outgoing is None else outgoing);
+    inVal = (0 if incoming is None else incoming);
+    
+    minVal = min(outVal, inVal)
+    maxVal = max(outVal, inVal  )
+    ratio[allUniqueNodes[i]] = minVal/maxVal 
+
+#Impact
 
 impact = {}
-for i in range(0, len(uniqueSource) ): 
-    tempratio = ratio[uniqueSource[i] ]
-    tempusedPower = usedPower[uniqueSource[i ] ]
-    tempreceivedPoints = receivedPoints[uniqueSource[i ] ]
-    impact[uniqueSource[i] ] = tempratio * tempusedPower * tempreceivedPoints 
+for i in allUniqueNodes: 
+    tempratio = ratio[i]
+    if (i in usedPower.keys() ):
+        tempusedPower = usedPower[i]
+    else:
+        tempusedPower = 0.0
+    if (i in receivedPoints.keys() ):
+        tempreceivedPoints = receivedPoints[i]
+    else :
+        tempreceivedPoints = 0.0
+    impact[i ] = tempratio * tempusedPower * tempreceivedPoints 
 
-print (hasReceivedFrom['1'] )
-print (len(hasReceivedFrom ) )
+#print (hasReceivedFrom['1'] )
+#print (len(hasReceivedFrom ) )
+

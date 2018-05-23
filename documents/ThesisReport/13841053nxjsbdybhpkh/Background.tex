@@ -303,33 +303,33 @@ confidentiality of principals of contract and the contract itself. \\
 \textbf{Enforceability}, to make the contract self-enforcing which can be
 attributed to by verifiability, built-in incentives mechanism, and objective
 mentioned above. \\
-Privity, refers to minimization of third-party vulnerability by limiting
-knowledge and control whereas on the other end, observability and
-verifiabillity demands invoking it to an extent. As such, a trade-off is
+Privity refers to minimization of third-party vulnerability by limiting
+knowledge and control whereas, on the other end, observability and
+verifiability demand invoking it to an extent. As such, a trade-off is
 required wherein an optimal balance between these objectives should meet. Thus,
 trusted intermediaries were introduced with minimal control/observability.
 However, privity was not guaranteed in case of dispute. 
 \cite{szabo1997formalizing}.
-Following the invention of Bitcoin and several decentralized blockchains,
-definition of smartcontracts have evolved. Ethereum being the first platform to
-offer programmable blockchains, introduced a virtual machine,EVM, where the
+Following the invention of Bitcoin and several decentralized blockchains, the
+definition of smart contracts have evolved. Ethereum being the first platform to
+offer programmable blockchains, introduced a virtual machine, EVM, where the
 contract code can be executed that results in a deterministic output provided
 the same transaction context and blockchain state. 
 \footnote{https://github.com/ethereumbook/ethereumbook/blob/develop/smart-contracts.asciidoc}
-EVM, often referred to as a single world computer runs on every ethereum node
-and given the same initial state produces the same final state. There are
-several high level languages that can be used to write smartcontracts for
-different blockchain platform. Examples include solidity, serpent, LLL etc.
-For the sake of relevance to this project, solidity as the smartcontract
-language and Ethereum as the blockchain will be used as point of view
-henceforth. gasxContract's code resides in the blockchain as an immutable form.
-They are not autonomous self-executing program but rather needs to be called by
-a transaction or invoked by other contracts. Once the code is registered and
-deployed on the blockchain, its code cannot be altered by anyone, including the
-owner of the contract. However, there exists a possibility to include killable
-function that can be executed by the owner which when called executes an EVM
-opcode called SELFDESTRUCT and deletes the contract from the blockchain.  As
-any Turing-complete language, solidity is affected by the halting problem.  To
+EVM often referred to as a single world computer runs on every ethereum node
+and given the same initial state produces the same final state. Several high
+level languages can be used to write smartcontracts for different blockchain
+platform. Examples include solidity, serpent, LLL, etc.  For the sake of
+relevance to this project, solidity as the smart contract language and Ethereum
+as the blockchain will be used as a point of view henceforth. Contract's code
+resides in the blockchain as an immutable form.  They are not autonomous
+self-executing program but rather needs to be called by a transaction or
+invoked by other contracts. Once the code is registered and deployed on the
+blockchain, its code cannot be altered by anyone, including the owner of the
+contract. However, there exists a possibility to include killable function that
+can be executed by the owner which when called executes an EVM opcode called
+SELFDESTRUCT and deletes the contract from the blockchain.  As in any
+Turing-complete language, solidity is affected by the halting problem.  To
 address this, Ethereum introduces the concept of gas. To store any state, or
 execute any operation, gas needs to be supplied. Thus, a program that has a bug
 or a non-terminating intention will eventually run out of gas and

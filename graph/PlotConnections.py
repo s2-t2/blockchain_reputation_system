@@ -3,27 +3,23 @@ import json,shelve
 import matplotlib.pyplot as plt
 import DataProcessing
 from DataProcessing import source,target,uniqueSource,uniqueTarget,nEG,nER
+import EdsImpact
+from EdsImpact import usedPower, ratio, impact
 
-file = open('./test_given.txt','r' )
+xAxis =[]
+yAxis =[]
 
-xAxis = []
-yAxis = []
-
-for i in nEG: 
-    print (i)
-    print (nEG[i])
-
-#for i in range(0,len(uniqueSource)):
-    #xAxis.append(i)
-
-print (nEG)
+for i in impact :
+    if (i != 0 ):
+        xAxis.append(i)
+for i in ratio :
+    if (i != 0 ):
+        yAxis.append(i)
 
 
-'''
-d = {}
-for line in file:
-    items = line.split("," )
-    a = items[0]
-    b = items[1]
-    d[a] = b
-'''
+plt.plot(xAxis,yAxis)
+plt.xlabel('Total Endorsement Impact' )
+#plt.axis([0,1,0,1])
+plt.ylabel('ratio of inDegree and outDegree' )
+plt.show()
+
