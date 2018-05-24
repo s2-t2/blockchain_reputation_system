@@ -13,7 +13,7 @@ myData =[["source","target","rating","time"]]
 with open('./soc-sign-bitcoinalpha-label.csv', newline='' ) as File : 
     reader = csv.DictReader(File)
     for row in reader:
-        if int(row['rating']) > 1:
+        if int(row['rating']) > 5 :
             myData.append([row['source'],row['target'],row['rating'],row['time']])
 
 myFile = open('positive.csv','w')

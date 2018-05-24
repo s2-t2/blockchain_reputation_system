@@ -47,7 +47,6 @@ for i in range(0, len(allUniqueNodes)):
     ratio[allUniqueNodes[i]] = minVal/maxVal 
 
 #Impact
-
 impact = {}
 for i in allUniqueNodes: 
     tempratio = ratio[i]
