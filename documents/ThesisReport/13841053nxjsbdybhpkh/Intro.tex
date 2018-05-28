@@ -97,9 +97,9 @@ trust in the system itself. One dimension of trust as mentioned by
 \cite{miller2010trust} is trust in data which is based on stored data's
 integrity. Trusting data ensures that the data is appropriate for use:
 accurate, precise, available, and uncorrupted\cite{miller2010trust}.
-Blockchain achieves this by use of cryptographic schemes(cite section) assuring
-tamper-resistant, fault-tolerance, zero-downtime
-characteristics\cite{swan2015blockchain}. 
+Blockchain achieves this by use of cryptographic schemes such as the ones
+mentioned in section ~\ref{sec:cryptography} assuring tamper-resistant,
+fault-tolerance, zero-downtime characteristics\cite{swan2015blockchain}. 
 \newpage
 
 % \cite{enoughBitcoinForEthereum}
@@ -111,11 +111,11 @@ Consider a simple scenario where Alice wants to buy a pair of headphones for
 which she browses a buy/sell platform. When she finds a relevant product on the
 platform published by Bob, unknown entity to Alice, the success or failure of
 the transaction is dependent on two factors that may or may not be transparent.\\
-(i)Bob's reputation: Bob's reputation can be inferred from his history of
+(i)\textbf{Bob's reputation:} Bob's reputation can be inferred from his history of
 transactions, ratings provided by previous buyers that have dealt with him,
 reputation system of the platform in use, the integrity of all these relevant
-data. 
-(II) Platform's reputation: Reputation of the platform can also be inferred
+data. \\
+(II) \textbf{Platform's reputation:} Reputation of the platform can also be inferred
 similarly based on the history of services it has been able to provide, a
 general perception in the community, etc. 
 Here, the platform in use acts as the trusted third party that Alice must trust
@@ -155,7 +155,7 @@ difficulty level of attack. Similarly, Reputation models can help in measuring
 the reliability of interacting entities so that users can make an informed
 decision before participating in any transactions. Thus, a reputation system
 should be secure, robust, always available and aim for higher accuracy. The use
-of right reputation algorithms with Blockchain technology can help to ensure
+of right reputation algorithms with Blockchain technology could help to ensure
 trustworthiness of online entities with correctness of data and a high degree
 of accuracy.  
 
@@ -168,29 +168,33 @@ of accuracy.
 %Goal of thesis
 %Research questions and approach that will be taken to answer 
 %them in brief.
-The main goal of this thesis is to use blockchain technology and 
-smart contracts to simulate an endorsement network where entities can 
-endorse each other based on physical or digital acquaintance. The 
-endorsement values will be quantified to infer reputation score and 
-a trust value that can be used on any transaction network. The nodes and 
-their relationship will be studied to identify honest or malicious 
-participants. Generalization of this endorsement network to serve 
-other use cases will also be discussed. 
+
+The primary goal of this thesis is to use blockchain technology and smart
+contracts to simulate an endorsement network where entities can endorse each
+other based on physical or digital acquaintance. The endorsement will be
+quantified to infer reputation score which in turn can yield a value that can
+represent the impact the agent has made on the network.  The nodes and their
+relationship will be studied to analyze honest or malicious participation.
+Generalization of this endorsement network to serve other use cases shall be
+discussed as well. 
+
 The research questions that this thesis aims to address are : 
 \begin{enumerate}
-\item How can graph theories and relevant reputation algorithms be used 
-to model the interaction between entities and detect/identify honest 
-and malicious nodes in the network? How can the interaction graph be
-modeled? \label{question1}
-\item What are the requirements for storing trust values and linking 
-them to associated identities stored off a blockchain network? How can a blockchain application be built to define a general trust framework for 
-a transactional network? How could the overall system architecture look like? \label{question2} 
-\item How can the discussed endorsement network ensure trustworthiness
-while also preserving users anonymity and how can it be generalized to
-other transactional network or added on top of it to serve other use 
-cases such as content filtering, E-Commerce etc?\label{question3} 
+		\item How can graph theories and relevant reputation algorithms be used
+			to model the interaction between entities and detect/identify
+			honest and malicious nodes in the network? How can the interaction
+			graph be modeled? \label{question1}
+		\item What are the requirements for storing trust values and linking
+			them to associated identities stored off a blockchain network? How
+			can a blockchain application be built to define a general trust
+			framework for a transactional network? How could the overall system
+			architecture look like? \label{question2} 
+		\item How can the discussed endorsement network ensure trustworthiness
+			while also preserving users anonymity and how can it be generalized
+			to other transactional network or added on top of it to serve other
+			use cases such as content filtering, E-Commerce
+			etc?\label{question3} 
 \end{enumerate}
-
 
 \section{Scope} 
 %Identify goal, objective, timeplan, deliverables, 
@@ -198,26 +202,47 @@ cases such as content filtering, E-Commerce etc?\label{question3}
 %the objective
 This thesis work attempts to answer all the research questions mentioned
 in section \ref{ResearchQuestions}. \\
+\textbf{Research Question 1}\\
+To answer research question 1, literature survey will be performed on various
+reputation algorithms and existing models. This survey should follow with the
+discussion on various analysis metrics and threat models eventually leading to
+graph simulation of endorsement network.  
 
-To answer research question\ref{question1}, literature survey will be performed on
-existing reputation algorithms along with the presentation of background
-overview that will lead to graph simulation of endorsement network. \\ 
+\textbf{Research Question 2 } \\
+Interpretation of nodes connections and quantification of scores for individual
+nodes that represents trustworthiness based on score range will be presented.
+Comparative analysis of on chain vs. off-chain storage requirements will be
+studied and analyzed. Overall system design and architecture will be presented. 
 
-For research question\ref{question2}, interpretation and quantification of reputation
-scores and trust metrics will be manifested. Comparative analysis of on chain
-and off-chain storage requirements will be studied resulting in an overall
-design of endorsement system architecture. \\
+\textbf{Research Question 3} \\
+The endorsement network will be analyzed against various network metrics to
+show resilience to threat models. Discussion on other use cases and how the
+endorsement model can be used on top of other systems will be presented.
 
-For research question\ref{question3}, relevant use cases will be presented, and the
-network will be tested on with various predefined cases and attack models to
-see how well it behaves in a dynamic environment. \\
+%
+%For research question\ref{question2}, interpretation and quantification of reputation
+%scores and trust metrics will be manifested. Comparative analysis of on chain
+%and off-chain storage requirements will be studied resulting in an overall
+%design of endorsement system architecture. \\
+%\textbf{Research Question 3}
+%The endorsement network will be analysed against various network metrics to show resilience to threat models. Discussion on other use cases and how the endorsement model can be used on top of other system will be presented. 
+%
+
+%For research question\ref{question3}, relevant use cases will be presented, and the
+%network will be tested on with various predefined cases and attack models to
+%see how well it behaves in a dynamic environment. \\
 
 \section{Structure of Report}
-% define in brief(oneline) what each preceding sections are about
-This paper is structured as follows. In Chapter 2, a background on relevant
-concepts that will be needed to understand the following sections will be
-explained. Chapter 3 will explain the system requirements and design in detail.
-In chapter 4, the paper concludes by presenting the results and its evaluation. 
+This paper is structured as follows. Chapter ~\ref{ch:litrev} will perform a
+literature survey on the existing algorithms and their implementations. Chapter
+~\ref{ch:background}  will provide a background overview of relevant concepts
+necessary to understand the following sections. In chapter  \~ref{ch:method },
+system requirements and the approach taken for the model design is shown. It
+will show the overall system design and architecture.  Chapter
+~\ref{ch:results} will discuss the test methods and present results
+representative of the designed model. Finally, conclusion and future works
+shall be presented in chapter ~\ref{ch:conclusion}. 
+
 \subsection{acronyms}
 %\ac{aep}.
 

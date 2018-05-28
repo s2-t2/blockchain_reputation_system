@@ -105,7 +105,7 @@ connection alone will not be enough to achieve a higher impact on the network.
 	\label{consumablePoint}
 \end{figure}
 
-\subsection{Computation of Total Endorsement Impact(tei)} 
+\subsection{Computation of Total Endorsement Impact(TEI)} 
 The total endorsement impact corresponds to the total impact a participant has
 made on the network by sending or receiving endorsements. The two factors that
 are primarily responsible for computation of final trust score of a participant
@@ -154,7 +154,7 @@ This chapter focuses on overview and design details of PoC based on the
 requirements mentioned in section \ref{ch:UserStories} on page
 \pageref{ch:UserStories}. It starts with design considerations, smart contract
 setup, data storage on and off blockchain. The high level system overview is
-presented in ~\ref{fig:SystemContainer} 
+presented in figure ~\ref{fig:SystemContainer}. 
 
 \begin{figure}
 	\centering
@@ -195,15 +195,15 @@ The acquaintance could be of the following form:
 		confident that Bob doesn't engage in the false news.
 \end{itemize}
 Thus, Alice is likely to endorse Bob and vice-versa on the endorsement network.
-They can use secure messaging channels to exchange their keys and endorse each
-other. \\
+They can use some form of secure messaging channels to exchange their keys and
+endorse each other. \\
 
 From a game-theoretic perspective of a behavioral outcome, following
 definition were made for network influencing factors. 
 
 \begin{enumerate}
 	\item \label{item:fakeeds} \textbf{Fake endorsements with pseudonymous
-		identities:}Endorsement system being on a
+		identities:} Endorsement system being on a
 		distributed, public permissionless blockchain network allows anyone to
 		join and start sending endorsements immediately to whoever they wish
 		to. This creates the possibility that an entity could create multiple
@@ -383,8 +383,9 @@ trustworthy validators that can act as a leader or a master node which can be
 given authority to vote on behalf of the community. In the endorsement network,
 an honest endorsement is supposed to be between known entities. But all
 participating entities do not know each other and there is no one node that can
-be trusted to collect everyone's transaction and make final commit. It is more
-like a cluster of small-world graph topology(cite graph section). The recent
+be trusted to collect everyone's transaction and make final commit.
+%It is more like a cluster of small-world graph topology(cite graph section). 
+The recent
 breakthrough in consensus engine is proposed by hashgraph(cite) that claims to
 be fair(no bias as in other systems where miners get to decide which
 transactions to include in the block) and provide 100\% certainty on the order

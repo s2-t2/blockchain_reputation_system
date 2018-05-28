@@ -1,23 +1,52 @@
 %%% 3Background / %%%
 \chapter{Background} \label{ch:background}
-%provide overview of topic that might be unfamiliar to 
-%the readers
-%\section{Reputation algorithms} \label{sec:sectionlabel}
+This chapter provides an overview of the basic concepts necessary to understand
+the subsequent sections.
+
 \section{Graph properties}
-A graph, as the name suggests can be used to represent objects and their relationships 
-graphically. A graph G is an ordered triple (V,E,$\varphi$$_{G}$) where V is a non empty set
-of vertices v, E is a non empty set of edges e that connects two vertices and 
-$v \in V, e \in E$. $\varphi$$_{G}$ is an incidence function that assigns pair of vertices
-to each edge of the graph G. $\varphi$$_{G}$(e) = uv represents that e is an edge that 
-joins vertices u and v. Graph properties can be leveraged to serve as an interaction 
-graph of network for reputation system. Each node on the network, v can represent 
-individuals and the edges that connect the nodes can represent the relationships 
-between those nodes. The edge can have varying weights to represent the strength of 
-relationship between the nodes. \cite{bondy1976graph}
-
-
-
-
+A graph, as the name suggests can be used to represent objects and their
+relationships graphically. Formally, a graph G is an ordered triple (V,
+E,$\varphi _G$ ) where V is a non empty set of vertices v, E is a non empty set
+of edges e that connects two vertices and $v \in V, e \in E$. $\varphi _G$ is
+an incidence function that assigns pair of vertices to each edge of the graph
+G.\\ $\varphi _G $(e) = uv represents that e is an edge that joins vertices u
+and v\cite{bondy1976graph}.  Based on these properties, any online interaction
+system can be modeled graphically including reputation system. Each node on the
+network can represent agents/users that interact with other users. This
+interaction can represent the relationship between nodes as the edges
+connecting vertices. The transfer of data between the nodes can be quantified
+to represent the weight of the edge.  This weight value can be used to
+determine the strength or weakness of relationship between the nodes.  Modeling
+the interaction as a graph can help to understand and analyze its complexity at
+micro, meso, and macro level\cite{gkorou2014exploiting}. At a micro-level, the
+local properties of a particular node such as its activity, connection degree,
+its neighbors, and interactions can be observed. On a meso-level, the node's
+relative position in a given graph that can help to determine its centrality
+and connectivity can be observed. On a macro-level, one can view the overall
+network as the topology of the graph itself. It helps to study the global
+properties of the graph.\\ 
+Network metrics that are helpful in analyzing the complexity of
+interactions at macro and meso-level are(cite ): \\
+\textbf{Degree Connectivity:} The number of connections a node has is the
+degree of its connectivity. The number of inflow is referred to as indegree
+whereas the number of outflows is the outdegree of a node. Usually, a higher
+degree of connectivity implies a higher likelihood for information(relevant
+data to the network) to pass through that node.\\
+\textbf{Network Centrality:} Centrality refers to the significance of a node in
+the network. i.e., how important the node is in the overall network. The degree
+of connectivity is one way to measure centrality of a node. Similarly, there
+are other centrality measures which include: \textbf{Closeness centrality},
+\textbf{Betweenness centrality}, \textbf{Prestige centrality}.\\ 
+Closeness centrality refers to how close a node is to other nodes in the network.
+Betweenness centrality refers to the number of nodes to which the given node
+acts as a connector. i.e., how many nodes passes through this node.  Prestige
+centrality refers to the significance of the node based on the significance of
+the adjacent nodes(nodes one is connected to).
+To observe and analyze the behavior at the macro-level, one needs to look at
+the overall structure of the graph. i.e., Network topology that shows how
+constituent parts are interconnected to form the graph as a whole. They can
+form ring, star, tree, or mesh structure or be a fully connected graph where
+each node are connected to each other. 
 %cite graph theories and applications:
 %http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.721.3161&rep=rep1&type=pdf
 %more concept based on what is needed to know when representing/modeling the network.
@@ -80,48 +109,49 @@ relationship between the nodes. \cite{bondy1976graph}
 %cite: http://ilpubs.stanford.edu:8090/562/1/2002-56.pdf
 %cite: https://www.cs.indiana.edu/~kapadia/courses/I590-Fall-09/internal/eigentrust.pdf
 
-\subsection{Net flow Rate convergence}
-Net flow rate convergence can help to determine anomaly in the network. By looking at how 
-fast the net flow converges to zero, it can detect unusual behaviour in the network. 
-The flow in a network can be measured by looking at inflow and outflow edges and 
-calculating their differences. Inflow edges are all incoming edges in the graph and 
-outflow edges are all outgoing edges . (diagram) Net flow convergence rate is the rate at which the net flow converges to the global net flow which is zero. 
-Depending upon how fast the net flow in a graph converges to zero, it can be useful to 
-detect anomaly.(example diagram) 
-
+%\subsection{Net flow Rate convergence}
+%Net flow rate convergence can help to determine anomaly in the network. By looking at how 
+%fast the net flow converges to zero, it can detect unusual behaviour in the network. 
+%The flow in a network can be measured by looking at inflow and outflow edges and 
+%calculating their differences. Inflow edges are all incoming edges in the graph and 
+%outflow edges are all outgoing edges . (diagram) Net flow convergence rate is the rate at which the net flow converges to the global net flow which is zero. 
+%Depending upon how fast the net flow in a graph converges to zero, it can be useful to 
+%detect anomaly.(example diagram) 
+%
 %cite: Decentralized Reputation system for transaction network. 
 %Net flow convergence is used by (cite) and seems useful in detecting sybil node. 
 
 %\subsection{Binomial Random Walk}
 
-\section{Cryptography}
+\section{Cryptography} \label{sec:cryptography}
 \subsection{Basic Concepts}
 Cryptography offers algorithms to achieve confidentiality, integrity,
 authenticity, and non-repudiation. Confidentiality and integrity ensure that
 the information being communicated is not disclosed or has been modified to or
-by any unauthorized parties. The data is hidden or encrypted such that only the
-authorized parties can make sense out of it, i.e. decrypt using the previously
-agreed upon key. 
-
-Asymmetric key cryptography makes use of key pairs, private key, known only to
-the owner and public key, that can be publicly distributed. It ensures
-authenticity, a proof that sender is who he claims to be and non-repudiation,
-the sender cannot deny having sent the message. Public key verifies the holder
-of the private key and encryption of the message. That paired private key can
-only decrypt this encrypted message. One of the significant application of
-public key cryptography is Digital Signatures, described in more detail in
-section (Blockchain section ..) which is useful in preserving the properties of
-authenticity and non repudiation.
-
-A cryptosystem can be seen as a five tuple (P,C,K,E,D) that satisfies the following
-conditions: \\ 
-P is a finite set of plain texts.  \\
-C is a finite set of cipher texts. \\ 
-K, 	the keyspace is a finite set of keys \\
-E, set of encryption rules $e_k$: P $\Rightarrow$ C \\
-D, sete of decrytion rules $d_k$ : C $\Rightarrow$ M. \\
-for each k $\in$ K, there is $e_{k}$ $\in$ E and $d_{k} \in$ D such that 
-$d_{k}(e_{k}(m))$ = m for every plaintext m $\in$ P. \\
+by any unauthorized parties. The data is hidden/encrypted such that only the
+authorized parties can make sense out of it. i.e., decrypt using the previously
+agreed upon key. Authenticity relates to confirming the truth of an attribute
+claimed by an entity. Non-repudiation is associated with the property that any
+entity who has previously sent the message cannot deny their
+authorship\cite{katz1996handbook}. \\ 
+A cryptosystem can be defined as a five-tuple (P, C, K, E, D) where, \\
+P, is a finite set of plaintexts and C, a finite set of ciphertexts. \\
+E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
+D, set of decryption rules such that $d_{k}:C \Rightarrow P$\\ 
+For each k in $in$ K, there is $e_{k } \in$E and $d_{k } \in$ D such that
+$d_{k}(e_{k}(m))$= m for every plaintext m $\in$ P.\\
+A cryptosystem can be either symmetric or asymmetric. Symmetric makes use of
+the same key for both encryption and decryption whereas asymmetric, also known
+as public-key cryptography makes use of key pairs, public and private keys. The
+public key can be publicly distributed, and an entity 'A' wishing to send a
+confidential message to other entity 'B' can encrypt the message using B's
+public key $k_{p}$ to form ciphertext c. Upon receiving c, B can decrypt it
+using the private key $k_{s}$ that is only known to B and corresponds to the
+respective public key that was used to form c. The computation of $k_{s}$ given
+$k_{p}$ is computationally infeasible in a secure system. Besides public-key
+encryption, public-key cryptography also has use in digital signature as
+discussed in section ~\ref{ss:digitalsignature}. RSA\cite{rivest1978method} is
+one example of a public-private cryptosystem.
 
 % A cryptosystem shouldn't rely on the privacy of algorithm used to secure the system. 
 % According to Kerckhoff's principle, a cryptosystem should be secure even if everything 
@@ -139,70 +169,113 @@ Cryptographic hash functions are a one-way function, also known as mathematical
 trapdoor function that transforms an input message into a fixed length binary
 output. It is one way because although converting a message input to a hash
 value or a message digest can be done in constant time, reversing the operation
-is practically impossible to achieve as its computationally inefficient.
-Earlier hash functions include MD5 which produces a 128-bit hash value but is
-vulnerable and can be cracked by brute force attack.  The predecessors hash
-functions are sha-256 preceeded by sha-1, sha-2 and others. Their applications
-include the digital signature, message authentication both of which are
-interesting for blockchain as will be discussed in section(name). The essential
-characteristics of hash functions are their deterministic output, meaning given
-a fixed input; it will always generate the same output. It offers collision
-resistant property, i.e. it is impossible or extremely rare to get the same
-hash value for two different messages.  If m1 and m2 are the message and h(m1)
-and h(m2) are hash functions applied to them respectively, collision resistant
-ensures that h(m1) != h(m2). Another important characteristic of a hash
-function is that the hash value does not indicate the original information that
-was hashed thus making it efficient for hiding information.
+is practically impossible to achieve as its computationally inefficient. An
+important characteristics of hash function is its deterministic output. i.e.,
+given an input, it will always produce the same output. This attribute
+contributes to data verifiability as anyone can always verify if the produced
+hash output for data matches by simply applying the data to the respective hash
+function. 
+Other significant properties of hash function that contributes to
+reliability in digital security are\cite{mironov2005hash}: \\
+One-way: Given a key k, and an output w, it should be hard for an attacker to find x
+such that the hash of x applied with k, produces w. ie., $H_k(x)$ = w.\\ 
+second pre-image resistant: Given a key k and a string x, it should be hard for
+an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
+Collision-resistant: Given a key k, it should be hard for an attacker to find x and y such that
+$H_k(x)$ = $H_k(y)$. \\
+Earlier hash functions include MD5 which produced an output of size 128 bits.
+Collision-resistant attack in MD5 is possible within seconds with a complexity
+of $2^{24}$\cite{wang2005break}. NIST published secure hashing algorithm (SHA)
+in 1993 as the secure hash standard. Currently, SHA-3 is the latest in SHA
+family of standards that was released in 2015 with SHA-0, SHA-1 and SHA-2 as
+it's predecessor algorithms. Collision attack for SHA-1 was shown to be
+practically pssible\cite{stevens2017first} by creating two colliding pdf files
+that produced same SHA-1 digest. It took equivalent processing power of 6,500
+years of single CPU computation time and 110 years of GPU computation time.
+Applications of hashing algorithms include digital signature, ISO checksums,
+fingerprinting data etc. This cryptographic hash functions is relevant for
+understanding blockchain data structure. Especially significant for
+verification of transactions, creation of blocks, linking them to the existing
+chain. The consensus mechanism, namely PoW relies on SHA-256 hash(in Bitcoin)
+applied to the block header and nonce to produce a verifiable fingerprint of
+data. This is discussed in more detail in ~\ref{sec:blockchain}. Proof-of-work
+was originally used in 1997 by Adam Back as a anti-spam system for the then
+proposed Hashcash\cite{back2002hashcash}. The general idea being that the
+sender of message would have to compute some number of sha operations before
+sending the message.  The generated fingerprint could be checked by anyone to
+see if the sender has actually done the required number of computations. If a
+legitimate user sending out one email had to spend 'x' seconds to do the sha
+operations, a malicious user intending to send thousands of emails had to spend
+1000x seconds. 
 
+
+%Cryptographic hash functions are a one-way function, also known as mathematical
+%trapdoor function that transforms an input message into a fixed length binary
+%output. It is one way because although converting a message input to a hash
+%value or a message digest can be done in constant time, reversing the operation
+%is practically impossible to achieve as its computationally inefficient.
+%Earlier hash functions include MD5 which produces a 128-bit hash value but is
+%vulnerable and can be cracked by brute force attack.  The predecessors hash
+%functions are sha-256 preceeded by sha-1, sha-2 and others. Their applications
+%include the digital signature, message authentication both of which are
+%interesting for blockchain as will be discussed in section(name). The essential
+%characteristics of hash functions are their deterministic output, meaning given
+%a fixed input; it will always generate the same output. It offers collision
+%resistant property, i.e. it is impossible or extremely rare to get the same
+%hash value for two different messages.  If m1 and m2 are the message and h(m1)
+%and h(m2) are hash functions applied to them respectively, collision resistant
+%ensures that h(m1) != h(m2). Another important characteristic of a hash
+%function is that the hash value does not indicate the original information that
+%was hashed thus making it efficient for hiding information.
+%
 %deterministic output 
 %computationally efficient
 %hash collision: collision resistant h(m1) != h(m2)
 %hide information
 %sha-1, sha-2, sha-256 
 
-\subsection{Digital Signature}
+\subsection{Digital Signature} \label{ss:digitalsignature}
 A digital signature acts as an intermediary to prove that an entity A, has the
-password without ever requiring A to reveal it. To create a digital signature,
-one would need to apply signing algorithm to the private key along with the
-message. Likewise, anyone can verify the generated signature by applying it to
-a verification algorithm along with the public key and the message.  If a node
-A intends to send a transaction to B on a blockchain network, A needs to prove
-that he is the rightful owner of the public address from where the message
-originated.  This is done by creating a digital signature using A's private key
-from the transaction message. Once the transaction is broadcasted, any node in
-the network can verify that signature corresponds with A's public key. The
-signature is dependent on the message, and thus any attempt by a malicious node
-on the network to modify the message will refute the signature. 
+password without ever requiring A to reveal it. As discussed earlier,
+public-key cryptography uses key-pairs that correspond with each other. In
+context of Blockchain, If Alice wants to send a value(transaction) to Bob, she
+can create a transaction message, sign it using her private key and broadcast
+the transaction over the network. Her signature and the transaction message
+will be publicly available on the network(assuming a public blockchain
+network). Anyone on the network can verify that the signature corresponds to
+Alice's public key. Thus, Alice can always prove that she is the owner of the
+public key from where the message originated. The signature is dependent on the
+message, and therefore any attempt to modify the message will refute the
+signature.
 
 %figure showing basic process
 
-% \subsection{Proof-Of-Work}
-% solve a computationally expensive problem and show a proof before being able to do 
-% something on the network. 
-
-\section{Blockchain Technology}
-Blockchain Technology is a variant of distributed database on a P2P network. As
-the name suggests, it is a chain of blocks where each block consists of a list
-of transactions that are collected by validators/miners defined by the network.
-The linking and ordering of transactions are also the responsibility of these
-defined validators. One of the validators proposes a block that the whole
-network can accept or reject. A consensus algorithm(cite) comes into play
-during the proposal of a block. If a consensus is reached, then the block is
-accepted and refused otherwise. Several consensus mechanisms are discussed in
-section(cite). The proposed block is then chained with the rest of the blocks
-and linked directly to the block before it. The hash value of the previous
-block points to the current block and the current block's hash value will point
-to the future block. 
-
-Each block is linked together to a previous block by a hash value(cite figure).
-Thus, this chain of blocks is unalterable as altering one block would require
-modifying every other previous block in the chain that is linked together. One
-could view this order as a singly linked list data structure. The chain of the
-block shows the ordering of transactions that met consensus at the given time
-whereas transactions chain shows the chain of ownership. i.e., each transaction
-that is linked together in a block.
-
-
+\section{Blockchain Technology} \label{sec:blockchain}
+Blockchain Technology is a variant of distributed database implemented on a P2P
+network. Every participating node in the network has the same copy of history
+of records of database. Blockchain is essentially a chain of blocks, as the
+name suggests. Each block consists of list of valid transactions(signed
+messages) collected by validators/miners of the network. The linking and
+ordering of transactions are also the responsibility of validators. The
+validators proposes a block they have unlocked to the network which can either
+be accepted or rejected. If accepted, the newly created block gets linked to
+the existing blockchain with a hash pointer pointing to the previous block. As
+such, blockchain provides the transaction ordering that every node agreed on at
+a given time. Consensus metric helps to establish and maintain the integrity
+of a blockchain system(cite).
+The primary attributes that constitute a blockchain system are distributed,
+decentralized, time-stamped transactions.  
+There have been P2P protocols deployed as a file-sharing or other form of
+content delivery services before Blockchain. What separates Blockchain from
+them is that for the first time, it made possible to transfer values online on
+a P2P network without a double-spending problem. i.e., If a peer 'A' sends a
+file or a value 'v' to 'B,' then the file should be owned by 'B' and removed
+from the account of A. 'A' should not be able to send the same file 'v' to
+other entities on the network. This was the significant contribution of the
+technology. 
+%While, transferring digital contents, sharing information were
+%possible before, transferring values was made possible by Blockchain
+%technology.
 
 %\cite{pilkington201611}
 
@@ -239,7 +312,7 @@ uses.
 As a distributed database with multiple writers, there has to be a way for
 everyone to reach a consensus on a shared global view of the network. Consensus
 mechanisms allow doing so. Based on consensus mechanisms, systems can be
-distinctly categorized into [Note: taken from hashgraph presentation slides]
+distinctly categorized into\footnote{Hashgraph}:
 \begin{itemize}
 	\item Leader Based System: In this case, there is a pre-selected leader
 		that collects all the transactions and appends new records to the
@@ -279,6 +352,7 @@ distinctly categorized into [Note: taken from hashgraph presentation slides]
 		of the same blockchain with nothing to lose. Other drawbacks of this
 		approach are that there is no certainty of consensus, and often has no
 		total ordering of transactions. Examples include Casper, IOTA, etc. 
+	\item Hashgraph
 \end{itemize}
 
 \subsection{Smart contracts}
