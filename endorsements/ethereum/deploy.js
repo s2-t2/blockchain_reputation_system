@@ -4,15 +4,18 @@ const compiledEds = require('./build/Endorsement.json');
 //const { interface, bytecode } = require('./compile');
 
 const provider = new HDWalletProvider(
-  'frost quiz fetch save toddler film few stereo grief kitchen air sing',
-  'https://rinkeby.infura.io/yeyODM5MwlsKyyJqs2vx'
+	//'clump laugh volcano orphan plunge major fiber already legal amateur mixed cry',
+	//'http://localhost:7545'
+	'frost quiz fetch save toddler film few stereo grief kitchen air sing',
+	'https://rinkeby.infura.io/yeyODM5MwlsKyyJqs2vx'
 );
 const web3 = new Web3(provider);
 
 const deploy = async (accountNumber = 0) => {
 	const accounts = await web3.eth.getAccounts();
 	const deployAccount = accounts[accountNumber];
-	const data ='0x' + compiledEds.bytecode;
+	//const data ='0x' + compiledEds.bytecode;
+	const data = compiledEds.bytecode;
 	const gas = 4000000;
 	const gasPrice = web3.utils.toWei('2','gwei');
 

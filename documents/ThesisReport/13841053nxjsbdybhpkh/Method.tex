@@ -31,7 +31,7 @@ a set of predefined requirements are met.  \\
 %figure - System Context Diagram
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{Images/1SystemContext.eps}
+	\includegraphics[width=0.9\textwidth]{Images/1SystemContext.eps}
 	\caption{Context Layer}
 	\label{fig:context}
 \end{figure}
@@ -84,10 +84,12 @@ The functional requirements can be listed in points as : \\
 		the editor is the same as the profile owner. 
 \end{enumerate}
 
-The non-functional system requirements are : \\
+The non-functional system requirements are : 
 \begin{enumerate}
 	\item Security: smartcontract security.  
-	\item Reliability: reliability of data, tamperproof and verifiable,immutable traceability.
+	\item Reliability: reliability of data, tamperproof and
+		verifiable,immutable traceability.
+	\item TrustMetrics: TEI should be representative of the trust metrics. 
 \end{enumerate}
 
 \section{The Model - Endorsement Network}
@@ -157,8 +159,7 @@ setup, data storage on and off blockchain. The high level system overview is
 presented in figure ~\ref{fig:SystemContainer}. 
 
 \begin{figure}
-	\centering
-	\includegraphics[width=1.3\textwidth]{Images/2Container.eps}
+	\includegraphics[width=1.4\textwidth]{Images/2Container.eps}
 	\caption{Container Layer}
 	\label{fig:SystemContainer}
 \end{figure}
@@ -289,11 +290,10 @@ definition were made for network influencing factors.
 \end{enumerate}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagramRemoveEDS.eps}
+	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagramRemoveEDS.eps}
 	\caption{Activity diagram for removing endorsement}
 	\label{fig:removeEds}
 \end{figure}
-
 
 \subsection{SmartContract} 
 Smart contracts can be either
@@ -305,12 +305,6 @@ variables required are stored and executed on the blockchain. \\
 The system of smart contracts on the component level is depicted in figure
 ~\ref{fig:smartcontracts}. The main contracts written for this PoC are : 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
-	\caption{Smart contract system}
-	\label{fig:smartcontracts}
-\end{figure}
 
 \begin{itemize}
 	\item Ownable: tracks the owner of the contract. i.e., the creator of
@@ -345,6 +339,14 @@ they can send a pre-transaction message to each other to verify that Alice is
 who she claims to be and vice-versa. In case the buyer is not registered on the
 endorsement network then Alice can prove the claim by signing a cryptographic
 challenge with her private key. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
+	\caption{Smart contract system}
+	\label{fig:smartcontracts}
+\end{figure}
+
 
 \subsection{Data and variables on and off blockchain}
 For this PoC, the data required to identify the users are stored on the
