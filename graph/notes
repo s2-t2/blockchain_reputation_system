@@ -1,0 +1,20 @@
+#Positive more than 2 ratings
+~~~~~~~~~~~~~~~~~~~~~~~~~~`
+Total Nodes: 1677
+Total source/target:4776
+number of edges: 4776
+
+Among 1677 nodes, 
+- max value of impact = 3.6698325262621143, owned by node with id of 1, has nEG of 73 and nER of 24
+- max value of receivedPoints = 267.89777441713437, received by node with id of 1
+
+
+
+- no. of nodes with impact more than or equal to 1 and les than 2.0 = 8
+- no. of nodes with impact 0 = 1180
+- no. of nodes with connections(given or received) only 1 = 710
+- no. of nodes with received points as 0 only = 419
+- 
+
+
+

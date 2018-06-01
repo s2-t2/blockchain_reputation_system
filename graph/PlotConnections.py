@@ -1,34 +1,58 @@
 #!/usr/bin/python
 import json,shelve
 import matplotlib.pyplot as plt
-import EdsImpact
-from EdsImpact import usedPower, ratio, impact,receivedPoints
-from DataProcessing import allUniqueNodes, degreeOutgoing, degreeIncoming 
+from EdsImpact import consumedPower, ratio, receivedPoints, impact
+from DataProcessing import nodes, nEG, nER 
 
-xAxis =[]
-yAxis =[]
+font = {'family' : 'monospace',
+        #'weight' : 'bold',
+        'size'   : 18}
 
-for i in allUniqueNodes :
-    if (i not in usedPower.keys() ):
-        usedPower[i] = 0.0 
-    if (ratio[i] != 0.0 and impact[i] !=0.0 ):
-        yAxis.append(impact[i] )
-        xAxis.append(ratio[i] )
-print (xAxis )
-print (yAxis )
+inDegree = []
+outDegree = []
+RP = []
+totalPoint = []
+ratioList=[]
 
-'''
-fig = plt.figure()
-ax = fig.add_subplot(111 )
-ax.plot(xAxis,yAxis, color='lightblue', linewidth=3)
-plt.show()
-'''
+node_impact_conn=[]
+for i in nodes:
+    if (nEG[str(i)] > 1.0 and nER[str(i)] > 1.0 and impact[str(i)] > 0.0 ):
+        node_impact_conn.append(i)
 
+node_impact = []
+node_ratio=[]
+node_given=[]
+node_received=[]
+node_rp=[]
+for i in node_impact_conn:
+    node_impact.append(impact[str(i)])
+    node_given.append(nEG[str(i) ] )
+    node_received.append(nER[str(i) ] )
+    node_rp.append(receivedPoints[str(i)])
+    node_ratio.append(ratio[str(i)])
 
-plt.plot(xAxis,yAxis,'ro' )
+for i in nodes:
+    inDegree.append(nEG[str(i) ] )
+    outDegree.append(nER[str(i)])
+    RP.append(receivedPoints[str(i)]) 
+    ratioList.append(ratio[str(i) ] )
+    totalPoint.append(impact[str(i)]) 
+
+node_impact_conn=[]
+for i in nodes:
+    if (nEG[str(i)] > 1.0 and nER[str(i)] > 1.0 and impact[str(i)] > 0.0 ):
+        node_impact_conn.append(i)
+
+plt.title('Relation between ratio and receivedpoints')
+#plt.plot(node_rp, node_impact, 'bs' )
+plt.plot(node_impact, node_ratio, 'ro', node_impact, node_rp, 'bs' )
 #plt.scatter(xAxis,yAxis )
-plt.xlabel('Ratio of Indegree and Outdegree' )
+plt.xlabel('received points',font )
 #plt.axis([0,1,0,1])
-plt.ylabel('Endorsement Impact' )
+plt.ylabel('impact',font )
 plt.show()
+
+
+
+
 

@@ -1,0 +1,38 @@
+Positive edges with ratings above 2 
+
+total nodes: 1677
+total edges: 4776
+Maximum Impact value 150.48688555898602of node 4
+Maximum Received Points 267.89777441713437 of node 1
+Maximum Ratio 1.0of node888
+Maximum ConsumedPoints 0.3333333333333333 of node 7483
+No. of nodes with Impact above zero : 497
+No. of nodes with impact above zero among nodes having more than one connections 497
+
+No. of nodes with impact above zero and nEG :
+between 1 and 5: 312
+between 5 and 10: 105
+between 10 and 20: 47
+between 20 and 30: 16
+between 30 and 40: 8
+between 40 and 50: 4
+between 50 and 60: 1
+between 60 and 70: 1
+between 70 and 80: 2
+between 80 and 90: 0
+between 90 and 100: 1
+above 100: 0
+
+No. of nodes with impact above zero and nER :
+between 1 and 5: 331
+between 5 and 10: 82
+between 10 and 20: 52
+between 20 and 30: 13
+between 30 and 40: 6
+between 40 and 50: 5
+between 50 and 60: 4
+between 60 and 70: 0
+between 70 and 80: 1
+between 80 and 90: 1
+between 90 and 100: 2
+above 100: 0

@@ -18,25 +18,44 @@ distrust whereas positive value represented total trust. It consists of 3,783
 nodes that made 24,186 edges out of which 93\% of the edges were marked as
 positive edges\cite{kumar2016edge}. 
 
+\begin{figure}[h]
+	\includegraphics[width=0.95\textwidth]{Images/in_out.eps}
+	\caption{Given Vs. Received}
+	\label{inOut}
+\end{figure}
+
+The available information in the dataset for all the nodes was source, target,
+rating, and timestamp. All of these are essential information for endorsement
+network. The direction of endorsement is based on the source and target
+information. For the endorsement relation, all the edges with a rating above
+five were considered. The timestamp is also essential information when using a
+network anomaly detection algorithm such as net flow rate convergence(cite). An
+interaction subgraph can be seen in figure ~\ref{subgraph} that shows the node
+with an id of '561' and all its relations. The distribution of incoming and
+outgoing connections of each node can be seen in figure ~\ref{inOut}. 
+
+\begin{figure}[h]
+	\includegraphics[width=0.9\textwidth]{Images/graph_Node561.eps}
+	\caption{Interaction subgraph} 
+	\label{subgraph}
+\end{figure}
 
 
 
 
-%A participant sends an endorsement to their acquaintances. There is no absolute
-%way to find out if it's an honest interaction or not. i.e., if the
-%participating nodes are the distinct or pseudonymous identity of the same node.
-%The only information visible about the participants on the network are the
-%public address and information they chose to disclose to selected members.
-%Therefore, an ideal way is to view the endorsements as an interaction graph
-%where nodes are entities participating and edges define the interaction along
-%with the direction. Graph algorithms can help to determine the anamoly in the
-%network. Using Net flow rate convergence, anamoly detection is simplified and
-%explained further. 
 
 
-\section{Analysis}
-\section{Measurement}
-\section{Comparison}
+
+
+
+
+
+
+
+
+%\section{Analysis}
+%\section{Measurement}
+%\section{Comparison}
 %\section{first section} \label{sec:sectionlabel}
 
 % Presentation of results and case-study data 

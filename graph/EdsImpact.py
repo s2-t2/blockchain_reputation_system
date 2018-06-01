@@ -1,65 +1,52 @@
 #!/usr/bin/python
 import csv
-from DataProcessing import nEG, degreeOutgoing, degreeIncoming, allUniqueNodes, uniqueSource,uniqueTarget,source,target
+from DataProcessing import nodes, nEG, nER,source, target 
 
-#usedPower , uniqueTarget, nEG
-usedPower = ({key: None for key in uniqueSource} )
-for i in uniqueSource:
-    if 1/nEG[i] >= 1.0 :
-        usedPower[i] = 0.0;
+#consumablePoints
+consumedPower = ({key: None for key in nodes } )
+for i in nodes: 
+    if (nEG[str(i) ] is 0   ):
+        val =0
     else:
-        usedPower[i] = 1/degreeOutgoing[i];
-
-#Received Endorsement
-myDict = []
-sender = ({key:None for key in uniqueTarget})
-with open('./positive.csv', newline='' ) as positiveFile:
-    reader = csv.DictReader(positiveFile)
-    for row in reader:
-        myDict.append(row )
-
-receivedFrom = {}
-for i in allUniqueNodes:
-    listOfSenders = [] 
-    for row in myDict:
-        if (i == row['target'] ):
-            listOfSenders.append(row['source'])
-            receivedFrom[i] = listOfSenders
-
-#received points
-receivedPoints = {}
-for i in range(0, len(uniqueTarget)):
-    receivedPoints[uniqueTarget[i] ] = 0;
-    for j in receivedFrom[uniqueTarget[i]]:
-        receivedPoints[uniqueTarget[i] ] = receivedPoints[uniqueTarget[i]] + usedPower[j]
-
-
-#ratio 
-ratio = {}
-for i in range(0, len(allUniqueNodes)):
-    outgoing = degreeOutgoing[allUniqueNodes[i]];
-    incoming = degreeIncoming[allUniqueNodes[i]];
-    outVal = (0 if outgoing is None else outgoing);
-    inVal = (0 if incoming is None else incoming);
-    
-    minVal = min(outVal, inVal)
-    maxVal = max(outVal, inVal  )
-    ratio[allUniqueNodes[i]] = minVal/maxVal 
-
-#Impact
-impact = {}
-for i in allUniqueNodes: 
-    tempratio = ratio[i]
-    if (i in usedPower.keys() ):
-        tempusedPower = usedPower[i]
-    else:
-        tempusedPower = 0.0
-    if (i in receivedPoints.keys() ):
-        tempreceivedPoints = receivedPoints[i]
+        val = 1/nEG[str(i)]
+    if (val >= 1 ):
+        consumedPower[i] = 0;
     else :
-        tempreceivedPoints = 0.0
-    impact[i ] = tempratio * tempusedPower * tempreceivedPoints 
+        consumedPower[i] = val
 
-#print (hasReceivedFrom['1'] )
-#print (len(hasReceivedFrom ) )
+#List of received From
+receivedFrom = {}
+for i in nodes : 
+    listOfSenders = []
+    for j in range(0,len(target ) ):
+        if (i in target[j] ):
+            listOfSenders.append(source[j] )
+            receivedFrom[i] = listOfSenders
+#Received Endorsement Points
+receivedPoints = {}
+for i in nodes:
+    receivedPoints[i]=0
+    if (i not in receivedFrom.keys() ):
+        receivedPoints[i] = 0
+    else:
+        for j in receivedFrom[i]:
+            receivedPoints[i] = receivedPoints[i] + consumedPower[j]
+
+#ratio
+ratio ={}
+for i in nodes:
+    given = (0 if nEG[str(i)] is 0 else nEG[str(i)])
+    received = (0 if nER[str(i) ] is 0 else nER[str(i)])
+    minVal = min(given,received )
+    maxVal = max(given,received )
+    ratio[i] = minVal/maxVal
+
+#impact 
+impact = {}
+for i in nodes:
+    if (nEG[str(i)] == 1 or nER[str(i)] == 1 ):
+        impact[i] = 0
+    else:
+        impact[i] = ratio[str(i)] * receivedPoints[str(i)]
+        #impact[i] = ratio[str(i)] * receivedPoints[str(i)] * consumedPower[str(i) ]
 
