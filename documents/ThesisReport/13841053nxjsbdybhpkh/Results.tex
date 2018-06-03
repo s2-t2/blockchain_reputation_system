@@ -10,30 +10,110 @@ see if the requirements mentioned in section ~\ref{ch:UserStories} are met.
 \section{Interaction graph}
 In order to simulate the interaction graph, existing dataset from SNAP
 \cite{snapnets} was used. The dataset was extracted from Bitcoin Alpha trust
-\footnote{https://alphabtc.com/blockchain/}
-weighted signed network which was essentially a who-trusts-whom network of
-people that trade on Bitcoin Alpha platform. Participants on this network rated
-each other on a scale of -10 to +10 where negative value represented total
-distrust whereas positive value represented total trust. It consists of 3,783
-nodes that made 24,186 edges out of which 93\% of the edges were marked as
-positive edges\cite{kumar2016edge}. 
-
+\footnote{https://alphabtc.com/blockchain/} weighted signed network which was
+essentially a who-trusts-whom network of people that trade on Bitcoin Alpha
+platform. Participants on this network rated each other on a scale of -10 to
++10 where negative value represented total distrust whereas positive value
+represented total trust. It consists of 3,783 nodes that made 24,186 edges out
+of which 93\% of the edges were marked as positive edges\cite{kumar2016edge}.\\
 \begin{figure}[h]
 	\includegraphics[width=0.95\textwidth]{Images/in_out.eps}
 	\caption{Given Vs. Received}
 	\label{inOut}
 \end{figure}
-
 The available information in the dataset for all the nodes was source, target,
 rating, and timestamp. All of which is essential information for endorsement
 network. The direction of endorsement is based on the source and target
 information. The timestamp is also essential information if using a network
-anomaly detection algorithm such as net flow rate convergence(cite). The
-distribution of incoming and outgoing connections of each node can be seen in
-figure ~\ref{inOut}.
+anomaly detection algorithm such as net flow rate convergence(cite). The rating
+shows the strength or weakness of the relation. For the endorsement relation,
+only the edges with a rating above two are considered. Thus, the total number
+of nodes considered for endorsement interaction was 1677.\\ 
+\textbf{nEG and nER:} nEG and nER is outdegree and indegree information
+respectively.  The distribution of which can be seen in figure ~\ref{inOut}.
+As mentioned in the requirement(req.no), each node needs to have at least 2 or
+more connections to be considered for impact computation. Failing to do so
+would result in an impact value equivalent to zero. Of the 1677 nodes in the
+network, there were 1175 nodes(70\%) that had only one incoming or outgoing
+connection. As a result, only 502 nodes(30\%) can have an impact above zero.\\ 
+
+\begin{tabularx}{\textwidth}{| X | X | X | X | X| X| }
+  \hline
+   \textbf{Node Label} & \textbf{nEG} & \textbf{nER} & \textbf{ratio} & \textbf{ReceivedPoints} & \textbf{Impact} \\
+  \hline 
+  430  & 5  & 3  & 0.6 & 0 & 0 \\
+  \hline
+   761 & 2  & 2  & 1 & 0 & 0 \\
+  \hline
+  448  & 3  & 3  & 1 & 0 & 0 \\
+  \hline
+  676  & 2  & 2  & 1 & 0 & 0 \\
+  \hline
+  936  & 2  & 2  & 1 & 0 & 0 \\
+  \hline
+  \caption{Nodes with Impact zero because of the receivedpoints}
+  \label{table:receivedpoints}
+\end{tabularx}
+
+\textbf{Received Points:} The total received point plays an equally significant
+role in strengthening or weakening the total endorsement impact of a node. This
+factor relies on the significance of node from whom one receives the
+endorsement. Table ~\ref{table:receivedpoints} shows the nodes that have a
+maintained ratio of connections but still have zero impact on the network
+because of the total received points. As can be seen in figure
+~\ref{fig:zeroimpact}, the endorser of nodes 430, 761, 448, 676 and 936 has no
+other connection in the network. Therefore, these nodes have an impact of zero
+just like their endorsers. 
+
+\begin{figure}[h]
+	\includegraphics[width=0.95\textwidth]{Images/nodesWithImpactZero.eps}
+	\caption{Interaction subgraph of nodes with impact zero}
+	\label{fig:zeroimpact}
+\end{figure}
 
 
 
+
+
+\begin{tabularx}{\textwidth}{| X | X | }
+  \hline
+   \textbf{No. of nodes} & \textbf{Impact Range} \\
+  \hline 
+  419  & 0-5  \\
+  \hline
+   51 & 5-10 \\
+  \hline
+  5 & 10-15 \\
+  \hline
+  10 & 15-20 \\
+  \hline
+  2 & 20-25 \\
+  \hline
+  1 & 25-30 \\
+  \hline
+  1 & 30-35 \\
+  \hline
+  0 & 35-65 \\
+  \hline
+  1 & 65-70 \\
+  \hline
+  0 & 70-85 \\
+  \hline
+  2 & 85-90 \\
+  \hline
+  0 & 90-115 \\
+  \hline
+  1 & 115-120 \\
+  \hline
+  3 & 120-125 \\
+  \hline
+  0 & 125-150 \\
+  \hline
+  1 & 150-155 \\
+  \hline
+  \caption{No. of nodes and the corresponding impact ranges}
+  \label{table:totalimpact}
+\end{tabularx}
 
 
 
