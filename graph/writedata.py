@@ -105,14 +105,24 @@ for i in nodes:
             maxReceivedNode = i
 maxRatio=0
 for i in nodes:
-    if (ratio[str(i)] > maxRatio ):
+    if (ratio[str(i)] > maxRatio  ):
         maxRatio = ratio[str(i)]
         maxRatioNode = i
-maxConsumablePoint=0
+
+minConsumedPower = 1 
 for i in nodes:
-    if (consumedPower[str(i)]):
-        maxConsumablePoint = consumedPower[str(i)]
-        maxConsumedNode = i
+    if (consumedPower[str(i)] < minConsumedPower and consumedPower[str(i)] > 0 ):
+        minConsumedPower = consumedPower[str(i)]
+        minConsumedNode = i
+maxGiven =0
+maxReceived = 0
+for i in nodes:
+    if (nEG[str(i)] > maxGiven ):
+        maxGiven = nEG[str(i)] 
+        maxGivenNode = i
+    if (nER[str(i)] > maxReceived ):
+        maxReceived = nER[str(i)]
+        maxReceivedNode = i
 
 file = open("nodesinfo.txt","w")
 
@@ -120,10 +130,13 @@ file.write("Positive edges with ratings above 2 \n\n")
 file.write("total nodes: " + str(len(nodes)) + "\n" )
 file.write("total edges: " + str(len(source ) ) + "\n")
 
-file.write("Maximum Impact value " + str(maxImpact) + "of node " + str(maxImpactNode) + "\n" )
+file.write("Maximum Impact value " + str(maxImpact) + " of node " + str(maxImpactNode) + "\n" )
 file.write("Maximum Received Points " + str(maxReceivedPoint) + " of node " + str(maxReceivedNode) +"\n" )
-file.write("Maximum Ratio " + str(maxRatio) + "of node" + str(maxRatioNode) + "\n" )
-file.write("Maximum ConsumedPoints " + str(maxConsumablePoint) + " of node " + str(maxConsumedNode) + "\n" )
+file.write("Maximum Ratio " + str(maxRatio) + " of node " + str(maxRatioNode) + "\n" )
+file.write("Minimum ConsumedPoints " + str(minConsumedPower) + " of node " + str(minConsumedNode) + "\n" )
+
+file.write("Maximum Given " + str(maxGiven) + " of node " + str(maxGivenNode) + "\n" )
+file.write("Maximum Received " + str(maxReceived) + " of node " + str(maxReceivedNode) + "\n" )
 
 file.write("No. of nodes with Impact above zero : " + str(len(nodeAboveZeroImpact)) + "\n")
 file.write("No. of nodes with impact above zero among nodes having more than one connections " + str(len(node_conn_impact) ) + "\n\n" )

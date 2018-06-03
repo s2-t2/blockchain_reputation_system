@@ -12,3 +12,6 @@ MERGE (n)-[:RATED]->(m)
 MATCH (a:Userid {id:"2853"})-[r]-(b)
  RETURN r, a, b
 
+//RETURN multiple nodes with relationships with various ids
+MATCH(n)-[r]-(b) WHERE n.id IN ["430","761","448","676","936","831"]
+RETURN n,r,b

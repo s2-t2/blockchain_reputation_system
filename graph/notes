@@ -8,7 +8,21 @@ Among 1677 nodes,
 - max value of impact = 3.6698325262621143, owned by node with id of 1, has nEG of 73 and nER of 24
 - max value of receivedPoints = 267.89777441713437, received by node with id of 1
 
-
+- no. of nodes with impact:
+* impact greater than or equal to 0 and less than 10.0 = 165
+* impact greater than or equal to 10 and less than 15.0 = 5 by nodes 20,38,23,24,36 
+* impact greater than or equal to 15 and less than 20.0 = 10 by nodes 11,17,19,21,56,13,77,16,12,14 
+* impact greater than or equal to 20 and less than 25.0 = 2 by nodes 18,75 
+* impact greater than or equal to 25 and less than 30.0 = 1 by node 1 
+* impact greater than or equal to 30 and less than 35.0 = 1 by node 8
+* impact greater than or equal to 35 and less than 40.0 = 0 
+* impact greater than or equal to 40 and less than 45.0 = 0 
+* impact greater than or equal to 45 and less than 50.0 = 0
+* impact greater than or equal to 50 and less than 100.0 = 3 by node 1,9,6
+* impact greater than or equal to 100 and less than 150.0 = 4 by node 2,7,3,5
+* impact greater than or equal to 150 and less than 200.0 = 1 by node 4
+* impact greater than or equal to 200 and less than 250.0 = 0 
+* impact greater than or equal to 250 and less than 300.0 = 0 
 
 - no. of nodes with impact more than or equal to 1 and les than 2.0 = 8
 - no. of nodes with impact 0 = 1180
