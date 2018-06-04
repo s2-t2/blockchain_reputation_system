@@ -63,17 +63,29 @@ maintained ratio of connections but still have zero impact on the network
 because of the total received points. As can be seen in figure
 ~\ref{fig:zeroimpact}, the endorser of nodes 430, 761, 448, 676 and 936 has no
 other connection in the network. Therefore, these nodes have an impact of zero
-just like their endorsers. 
+just like their endorsers. The relation of total received point and its
+contribution to the endorsement impact can be seen in figure
+~\ref{fig:receivedpointvsimpact}.
+\begin{figure}[h]
+	\includegraphics[width=0.95\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
+	\caption{Received Points Vs. Total Endorsement Impact}
+	\label{fig:receivedpointvsimpact}
+\end{figure}
+
 
 \begin{figure}[h]
 	\includegraphics[width=0.95\textwidth]{Images/nodesWithImpactZero.eps}
 	\caption{Interaction subgraph of nodes with impact zero}
 	\label{fig:zeroimpact}
 \end{figure}
-
-
-
-
+\textbf{Total Endorsement Impact:} The endorsement impact in this model alone
+is affected by the received point and the degree of connections. For the given
+network, the majority of the nodes have an impact value below 20. There are
+however few nodes that have managed to obtain an impact value above 100. Each
+of the nodes having both maximum and minimum impact value is discussed across
+four scenarios in the section that follows.  The distribution of the obtained
+impact ranges and the number of nodes are presented in table
+~\ref{table:totalimpact}.
 
 \begin{tabularx}{\textwidth}{| X | X | }
   \hline
@@ -115,9 +127,54 @@ just like their endorsers.
   \label{table:totalimpact}
 \end{tabularx}
 
+\begin{figure}[h]
+	\includegraphics[width=0.95\textwidth]{Images/ratio_impact_impactAboveZero.eps}
+	\caption{Relation of Ratio and Total endorsement impact}
+	\label{fig:ratioimpact}
+\end{figure}
 
-
-
+\section{Impact and Ratio: Case-by-case across different scenarios}
+The representation in table ~\ref{table:receivedpoints} and figure
+~\ref{fig:ratioimpact}, points that maintaining a ratio of 1 or close to 1 is
+not enough to have a higher impact on the endorsement network. One can infer
+that having a good impact implies a good ratio but having a good ratio does not
+necessarily imply a good impact.
+As such, a case-by-case analysis for the possible combination of ratio and
+impact is performed. The maximum value for the impact, ratio, nEG, nER and
+received points is the maximum value found in the network for the respective
+variables.The nodes with impact value in the range of 0-15 are taken as low
+impact nodes, and value above 100 is taken as high impact node for the
+scenarios.   
+\begin{itemize}
+	\item Case1-Maximum Impact, Minimum Ratio:This case represents the best scenario where both ratio and
+		impact are maximum. The ratio is maintained by a sufficiently large
+		amount of connections both as an endorser and an endorsee by the node.
+		The figure ~\ref{fig:case1} shows the best node and its behavior as extracted
+		from the network.
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/case-1-max-impact-min-ratio.eps}
+		\caption{Case1- Maximum Impact Minimum Ratio}
+		\label{fig:case1}
+	\end{figure}
+	\item Case 2: Maximum Impact, Maximum Ratio:
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/case-2-max-impact-max-ratio.eps}
+		\caption{Case2- Maximum Impact Maximum Ratio}
+		\label{fig:case2}
+	\end{figure}
+	\item Case 3: Minimum Impact, Minimum Ratio:
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/case-3-min-impact-min-ratio.eps}
+		\caption{Case3- Minimum Impact Minimum Ratio}
+		\label{fig:case3}
+	\end{figure}
+	\item Case 4: Minimum Impact, Maximum Ratio: 
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/case-4-min-impact-max-ratio.eps}
+		\caption{Case4- Minimum Impact Maximum Ratio}
+		\label{fig:case4}
+	\end{figure}
+\end{itemize}
 
 
 %\section{Analysis}
