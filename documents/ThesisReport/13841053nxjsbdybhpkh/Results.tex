@@ -146,30 +146,45 @@ variables.The nodes with impact value in the range of 0-15 are taken as low
 impact nodes, and value above 100 is taken as high impact node for the
 scenarios.   
 \begin{itemize}
-	\item Case1-Maximum Impact, Minimum Ratio:This case represents the best scenario where both ratio and
-		impact are maximum. The ratio is maintained by a sufficiently large
-		amount of connections both as an endorser and an endorsee by the node.
-		The figure ~\ref{fig:case1} shows the best node and its behavior as extracted
-		from the network.
+	\item Case1: Maximum Impact/Minimum Ratio: If a user has been on the network
+		for a while making endorsement connections, then it is possible to have
+		a higher impact. Since receiving an endorsement from many connections
+		cumulative sums up to the existing value. The higher received point, in
+		this case, contributes to the higher impact. The behavior as depicted
+		in figure ~\ref{fig:case1} is extracted from the endorsement network among
+		the best impact node with a low ratio. 
 	\begin{figure}[h]
 		\includegraphics[width=0.95\textwidth]{Images/case-1-max-impact-min-ratio.eps}
 		\caption{Case1- Maximum Impact Minimum Ratio}
 		\label{fig:case1}
 	\end{figure}
-	\item Case 2: Maximum Impact, Maximum Ratio:
+	\item Case 2: Maximum Impact/Maximum Ratio: A node with a maximum impact
+		and a maximum ratio is the best case scenario of endorsement network.
+		This scenario implies that a node has been actively participating as
+		both endorser and endorsee. The figure ~\ref{fig:case2} shows the
+		behavior of such node. The value across all dimension is almost equally
+		distributed.  
 	\begin{figure}[h]
 		\includegraphics[width=0.95\textwidth]{Images/case-2-max-impact-max-ratio.eps}
 		\caption{Case2- Maximum Impact Maximum Ratio}
 		\label{fig:case2}
 	\end{figure}
-	\item Case 3: Minimum Impact, Minimum Ratio:
+	\item Case 3: Minimum Impact, Minimum Ratio: A minimum impact along with
+		minimum ratio is a sign of node that doesn't have a good
+		trustworthiness range. This case generally appears if the node is only
+		making one-way connections. i.e., giving too many endorsements and
+		receiving none/few or vice-versa. The figure ~\ref{fig:case3} shows
+		such behavior. 
 	\begin{figure}[h]
 		\includegraphics[width=0.95\textwidth]{Images/case-3-min-impact-min-ratio.eps}
 		\caption{Case3- Minimum Impact Minimum Ratio}
 		\label{fig:case3}
 	\end{figure}
-	\item Case 4: Minimum Impact, Maximum Ratio: 
-	\begin{figure}[h]
+	\item Case 4: Minimum Impact, Maximum Ratio: This case has been
+		demonstrated earlier by table ~\ref{table:receivedpoints} and figure
+		~\ref{fig:ratioimpact}. Figure ~\ref{fig:case4} gives the behavior of
+		such a node as seen in the network.
+	\begin{figure}
 		\includegraphics[width=0.95\textwidth]{Images/case-4-min-impact-max-ratio.eps}
 		\caption{Case4- Minimum Impact Maximum Ratio}
 		\label{fig:case4}
