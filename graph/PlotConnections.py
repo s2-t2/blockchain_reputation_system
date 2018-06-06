@@ -101,36 +101,6 @@ for i in min_impact_node:
 #case 3: Min impact, min ratio
 #case 4: Min impact, max ratio
 
-#Case 1: Max Impact, Min Ratio
-case1_maxImpactMinRatio=1.0
-case2_maxImpactMaxRatio=0.0
-for i in node_impact_conn:
-    if (ratio[str(i)] < case1_maxImpactMinRatio ):
-        case1_maxImpactMinRatio = ratio[str(i)]
-        case1_maxImpactMinRatioNode = i
-    if (ratio[str(i)] > case2_maxImpactMaxRatio):
-        case2_maxImpactMaxRatio = ratio[str(i)]
-        case2_maxImpactMaxRatioNode = i
-   
-#Case 3 : Min Impact, Min RAtio, case 4: min impact, max ratio
-case3_minImpactMinRatio=1.0
-case4_minImpactMaxRatio=0.0
-for i in node_impact_conn:
-    if (ratio[str(i)] < case3_minImpactMinRatio ):
-        case3_minImpactMinRatio = ratio[str(i)]
-        case3_minImpactMinRatioNode = i
-    if (ratio[str(i)] > case4_minImpactMaxRatio):
-        case4_minImpactMaxRatio = ratio[str(i)]
-        case4_minImpactMaxRatioNode = i
-
-
-
-
-
-
-
-
-
 
 
 

@@ -39,7 +39,8 @@ a set of predefined requirements are met.  \\
 The user stories for each role that defines the system requirements for each
 user type is presented in table ~\ref{table:userstories}. 
 \begin{center} \label{table:userstories} 
-	\begin{tabular} {| l | p{9cm} | l |}
+	\begin{table}
+	\begin{tabular} {| l | p{8cm} | l |}
 		\hline
 		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
 		\hline
@@ -59,13 +60,14 @@ user type is presented in table ~\ref{table:userstories}.
 		\multirow{2}{*}{other users} & compute the total endorsement
 		impact(i.e., final computed score) of any registered members so that I
 		can make an informed decision about the future transactions.
-		& R4 \\\cline{2-3}
+		& R4.1 \\\cline{2-3}
 		& make a request to join the endorsement network so that I can start
 		sending/receiving endorsements.  
-		& R1 \\\cline{2-3}
+		& R4.2 \\\cline{2-3}
 		\hline
 	\end{tabular}
 	\caption{User Stories and Requirements}
+\end{table}
 \end{center}
 
 The functional requirements can be listed in points as : \\
@@ -144,7 +146,7 @@ calculated as:
 
 Finally, the total endorsement impact made by 'A' is given by: \\
 \begin{equation}
-	TEI_a = ratio_a * cp_a * TRP_a
+	TEI_a = ratio_a * TRP_a
 \end{equation}
 
 %

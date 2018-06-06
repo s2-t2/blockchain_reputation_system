@@ -64,7 +64,9 @@ contract Endorsement {
 
 
 	function joinNetwork(string _userName) public{
+		//only allow unregistered participant
 	    require(!joined[msg.sender]);
+
 	    joined[msg.sender] = true;
 
 	    Participant memory newParticipant = Participant({

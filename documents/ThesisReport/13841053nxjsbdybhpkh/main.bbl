@@ -1129,6 +1129,34 @@
     \field{year}{2017}
   \endentry
 
+  \entry{hevner2010design}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=HA}{%
+         family={Hevner},
+         familyi={H\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chatterjee},
+         familyi={C\bibinitperiod},
+         given={Samir},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{HACS1}
+    \strng{fullhash}{HACS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Design research in information systems}
+    \field{pages}{9\bibrangedash 22}
+    \field{title}{Design science research in information systems}
+    \field{year}{2010}
+  \endentry
+
   \entry{snapnets}{misc}{}
     \name{author}{2}{}{%
       {{hash=LJ}{%
@@ -1152,6 +1180,52 @@
     \field{title}{{SNAP Datasets}: {Stanford} Large Network Dataset Collection}
     \field{month}{06}
     \field{year}{2014}
+  \endentry
+
+  \entry{Bergquist1107612}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=BJ}{%
+         family={Bergquist},
+         familyi={B\bibinitperiod},
+         given={Jonatan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \keyw{blockchain, smart contracts}
+    \strng{namehash}{BJ1}
+    \strng{fullhash}{BJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    The purpose of this Master's thesis is to explore blockchain technology and
+  smart contracts as a way of building privacy-sensitive applications. The main
+  focus is on a medication plan containing prescriptions, built on a blockchain
+  system of smart contracts. This is an example use case, but the results can
+  be transferred to other ones where sensitive data is being shared and a proof
+  of validity or authentication is needed. First the problem is presented, why
+  medication plans are in need of digitalisation and why blockchain technology
+  is a fitting technology for implementing such an application. Then blockchain
+  technology is explained, since it is a very new and relatively unfamiliar IT
+  construct. Thereafter, a design is proposed for solving the problem. A system
+  of smart contracts was built to prove how such an application can be built,
+  and suggested guidelines for how a blockchain system should be designed to
+  fulfil the requirements that were defined. Finally, a discussion is held
+  regarding the applicability of different blockchain designs to the problem of
+  privacy-handling applications.%
+    }
+    \field{issn}{1401-5757}
+    \field{note}{Presentation held externally at Technical University Munich on
+  the 29-5-2017 10.50.}
+    \field{number}{17023}
+    \field{pages}{62}
+    \field{series}{UPTEC F}
+    \field{title}{Blockchain Technology and Smart Contracts: Privacy-preserving
+  Tools}
+    \list{institution}{1}{%
+      {Uppsala University, Division of Computing Science}%
+    }
+    \field{year}{2017}
+    \warn{\item Can't use 'institution' + 'school'}
   \endentry
 
   \entry{kumar2016edge}{inproceedings}{}
