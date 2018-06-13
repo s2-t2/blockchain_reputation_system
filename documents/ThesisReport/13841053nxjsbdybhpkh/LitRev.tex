@@ -9,19 +9,20 @@ negative ratings. This system \cite{resnick2002trust} \cite{resnick2006value}
 could be judged as working based on the sales volume and the observation that
 more than half the buyers usually engage in providing feedback). However, this
 method fails to address issues such as Sybil attack, inactive
-participation(e.g., users fear retaliation from giving negative feedback), whitewashing etc..
-There are many none E-commerce online systems such as StackExchange
-\footnote{https://stackexchange.com/}, Yelp \footnote{https://www.yelp.com/},
-Quora\footnote{https://www.quora.com/}, Reddit
-\footnote{https://www.reddit.com/} e.t.c, that make use of similar reputation
-mechanism to filter the participating users and avoid serving malicious
-participation. Most of the E-commerce systems employ a client-server
+participation(e.g., users fear retaliation from giving negative feedback),
+whitewashing etc..  There are many none E-commerce online systems such as
+StackExchange \footnote{https://stackexchange.com/}, Yelp
+\footnote{https://www.yelp.com/}, Quora\footnote{https://www.quora.com/},
+Reddit \footnote{https://www.reddit.com/} e.t.c, that make use of similar
+reputation mechanism to filter the participating users and avoid serving
+malicious participation. Most of the E-commerce systems employ a client-server
 architecture which lets a central entity in control of stored data.  A single
 point of control is a single point of failure. In light of this, there have
 been several research and proposals on decentralized reputation methods for the
-distributed network(cite). Especially significant for P2P systems such as
-file-sharing, content delivery applications, etc for detecting the quality of
-file/content and the owner of those files.\\
+distributed network discussed briefly in the following sections. Especially
+significant for P2P systems such as file-sharing, content delivery
+applications, etc for detecting the quality of file/content and the owner of
+those files.\\
 Resnick et al.\cite{resnick2000reputation}points out that a reputation system
 should be able to provide enough information to help infer the trustworthiness
 of participating users, encourage a user to be trustworthy and discourages the
@@ -100,7 +101,7 @@ transfers between peers and uses max flow algorithm to compute the reputation
 values for each node. Tribler\footnote{https://www.tribler.org/} is a
 BitTorrent based torrent client that uses Bartercast to rank its peers. 
 PowerTrust\cite{zhou2007powertrust} proposes a robust and scalable reputation
-system that makes use of Bayesian learning and lookahead random walk(cite). It
+system that makes use of Bayesian learning. It
 uses Bayesian method to generate local trust scores and a distributed ranking
 mechanism to aggregate reputation scores. 
 
