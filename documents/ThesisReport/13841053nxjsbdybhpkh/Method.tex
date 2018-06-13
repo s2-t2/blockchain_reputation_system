@@ -89,20 +89,42 @@ The functional requirements can be listed in points as : \\
 
 The non-functional system requirements are : 
 \begin{enumerate}
-	\item Security: smartcontract security.  
-	\item Reliability: reliability of data, tamperproof and
-		verifiable,immutable traceability.
-	\item TrustMetrics: TEI should be representative of the trust metrics. 
+	\item Security: There should be minimal security considerations taken into
+		account while writing the smart contract that can avoid simple bugs.  
+	\item Reliability: The data stored on the blockchain should be immutable
+		and verifiable by anyone publicly.
+	\item Trust metrics should correctly describe the actual trust score/impact of the nodes.  
 \end{enumerate}
 
-\section{The Model - Endorsement Network}
-The initial assumption is that all nodes are honest and as such receive equal
-points that they can spend at will once registered on the network. This received
-points are the consumable power that keeps depleting with every endorsement
-connection made along the way. As depicted in figure ~\ref{consumablePoint} ,
-these points follow a convergent sequence that converges to the limit 0 as the
-number of connection `n' increases. As such, increasing the number of
-connection alone will not be enough to achieve a higher impact on the network.
+\section{The Model - Endorsement Network}\label{sec:endorsementModel}
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\begin{center}
+		\includegraphics[width=0.2\textwidth]{Images/trustRepSteps.eps}
+		\caption{Trust and Reputation Model steps taken from \cite{marmol2009security}}
+		\label{fig:truststep}
+	\end{center}
+\end{wrapfigure}
+Complete trust and reputation model consists of four different steps as
+depicted in figure ~\ref{fig:truststep}. Among these steps, endorsement network
+concentrates on the first two steps, collection, and aggregation of
+information. For the last two steps, selecting and interacting with a peer for
+transaction based on which they get punished or rewarded is based on a
+transactional network. 
+As implementing transaction network is not the main task
+of this project, feedback based on success or failure of a transaction will be
+mostly based on the assumption that can be used by endorsement system.  Thus,
+most of the section in this chapter is based on the smart contract logic for
+endorsement model and discussion on the possibility to be used by other
+transactional systems. 
+
+The initial assumption on endorsement system is that all nodes are honest and
+as such receive equal points that they can spend at will once registered on the
+network. This received points are the consumable power that keeps depleting
+with every endorsement connection made along the way. As can be seen in figure
+~\ref{consumablePoint} , these points follow a convergent sequence that
+converges to the limit 0 as the number of connection `n' increases. As such,
+increasing the number of connection alone will not be enough to achieve a
+higher impact on the network.
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\textwidth]{Images/ConsumablePoints.eps}
@@ -111,19 +133,14 @@ connection alone will not be enough to achieve a higher impact on the network.
 \end{figure}
 
 \subsection{Computation of Total Endorsement Impact(TEI)} 
-The total endorsement impact corresponds to the total impact a participant has
-made on the network by sending or receiving endorsements. The two factors that
-are primarily responsible for computation of final trust score of a participant
-are the number of incoming and outgoing connections. \\
-
-The final trust score, associated with the total endorsement impact a
-participant/node has made on the network requires familiarity with some new
-terminologies which is briefly discussed below. \\
+The collection of information refers to the collection of endorsement
+interaction between endorsers and endorsees.  Aggregation of them to get the
+global trust score, total endorsement impact for all the nodes is made based on
+various factors. A short definition of them and the terminology used throughout
+the endorsement model is given below. \\ 
 
 \textit{$nEG_A$}: number of endorsements sent by a participant 'A'. \\
-
 \textit{$nER_A$}: number of endorsements received by a participant 'A'. \\
-
 \textit{$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value
 ensures that sent and received endorsement are not far off from  each other.
 \textit{$ratio_A$} is always assumed to be less than 1 and is given by: 
@@ -154,15 +171,26 @@ Finally, the total endorsement impact made by 'A' is given by: \\
 %final score considers both given and received, and how much impact endorser of
 %an endorsee has made already
 
-\section{Design of PoC}
-This chapter focuses on overview and design details of PoC based on the
-requirements mentioned in section \ref{ch:UserStories} on page
-\pageref{ch:UserStories}. It starts with design considerations, smart contract
-setup, data storage on and off blockchain. The high level system overview is
-presented in figure ~\ref{fig:SystemContainer}. 
+\section{Design of PoC}\label{sec:pocDesign}
+The PoC design is based on the requirements mentioned in section
+\ref{ch:UserStories}. This section explains the design considerations and the
+setup of smart contracts used for the EDS system. A high-level overview of the
+overall system is presented in figure ~\ref{fig:SystemContainer}. The
+visualization is based on an architectural model by \cite{brown2013software}.
+It essentially uses three-layer to visualize a software architecture. i.e.,
+context layer, container layer, and component layer. The context layer attempts
+to describe several user types and their interaction with the system on a high
+level. The container layer takes it further by expanding on the software system
+and shows a high-level overview of the components involved. The component layer
+then goes on to explain in detail the connected component. For endorsement
+system, the component that is most relevant and thus explained in detail is the
+smart contract.
+After the design details, the section ends with the discussion on graph
+algorithms that can be used by the transactional network, blockchain
+infrastructure, governance model, and storage of information on and off-chain.
 
 \begin{figure}
-	\includegraphics[width=1.4\textwidth]{Images/2Container.eps}
+	\includegraphics[width=0.9\textwidth]{Images/2Container.eps}
 	\caption{Container Layer}
 	\label{fig:SystemContainer}
 \end{figure}
@@ -180,12 +208,12 @@ presented in figure ~\ref{fig:SystemContainer}.
 %		receive(r,e) is true. Here, 'm'is $nEG_p$	and 'n' is $nER_p$.}
 %\end{itemize}
 
-\subsection{Design Consideration}
-Honest and malicious participation in the network and the possible behavior
-that can result from the interaction between nodes were considered during the
-design. It is also worth mentioning why a participant would endorse another
-participant registered on the network. The endorsement is between known
-entities based on physical and digital acquaintances. 
+\subsection{Design Consideration} \label{subsec:design_considerations}
+The design considers possible behavior that can result from the interaction
+between nodes, both honest and malicious. The endorsement relation exists based
+on a subjective measure from an endorser. Thus, they are known entities based
+on physical or digital acquaintance.\\
+
 The acquaintance could be of the following form:
 \begin{itemize}
 	\item Alice and Bob go to the same school/workplace, have worked on
@@ -194,14 +222,19 @@ The acquaintance could be of the following form:
 		always had an excellent transaction with him. In this interaction,
 		Alice is sure that Bob is an honest seller and Bob is confident that
 		Alice is a reliable buyer. 
-	\item Alice follows Bob on some social media(e.g.Blog) and knows that Bob's
+	\item Alice follows Bob on some social media and knows that Bob's
 		article is good and sees lots of pre-research in his writing and is
 		confident that Bob doesn't engage in the false news.
 \end{itemize}
 Thus, Alice is likely to endorse Bob and vice-versa on the endorsement network.
-They can use some form of secure messaging channels to exchange their keys and
-endorse each other. \\
-
+They can use secure messaging channels to exchange their keys and endorse each
+other. There is no objective way to verify if Alice and Bob are separate entity
+sending out an honest evaluation of each other. However, the endorsement
+network can receive feedback from the transaction network. Therefore, if any
+entity that has received endorsement turns out to be a bad actor in an online
+transaction, they can be punished along with the node that sent the
+endorsement. i.e., both endorser and endorsee get punished by decreasing the
+total endorsement impact by 50\%.
 From a game-theoretic perspective of a behavioral outcome, following
 definition were made for network influencing factors. 
 
@@ -291,24 +324,22 @@ definition were made for network influencing factors.
 		that don't have too many connections, then the impact is ignorant and
 		thus useless and not worth the time.
 \end{enumerate}
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagramRemoveEDS.eps}
+	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagramRemoveEDS.eps}
 	\caption{Activity diagram for removing endorsement}
 	\label{fig:removeEds}
 \end{figure}
 
 \subsection{SmartContract} 
-Smart contracts can be either
-deterministic which doesn't require any information from outside blockchain or
-non-deterministic which does need to get oracles from external sources.(cite) For
-this PoC, endorsement contract is deterministic and so all the data and
-variables required are stored and executed on the blockchain. \\
-
-The system of smart contracts on the component level is depicted in figure
-~\ref{fig:smartcontracts}. The main contracts written for this PoC are : 
-
-
+Smart contracts can be either deterministic which doesn't require any
+information from outside blockchain or non-deterministic which does need to get
+oracles from external sources\cite{alharby2017blockchain}. For this PoC,
+endorsement contract is deterministic and so all the data and variables
+required are stored and executed on the blockchain. \\
+Figure ~\ref{fig:smartcontracts}, represents the system of smart contracts as a
+way to visualize the component layer and is based on \cite{delmolino2016step}. 
+The main contracts written for this PoC are : 
 \begin{itemize}
 	\item Ownable: tracks the owner of the contract. i.e., the creator of
 		contract. 
@@ -322,7 +353,7 @@ The system of smart contracts on the component level is depicted in figure
 	\item Computation: inherits from Endorsement contract and allows anyone to
 		get the final score by accessing the current state from an Endorsement
 		contract.
-	\iitem Marketplace: stores the buyers, sellers information and allows them
+	\item Marketplace: stores the buyers, sellers information and allows them
 		to buy or sell the product. Also, allows buyer/seller to compute the
 		score of the involved entity before doing a transaction.  
 \end{itemize}
@@ -354,64 +385,82 @@ challenge with her private key.
 \subsection{Data and variables on and off blockchain}
 For this PoC, the data required to identify the users are stored on the
 blockchain. But, it does preserve the anonymity requirement mentioned in
-section ~\ref{ch:UserStories}, as the only public information is the link between the public
-key hash and individual trust score. Even though the users are required to
-register with a pseudonym, it is not needed that the aliases be linked to
-real-world identity. A user might like to share more information(other online
-account ids, address, etc.).  As mentioned earlier in the gas consumption
-section, every non-zero byte data or code of a transaction costs a certain
-amount of gas. (cite: eth yellow paper)(cite: eth gas station chart on the gas
-section above). Storing this data can become an expensive operation for
-real-world usage. The right approach can be to use an off-blockchain storage
-solution such as IPFS, swarm (cite). The hash that points to the file in IPFS
-can then be stored on the blockchain. Generally, client-side assets (HTML, js)
-are stored on these distributed off-chain file system that can communicate to
-the contracts registered on blockchain network. 
+section ~\ref{ch:UserStories}, as the only public information is the link
+between the public key hash and individual trust score. Even though the users
+are required to register with a pseudonym, it is not needed that the aliases be
+linked to real-world identity. A user might like to share more
+information(other online account ids, address, etc.).  As mentioned earlier in
+the gas consumption section, every non-zero byte data or code of a transaction
+costs a certain amount of gas \cite{buterin2013ethereum}. Storing this data can
+become an expensive operation for real-world usage. The right approach can be
+to use an off-blockchain storage solution such as IPFS, swarm
+\cite{benet2014ipfs}. The hash that points to the file in IPFS can then be
+stored on the blockchain.  Generally, client-side assets (HTML, js) are stored
+on these distributed off-chain file system that can communicate to the
+contracts registered on blockchain network. 
 
-
-\subsection{Blockchain and Consensus algorithms}
-The proposed platform for this PoC is Ethereum, constantly developing open
+\subsection{Blockchain and Consensus algorithms}\label{subsec:bcConsensus}
+The proposed platform for this PoC is Ethereum, continually developing open
 source blockchain ecosystem. The process of starting up the nodes and deploying
-the contract on the network is shown in figure ~\ref{fig:startup}.
+the contract on the network is shown in figure ~\ref{fig:startup}. 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagramStartUpBC.eps}
+	\includegraphics[width=0.6\textwidth]{Images/ActivityDiagramStartUpBC.eps}
 	\caption{Startup activity for registering contract on the network}
 	\label{fig:startup}
 \end{figure}
-As a permissionless system, it allows any nodes to
-collect transactions and act as a writer. Consensus mechanism that is generally
-used in a permissionless setting is Proof-of-Work or Proof-of-Stake. As
-mentioned earlier, PoW is computationally expensive and wasteful. Using other
-consensus mechanisms such as delegated proof of stake requires finding enough
-trustworthy validators that can act as a leader or a master node which can be
-given authority to vote on behalf of the community. In the endorsement network,
-an honest endorsement is supposed to be between known entities. But all
-participating entities do not know each other and there is no one node that can
-be trusted to collect everyone's transaction and make final commit.
-%It is more like a cluster of small-world graph topology(cite graph section). 
-The recent
-breakthrough in consensus engine is proposed by hashgraph(cite) that claims to
-be fair(no bias as in other systems where miners get to decide which
-transactions to include in the block) and provide 100\% certainty on the order
-of transactions with instant validation(cite). The hashgraph conundrum is that
-their software is patented and a developer must pay for making an API call
-using micropayment of the platform. The suggested approach for this PoC would
-be to use a public blockchain but in a permissioned setting much like
-Sovrin(cite) does. Using known but not necessarily trusted writers and still
-allowing public verifiability. This is more sensible for a P2P network that
-provides services to end users or any centralized/decentralized transactional
-network such as e-commerce, filesharing platform, etc. 
-
-
-
-\begin{figure}
+As a permissionless system, it allows any nodes to collect transactions and act
+as a writer. Consensus mechanism that is generally used in a permissionless
+setting is Proof-of-Work or Proof-of-Stake. As mentioned earlier, PoW is
+computationally expensive and wasteful. Using other consensus mechanisms such
+as delegated proof of stake requires finding enough trustworthy validators that
+can act as a leader or a master node which can be given authority to vote on
+behalf of the community. In the endorsement network, an honest endorsement is
+supposed to be between known entities. However, all participating entities do
+not know each other, and no one node can be trusted to collect everyone's
+transaction and make a final commit. Gochain \footnote{https://gochain.io/} has
+mentioned the use of PoR(Proof-of-reputation) as a consensus mechanism in its
+ethereum based blockchain platform. The basic idea here is to allow
+participants on the network that have a high reputation to sign the block. It
+builds on the theory that it is not worthwhile for a reputed node to tarnish
+the current reputation that took some time and effort to create. The
+endorsement system is designed to assign a global reputation score to each
+entity and could use PoR. Since reputation scores are significant to maintain,
+the nodes that have an impact score within some given range can be trusted to
+validate and sign the blocks of transactions. PoR on endorsement system can
+only be used if the endorsement that results in an impact value becomes a
+valuable asset over time through extensive use. It is not recommended to start
+with it. However, PoR can be used along with PoW from the beginning. As such,
+the recommended consensus mechanism for the current design is PoW despite its
+limitations. Various alternatives to PoW and consensus algorithms related
+research that can solve specific problems(e.g., transaction speed, transaction
+size, size of nodes, etc.) are under development. 
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Images/ActivityDiagram.eps}
+	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagram.eps}
 	\caption{Activity Diagram for sending an endorsement}
 	\label{fig:activity}
 \end{figure}
+Hashgraph \cite{baird2016hashgraph}  proposes the recent advancement in
+consensus engine that claims to be fair, fast and Byzantine fault tolerant. It
+is based on gossip protocol(nodes gossip about transactions and gossip) and
+offers mathematical proof on the total order of transactions with less
+communication overhead. However, the hashgraph conundrum is that their software
+is patented unlike other developments in the similar space. A developer must
+pay for making an API call using micropayment of the platform.  Endorsement
+system can also be used on a permissioned setting, much like sovrin
+\cite{tobin2016inevitable} does.  Sovrin introduces a steward node who is
+trusted based on a signed agreement with sovrin
+\footnote{https://sovrin.org/library/steward-agreement/} and has received
+approval as trusted institutions. The concept of steward nodes might be
+questionable regarding full decentralization, but there are cases when this
+level of decentralization is enough for the security of an application.   For
+instance, there can be a consortium of e-commerce organizations that could
+agree on a specific set of protocols. Validation of transactions can be based
+on a voting mechanism that requires the consent of 2/3 of the trusted members.
+Doing so can increase the transaction validation time compared to PoW.   
 
+\subsection{Graph based algorithm for anomaly detection}
 
 %\section{Honest vs. Malicious Nodes}
 

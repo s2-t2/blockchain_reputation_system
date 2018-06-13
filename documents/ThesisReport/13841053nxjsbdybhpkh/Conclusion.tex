@@ -1,7 +1,31 @@
 %%% Ch.6: Conclusion %%%
 \chapter{Conclusion} \label{ch:conclusion}
+While the designed PoC provided a way to measure the trustworthiness of an
+entity, there is no way to measure the actual trust value. The accuracy is
+based on the constant feedback from the peer's interacting with an actual
+transactional network. Trustworthiness is not a boolean factor that can just be
+solved by a 1 or 0 for an honest or malicious peer. The task of assigning a
+reputation score and inferring trustworthiness is a vague problem. The PoC,
+therefore, provided a value based on several transparent factors that a user
+can see for themselves and verify. Based on the evaluation criteria mentioned,
+this project has fulfilled the goal and research questions as per plan. 
 
 \section{Future Works}
+Complex graph algorithms can be implemented to analyze the behavior on several
+levels. For instance, using a Ford-Fulkerson algorithm to compute the maximum
+flow on a network can be used. Doing so can set a bound on the number of edges
+that an honest cluster can make with the malicious one. Thus, detecting a
+malignant node to further improve on the punishment can help in the measure of
+more precise scores. Since the trust and reputation are dynamic by nature, it
+needs to receive feedback and update the state continually. However, use of
+complex algorithm also implies a higher computation overhead. The primary
+limitation of blockchain at the current stage is its scalability problem. It is
+a continually developing domain, and research by both academia and industry is
+being carried out for different use cases. Further research on consensus
+mechanism, latency, scalability issues of the technology can create several
+more adoptable use-cases. 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

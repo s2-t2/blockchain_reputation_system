@@ -1,0 +1,97 @@
+{
+  "contractName": "NetFlow",
+  "abi": [],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820090b4125c85d24a83182afea1b08aeef303216e24689a82c293ed9a7d64f09a40029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820090b4125c85d24a83182afea1b08aeef303216e24689a82c293ed9a7d64f09a40029",
+  "sourceMap": "26:26:5:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:26:5:-;;;;;",
+  "source": "pragma solidity ^0.4.18;\n\ncontract NetFlow { \n\t\n\t\n\n}\n",
+  "sourcePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/netflow.sol",
+  "ast": {
+    "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/netflow.sol",
+    "exportedSymbols": {
+      "NetFlow": [
+        1310
+      ]
+    },
+    "id": 1311,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1309,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1310,
+        "linearizedBaseContracts": [
+          1310
+        ],
+        "name": "NetFlow",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1311,
+        "src": "26:26:5"
+      }
+    ],
+    "src": "0:53:5"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/netflow.sol",
+    "exportedSymbols": {
+      "NetFlow": [
+        1310
+      ]
+    },
+    "id": 1311,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1309,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:5"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1310,
+        "linearizedBaseContracts": [
+          1310
+        ],
+        "name": "NetFlow",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1311,
+        "src": "26:26:5"
+      }
+    ],
+    "src": "0:53:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-12T11:01:56.493Z"
+}

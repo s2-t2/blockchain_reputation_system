@@ -5,20 +5,22 @@ proposed in chapter ~\ref{ch:method}. Based on which, the overall system design
 and functionality will be evaluated and final results will be presented. 
 
 \section{Evaluation Criteria}
-Since the purpose of the thesis was only a PoC design, experimental testing on
-a real network was not performed. The testing involved a private blockchain
-network for the beginning phase and contract deployment was tested on Ethereum
-test network, Rinkeby.  To assess the fulfillment of requirements, a
-descriptive approach based on the design evaluation method of
-\cite{hevner2010design} is used. The system is not only reliant on the smart
-contract code and its execution but also on the interaction theory discussed.
-For this, the endorsement interaction will be simulated using an interaction
-graph simulation tool neo4j. It will follow with the study of graph topology
-and relevant subgraphs to study the interactions and base the results on it.
-For this interaction, an existing dataset from SNAP\cite{snapnets} is used.
-Given the time constraints, no form of structural/unit testing was performed.
-However, manual testing was done in parallel with implementation using truffle
-and remix ide where necessary. Additionally, front-end for the simple
+To assess the fulfillment of requirements, a descriptive approach
+based on the design evaluation method of \cite{hevner2010design} is used when
+necessary. The system is not only reliant on the smart contract code and its
+execution but also on the interaction theory discussed. For this, the
+endorsement interaction will be simulated using an interaction graph simulation
+tool neo4j. It will follow the study of graph topology and relevant subgraphs
+to study the interactions and base the results on it. For this interaction, an
+existing dataset from SNAP\cite{snapnets} is used. The details on the dataset
+are presented in the respective section.  Given the time constraints, no form
+of structural/unit testing was performed. The purpose of this project was a PoC
+design to demonstrate reputation model as a use case via the use of smart
+contracts and blockchain technology. Therefore, extensive experiment to
+simulate a real-world usage was not performed. However, manual testing was done
+during development using
+ganache\footnote{https://github.com/trufflesuite/ganache} and remix
+environment\footnote{https://remix.ethereum.org/}. Additionally, front-end for
 endorsement interaction was also deployed to test simple function calls and
 communicate from the web browser itself. 
 
@@ -77,7 +79,7 @@ demonstrate this is presented below.
 		\multirow{2}{*}{Endorsee} & R5.& The storage of personal information
 		was not fully implemented by the endorsement PoC, therefore, editing
 		personal information is irrelevant. However, change to pseudonym can be
-		possible by just making a call to editName() by the participant.
+		possible by just making a call to editProfile() by the participant.
 		\\\cline{2-3}
 		\hline
 		\multirow{2}{*}{other users} & R4.1 & Anyone can make a call to
@@ -92,25 +94,32 @@ demonstrate this is presented below.
 \end{table}
 \end{center}
 
-\textbf{Reliability:} The reliability attribute refers to the tamper-proof,
-immutable traceability and verifiable nature of data. The blockchain
-infrastructure fulfills this requirement. The data in the context of
-Endorsement PoC is the endorsement interaction, list of endorsers and endorsees
-and the last computed endorsement impact of the respective user, etc. On a PoW
-setup, miners, the reliance is on miners to collect and put forward the list of
-transactions to the block. As long as a malicious attacker does not own more
-than 50\% of the processing power, PoW as a consensus mechanism is considered
-safe. The transactions once collected by miners and sent to the blockchain can
-be safely assumed to stay there as an immutable set of records. 
+\textbf{Reliability:}
+The information of endorser, endorsee and their interaction is collected as
+transaction data by the miners. A miner that is first to solve the hash value
+of a block gets to write the list of transactions into a block and chain it to
+the existing chain of blocks. The block-chain protocol ensures the immutability
+of these list of transactions. i.e., Each block has a timestamp and a pointer
+to the previous block. The public ledger ensures the verifiability of data
+which can be checked by every node on the network.  Thus, the reputation score
+stored on endorsement system can be said to be reliable. 
 
-
+%The reliability attribute refers to the tamper-proof,
+%immutable traceability and verifiable nature of data. The blockchain
+%infrastructure fulfills this requirement. The data in the context of
+%Endorsement PoC is the endorsement interaction, list of endorsers and endorsees
+%and the last computed endorsement impact of the respective user, etc. On a PoW
+%setup, miners, the reliance is on miners to collect and put forward the list of
+%transactions to the block. As long as a malicious attacker does not own more
+%than 50\% of the processing power, PoW as a consensus mechanism is considered
+%safe. The transactions once collected by miners and sent to the blockchain can
+%be safely assumed to stay there as an immutable set of records. 
+%
 
 \textbf{Trust metrics correctly describe the actual trust of the nodes:} For
 this requirement, an interaction graph is simulated, and different scenarios
 are modeled that represents different possible behavior in the network.  Refer
 to section ~\ref{sec:interaction} for this.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interaction graph} \label{sec:interaction}
@@ -123,42 +132,43 @@ scale of -10 to +10 where negative value represented total distrust whereas
 positive value represented total trust. It consists of 3,783 nodes that made
 24,186 edges out of which 93\% of the edges were marked as positive
 edges\cite{kumar2016edge}.\\
-\begin{figure}[h]
+\begin{figure}
 	\includegraphics[width=0.95\textwidth]{Images/in_out.eps} 
 	\caption{Given Vs. Received} 
 	\label{inOut}
 \end{figure}
-
 The available information in the dataset for all the nodes was source, target,
 rating, and timestamp. All of which is essential information for endorsement
 network. The direction of endorsement is based on the source and target
-information. The timestamp is also essential information when using a network
-anomaly detection algorithm such as net flow rate convergence(cite). The rating
-shows the strength or weakness of the relation. 
+information.  The timestamp information can help to decide on the order of
+transaction occurrence in the network. This information is particularly
+interesting for anomaly detection algorithm such as Net flow rate convergence
+as discussed in \cite{buechler2015decentralized}.
 Unlike the Bitcoin Alpha network that let users rate on a scale of -10 to +10
 to demonstrate the strength of their trust towards other users. The endorsement
 is more of a boolean decision problem. i.e., A user either endorses a specific
 claim made by the entity or doesn't endorse. There is no range of values to
-depict the strength or weakness. For the sake of making it a bit more relevant
-to endorsement interaction, the existing dataset was filtered only to have
-edges with a rating above +2. No negative edges were considered for the
-endorsement simulation. As a result, the total number of nodes was reduced to
-1677 with 4776 edges. \\
-An attempt was made to compute the total endorsement impact of all these nodes
-based on their edges relation. The scores along with new findings are presented
-below: \\
-Total Endorsement Impact: This value is based on the degree of connections and
-total received points for each node. Surprisingly, there were 1175 nodes(70\%)
-whose final computed score was equivalent to zero. On examining the nodes, it
-was found that all of these nodes only had one incoming or outgoing
-connections. One requirement that was designed to the endorsement model was
-that a node needs to have at least 2 or more connections. The distribution of
-indegree and outdegree can be seen in figure ~\ref{inOut}. Having one
-connection is only considered a start in the network. The zero, in this case,
-is not a representation of a non-trustworthy node, but a starting node.
-Therefore, it can be assumed that 70\% of the nodes in the network are new
-users. This computation leaves the network with only 502 nodes to account for
-having a considerable impact value. 
+depict the strength or weakness. For making it a bit more relevant to
+endorsement interaction, the existing dataset was filtered only to have edges
+with a rating above +2. No negative edges were considered for the endorsement
+simulation. As a result, the total number of nodes was reduced to 1677 with
+4776 edges. Endorsement model was then applied to these nodes, and their total
+endorsement impact was computed based on their edge weights. \\
+The scores along with new findings are presented below: \\
+\textbf{Total Endorsement Impact:} 
+This value is based on the degree of connections and total received points for
+each node. Surprisingly, there were 1175 nodes(70\%) whose final computed score
+was equivalent to zero. On examining the nodes, it was found that all of these
+nodes only had one incoming or outgoing connections. One requirement that was
+required by the implementation was that a node needs to have a strictly greater
+than one number of connections to be considered for impact score computation.
+The distribution of indegree and outdegree can be seen in figure ~\ref{inOut}.
+Having one connection is only considered a start in the network. The zero, in
+this case, is not a representation of a non-trustworthy node, but a starting
+node. Therefore, it can be assumed that 70\% of the nodes in the network are
+new users. This computation leaves the network with only 502 nodes to account
+for having a considerable impact value. 
+
 \begin{tabularx}{\textwidth}{| X | X | X | X | X| X| }
   \hline
    \textbf{Node Label} & \textbf{nEG} & \textbf{nER} & \textbf{ratio} & \textbf{ReceivedPoints} & \textbf{Impact} \\
@@ -182,28 +192,22 @@ The remaining 502 nodes had connections more than 1. Nevertheless, there were
 still few nodes among them with impact value equivalent to zero. This is due to
 another factor, received points, that the endorsement impact takes into
 account. The relation between Total received points, and total endorsement
-impact is shown in figure ~\ref{fig:receivedpointvsimpact}. The received point
-is more or less representative of a prestige centrality metrics in a graph
-network.  i.e., the node's significance is dependent on the significance of
-other nodes it is connected to. However, in case of endorsement network,
-Determines the significance of a node based on the significance of other nodes
-it is connected to. This factor is more or less similar to the prestige
-centrality metrics in a graph network. However, in this case, the significance
-is not directly associated with the total endorsement impact of the node it is
-connected to. Instead, the depleting consumable point of a giving node
-accumulates to the received points to a receiving node. 
-The interaction subgraph is shown in figure ~\ref{fig:zeroimpact} for the
-discussed nodes behavior. The figure makes it clear that even though the nodes
-430, 761, 448, 676, 936 have a degree of connection that is more than 1, their
-respective endorsers do not. Table ~\ref{table:receivedpoints} displays the
-state and scores of these nodes. 
-\begin{figure}[h]
-	\includegraphics[width=0.95\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
+impact is shown in figure ~\ref{fig:receivedpointvsimpact}. This factor is more
+or less similar to the prestige centrality metrics in a graph network. However,
+in this case, the significance is not directly associated with the total
+endorsement impact of the node it is connected to. Instead, the depleting
+consumable point of a giving node accumulates to the received points to a
+receiving node.  The interaction subgraph is shown in figure
+~\ref{fig:zeroimpact} for the discussed nodes behavior. The figure makes it
+clear that even though the nodes 430, 761, 448, 676, 936 have a degree of
+connection that is more than 1, their respective endorsers do not. Table
+~\ref{table:receivedpoints} displays the state and scores of these nodes. 
+
+\begin{figure}
+	\includegraphics[width=1.0\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
 	\caption{Received Points Vs. Total Endorsement Impact}
 	\label{fig:receivedpointvsimpact}
 \end{figure}
-
-
 \begin{figure}
 	\includegraphics[width=0.95\textwidth]{Images/nodesWithImpactZero.eps}
 	\caption{Interaction subgraph of nodes with impact zero}
@@ -217,7 +221,7 @@ it clear that ratio alone is not enough to have a high impact. The figure
 over all nodes. One can infer that higher ratio does not imply a higher impact
 but a higher impact most probably implies a higher ratio. As such, it is a
 contributing factor in the long run. 
-\begin{figure}[h]
+\begin{figure}
 	\includegraphics[width=0.95\textwidth]{Images/ratio_impact_impactAboveZero.eps}
 	\caption{Relation of Ratio and Total endorsement impact}
 	\label{fig:ratioimpact}
@@ -272,6 +276,11 @@ to average trustworthy and minimum impact refers to less trustworthy nodes.
   \label{table:totalimpact}
 \end{tabularx}
 \section{Total impact across several factors with different scenarios}
+\begin{figure}[h]
+	\includegraphics[width=0.8\textwidth]{Images/AllCases.eps}
+	\caption{Total Impact Across all factors}
+	\label{fig:allCases}
+\end{figure}
 Different scenarios are considered to clarify further the relationship between
 ratio and total endorsement impact. It seeks to answer the question such as why
 a high ratio can both contribute to a high and low total endorsement impact and
@@ -282,50 +291,103 @@ state as well.
 All the nodes that got maximum impact value when computing the endorsement
 impact are considered in this case. Among them, the nodes with the low ratio
 are extracted to examine the behavior. As can be seen in figure
-~\ref{fig:case1}, the lowest ratio of a maximum impact node is 0.6. This
+~\ref{fig:allCases}, the lowest ratio of a maximum impact node is 0.6. This
 illustrates the behavior mentioned earlier that a maximum impact node most
 certainly has a maintained ratio. 
-\begin{figure}
-	\includegraphics[width=0.95\textwidth]{Images/case-1-max-impact-min-ratio.eps}
-	\caption{Case1- Maximum Impact Minimum Ratio}
-	\label{fig:case1}
-\end{figure}
 \subsection{Case2: Maximum Impact, Maximum Ratio}
 A maximum ratio of a node with a maximum impact should be the maximum ratio
 possible in the network. This behavior is the best case scenario where a node
 is actively participating both as an endorser and an endorsee. The data is
 taken using the same approach as in case1 for this scenario as well. The
-behavior of such a node is depicted in figure ~\ref{ fig:case2}. The value
-across all dimension is equally distributed. 
-\begin{figure}[h]
-	\includegraphics[width=0.95\textwidth]{Images/case-2-max-impact-max-ratio.eps}
-	\caption{Case2- Maximum Impact Maximum Ratio}
-	\label{fig:case2}
-\end{figure}
+behavior of such a node is depicted in figure ~\ref{fig:allCases} Case2. The
+value across all dimension is equally distributed. 
 \subsection{Case3: Minimum Impact, Minimum Ratio}
 A minimum impact node is the one that is not an active participator in the
 network across all dimension as required. For this category, all the nodes from
 minimum impact region were taken. From those nodes, the node with the minimum
-impact is taken to show the behaviour as shown in figure ~\ref{fig:case3}. It
-can be seen that the node has only actively involved in giving out endorsements
-but received relatively low connections. As such, neither the ratio or the
-impact is significant for this node. This behavior is typical of an extreme
-one-way connection. 
-\begin{figure}[h]
-	\includegraphics[width=0.95\textwidth]{Images/case-3-min-impact-min-ratio.eps}
-	\caption{Case3- Minimum Impact Minimum Ratio}
-	\label{fig:case3}
-\end{figure}
+impact is taken to show the behaviour as shown in figure ~\ref{fig:allCases}
+Case3. It can be seen that the node has only actively involved in giving out
+endorsements but received relatively low connections. As such, neither the
+ratio or the impact is significant for this node. This behavior is typical of
+an extreme one-way connection. 
 \subsection{case4: Minimum Impact, Maximum Ratio}
 Table ~\ref{table:receivedpoints}  and figure ~\ref{fig:ratioimpact} has
 already demonstrated this form of behavior as well. From the minimum impact
 nodes, the node with the maximum ratio is taken to simulate an interaction that
-looks like figure ~\ref{fig:case4}
-\begin{figure}
-	\includegraphics[width=0.95\textwidth]{Images/case-4-min-impact-max-ratio.eps}
-	\caption{Case4- Minimum Impact Maximum Ratio}
-	\label{fig:case4}
-\end{figure}
+looks like figure ~\ref{fig:allCases} case 4.
+
+\section{Threat Model}\label{sec:threatModel}
+An honest peer in the endorsement system has scores distributed across all
+factors as shown by figure ~\ref{fig:allCases} in case2. Similarly, a malicious
+peer is the one that has high score across one dimension which is shown by case
+3.\\
+The relevant threat scenarios for the proposed system can be described as
+following: \\
+\textbf{Individual and collective malicious peers\cite{marmol2009security}:}
+A malicious peer is always supposed to provide inferior services in the
+transactional network. Similarly, a malicious collective is formed by a group
+of malicious peers that give a good rating to each other with the intent of
+inflating their trust score. This can be detected by other peers based on
+feedback/rating. Once detected, the peer will have an endorsement impact
+reduced by 50\% and the endorsers of the node will have the total impact
+reduced by 25\%.
+
+\textbf{Sybil Attack:}
+A peer can create multiple Sybil identities and interact with self to send a
+large number of endorsements directed to themselves. The cost of creating a new
+identity and joining the network is not as high.  The gas cost as mentioned in
+section ~\ref{design_considerations} plays a significant role in limiting this
+behavior. However, it is a naive assumption and merely relying on it may not be
+the best approach.  Therefore, an algorithm such as max-flow, min-cut can be
+used to analyze the network and distinguish the edge that forms the edge
+between honest and Sybil cluster. Similarly, Net flow rate convergence
+algorithm as proposed by \cite{buechler2015decentralized} can also be used to
+detect anomaly by computing the net flow of the subgraph. Once detected, the
+peers are penalized as mentioned above.
+
+\textbf{Whitewashing:}
+A new user in endorsement system can never have an impact score higher than an
+old user. Assuming that a malicious peer was detected and penalized, the
+penalty is a certain percentage of the obtained score. As such, an old user
+will always an impact value greater than zero. The new user, on the other hand,
+will start with a full consumable point but a zero impact value. To be
+considered for impact computation step, the peer needs to make strictly larger
+than one connection.  Since the value is decreased in percentage. A new user
+will only receive a consumable point but has a zero impact when entering the
+network. The design requires that a peer make strictly more than one connection
+to be considered for impact computation step. Thus, white-washing is a
+discouraging attack in the endorsement model.
+
+\textbf{Freeriders:}
+In a P2P network that provides service, free-riders indicates the peers that
+only take services but do not participate equally in uploading files. In
+endorsement system, they can denote the peers that have high outdegree and
+negligibly low incoming connections. As shown by ~\ref{sec:interaction}, doing
+so doesn't contribute to a high total impact value.
+
+\section{Blockchain: Gas Consumption, Block size, Transactions}
+The gas consumption for the transactions in endorsement contract is based on
+the tests performed on Rinkeby test network and remix environment. The gas
+price and gas limit are based on the statistics from the main ethereum network
+\footnote{https://ethgasstation.info/index.php}. The gas cost to join the
+endorsement network is 142927 units of gas and to send an endorsement is 203746
+units of gas. Recommended safe low value for the gas price is 2
+Gwei(0.000000002 eth). 
+The block size limitation in ethereum is about 4 million gas per block.
+Therefore, the total amount of transactions is not determined by its size but
+by the amount of gas it consumes. The current block according to
+etherscan\footnote{http://etherscan.io/} is Block number 5778648 with a total
+of 155 transactions recorded in it. The time between the previous block and the
+current block is around 11 seconds. Thus, the network throughput based on this
+data is around 11 transaction per second. 
+
+
+
+
+
+
+
+
 
 
 %\section{Analysis}

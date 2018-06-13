@@ -1129,6 +1129,211 @@
     \field{year}{2017}
   \endentry
 
+  \entry{marmol2009security}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MFG}{%
+         family={M{\'a}rmol},
+         familyi={M\bibinitperiod},
+         given={F{\'e}lix\bibnamedelima G{\'o}mez},
+         giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=PGM}{%
+         family={P{\'e}rez},
+         familyi={P\bibinitperiod},
+         given={Gregorio\bibnamedelima Mart{\'\i}nez},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{MFGPGM1}
+    \strng{fullhash}{MFGPGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{7}
+    \field{pages}{545\bibrangedash 556}
+    \field{title}{Security threats scenarios in trust and reputation models for
+  distributed systems}
+    \field{volume}{28}
+    \field{journaltitle}{computers \& security}
+    \field{year}{2009}
+  \endentry
+
+  \entry{brown2013software}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={Simon},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Software Architecture for Developers}
+    \field{journaltitle}{Coding the Architecture}
+    \field{year}{2013}
+  \endentry
+
+  \entry{alharby2017blockchain}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Alharby},
+         familyi={A\bibinitperiod},
+         given={Maher},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=vMA}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Moorsel},
+         familyi={M\bibinitperiod},
+         given={Aad},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AMMAv1}
+    \strng{fullhash}{AMMAv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Blockchain-based Smart Contracts: A Systematic Mapping Study}
+    \field{journaltitle}{arXiv preprint arXiv:1710.06372}
+    \field{year}{2017}
+  \endentry
+
+  \entry{delmolino2016step}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=DK}{%
+         family={Delmolino},
+         familyi={D\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Arnett},
+         familyi={A\bibinitperiod},
+         given={Mitchell},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kosba},
+         familyi={K\bibinitperiod},
+         given={Ahmed},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Shi},
+         familyi={S\bibinitperiod},
+         given={Elaine},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{DK+1}
+    \strng{fullhash}{DKAMKAMASE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{International Conference on Financial Cryptography and
+  Data Security}
+    \field{pages}{79\bibrangedash 94}
+    \field{title}{Step by step towards creating a safe smart contract: Lessons
+  and insights from a cryptocurrency lab}
+    \field{year}{2016}
+  \endentry
+
+  \entry{buterin2013ethereum}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=BV}{%
+         family={Buterin},
+         familyi={B\bibinitperiod},
+         given={Vitalik},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BV+1}
+    \strng{fullhash}{BV+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Ethereum white paper}
+    \field{journaltitle}{GitHub repository}
+    \field{year}{2013}
+  \endentry
+
+  \entry{benet2014ipfs}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BJ}{%
+         family={Benet},
+         familyi={B\bibinitperiod},
+         given={Juan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BJ1}
+    \strng{fullhash}{BJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{IPFS-content addressed, versioned, P2P file system}
+    \field{journaltitle}{arXiv preprint arXiv:1407.3561}
+    \field{year}{2014}
+  \endentry
+
+  \entry{baird2016hashgraph}{report}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Baird},
+         familyi={B\bibinitperiod},
+         given={Leemon},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL1}
+    \strng{fullhash}{BL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Hashgraph consensus: fair, fast, byzantine fault tolerance}
+    \list{institution}{1}{%
+      {Swirlds Tech Report}%
+    }
+    \field{type}{techreport}
+    \field{year}{2016}
+  \endentry
+
+  \entry{tobin2016inevitable}{article}{}
+    \name{author}{2}{}{%
+      {{hash=TA}{%
+         family={Tobin},
+         familyi={T\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RD}{%
+         family={Reed},
+         familyi={R\bibinitperiod},
+         given={Drummond},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TARD1}
+    \strng{fullhash}{TARD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{The Inevitable Rise of Self-Sovereign Identity}
+    \field{journaltitle}{The Sovrin Foundation}
+    \field{year}{2016}
+  \endentry
+
   \entry{hevner2010design}{incollection}{}
     \name{author}{2}{}{%
       {{hash=HA}{%
@@ -1192,8 +1397,8 @@
       }}%
     }
     \keyw{blockchain, smart contracts}
-    \strng{namehash}{BJ1}
-    \strng{fullhash}{BJ1}
+    \strng{namehash}{BJ2}
+    \strng{fullhash}{BJ2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{abstract}{%
@@ -1267,6 +1472,45 @@
     \field{pages}{221\bibrangedash 230}
     \field{title}{Edge weight prediction in weighted signed networks}
     \field{year}{2016}
+  \endentry
+
+  \entry{buechler2015decentralized}{report}{}
+    \name{author}{4}{}{%
+      {{hash=BM}{%
+         family={Buechler},
+         familyi={B\bibinitperiod},
+         given={Matthew},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=EM}{%
+         family={Eerabathini},
+         familyi={E\bibinitperiod},
+         given={Manosai},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Hockenbrocht},
+         familyi={H\bibinitperiod},
+         given={Christopher},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WD}{%
+         family={Wan},
+         familyi={W\bibinitperiod},
+         given={Defu},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM+1}
+    \strng{fullhash}{BMEMHCWD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Decentralized reputation system for transaction networks}
+    \list{institution}{1}{%
+      {Technical report, University of Pennsylvania}%
+    }
+    \field{type}{techreport}
+    \field{year}{2015}
   \endentry
 \enddatalist
 \endinput

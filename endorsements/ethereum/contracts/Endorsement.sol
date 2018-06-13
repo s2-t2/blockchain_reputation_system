@@ -1,6 +1,9 @@
 pragma solidity ^0.4.18;
 
-contract Endorsement {
+import "./Ownable.sol";
+import "./Killable.sol";
+
+contract Endorsement is Ownable, Killable {
 
 	address owner;
     
@@ -43,8 +46,15 @@ contract Endorsement {
 	//mapping (address => uint) public receivedPoints;
     
 	// modifiers
+	// set owner of contract - replace eventually with Ownable contract
 	modifier onlyOwner() { 
 		require(msg.sender == owner );
+		_;
+	}
+
+	//reject any ether transfer 
+	modifier HasNoEther( ){ 
+		require (msg.value == 0);
 		_;
 	}
 
@@ -54,25 +64,36 @@ contract Endorsement {
 		owner = msg.sender;
 	}
 
-	event LogJoinNetwork(address _participant, string _name);  
+	//event logs
+	event LogJoinNetwork(
+		address _participant, 
+		string _name
+	);  
 
-	event LogEndorse(address _endorser, address _endorsee);
+	event LogEndorse(
+		address _endorser, 
+		address _endorsee
+	);
 
 	address [] public allParticipants;
 
 	mapping (address => uint ) participantIndex;
 
 
-	function joinNetwork(string _userName) public{
+	//Join Network as any user
+	function joinNetwork(string _userName) public HasNoEther {
 		//only allow unregistered participant
 	    require(!joined[msg.sender]);
 
 	    joined[msg.sender] = true;
 
+		// store senders id and name
 	    Participant memory newParticipant = Participant({
 	        identifier: msg.sender,
 	        name: _userName
 	    });
+
+		//add new participant to the existing list of joined members
 	    participants.push(newParticipant);
 
 		LogJoinNetwork(msg.sender, _userName);
@@ -84,30 +105,45 @@ contract Endorsement {
 		allParticipants.push(msg.sender);
 	}
 
+	//get list of all participants
 	function getAllParticipants() public view returns(address[]) {
 		return allParticipants;
 	}
 
+	//get index of participant by address, helper function, view modifier 
 	function getParticipantIndex(address _participant) public view returns (uint ) {
 		uint userIndex = participantIndex[_participant];
 		return userIndex;
 	}
 
+	//Profile-related changes of participants
 	function getName(uint _index ) public view returns (string ) {
 		string name = participants[_index].name;
 		return name;
-	
 	}
-	
-	function endorse(uint _index) public { 
+
+	function editProfile(address _participant, string _name) public HasNoEther {
+		//verify editor is same as profile owner
+		require(msg.sender == _participant);
+
+		//change state
+		uint id = getParticipantIndex(_participant);
+		participants[id].name = _name;
+	}
+
+	//send Endorsement - from  endorser to endorsee
+	function endorse(uint _index) public HasNoEther { 
+		// get address of endorsee
 	    address receiver = participants[_index].identifier;
 	    
+		//verify endorser and endorsee are not equal and are both registered participants 
 	    require(receiver != 0x0);
 	    require(receiver != msg.sender);
 		require(joined[msg.sender]);
 	    
+		//store and update new endorser information
 	    Endorser storage endorser = endorsers[msg.sender];
-	    
+
 		endorser.index++;
 	    endorser.sender = msg.sender;
 	    endorser.nEG++;
@@ -124,12 +160,14 @@ contract Endorsement {
 	    
 	    endorserAccts.push(msg.sender) - 1;
 
+		//trigger call for updating endorsee information
 		updateEndorsee(receiver, msg.sender);
 
+		//Log endorsement event
 		LogEndorse(msg.sender, receiver);
-	    
 	}
 
+	//store and update new endorsee information after transaction call
 	function updateEndorsee(address _receiver, address _sender) internal { 
 		Endorsee storage endorsee = endorsees[_receiver];
 		endorsee.receiver = _receiver;
@@ -141,25 +179,32 @@ contract Endorsement {
 		endorseeAccts.push(_receiver) - 1;
 	}
 
+	//remove endorsement as an endorser of an endorsee
 	function removeEndorsement(address _endorsee) public returns(uint) { 
 		Endorser storage endorser = endorsers[msg.sender];
 		Endorsee storage endorsee = endorsees[_endorsee];
 
+		//proceed only if endorsee is in the endorser's list of endorsees
 		if (endorser.hasGivenTo[_endorsee]) { 
 			endorser.hasGivenTo[_endorsee] = false;
 			endorser.nEG--;
+
 			//remove endorsee from endorser.givenTo array 
 			
 			endorsee.hasReceivedFrom[msg.sender] = false;
 			endorsee.nER--;
+
 			//remove endorser address from endorsee.receivedFrom array
 		}
 		return endorsers[msg.sender].index;
 	}
 
+	//computation of total received points of an endorsee 
 	function computeReceivedPoints(address _endorsee) public view returns(uint) { 
+		//get list of endorsers addresses from whom _endorsee has received eds from
 		address [] memory receivedFrom = getReceivedFrom(_endorsee);
 
+		//aggregate total received points from  the accumulated receivedFrom list
 		uint receivedPoints;
 
 		for (uint i=0; i<receivedFrom.length; i++) { 
@@ -169,6 +214,9 @@ contract Endorsement {
 		return receivedPoints;
 	}
 
+	//computation of total endorsement impact of a participant
+	//the degree of connection should be strictly greater than 1 to be considered for 
+	//impact computation, else, the impact by default should be ignorant, i.e., 0
 	function computeImpact(address _participant) public view returns (uint) { 
 		uint nEG = endorsers[_participant].nEG;
 		uint nER = endorsees[_participant].nER;
@@ -188,11 +236,12 @@ contract Endorsement {
 			uint usedUpByParticipant = endorsers[_participant].usedPower;
 			uint RE = _RE; 
 
-			impact = ratio * usedUpByParticipant * RE;
+			impact = ratio * RE;
 		}
 		return impact;
 	}
 
+	//Single function to get all the details of a registered participant
 	function getProfile(address _participant) public view returns (
 		uint,
 		uint, 
@@ -221,6 +270,7 @@ contract Endorsement {
 		);
 	}
 
+	//get connections and degree of connections - helper function
 	function getConnections(address _participant) public view returns (
 		address [],
 		address []
@@ -231,53 +281,61 @@ contract Endorsement {
 		return (inConns, outConns);
 	}
 
+	//count total number of registered participants
 	function getCount( ) public view returns (uint) {
 		return numberOfParticipants;
 	}
-	
+
+	//return array of all endorser accounts
 	function getEndorsers() view public returns (address []) { 
 	    return endorserAccts;
 	}
-	
+
+	//return the total consumable power used by an endorser
 	function getUsedPower(address _endorser) view public returns(uint) {
 	    return (endorsers[_endorser].usedPower);
-	    
 	}
-	
+
+	//return list of addresses that an endorser has sent endorsement to 
 	function getGivenTo(address _endorser) view public returns(address []) {
 	    return (endorsers[_endorser].givenTo);
-	    
 	}
 
+	//return number of endorsees an endorser has sent endorsement to
 	function getGivenToCount(address _endorser ) view public returns (uint) {
 		return (endorsers[_endorser].givenTo).length;
-	
 	}
 	
+	//return a boolean value from the matrix of hasGivenTo, quick access for checking 
+	//if an endorsee's address is in the list of endorsee addresses of the particular endorser.
 	function gethasGivenTo(address _endorser, address _endorsee) view public returns(bool) {
 	    return (endorsers[_endorser].hasGivenTo[_endorsee]);
-	    
 	}
 
+	//return an array of all endorsee accounts - front end
 	function getEndorsees() view public returns (address []) { 
 	    return endorseeAccts;
 	}
-	
+
+	//return address of all the endorsers for an endorsee, helper function to 
+	//compute total received point
 	function getReceivedFrom(address _endorsee) view public returns(address []) {
 	    return (endorsees[_endorsee].receivedFrom);
-	    
 	}
 
+	//count total number of endorser for an address of endorsee
 	function getReceivedFromCount(address _endorsee) view public returns (uint ) {
 		return (endorsees[_endorsee].receivedFrom).length;
 	}
-	
+
+	//return a boolean value from the matrix of hasReceivedFrom, to check if 
+	// an endorser's address is in the list of endorser address of the particular endorsee
 	function gethasReceivedFrom(address _endorser, address _endorsee) view public returns(bool) {
 	    return (endorsees[_endorsee].hasReceivedFrom[_endorser]);
 	}
 
 	
-	//some helper  functions for calculations
+	//some helper  functions for floating point calculation
 	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;
@@ -285,6 +343,8 @@ contract Endorsement {
 		return (quotient);		
 	}
 
+	//some helper maths function to compute max, min value.
+	//used for computing ratio and ensuring that the ratio is always less than 1.
 	function max (uint x, uint y ) internal pure returns (uint) {
 		if (x < y) {
 			return y;
@@ -300,6 +360,4 @@ contract Endorsement {
 			return y;
 		}
 	}
-
-
 }
