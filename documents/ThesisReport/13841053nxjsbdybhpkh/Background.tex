@@ -26,7 +26,7 @@ and connectivity can be observed. On a macro-level, one can view the overall
 network as the topology of the graph itself. It helps to study the global
 properties of the graph.\\ 
 Network metrics that are helpful in analyzing the complexity of
-interactions at macro and meso-level are(cite ): \\
+interactions at macro and meso-level are\cite{gkorou2014exploiting}: \\
 \textbf{Degree Connectivity:} The number of connections a node has is the
 degree of its connectivity. The number of inflow is referred to as indegree
 whereas the number of outflows is the outdegree of a node. Usually, a higher
@@ -35,15 +35,15 @@ data to the network) to pass through that node.\\
 \textbf{Network Centrality:} Centrality refers to the significance of a node in
 the network. i.e., how important the node is in the overall network. The degree
 of connectivity is one way to measure centrality of a node. Similarly, there
-are other centrality measures which include: \textbf{Closeness centrality},
-\textbf{Betweenness centrality}, \textbf{Prestige centrality}.\\ 
-Closeness centrality refers to how close a node is to other nodes in the network.
-Betweenness centrality refers to the number of nodes to which the given node
-acts as a connector. i.e., how many nodes passes through this node.  Prestige
-centrality refers to the significance of the node based on the significance of
-the adjacent nodes(nodes one is connected to).
-To observe and analyze the behavior at the macro-level, one needs to look at
-the overall structure of the graph. i.e., Network topology that shows how
+are other centrality measures which includes: Closeness centrality,
+Betweenness centrality, Prestige centrality.\\ 
+\textbf{Closeness centrality} refers to how close a node is to other nodes in
+the network.  \textbf{Betweenness centrality} refers to the number of nodes to
+which the given node acts as a connector. i.e., how many nodes passes through
+this node. \textbf{Prestige centrality} refers to the significance of the node
+based on the significance of the adjacent nodes(nodes one is connected to).  To
+observe and analyze the behavior at the macro-level, one needs to look at the
+overall structure of the graph. i.e., Network topology that shows how
 constituent parts are interconnected to form the graph as a whole. They can
 form ring, star, tree, or mesh structure or be a fully connected graph where
 each node are connected to each other. 
@@ -261,8 +261,9 @@ validators proposes a block they have unlocked to the network which can either
 be accepted or rejected. If accepted, the newly created block gets linked to
 the existing blockchain with a hash pointer pointing to the previous block. As
 such, blockchain provides the transaction ordering that every node agreed on at
-a given time. Consensus metric helps to establish and maintain the integrity
-of a blockchain system(cite).
+a given time. Consensus metric helps to establish and maintain the integrity of
+a blockchain
+system\footnote{https://github.com/ethereumbook/ethereumbook/blob/develop/consensus.asciidoc}.
 The primary attributes that constitute a blockchain system are distributed,
 decentralized, time-stamped transactions.  
 There have been P2P protocols deployed as a file-sharing or other form of
@@ -287,9 +288,9 @@ Bitcoin was the first application that made use of Blockchain technology which
 was a peer-to-peer electronic cash system. The major contribution of this
 application was solving distributed trust at scale without using a trusted
 intermediary. 
-Along the dimension of validation and access control(cite), blockchains can be
-categorized as a public permissionless system, public permissioned, and private
-permissioned. 
+Along the dimension of validation and access control\cite{voronchenko2017you},
+blockchains can be categorized as a public permissionless system, public
+permissioned, and private permissioned. 
 \begin{itemize}
 	\item Public Permissionless:Anyone can join the network and become a writer
 		of the block as long as they can solve a problem or reach the consensus
@@ -304,7 +305,7 @@ permissioned.
 		business use-cases where one business doesn't need to know about other
 		business policies or customer information etc. 
 \end{itemize}
-[Paper] provides a detailed discussion on various blockchain types and their
+\cite{voronchenko2017you} provides a detailed discussion on various blockchain types and their
 uses.
 
 
@@ -312,11 +313,11 @@ uses.
 As a distributed database with multiple writers, there has to be a way for
 everyone to reach a consensus on a shared global view of the network. Consensus
 mechanisms allow doing so. Based on consensus mechanisms, systems can be
-distinctly categorized into\footnote{Hashgraph}:
+distinctly categorized into\footnote{Categorization based on presentation of Hashgraph}:
 \begin{itemize}
 	\item Leader Based System: In this case, there is a pre-selected leader
 		that collects all the transactions and appends new records to the
-		blockchain.  Having a small group or consortium, it has low
+		blockchain. Having a small group or consortium, it has low
 		computational requirements. As a blockchain protocol, it offers an
 		immutable audit of the records. However, just like any other
 		centralized system, this system is susceptible to DDOS attacks and
@@ -348,11 +349,10 @@ distinctly categorized into\footnote{Hashgraph}:
 		stake gets to write the next block. If the participation turned out to
 		be a malicious one, then all the tokens that were at stake get lost. As
 		such, it puts scarce resource at stake. However, this includes problem
-		such as nothing-at-stake(cite). i.e., a node could vouch for two forks
+		such as nothing-at-stake\cite{houy2014will}. i.e., a node could vouch for two forks
 		of the same blockchain with nothing to lose. Other drawbacks of this
 		approach are that there is no certainty of consensus, and often has no
 		total ordering of transactions. Examples include Casper etc. 
-	\item Hashgraph
 \end{itemize}
 
 \subsection{Smart contracts}
@@ -409,7 +409,7 @@ execute any operation, gas needs to be supplied. Thus, a program that has a bug
 or a non-terminating intention will eventually run out of gas and
 stop.\cite{whataresmartcontracts} 
 
-\subsection{Applications}
+%\subsection{Applications}
 
 
 

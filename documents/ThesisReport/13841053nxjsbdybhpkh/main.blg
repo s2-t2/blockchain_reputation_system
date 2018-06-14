@@ -24,55 +24,50 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated field_info (elt_size=8) to 12089 items from 5000.
+Reallocated field_info (elt_size=8) to 12367 items from 5000.
 Database file #1: main-blx.bib
 Database file #2: library.bib
-Repeated entry---line 443 of file library.bib
- : @article{marmol2009security
- :                            ,
-I'm skipping whatever remains of this entry
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 51 entries,
+You've used 53 entries,
             6268 wiz_defined-function locations,
-            1456 strings with 18908 characters,
-and the built_in function-call counts, 253709 in all, are:
-= -- 17359
-> -- 4817
-< -- 1222
-+ -- 6040
-- -- 1637
-* -- 17271
-:= -- 24827
+            1462 strings with 19060 characters,
+and the built_in function-call counts, 260083 in all, are:
+= -- 17703
+> -- 4959
+< -- 1254
++ -- 6148
+- -- 1679
+* -- 17637
+:= -- 25357
 add.period$ -- 0
-call.type$ -- 51
-change.case$ -- 732
+call.type$ -- 53
+change.case$ -- 746
 chr.to.int$ -- 37
-cite$ -- 100
-duplicate$ -- 28194
-empty$ -- 24327
-format.name$ -- 3037
-if$ -- 52613
+cite$ -- 104
+duplicate$ -- 28956
+empty$ -- 25021
+format.name$ -- 3125
+if$ -- 53993
 int.to.chr$ -- 0
-int.to.str$ -- 145
+int.to.str$ -- 149
 missing$ -- 0
-newline$ -- 1459
-num.names$ -- 2351
-pop$ -- 17147
+newline$ -- 1493
+num.names$ -- 2427
+pop$ -- 17807
 preamble$ -- 1
-purify$ -- 1019
+purify$ -- 1039
 quote$ -- 0
-skip$ -- 8177
+skip$ -- 8453
 stack$ -- 0
-substring$ -- 27367
-swap$ -- 6584
-text.length$ -- 992
+substring$ -- 27783
+swap$ -- 6762
+text.length$ -- 1026
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1720
+type$ -- 1788
 warning$ -- 0
-while$ -- 3073
+while$ -- 3141
 width$ -- 0
-write$ -- 1409
-(There was 1 error message)
+write$ -- 1441

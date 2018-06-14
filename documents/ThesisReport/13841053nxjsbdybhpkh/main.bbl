@@ -1063,6 +1063,41 @@
     \field{year}{2002}
   \endentry
 
+  \entry{voronchenko2017you}{article}{}
+    \name{author}{1}{}{%
+      {{hash=VK}{%
+         family={Voronchenko},
+         familyi={V\bibinitperiod},
+         given={Kyrylo},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VK1}
+    \strng{fullhash}{VK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Do you need a Blockchain?}
+    \field{year}{2017}
+  \endentry
+
+  \entry{houy2014will}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HN}{%
+         family={Houy},
+         familyi={H\bibinitperiod},
+         given={Nicolas},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HN1}
+    \strng{fullhash}{HN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{It Will Cost You Nothing to'Kill'a Proof-of-Stake
+  Crypto-Currency}
+    \field{year}{2014}
+  \endentry
+
   \entry{SzaboSmart1994}{misc}{}
     \name{author}{1}{}{%
       {{hash=SN}{%

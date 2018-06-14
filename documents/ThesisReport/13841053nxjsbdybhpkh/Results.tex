@@ -25,10 +25,10 @@ endorsement interaction was also deployed to test simple function calls and
 communicate from the web browser itself. 
 
 \section{Fulfillment of User stories and Requirements}
-The method to examine fulfillment of user stories and requirement is influenced
-by \cite{Bergquist1107612} that uses Hevner's descriptive design evaluation
-approach\cite{hevner2010design}. The table ~\ref{table:fulfillment} presents
-the motivation for how the PoC fulfills the functional requirements.\\ 
+The method to examine fulfillment of user stories and requirement follows the
+method used by \cite{Bergquist1107612} that uses Hevner's descriptive design
+evaluation approach\cite{hevner2010design}. The table ~\ref{table: fulfillment}
+presents the motivation for how the PoC fulfills the functional requirements. 
 
 The fulfillment of non-functional system requirements is discussed below:\\
 \textbf{SmartContract Security:} Given the limited timeframe of this project
@@ -336,7 +336,7 @@ reduced by 25\%.
 A peer can create multiple Sybil identities and interact with self to send a
 large number of endorsements directed to themselves. The cost of creating a new
 identity and joining the network is not as high.  The gas cost as mentioned in
-section ~\ref{design_considerations} plays a significant role in limiting this
+section ~\ref{subsec:design_considerations} plays a significant role in limiting this
 behavior. However, it is a naive assumption and merely relying on it may not be
 the best approach.  Therefore, an algorithm such as max-flow, min-cut can be
 used to analyze the network and distinguish the edge that forms the edge
