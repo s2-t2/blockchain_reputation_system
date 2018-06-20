@@ -10,7 +10,7 @@ E,$\varphi _G$ ) where V is a non empty set of vertices v, E is a non empty set
 of edges e that connects two vertices and $v \in V, e \in E$. $\varphi _G$ is
 an incidence function that assigns pair of vertices to each edge of the graph
 G.\\ $\varphi _G $(e) = uv represents that e is an edge that joins vertices u
-and v\cite{bondy1976graph}.  Based on these properties, any online interaction
+and v~\cite{bondy1976graph}.  Based on these properties, any online interaction
 system can be modeled graphically including reputation system. Each node on the
 network can represent agents/users that interact with other users. This
 interaction can represent the relationship between nodes as the edges
@@ -18,7 +18,7 @@ connecting vertices. The transfer of data between the nodes can be quantified
 to represent the weight of the edge.  This weight value can be used to
 determine the strength or weakness of relationship between the nodes.  Modeling
 the interaction as a graph can help to understand and analyze its complexity at
-micro, meso, and macro level\cite{gkorou2014exploiting}. At a micro-level, the
+micro, meso, and macro level~\cite{gkorou2014exploiting}. At a micro-level, the
 local properties of a particular node such as its activity, connection degree,
 its neighbors, and interactions can be observed. On a meso-level, the node's
 relative position in a given graph that can help to determine its centrality
@@ -26,7 +26,7 @@ and connectivity can be observed. On a macro-level, one can view the overall
 network as the topology of the graph itself. It helps to study the global
 properties of the graph.\\ 
 Network metrics that are helpful in analyzing the complexity of
-interactions at macro and meso-level are\cite{gkorou2014exploiting}: \\
+interactions at macro and meso-level are~\cite{gkorou2014exploiting}: \\
 \textbf{Degree Connectivity:} The number of connections a node has is the
 degree of its connectivity. The number of inflow is referred to as indegree
 whereas the number of outflows is the outdegree of a node. Usually, a higher
@@ -101,7 +101,7 @@ each node are connected to each other.
 %in a P2P network. However, it doesn't address the issues such as inactive peers, where a 
 %peer doesn't download from anywhere else, malicious collectiveness, where malicious peers 
 %collude to inflate the trust value. It also doesn't have a way to calculate negative trust 
-%and is entirely based on user feedback. \cite{kamvar2003eigentrust}
+%and is entirely based on user feedback. ~\cite{kamvar2003eigentrust}
 %
 % The approach used for deriving these 
 % values are past history and friend-friend reference. 
@@ -133,7 +133,7 @@ authorized parties can make sense out of it. i.e., decrypt using the previously
 agreed upon key. Authenticity relates to confirming the truth of an attribute
 claimed by an entity. Non-repudiation is associated with the property that any
 entity who has previously sent the message cannot deny their
-authorship\cite{katz1996handbook}. \\ 
+authorship~\cite{katz1996handbook}. \\ 
 A cryptosystem can be defined as a five-tuple (P, C, K, E, D) where, \\
 P, is a finite set of plaintexts and C, a finite set of ciphertexts. \\
 E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
@@ -150,7 +150,7 @@ using the private key $k_{s}$ that is only known to B and corresponds to the
 respective public key that was used to form c. The computation of $k_{s}$ given
 $k_{p}$ is computationally infeasible in a secure system. Besides public-key
 encryption, public-key cryptography also has use in digital signature as
-discussed in section ~\ref{ss:digitalsignature}. RSA\cite{rivest1978method} is
+discussed in section~\ref{ss:digitalsignature}. RSA~\cite{rivest1978method} is
 one example of a public-private cryptosystem.
 
 % A cryptosystem shouldn't rely on the privacy of algorithm used to secure the system. 
@@ -176,7 +176,7 @@ contributes to data verifiability as anyone can always verify if the produced
 hash output for data matches by simply applying the data to the respective hash
 function. 
 Other significant properties of hash function that contributes to
-reliability in digital security are\cite{mironov2005hash}: \\
+reliability in digital security are~\cite{mironov2005hash}: \\
 One-way: Given a key k, and an output w, it should be hard for an attacker to find x
 such that the hash of x applied with k, produces w. ie., $H_k(x)$ = w.\\ 
 second pre-image resistant: Given a key k and a string x, it should be hard for
@@ -185,11 +185,11 @@ Collision-resistant: Given a key k, it should be hard for an attacker to find x 
 $H_k(x)$ = $H_k(y)$. \\
 Earlier hash functions include MD5 which produced an output of size 128 bits.
 Collision-resistant attack in MD5 is possible within seconds with a complexity
-of $2^{24}$\cite{wang2005break}. NIST published secure hashing algorithm (SHA)
+of $2^{24}$~\cite{wang2005break}. NIST published secure hashing algorithm (SHA)
 in 1993 as the secure hash standard. Currently, SHA-3 is the latest in SHA
 family of standards that was released in 2015 with SHA-0, SHA-1 and SHA-2 as
 it's predecessor algorithms. Collision attack for SHA-1 was shown to be
-practically pssible\cite{stevens2017first} by creating two colliding pdf files
+practically pssible~\cite{stevens2017first} by creating two colliding pdf files
 that produced same SHA-1 digest. It took equivalent processing power of 6,500
 years of single CPU computation time and 110 years of GPU computation time.
 Applications of hashing algorithms include digital signature, ISO checksums,
@@ -200,7 +200,7 @@ chain. The consensus mechanism, namely PoW relies on SHA-256 hash(in Bitcoin)
 applied to the block header and nonce to produce a verifiable fingerprint of
 data. This is discussed in more detail in ~\ref{sec:blockchain}. Proof-of-work
 was originally used in 1997 by Adam Back as a anti-spam system for the then
-proposed Hashcash\cite{back2002hashcash}. The general idea being that the
+proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
 sender of message would have to compute some number of sha operations before
 sending the message.  The generated fingerprint could be checked by anyone to
 see if the sender has actually done the required number of computations. If a
@@ -278,7 +278,7 @@ technology.
 %possible before, transferring values was made possible by Blockchain
 %technology.
 
-%\cite{pilkington201611}
+%~\cite{pilkington201611}
 
 %\subsection{Basic Concepts}
 %transaction, message, signature, broadcast, verify, network, miners, validate, write blocks 
@@ -288,7 +288,7 @@ Bitcoin was the first application that made use of Blockchain technology which
 was a peer-to-peer electronic cash system. The major contribution of this
 application was solving distributed trust at scale without using a trusted
 intermediary. 
-Along the dimension of validation and access control\cite{voronchenko2017you},
+Along the dimension of validation and access control~\cite{voronchenko2017you},
 blockchains can be categorized as a public permissionless system, public
 permissioned, and private permissioned. 
 \begin{itemize}
@@ -305,7 +305,7 @@ permissioned, and private permissioned.
 		business use-cases where one business doesn't need to know about other
 		business policies or customer information etc. 
 \end{itemize}
-\cite{voronchenko2017you} provides a detailed discussion on various blockchain types and their
+~\cite{voronchenko2017you} provides a detailed discussion on various blockchain types and their
 uses.
 
 
@@ -349,7 +349,7 @@ distinctly categorized into\footnote{Categorization based on presentation of Has
 		stake gets to write the next block. If the participation turned out to
 		be a malicious one, then all the tokens that were at stake get lost. As
 		such, it puts scarce resource at stake. However, this includes problem
-		such as nothing-at-stake\cite{houy2014will}. i.e., a node could vouch for two forks
+		such as nothing-at-stake~\cite{houy2014will}. i.e., a node could vouch for two forks
 		of the same blockchain with nothing to lose. Other drawbacks of this
 		approach are that there is no certainty of consensus, and often has no
 		total ordering of transactions. Examples include Casper etc. 
@@ -364,9 +364,9 @@ an event. It doesn't necessarily need to be legally binding or even associated
 with the outside world. 
 \footnote{https://universe.ida.dk/media/23422289/fritz-henglein.pdf}
 The term Smart contact was first coined by Cryptographer Nick Szabo, in 1994
-\cite{SzaboSmart1994} and defined as a computerized transaction protocol that
+~\cite{SzaboSmart1994} and defined as a computerized transaction protocol that
 can execute the terms of a contract. Szabo points out that the contract
-design should fulfill four objectives\cite{szabo1996smart}: \\
+design should fulfill four objectives~\cite{szabo1996smart}: \\
 \textbf{Observability}, ability to observe the performance of principal(agents
 who have agreed to the contract) and prove their performance.\\
 \textbf{Verifiability}, the ability of principals to prove to the arbitrators
@@ -383,7 +383,7 @@ verifiability demand invoking it to an extent. As such, a trade-off is
 required wherein an optimal balance between these objectives should meet. Thus,
 trusted intermediaries were introduced with minimal control/observability.
 However, privity was not guaranteed in case of dispute. 
-\cite{szabo1997formalizing}.
+~\cite{szabo1997formalizing}.
 Following the invention of Bitcoin and several decentralized blockchains, the
 definition of smart contracts have evolved. Ethereum being the first platform to
 offer programmable blockchains, introduced a virtual machine, EVM, where the
@@ -407,7 +407,7 @@ Turing-complete language, solidity is affected by the halting problem.  To
 address this, Ethereum introduces the concept of gas. To store any state, or
 execute any operation, gas needs to be supplied. Thus, a program that has a bug
 or a non-terminating intention will eventually run out of gas and
-stop.\cite{whataresmartcontracts} 
+stop~\cite{whataresmartcontracts}.
 
 %\subsection{Applications}
 

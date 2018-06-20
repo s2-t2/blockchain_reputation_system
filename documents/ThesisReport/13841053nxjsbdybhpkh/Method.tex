@@ -97,9 +97,9 @@ The non-functional system requirements are :
 \end{enumerate}
 
 \section{The Model - Endorsement Network}\label{sec:endorsementModel}
-\begin{wrapfigure}{l}{0.5\textwidth}
+\begin{wrapfigure}{l}{0.6\textwidth}
 	\begin{center}
-		\includegraphics[width=0.2\textwidth]{Images/trustRepSteps.eps}
+		\includegraphics[width=0.2\textwidth]{Images/TrustAndReputationSteps.eps}
 		\caption{Trust and Reputation Model steps taken from \cite{marmol2009security}}
 		\label{fig:truststep}
 	\end{center}
@@ -139,29 +139,30 @@ global trust score, total endorsement impact for all the nodes is made based on
 various factors. A short definition of them and the terminology used throughout
 the endorsement model is given below. \\ 
 
-\textit{$nEG_A$}: number of endorsements sent by a participant 'A'. \\
-\textit{$nER_A$}: number of endorsements received by a participant 'A'. \\
-\textit{$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value
+%\acrlong{nEG}
+\acrshort{nEG}$_A$: \ac{nEG} by a participant 'A'. \\
+
+\acrshort{nER}$_A$: \ac{nER} by a pariticipant 'A'. \\
+{$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value
 ensures that sent and received endorsement are not far off from  each other.
 \textit{$ratio_A$} is always assumed to be less than 1 and is given by: 
 \begin{equation}
 	ratio_A = \frac{min(nEG_A,nER_A)}{max(nEG_A,nER_A)} 
 \end{equation}
 
-\textit{$cp_A$}: Total amounts of points spent by a participant 'A' out of the
-initially received consumable points. 1 being the initial consumable points
-received by everyone who joins the network, \textit{$cp_A$} is given by
-1/\textit{$nEG_A$}.
+\acrshort{CP}$_A$: \ac{CP} of a participant 'A' that updates with each
+new endorsement interaction. 1 being the initial consumable points received by
+everyone who joins the network,\textit{$CP_A$}is given by 1 /\textit{$nEG_A$}.
 
-\textit{$TRP_A$}: This corresponds to A's total received points which is the
-accumulated sum of consumed points by all endorser of A.  If a peer 'A'
-receives an endorsement from 'n' number of peers, then the \textit{$TRP_A$} is
-calculated as:
+\textit{$TRP_A$}: This corresponds to A's \ac{TRP} which is the accumulated sum
+of consumable points by all endorser of A. If a peer 'A' receives an
+endorsement from 'n' number of peers, then the \textit{$TRP_A$} is calculated
+as:
 \begin{equation}
 	TRP_A  = \sum_{i=0}^{n}cp_{i}
 \end{equation}
 
-Finally, the total endorsement impact made by 'A' is given by: \\
+Finally, the \ac{TEI} made by 'A' is given by: \\
 \begin{equation}
 	TEI_a = ratio_a * TRP_a
 \end{equation}

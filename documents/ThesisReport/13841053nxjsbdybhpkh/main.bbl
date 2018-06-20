@@ -606,36 +606,6 @@
     \field{year}{2016}
   \endentry
 
-  \entry{dennis2015rep}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=DR}{%
-         family={Dennis},
-         familyi={D\bibinitperiod},
-         given={Richard},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=OG}{%
-         family={Owen},
-         familyi={O\bibinitperiod},
-         given={Gareth},
-         giveni={G\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{DROG1}
-    \strng{fullhash}{DROG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Internet Technology and Secured Transactions (ICITST),
-  2015 10th International Conference for}
-    \field{pages}{131\bibrangedash 138}
-    \field{title}{Rep on the block: A next generation reputation system based
-  on the blockchain}
-    \field{year}{2015}
-  \endentry
-
   \entry{kamvar2003eigentrust}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=KSD}{%
@@ -1546,6 +1516,48 @@
     }
     \field{type}{techreport}
     \field{year}{2015}
+  \endentry
+
+  \entry{feldman2006free}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FM}{%
+         family={Feldman},
+         familyi={F\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Papadimitriou},
+         familyi={P\bibinitperiod},
+         given={Christos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Chuang},
+         familyi={C\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SI}{%
+         family={Stoica},
+         familyi={S\bibinitperiod},
+         given={Ion},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{FM+1}
+    \strng{fullhash}{FMPCCJSI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{5}
+    \field{pages}{1010\bibrangedash 1019}
+    \field{title}{Free-riding and whitewashing in peer-to-peer systems}
+    \field{volume}{24}
+    \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
+    \field{year}{2006}
   \endentry
 \enddatalist
 \endinput

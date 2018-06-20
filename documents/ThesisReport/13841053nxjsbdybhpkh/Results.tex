@@ -1,5 +1,5 @@
 %%% Results %%%
-\chapter{Results} \label{ch:results}
+\chapter{Evaluation \& Results} \label{ch:results}
 This chapter presents the evaluation criteria for the endorsement model
 proposed in chapter ~\ref{ch:method}. Based on which, the overall system design
 and functionality will be evaluated and final results will be presented. 
@@ -28,14 +28,15 @@ communicate from the web browser itself.
 The method to examine fulfillment of user stories and requirement follows the
 method used by \cite{Bergquist1107612} that uses Hevner's descriptive design
 evaluation approach\cite{hevner2010design}. The table ~\ref{table:fulfillment}
-presents the motivation for how the PoC fulfills the functional requirements. 
+presents the motivation for how the PoC fulfills the functional requirements. \\ 
 
 The fulfillment of non-functional system requirements is discussed below:\\
 \textbf{SmartContract Security:} Given the limited timeframe of this project
 ($\sim{4}$ months), not all security considerations were taken into account. As
-part of fail-early principle(footnote), the contracts function code was ordered
-as conditions, actions, interactions where relevant. A snippet of a function to
-demonstrate this is presented below. 
+part of fail-early
+principle\footnote{https://blog.zeppelin.solutions/onward-with-ethereum-smart-contract-security-97a827e47702},
+the contracts function code was ordered as conditions, actions, interactions
+where relevant. A snippet of a function to demonstrate this is presented below. 
 
 \begin{lstlisting}[language=Solidity]
 	function joinNetwork(string _userName) public{
@@ -51,7 +52,7 @@ demonstrate this is presented below.
 				name: _userName
         });
 		participants.push(newParticipant);
-        LogJoinNetwork(msg.sender, $_$userName);
+        LogJoinNetwork(msg.sender, _userName);
         numberOfParticipants++;
         participantIndex[msg.sender] = numberOfParticipants-1;
     }
@@ -102,7 +103,7 @@ the existing chain of blocks. The block-chain protocol ensures the immutability
 of these list of transactions. i.e., Each block has a timestamp and a pointer
 to the previous block. The public ledger ensures the verifiability of data
 which can be checked by every node on the network.  Thus, the reputation score
-stored on endorsement system can be said to be reliable. 
+stored on endorsement system can be said to be reliable. \\
 
 %The reliability attribute refers to the tamper-proof,
 %immutable traceability and verifiable nature of data. The blockchain
@@ -171,7 +172,7 @@ for having a considerable impact value.
 
 \begin{tabularx}{\textwidth}{| X | X | X | X | X| X| }
   \hline
-   \textbf{Node Label} & \textbf{nEG} & \textbf{nER} & \textbf{ratio} & \textbf{ReceivedPoints} & \textbf{Impact} \\
+  \textbf{Node Label} & \textbf{nEG} & \textbf{nER} & \textbf{ratio} & \textbf{\acshort{TRP}} & \textbf{\acshort{TEI}} \\
   \hline 
   430  & 5  & 3  & 0.6 & 0 & 0 \\
   \hline
@@ -187,7 +188,7 @@ for having a considerable impact value.
   \label{table:receivedpoints}
 \end{tabularx}
 
-\textbf{Received Points:}
+\textbf{Total Received Points:}
 The remaining 502 nodes had connections more than 1. Nevertheless, there were
 still few nodes among them with impact value equivalent to zero. This is due to
 another factor, received points, that the endorsement impact takes into
@@ -197,11 +198,18 @@ or less similar to the prestige centrality metrics in a graph network. However,
 in this case, the significance is not directly associated with the total
 endorsement impact of the node it is connected to. Instead, the depleting
 consumable point of a giving node accumulates to the received points to a
-receiving node.  The interaction subgraph is shown in figure
+receiving node. The interaction subgraph is shown in figure
 ~\ref{fig:zeroimpact} for the discussed nodes behavior. The figure makes it
 clear that even though the nodes 430, 761, 448, 676, 936 have a degree of
 connection that is more than 1, their respective endorsers do not. Table
 ~\ref{table:receivedpoints} displays the state and scores of these nodes. 
+%The behaviour of high impact node is shown in figure 
+
+\begin{figure}
+	\includegraphics[width=1.0\textwidth]{Images/HighImpact_Node4.eps}
+	\caption{High Impact Node}
+	\label{fig:highImpactNode}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=1.0\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
@@ -235,6 +243,8 @@ more trustworthy. Based on the distribution table ~\ref{table:totalimpact},
 0-55, 55-105 and 105-155 can be used for the mentioned classification. The term
 maximum impact henceforth refers to the more trustworthy nodes, average impact
 to average trustworthy and minimum impact refers to less trustworthy nodes. 
+Figure ~\ref{fig:highImpactNode} gives the interaction subgraph of the most
+impactful node for the provided network.
 
 \begin{tabularx}{\textwidth}{| X | X | }
   \hline
@@ -275,9 +285,9 @@ to average trustworthy and minimum impact refers to less trustworthy nodes.
   \caption{No. of nodes and the corresponding impact ranges}
   \label{table:totalimpact}
 \end{tabularx}
-\section{Total impact across several factors with different scenarios}
+\section{Total impact across several factors with different scenarios}\label{Allcases}
 \begin{figure}[h]
-	\includegraphics[width=0.8\textwidth]{Images/AllCases.eps}
+	\includegraphics[width=0.8\textwidth]{Images/AllCases-acronyms.eps}
 	\caption{Total Impact Across all factors}
 	\label{fig:allCases}
 \end{figure}
@@ -333,30 +343,42 @@ reduced by 50\% and the endorsers of the node will have the total impact
 reduced by 25\%.
 
 \textbf{Sybil Attack:}
-A peer can create multiple Sybil identities and interact with self to send a
-large number of endorsements directed to themselves. The cost of creating a new
-identity and joining the network is not as high.  The gas cost as mentioned in
-section ~\ref{subsec:design_considerations} plays a significant role in limiting this
-behavior. However, it is a naive assumption and merely relying on it may not be
-the best approach.  Therefore, an algorithm such as max-flow, min-cut can be
-used to analyze the network and distinguish the edge that forms the edge
-between honest and Sybil cluster. Similarly, Net flow rate convergence
-algorithm as proposed by \cite{buechler2015decentralized} can also be used to
-detect anomaly by computing the net flow of the subgraph. Once detected, the
-peers are penalized as mentioned above.
+The endorsement network addresses Sybil attack by requiring the endorsers of a
+peer to have high TEI as well. A peer can create multiple Sybil identities and
+self-interact to send a large number of endorsements directed to themselves.
+However, being endorsed by the set of endorsers with a zero or low impact does
+not contribute towards a better global score for that node as discussed
+earlier. Thus, a peer that creates multiple identities is required to maintain
+the score across all factors for all pseudonymous nodes thereby increasing the
+cost of maintaining global value for all nodes.
+
+%A peer can create multiple Sybil identities and interact with self to send a
+%large number of endorsements directed to themselves. The cost of creating a new
+%identity and joining the network is not as high.  The gas cost as mentioned in
+%section ~\ref{subsec:design_considerations} plays a significant role in limiting this
+%behavior. However, it is a naive assumption and merely relying on it may not be
+%the best approach.  Therefore, an algorithm such as max-flow, min-cut can be
+%used to analyze the network and distinguish the edge that forms the edge
+%between honest and Sybil cluster. Similarly, Net flow rate convergence
+%algorithm as proposed by \cite{buechler2015decentralized} can also be used to
+%detect anomaly by computing the net flow of the subgraph. Once detected, the
+%peers are penalized as mentioned above.
 
 \textbf{Whitewashing:}
-A new user in endorsement system can never have an impact score higher than an
-old user. Assuming that a malicious peer was detected and penalized, the
-penalty is a certain percentage of the obtained score. As such, an old user
-will always an impact value greater than zero. The new user, on the other hand,
-will start with a full consumable point but a zero impact value. To be
-considered for impact computation step, the peer needs to make strictly larger
-than one connection.  Since the value is decreased in percentage. A new user
-will only receive a consumable point but has a zero impact when entering the
-network. The design requires that a peer make strictly more than one connection
-to be considered for impact computation step. Thus, white-washing is a
-discouraging attack in the endorsement model.
+Whitewashing~\cite{feldman2006free} is when a peer with a bad reputation score
+on a P2P network tries to exit the system and starts afresh as an entirely new
+user. In case of endorsement system, a new user can never have an impact score
+higher than an old user. Assuming that a malicious peer was detected and
+penalized, the penalty is a certain percentage of the obtained score. As such,
+an old user will always an impact value greater than zero. The new user, on the
+other hand, will start with a full consumable point but a zero impact value. To
+be considered for impact computation step, the peer needs to make strictly
+larger than one connection.  Since the value is decreased in percentage. A new
+user will only receive a consumable point but has a zero impact when entering
+the network. The design requires that a peer make strictly more than one
+connection to be considered for impact computation step. Thus, white-washing is
+a discouraging attack in the endorsement model. 
+
 
 \textbf{Freeriders:}
 In a P2P network that provides service, free-riders indicates the peers that
@@ -365,21 +387,21 @@ endorsement system, they can denote the peers that have high outdegree and
 negligibly low incoming connections. As shown by ~\ref{sec:interaction}, doing
 so doesn't contribute to a high total impact value.
 
-\section{Blockchain: Gas Consumption, Block size, Transactions}
-The gas consumption for the transactions in endorsement contract is based on
-the tests performed on Rinkeby test network and remix environment. The gas
-price and gas limit are based on the statistics from the main ethereum network
-\footnote{https://ethgasstation.info/index.php}. The gas cost to join the
-endorsement network is 142927 units of gas and to send an endorsement is 203746
-units of gas. Recommended safe low value for the gas price is 2
-Gwei(0.000000002 eth). 
-The block size limitation in ethereum is about 4 million gas per block.
-Therefore, the total amount of transactions is not determined by its size but
-by the amount of gas it consumes. The current block according to
-etherscan\footnote{http://etherscan.io/} is Block number 5778648 with a total
-of 155 transactions recorded in it. The time between the previous block and the
-current block is around 11 seconds. Thus, the network throughput based on this
-data is around 11 transaction per second. 
+%\section{Blockchain: Gas Consumption, Block size, Transactions}
+%The gas consumption for the transactions in endorsement contract is based on
+%the tests performed on Rinkeby test network and remix environment. The gas
+%price and gas limit are based on the statistics from the main ethereum network
+%\footnote{https://ethgasstation.info/index.php}. The gas cost to join the
+%endorsement network is 142927 units of gas and to send an endorsement is 203746
+%units of gas. Recommended safe low value for the gas price is 2
+%Gwei(0.000000002 eth). 
+%The block size limitation in ethereum is about 4 million gas per block.
+%Therefore, the total amount of transactions is not determined by its size but
+%by the amount of gas it consumes. The current block according to
+%etherscan\footnote{http://etherscan.io/} is Block number 5778648 with a total
+%of 155 transactions recorded in it. The time between the previous block and the
+%current block is around 11 seconds. Thus, the network throughput based on this
+%data is around 11 transaction per second. 
 
 
 
