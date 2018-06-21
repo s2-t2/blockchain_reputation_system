@@ -12,7 +12,6 @@ interaction graph be modeled? \\
 This is answered by section ~\ref{sec:interaction},
 ~\ref{sec:threatModel}.\\
 
-
 \textbf{Research question 2: }What are the requirements for storing trust values
 and linking them to associated identities stored off a blockchain network? How
 can a blockchain application be built to define a general trust framework for a
@@ -29,6 +28,39 @@ use cases such as content filtering, E-Commerce, etc.?
 
 This is answered by section ~\ref{subsec:bcConsensus},
 ~\ref{sec:generalization}.\\
+
+\section{Contract calls with web browser}
+Additionally, frontend was deployed using Reactjs and web3 API to communicate
+with smart contracts on blockchain directly from the browser. \\
+The features implemented for browser use were: \\
+\begin{itemize}
+	\item View list of all participants: Anyone can see the list of all
+	participants registered on endorsement network. This feature relates to
+	requirement R3. Figure ~\ref{listall} demonstrates this feature.   
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/1_Frontend.eps} 
+		\caption{List of all participants} 
+		\label{listall}
+	\end{figure}
+	\item Join Network with a Pseudonym: Anyone can join the endorsement
+	network and start calling the send/remove endorsement functions from the
+	endorsement contract. This feature relates to requirement R4.2. Figure ~\ref{joinNetwork} demonstrates this feature. 
+	\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/2_Frontend_JoinNetwork.eps} 
+		\caption{Join Network using Pseudonym} 
+		\label{joinNetwork}
+	\end{figure}
+	\item View details of all participants: Anyone can view the details of all
+	registered participants on the network. This feature relates to requirement
+	R3, R4. Figure ~\ref{viewDetails} demonstrates this feature. 
+		\begin{figure}[h]
+		\includegraphics[width=0.95\textwidth]{Images/3_Frontend_ViewDetails.eps} 
+		\caption{View Details of participants and endorse them} 
+		\label{viewDetails}
+	\end{figure}
+	\item Send and Remove Endorsement: Only the registered members in the
+	endorsement network can use this feature. It relates to requirement R1, R2. Figure ~\ref{viewDetails} demonstrates this feature. 
+\end{itemize}
 
 \section{Generalization} \label{sec:generalization}
 The endorsement PoC is a general model that aggregates and assign reputation
