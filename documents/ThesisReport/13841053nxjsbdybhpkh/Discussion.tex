@@ -50,16 +50,19 @@ The features implemented were: \\
 		\caption{Join Network using Pseudonym} 
 		\label{joinNetwork}
 	\end{figure}
-	\item View details of all participants: Anyone can view the details of all
-	registered participants on the network. This feature relates to requirement
-	R3, R4. Figure ~\ref{viewDetails} demonstrates this feature. 
+	\item Send and Remove Endorsement: Anyone can view the details of all
+		registered participants on the network which is a requirement mentioned
+		by R3, R4. However, sending and removing endorsement checks if the
+		message sender is a registered participant or not. Only if it's true,
+		then the sending or removing of endorsement is called without error.
+		This feature refers to requirement R1 and R2. Figure ~\ref{viewDetails}
+		shows the view details of participants along with the send and remove
+		endorsement feature.
 		\begin{figure}[h]
-		\includegraphics[width=0.95\textwidth]{Images/3_Frontend_ViewDetails.eps} 
-		\caption{View Details of participants and endorse them} 
-		\label{viewDetails}
+			\includegraphics[width=0.95\textwidth]{Images/3_Frontend_ViewDetails.eps} 
+			\caption{View Details of participants and endorse them} 
+			\label{viewDetails}
 	\end{figure}
-	\item Send and Remove Endorsement: Only the registered members in the
-	endorsement network can use this feature. It relates to requirement R1, R2. Figure ~\ref{viewDetails} demonstrates this feature. 
 \end{itemize}
 
 \section{Generalization} \label{sec:generalization}
