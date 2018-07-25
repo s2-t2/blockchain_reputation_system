@@ -1,0 +1,30 @@
+%%% Appendices appear here %%%
+
+\addchap{Appendices}
+
+\setcounter{chapter}{0}
+\renewcommand\thechapter{\Alph{chapter}}
+
+\captionsetup[table]{list=no}
+\captionsetup[figure]{list=no}
+
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\vspace*{-5em}
+
+\chapter{[Appendix]}
+\label{ch:appendix}
+
+\vspace*{-1em}
+\begin{figure}[H]
+\centering
+\captionsetup{justification=centering}
+\includegraphics[width=\textwidth]{Images/placeholder}
+\caption[Caption that appears in the table of contents]{Caption that appears below the figure.}
+\label{fig:figure}
+\vspace{-0.5em}
+\end{figure}
+
+\chaptermark{Appendices}
+\endgroup

@@ -241,6 +241,15 @@ contract Endorsement is Ownable, Killable {
 		return impact;
 	}
 
+	//Receive feedback from Transaction Network and penalize the nodes
+	function penalizeParticipants(address _malignant) public view {
+
+	
+	} 
+
+
+
+
 	//Single function to get all the details of a registered participant
 	function getProfile(address _participant) public view returns (
 		uint,
