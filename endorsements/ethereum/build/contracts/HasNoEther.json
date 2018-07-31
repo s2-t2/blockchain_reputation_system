@@ -57,14 +57,14 @@
     "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/HasNoEther.sol",
     "exportedSymbols": {
       "HasNoEther": [
-        1048
+        1042
       ]
     },
-    "id": 1049,
+    "id": 1043,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1033,
+        "id": 1027,
         "literals": [
           "solidity",
           "^",
@@ -77,10 +77,10 @@
       {
         "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/Ownable.sol",
         "file": "./Ownable.sol",
-        "id": 1034,
+        "id": 1028,
         "nodeType": "ImportDirective",
-        "scope": 1049,
-        "sourceUnit": 1435,
+        "scope": 1043,
+        "sourceUnit": 1475,
         "src": "26:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -91,38 +91,38 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 1035,
+              "id": 1029,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1434,
+              "referencedDeclaration": 1474,
               "src": "74:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1434",
+                "typeIdentifier": "t_contract$_Ownable_$1474",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1036,
+            "id": 1030,
             "nodeType": "InheritanceSpecifier",
             "src": "74:7:2"
           }
         ],
         "contractDependencies": [
-          1434
+          1474
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1048,
+        "id": 1042,
         "linearizedBaseContracts": [
-          1048,
-          1434
+          1042,
+          1474
         ],
         "name": "HasNoEther",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1046,
+              "id": 1040,
               "nodeType": "Block",
               "src": "107:39:2",
               "statements": [
@@ -136,7 +136,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1042,
+                        "id": 1036,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -145,18 +145,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1039,
+                            "id": 1033,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1467,
+                            "referencedDeclaration": 1507,
                             "src": "122:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1040,
+                          "id": 1034,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -175,7 +175,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1041,
+                          "id": 1035,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -204,18 +204,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1038,
+                      "id": 1032,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1470,
+                      "referencedDeclaration": 1510,
                       "src": "112:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1043,
+                    "id": 1037,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -229,22 +229,22 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1044,
+                  "id": 1038,
                   "nodeType": "ExpressionStatement",
                   "src": "112:25:2"
                 },
                 {
-                  "id": 1045,
+                  "id": 1039,
                   "nodeType": "PlaceholderStatement",
                   "src": "141:1:2"
                 }
               ]
             },
-            "id": 1047,
+            "id": 1041,
             "name": "HasNoEther",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1037,
+              "id": 1031,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "107:0:2"
@@ -253,7 +253,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 1049,
+        "scope": 1043,
         "src": "51:97:2"
       }
     ],
@@ -263,14 +263,14 @@
     "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/HasNoEther.sol",
     "exportedSymbols": {
       "HasNoEther": [
-        1048
+        1042
       ]
     },
-    "id": 1049,
+    "id": 1043,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1033,
+        "id": 1027,
         "literals": [
           "solidity",
           "^",
@@ -283,10 +283,10 @@
       {
         "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/Ownable.sol",
         "file": "./Ownable.sol",
-        "id": 1034,
+        "id": 1028,
         "nodeType": "ImportDirective",
-        "scope": 1049,
-        "sourceUnit": 1435,
+        "scope": 1043,
+        "sourceUnit": 1475,
         "src": "26:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -297,38 +297,38 @@
             "arguments": [],
             "baseName": {
               "contractScope": null,
-              "id": 1035,
+              "id": 1029,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1434,
+              "referencedDeclaration": 1474,
               "src": "74:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1434",
+                "typeIdentifier": "t_contract$_Ownable_$1474",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1036,
+            "id": 1030,
             "nodeType": "InheritanceSpecifier",
             "src": "74:7:2"
           }
         ],
         "contractDependencies": [
-          1434
+          1474
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1048,
+        "id": 1042,
         "linearizedBaseContracts": [
-          1048,
-          1434
+          1042,
+          1474
         ],
         "name": "HasNoEther",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1046,
+              "id": 1040,
               "nodeType": "Block",
               "src": "107:39:2",
               "statements": [
@@ -342,7 +342,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1042,
+                        "id": 1036,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -351,18 +351,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 1039,
+                            "id": 1033,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1467,
+                            "referencedDeclaration": 1507,
                             "src": "122:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 1040,
+                          "id": 1034,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -381,7 +381,7 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 1041,
+                          "id": 1035,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -410,18 +410,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1038,
+                      "id": 1032,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1470,
+                      "referencedDeclaration": 1510,
                       "src": "112:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1043,
+                    "id": 1037,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -435,22 +435,22 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1044,
+                  "id": 1038,
                   "nodeType": "ExpressionStatement",
                   "src": "112:25:2"
                 },
                 {
-                  "id": 1045,
+                  "id": 1039,
                   "nodeType": "PlaceholderStatement",
                   "src": "141:1:2"
                 }
               ]
             },
-            "id": 1047,
+            "id": 1041,
             "name": "HasNoEther",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 1037,
+              "id": 1031,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "107:0:2"
@@ -459,7 +459,7 @@
             "visibility": "internal"
           }
         ],
-        "scope": 1049,
+        "scope": 1043,
         "src": "51:97:2"
       }
     ],
@@ -471,5 +471,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-28T12:12:42.035Z"
+  "updatedAt": "2018-07-31T09:44:15.472Z"
 }

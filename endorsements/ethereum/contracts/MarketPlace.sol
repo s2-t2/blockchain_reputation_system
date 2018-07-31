@@ -9,8 +9,10 @@ contract MarketPlace {
 		string name;
 		string description;
 		uint price;
-	}
 
+		//feedback rating from 0 - 5 
+		uint rating;
+	}
 
 	//store list of products accessible through uint key
 	mapping(uint => Product) public products;
@@ -35,6 +37,11 @@ contract MarketPlace {
 		uint _price
 	);
 
+	event LogFeedBack(
+		address _buyer,
+		uint _productId,
+		uint rating
+	);
 
 	// sell product
 	function sellProduct(string _name, string _description, uint _price) public { 
@@ -48,7 +55,8 @@ contract MarketPlace {
 			0x0,
 			_name,
 			_description,
-			_price										   
+			_price,
+			0
 		);
 		
 		LogSellProduct(productCounter, msg.sender, _name, _price);
@@ -81,9 +89,7 @@ contract MarketPlace {
 		}
 
 		return forSale;
-
 	}
-
 
 	function buyProduct(uint _productId ) payable public { 
 		//at least one product exists
@@ -105,4 +111,19 @@ contract MarketPlace {
 
 		LogBuyProduct(_productId, product.seller, product.buyer, product.name, product.price );
 	}
+
+	function feedBack(uint _productId, uint _rating) public view {
+		Product storage prod = products[_productId];
+
+		require(msg.sender == prod.buyer);
+		//require(_seller == product.seller);
+
+		//update the value of rating for the product
+		prod.rating = _rating;
+
+		LogFeedBack(msg.sender, _productId, _rating );
+
+	}
 }
+
+

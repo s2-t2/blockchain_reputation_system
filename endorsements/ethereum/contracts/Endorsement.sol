@@ -181,9 +181,9 @@ contract Endorsement is Ownable, Killable {
 
 	//remove endorsement as an endorser of an endorsee
 	function removeEndorsement(address _endorsee) public returns(uint) { 
-		Endorser storage endorser = endorsers[msg.sender];
-		Endorsee storage endorsee = endorsees[_endorsee];
-
+		Endorser storage endorser = endorsers[msg.sender]; 
+		Endorsee storage endorsee = endorsees[_endorsee]; 
+		
 		//proceed only if endorsee is in the endorser's list of endorsees
 		if (endorser.hasGivenTo[_endorsee]) { 
 			endorser.hasGivenTo[_endorsee] = false;
@@ -242,13 +242,11 @@ contract Endorsement is Ownable, Killable {
 	}
 
 	//Receive feedback from Transaction Network and penalize the nodes
-	function penalizeParticipants(address _malignant) public view {
-
-	
-	} 
-
-
-
+//	function penalizeParticipants(address _malignant) public view {
+//
+//	
+//	} 
+//
 
 	//Single function to get all the details of a registered participant
 	function getProfile(address _participant) public view returns (
