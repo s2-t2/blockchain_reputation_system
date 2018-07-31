@@ -2,8 +2,9 @@ pragma solidity ^0.4.18;
 
 import "./Ownable.sol";
 import "./Killable.sol";
+import "./MarketPlace.sol";
 
-contract Endorsement is Ownable, Killable {
+contract Endorsement is Ownable, Killable, MarketPlace {
 
 	address owner;
     
@@ -107,6 +108,7 @@ contract Endorsement is Ownable, Killable {
 
 	//get list of all participants
 	function getAllParticipants() public view returns(address[]) {
+
 		return allParticipants;
 	}
 
@@ -222,8 +224,9 @@ contract Endorsement is Ownable, Killable {
 		uint nER = endorsees[_participant].nER;
 		uint _RE = computeReceivedPoints(_participant);
 		uint impact;
+		uint totalImpact;
 
-		if (nEG <=1 && nER <=1 ) { 
+		if (nEG <=1 && nER <=1 ) {
 			impact = 0;
 			return impact;
 			//return impact and exit here
@@ -238,15 +241,26 @@ contract Endorsement is Ownable, Killable {
 
 			impact = ratio * RE;
 		}
-		return impact;
+		// call feedback function here
+		totalImpact = transactionFeedBack(_participant, impact);
+		return totalImpact;
 	}
 
 	//Receive feedback from Transaction Network and penalize the nodes
-//	function penalizeParticipants(address _malignant) public view {
-//
-//	
-//	} 
-//
+	function transactionFeedBack(address _participant, uint _impact ) public returns (uint) {
+
+		if (flagCount[_participant] >= 1) {
+			//Decrease the current impact by 50 %
+			uint penalty = _impact - Division(_impact,2,9) ; 
+
+		} else {
+			penalty = _impact;
+		
+		}
+
+		return penalty;
+	}
+
 
 	//Single function to get all the details of a registered participant
 	function getProfile(address _participant) public view returns (

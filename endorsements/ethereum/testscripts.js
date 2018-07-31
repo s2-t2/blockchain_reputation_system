@@ -7,6 +7,8 @@ app.joinNetwork("Bob",{from: web3.eth.accounts[1]})
 app.joinNetwork("Charlie",{from: web3.eth.accounts[2]})
 app.joinNetwork("Dave",{from: web3.eth.accounts[3]})
 app.joinNetwork("Eve",{from: web3.eth.accounts[4]})
+app.joinNetwork("fifth",{from: web3.eth.accounts[5]})
+app.joinNetwork("fifth",{from: web3.eth.accounts[5]})
 
 app.participants(0).then(function(participant1){p1=participant1;})
 
@@ -17,6 +19,16 @@ app.endorse(0,{from: web3.eth.accounts[1]})
 app.endorse(0,{from: web3.eth.accounts[3]})
 app.endorse(3,{from: web3.eth.accounts[4]})
 app.endorse(3,{from: web3.eth.accounts[1]})
+
+//Endorse such that participants(0) has total impact 0.666
+app.endorse(1,{from: web3.eth.accounts[0]})
+app.endorse(2,{from: web3.eth.accounts[0]})
+app.endorse(3,{from: web3.eth.accounts[0]})
+app.endorse(0,{from: web3.eth.accounts[1]})
+app.endorse(4,{from: web3.eth.accounts[1]})
+app.endorse(0,{from: web3.eth.accounts[2]})
+app.endorse(4,{from: web3.eth.accounts[2]})
+app.endorse(5,{from: web3.eth.accounts[3]})
 
 
 

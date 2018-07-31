@@ -45,6 +45,7 @@ contract MarketPlace {
 		uint _price
 	);
 
+
 	// sell product
 	function sellProduct(string _name, string _description, uint _price) public { 
 
