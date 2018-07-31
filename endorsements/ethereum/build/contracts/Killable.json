@@ -89,7 +89,7 @@
         "id": 1045,
         "nodeType": "ImportDirective",
         "scope": 1059,
-        "sourceUnit": 1475,
+        "sourceUnit": 1530,
         "src": "26:23:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -103,10 +103,10 @@
               "id": 1046,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1474,
+              "referencedDeclaration": 1529,
               "src": "72:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1474",
+                "typeIdentifier": "t_contract$_Ownable_$1529",
                 "typeString": "contract Ownable"
               }
             },
@@ -116,7 +116,7 @@
           }
         ],
         "contractDependencies": [
-          1474
+          1529
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -124,7 +124,7 @@
         "id": 1058,
         "linearizedBaseContracts": [
           1058,
-          1474
+          1529
         ],
         "name": "Killable",
         "nodeType": "ContractDefinition",
@@ -145,7 +145,7 @@
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1423,
+                        "referencedDeclaration": 1478,
                         "src": "128:5:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -164,7 +164,7 @@
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1513,
+                      "referencedDeclaration": 1568,
                       "src": "115:12:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_$returns$__$",
@@ -205,7 +205,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1451,
+                  "referencedDeclaration": 1506,
                   "src": "100:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -271,7 +271,7 @@
         "id": 1045,
         "nodeType": "ImportDirective",
         "scope": 1059,
-        "sourceUnit": 1475,
+        "sourceUnit": 1530,
         "src": "26:23:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -285,10 +285,10 @@
               "id": 1046,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1474,
+              "referencedDeclaration": 1529,
               "src": "72:7:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1474",
+                "typeIdentifier": "t_contract$_Ownable_$1529",
                 "typeString": "contract Ownable"
               }
             },
@@ -298,7 +298,7 @@
           }
         ],
         "contractDependencies": [
-          1474
+          1529
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -306,7 +306,7 @@
         "id": 1058,
         "linearizedBaseContracts": [
           1058,
-          1474
+          1529
         ],
         "name": "Killable",
         "nodeType": "ContractDefinition",
@@ -327,7 +327,7 @@
                         "name": "owner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1423,
+                        "referencedDeclaration": 1478,
                         "src": "128:5:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -346,7 +346,7 @@
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1513,
+                      "referencedDeclaration": 1568,
                       "src": "115:12:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_$returns$__$",
@@ -387,7 +387,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1451,
+                  "referencedDeclaration": 1506,
                   "src": "100:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -432,5 +432,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-31T09:44:15.472Z"
+  "updatedAt": "2018-07-31T13:11:34.711Z"
 }

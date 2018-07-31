@@ -26,14 +26,14 @@
     "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/graph.sol",
     "exportedSymbols": {
       "Graph": [
-        1495
+        1550
       ]
     },
-    "id": 1496,
+    "id": 1551,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1476,
+        "id": 1531,
         "literals": [
           "solidity",
           "^",
@@ -49,23 +49,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1495,
+        "id": 1550,
         "linearizedBaseContracts": [
-          1495
+          1550
         ],
         "name": "Graph",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "Graph.nodes",
-            "id": 1483,
+            "id": 1538,
             "members": [
               {
                 "constant": false,
-                "id": 1478,
+                "id": 1533,
                 "name": "inDegree",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "61:13:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -74,7 +74,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1477,
+                  "id": 1532,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "61:4:7",
@@ -88,10 +88,10 @@
               },
               {
                 "constant": false,
-                "id": 1480,
+                "id": 1535,
                 "name": "outDegree",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "78:14:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -100,7 +100,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1479,
+                  "id": 1534,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "78:4:7",
@@ -114,10 +114,10 @@
               },
               {
                 "constant": false,
-                "id": 1482,
+                "id": 1537,
                 "name": "adjacentNodes",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "96:18:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -126,7 +126,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1481,
+                  "id": 1536,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "96:4:7",
@@ -141,27 +141,27 @@
             ],
             "name": "nodes",
             "nodeType": "StructDefinition",
-            "scope": 1495,
+            "scope": 1550,
             "src": "44:74:7",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1493,
+              "id": 1548,
               "nodeType": "Block",
               "src": "154:143:7",
               "statements": [
                 {
                   "assignments": [
-                    1489
+                    1544
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1489,
+                      "id": 1544,
                       "name": "node",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1494,
+                      "scope": 1549,
                       "src": "266:12:7",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -170,7 +170,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1488,
+                        "id": 1543,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "266:7:7",
@@ -183,23 +183,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1492,
+                  "id": 1547,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1490,
+                      "id": 1545,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1507,
+                      "referencedDeclaration": 1562,
                       "src": "281:3:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 1491,
+                    "id": 1546,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -218,7 +218,7 @@
                 }
               ]
             },
-            "id": 1494,
+            "id": 1549,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -226,15 +226,15 @@
             "name": "netFlow",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1486,
+              "id": 1541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1485,
+                  "id": 1540,
                   "name": "_node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1494,
+                  "scope": 1549,
                   "src": "139:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -243,7 +243,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1484,
+                    "id": 1539,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "139:7:7",
@@ -260,19 +260,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1487,
+              "id": 1542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "154:0:7"
             },
-            "scope": 1495,
+            "scope": 1550,
             "src": "122:175:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1496,
+        "scope": 1551,
         "src": "26:274:7"
       }
     ],
@@ -282,14 +282,14 @@
     "absolutePath": "/home/sujata/Documents/Masters-Thesis/endorsements/ethereum/contracts/graph.sol",
     "exportedSymbols": {
       "Graph": [
-        1495
+        1550
       ]
     },
-    "id": 1496,
+    "id": 1551,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1476,
+        "id": 1531,
         "literals": [
           "solidity",
           "^",
@@ -305,23 +305,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1495,
+        "id": 1550,
         "linearizedBaseContracts": [
-          1495
+          1550
         ],
         "name": "Graph",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "Graph.nodes",
-            "id": 1483,
+            "id": 1538,
             "members": [
               {
                 "constant": false,
-                "id": 1478,
+                "id": 1533,
                 "name": "inDegree",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "61:13:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -330,7 +330,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1477,
+                  "id": 1532,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "61:4:7",
@@ -344,10 +344,10 @@
               },
               {
                 "constant": false,
-                "id": 1480,
+                "id": 1535,
                 "name": "outDegree",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "78:14:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -356,7 +356,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1479,
+                  "id": 1534,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "78:4:7",
@@ -370,10 +370,10 @@
               },
               {
                 "constant": false,
-                "id": 1482,
+                "id": 1537,
                 "name": "adjacentNodes",
                 "nodeType": "VariableDeclaration",
-                "scope": 1483,
+                "scope": 1538,
                 "src": "96:18:7",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -382,7 +382,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1481,
+                  "id": 1536,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "96:4:7",
@@ -397,27 +397,27 @@
             ],
             "name": "nodes",
             "nodeType": "StructDefinition",
-            "scope": 1495,
+            "scope": 1550,
             "src": "44:74:7",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1493,
+              "id": 1548,
               "nodeType": "Block",
               "src": "154:143:7",
               "statements": [
                 {
                   "assignments": [
-                    1489
+                    1544
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1489,
+                      "id": 1544,
                       "name": "node",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1494,
+                      "scope": 1549,
                       "src": "266:12:7",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -426,7 +426,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1488,
+                        "id": 1543,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "266:7:7",
@@ -439,23 +439,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1492,
+                  "id": 1547,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 1490,
+                      "id": 1545,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1507,
+                      "referencedDeclaration": 1562,
                       "src": "281:3:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 1491,
+                    "id": 1546,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -474,7 +474,7 @@
                 }
               ]
             },
-            "id": 1494,
+            "id": 1549,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -482,15 +482,15 @@
             "name": "netFlow",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1486,
+              "id": 1541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1485,
+                  "id": 1540,
                   "name": "_node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1494,
+                  "scope": 1549,
                   "src": "139:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -499,7 +499,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1484,
+                    "id": 1539,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "139:7:7",
@@ -516,19 +516,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 1487,
+              "id": 1542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "154:0:7"
             },
-            "scope": 1495,
+            "scope": 1550,
             "src": "122:175:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1496,
+        "scope": 1551,
         "src": "26:274:7"
       }
     ],
@@ -540,5 +540,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-31T09:44:15.474Z"
+  "updatedAt": "2018-07-31T13:11:34.714Z"
 }

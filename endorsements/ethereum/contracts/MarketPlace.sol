@@ -11,12 +11,20 @@ contract MarketPlace {
 		uint price;
 
 		//feedback rating from 0 - 5 
-		uint rating;
+		//uint rating;
 	}
 
 	//store list of products accessible through uint key
 	mapping(uint => Product) public products;
 	uint productCounter;
+
+	//ratings 
+	mapping(address => uint) public ratings;
+
+	//flags
+	mapping(address => bool) public flag;
+	mapping(address => uint) public flagCount;
+
 
 	//events - informative message stored in each ethereum block transaction log
 	//trigger events from contract to notify watchers that something just happened
@@ -37,12 +45,6 @@ contract MarketPlace {
 		uint _price
 	);
 
-	event LogFeedBack(
-		address _buyer,
-		uint _productId,
-		uint rating
-	);
-
 	// sell product
 	function sellProduct(string _name, string _description, uint _price) public { 
 
@@ -55,8 +57,7 @@ contract MarketPlace {
 			0x0,
 			_name,
 			_description,
-			_price,
-			0
+			_price
 		);
 		
 		LogSellProduct(productCounter, msg.sender, _name, _price);
@@ -112,18 +113,28 @@ contract MarketPlace {
 		LogBuyProduct(_productId, product.seller, product.buyer, product.name, product.price );
 	}
 
-	function feedBack(uint _productId, uint _rating) public view {
-		Product storage prod = products[_productId];
+	//leave rating for the seller as a buyer
+	function leaveRating(uint _productId, uint _rating ) public {
+		//only buyer can rate the product
+		require(msg.sender == products[_productId].buyer);
+		require(msg.sender != products[_productId].seller);
+		require(_rating >= 0 && _rating <= 5);
 
-		require(msg.sender == prod.buyer);
-		//require(_seller == product.seller);
-
-		//update the value of rating for the product
-		prod.rating = _rating;
-
-		LogFeedBack(msg.sender, _productId, _rating );
-
+		ratings[products[_productId].seller] = _rating;
 	}
+
+	function flagSeller(uint _productId ) public { 
+		address seller = products[_productId].seller;
+		address buyer = products[_productId].buyer;
+
+		require(msg.sender == buyer );
+
+		flag[seller] = true;
+		flagCount[seller] == flagCount[seller]++;
+
+		//if flagCount is more than 5, eliminate the seller
+	}
+
 }
 
 

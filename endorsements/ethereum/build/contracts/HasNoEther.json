@@ -80,7 +80,7 @@
         "id": 1028,
         "nodeType": "ImportDirective",
         "scope": 1043,
-        "sourceUnit": 1475,
+        "sourceUnit": 1530,
         "src": "26:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -94,10 +94,10 @@
               "id": 1029,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1474,
+              "referencedDeclaration": 1529,
               "src": "74:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1474",
+                "typeIdentifier": "t_contract$_Ownable_$1529",
                 "typeString": "contract Ownable"
               }
             },
@@ -107,7 +107,7 @@
           }
         ],
         "contractDependencies": [
-          1474
+          1529
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -115,7 +115,7 @@
         "id": 1042,
         "linearizedBaseContracts": [
           1042,
-          1474
+          1529
         ],
         "name": "HasNoEther",
         "nodeType": "ContractDefinition",
@@ -149,7 +149,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1507,
+                            "referencedDeclaration": 1562,
                             "src": "122:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -208,7 +208,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1510,
+                      "referencedDeclaration": 1565,
                       "src": "112:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -286,7 +286,7 @@
         "id": 1028,
         "nodeType": "ImportDirective",
         "scope": 1043,
-        "sourceUnit": 1475,
+        "sourceUnit": 1530,
         "src": "26:23:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -300,10 +300,10 @@
               "id": 1029,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1474,
+              "referencedDeclaration": 1529,
               "src": "74:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1474",
+                "typeIdentifier": "t_contract$_Ownable_$1529",
                 "typeString": "contract Ownable"
               }
             },
@@ -313,7 +313,7 @@
           }
         ],
         "contractDependencies": [
-          1474
+          1529
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -321,7 +321,7 @@
         "id": 1042,
         "linearizedBaseContracts": [
           1042,
-          1474
+          1529
         ],
         "name": "HasNoEther",
         "nodeType": "ContractDefinition",
@@ -355,7 +355,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1507,
+                            "referencedDeclaration": 1562,
                             "src": "122:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -414,7 +414,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1510,
+                      "referencedDeclaration": 1565,
                       "src": "112:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -471,5 +471,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-31T09:44:15.472Z"
+  "updatedAt": "2018-07-31T13:11:34.711Z"
 }
