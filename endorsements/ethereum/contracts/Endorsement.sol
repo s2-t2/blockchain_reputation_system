@@ -83,6 +83,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//Join Network as any user
 	function joinNetwork(string _userName) public HasNoEther {
+
 		//only allow unregistered participant
 	    require(!joined[msg.sender]);
 
@@ -114,17 +115,20 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//get index of participant by address, helper function, view modifier 
 	function getParticipantIndex(address _participant) public view returns (uint ) {
+
 		uint userIndex = participantIndex[_participant];
 		return userIndex;
 	}
 
 	//Profile-related changes of participants
 	function getName(uint _index ) public view returns (string ) {
+
 		string name = participants[_index].name;
 		return name;
 	}
 
 	function editProfile(address _participant, string _name) public HasNoEther {
+
 		//verify editor is same as profile owner
 		require(msg.sender == _participant);
 
@@ -135,10 +139,11 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//send Endorsement - from  endorser to endorsee
 	function endorse(uint _index) public HasNoEther { 
+
 		// get address of endorsee
 	    address receiver = participants[_index].identifier;
 	    
-		//verify endorser and endorsee are not equal and are both registered participants 
+		//verify endorser and endorsee are different and registered 
 	    require(receiver != 0x0);
 	    require(receiver != msg.sender);
 		require(joined[msg.sender]);
@@ -171,6 +176,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//store and update new endorsee information after transaction call
 	function updateEndorsee(address _receiver, address _sender) internal { 
+
 		Endorsee storage endorsee = endorsees[_receiver];
 		endorsee.receiver = _receiver;
 		endorsee.index++;
@@ -183,6 +189,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//remove endorsement as an endorser of an endorsee
 	function removeEndorsement(address _endorsee) public returns(uint) { 
+
 		Endorser storage endorser = endorsers[msg.sender]; 
 		Endorsee storage endorsee = endorsees[_endorsee]; 
 		
@@ -192,7 +199,6 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 			endorser.nEG--;
 
 			//remove endorsee from endorser.givenTo array 
-			
 			endorsee.hasReceivedFrom[msg.sender] = false;
 			endorsee.nER--;
 
@@ -203,6 +209,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//computation of total received points of an endorsee 
 	function computeReceivedPoints(address _endorsee) public view returns(uint) { 
+
 		//get list of endorsers addresses from whom _endorsee has received eds from
 		address [] memory receivedFrom = getReceivedFrom(_endorsee);
 
@@ -220,9 +227,12 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	//the degree of connection should be strictly greater than 1 to be considered for 
 	//impact computation, else, the impact by default should be ignorant, i.e., 0
 	function computeImpact(address _participant) public view returns (uint) { 
+
 		uint nEG = endorsers[_participant].nEG;
 		uint nER = endorsees[_participant].nER;
+
 		uint _RE = computeReceivedPoints(_participant);
+
 		uint impact;
 		uint totalImpact;
 
@@ -241,13 +251,16 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 			impact = ratio * RE;
 		}
+
 		// call feedback function here
 		totalImpact = transactionFeedBack(_participant, impact);
 		return totalImpact;
 	}
 
 	//Receive feedback from Transaction Network and penalize the nodes
-	function transactionFeedBack(address _participant, uint _impact ) public returns (uint) {
+	function transactionFeedBack(address _participant, 
+								 uint _impact ) 
+								 public returns (uint) {
 
 		if (flagCount[_participant] >= 1) {
 			//Decrease the current impact by 50 %
@@ -296,6 +309,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		address [],
 		address []
 	){
+
 		address [] inConns = endorsees[_participant].receivedFrom;
 		address [] outConns = endorsers[_participant].givenTo;
 
@@ -304,17 +318,23 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//count total number of registered participants
 	function getCount( ) public view returns (uint) {
+
 		return numberOfParticipants;
+
 	}
 
 	//return array of all endorser accounts
 	function getEndorsers() view public returns (address []) { 
+
 	    return endorserAccts;
+
 	}
 
 	//return the total consumable power used by an endorser
 	function getUsedPower(address _endorser) view public returns(uint) {
+
 	    return (endorsers[_endorser].usedPower);
+
 	}
 
 	//return list of addresses that an endorser has sent endorsement to 
@@ -358,6 +378,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	
 	//some helper  functions for floating point calculation
 	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
+
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;
 
