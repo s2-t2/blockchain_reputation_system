@@ -30,15 +30,12 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		address[] receivedFrom;
 		mapping(address => bool) hasReceivedFrom;
 	}
-    
-    Participant [] public participants;
+	Participant [] public participants;
 	
 	uint numberOfParticipants;
-    
-    mapping(address => bool) joined;
-    
-    mapping (address => Endorser) endorsers;
-    address[] public endorserAccts;
+	mapping(address => bool) joined;
+	mapping (address => Endorser) endorsers;
+	address[] public endorserAccts;
 
 	mapping (address => Endorsee ) endorsees;
 	address[] public endorseeAccts;
@@ -55,7 +52,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//reject any ether transfer 
 	modifier HasNoEther( ){ 
-		require (msg.value == 0);
+		require(msg.value == 0);
 		_;
 	}
 
@@ -96,13 +93,11 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	    });
 
 		//add new participant to the existing list of joined members
-	    participants.push(newParticipant);
+		participants.push(newParticipant);
+		numberOfParticipants++;
+		participantIndex[msg.sender] = numberOfParticipants-1;
 
 		LogJoinNetwork(msg.sender, _userName);
-
-		numberOfParticipants++;
-
-		participantIndex[msg.sender] = numberOfParticipants-1;
 
 		allParticipants.push(msg.sender);
 	}
@@ -127,7 +122,9 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		return name;
 	}
 
-	function editProfile(address _participant, string _name) public HasNoEther {
+	function editProfile(address _participant, 
+						 string _name
+						) public HasNoEther {
 
 		//verify editor is same as profile owner
 		require(msg.sender == _participant);
@@ -142,18 +139,19 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 		// get address of endorsee
 	    address receiver = participants[_index].identifier;
+
 	    
 		//verify endorser and endorsee are different and registered 
-	    require(receiver != 0x0);
-	    require(receiver != msg.sender);
 		require(joined[msg.sender]);
+		require(receiver != 0x0);
+		require(receiver != msg.sender);
 	    
 		//store and update new endorser information
-	    Endorser storage endorser = endorsers[msg.sender];
+		Endorser storage endorser = endorsers[msg.sender];
 
 		endorser.index++;
-	    endorser.sender = msg.sender;
-	    endorser.nEG++;
+		endorser.sender = msg.sender;
+		endorser.nEG++;
 		
 //		if (endorser.nEG >1 ){ 
 //			endorser.usedPower = Division(1, endorser.nEG,9);
@@ -175,7 +173,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	}
 
 	//store and update new endorsee information after transaction call
-	function updateEndorsee(address _receiver, address _sender) internal { 
+	function updateEndorsee(address _receiver, 
+							address _sender) internal { 
 
 		Endorsee storage endorsee = endorsees[_receiver];
 		endorsee.receiver = _receiver;
@@ -264,7 +263,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 		if (flagCount[_participant] >= 1) {
 			//Decrease the current impact by 50 %
-			uint penalty = _impact - Division(_impact,2,9) ; 
+			uint res = Division(_impact,2,9);
+			uint penalty = _impact - res ; 
 
 		} else {
 			penalty = _impact;
@@ -273,7 +273,6 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 		return penalty;
 	}
-
 
 	//Single function to get all the details of a registered participant
 	function getProfile(address _participant) public view returns (
@@ -349,7 +348,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	
 	//return a boolean value from the matrix of hasGivenTo, quick access for checking 
 	//if an endorsee's address is in the list of endorsee addresses of the particular endorser.
-	function gethasGivenTo(address _endorser, address _endorsee) view public returns(bool) {
+	function gethasGivenTo(address _endorser, 
+						   address _endorsee) view public returns(bool) {
 	    return (endorsers[_endorser].hasGivenTo[_endorsee]);
 	}
 
@@ -371,13 +371,16 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 	//return a boolean value from the matrix of hasReceivedFrom, to check if 
 	// an endorser's address is in the list of endorser address of the particular endorsee
-	function gethasReceivedFrom(address _endorser, address _endorsee) view public returns(bool) {
+	function gethasReceivedFrom(address _endorser, 
+								address _endorsee) view public returns(bool) {
 	    return (endorsees[_endorsee].hasReceivedFrom[_endorser]);
 	}
 
 	
 	//some helper  functions for floating point calculation
-	function Division( uint _numerator, uint _denominator, uint _precision) internal pure returns (uint _quotient) {
+	function Division( uint _numerator, 
+					  uint _denominator, 
+					  uint _precision) internal pure returns (uint _quotient) {
 
 		uint numerator = _numerator * 10 ** (_precision + 1);
 		uint quotient = ((numerator / _denominator) + 5  ) / 10;
