@@ -8,6 +8,10 @@ font = {'family' : 'monospace',
         #'weight' : 'bold',
         'size'   : 18}
 
+titleFont = {'family' : 'monospace',
+        #'weight' : 'bold',
+        'size'   : 20}
+
 inDegree = []
 outDegree = []
 RP = []
@@ -43,11 +47,18 @@ for i in nodes:
     if (nEG[str(i)] > 1.0 and nER[str(i)] > 1.0 and impact[str(i)] > 0.0 ):
         node_impact_conn.append(i)
 
-#plt.title('Relation between ratio and total impact')
-#plt.plot(node_ratio, node_impact, 'bs' )
-#plt.xlabel('node_ratio',font )
+
+#plt.title('Relation between Total Received Points and Total EDS Impact',titleFont)
+#plt.plot(node_received, node_impact, 'bs' )
+#plt.xlabel('Total Received Points',font )
 #plt.ylabel('Total endorsement impact',font )
 #plt.show()
+
+plt.title('Relation between Ratio and Total EDS Impact',titleFont)
+plt.plot(node_ratio, node_impact, 'bs')
+plt.xlabel('Ratio',font )
+plt.ylabel('Total Endorsement Impact',font )
+plt.show()
 
 # pick nodes with max impact, average impact and min impact
 max_impact_node =[]

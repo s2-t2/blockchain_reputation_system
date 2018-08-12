@@ -17,7 +17,6 @@ class ParticipantNew extends Component {
 
 		this.setState({ loading: true, errorMessage:'' });
 
-
 		try {
 
 		const accounts = await web3.eth.getAccounts();
@@ -59,8 +58,6 @@ class ParticipantNew extends Component {
 						Join!!
 					</Button>
 				</Form>
-
-
 
 			</Layout>
 		);

@@ -36,7 +36,6 @@ class ParticipantIndex extends Component {
 			<Layout>
 			<div>
 				<h3>Get All Participants </h3>
-
 				 
 				<Link route="/participants/new">
 				<a>

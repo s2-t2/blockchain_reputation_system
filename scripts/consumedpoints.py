@@ -1,6 +1,16 @@
 #!/usr/bin/python
 import matplotlib.pyplot as plt
 
+font = {'family' : 'monospace',
+        #'weight' : 'bold',
+        'size'   : 18}
+
+
+titleFont = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 23}
+
+
 xAxis = [];
 yAxis = [];
 for i in range(1,51) :
@@ -11,8 +21,8 @@ for j in range(1,51):
     yAxis.append(temp);
 
 plt.plot([xAxis], [yAxis], 'bo', linewidth=0.5 )
-plt.ylabel('consumedPoints');
-plt.xlabel('number of connections');
-plt.title('depletion of consumable points for one  ' );
+plt.ylabel('consumedPoints', font);
+plt.xlabel('number of connections',font);
+plt.title('depletion of consumable points',titleFont );
 plt.show()
 

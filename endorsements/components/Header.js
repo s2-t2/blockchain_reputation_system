@@ -27,8 +27,6 @@ export default ( ) => {
 					+	
 				</a>
 			</Link>
-			
-
 
 			</Menu.Menu>
 		</Menu>

@@ -210,11 +210,18 @@ connection that is more than 1, their respective endorsers do not. Table
 	\caption{Interaction subgraph of nodes with impact zero}
 	\label{fig:zeroimpact}
 \end{figure}
+
 \begin{figure}
-	\includegraphics[width=1.0\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
-	\caption{Received Points Vs. Total Endorsement Impact}
-	\label{fig:receivedpointvsimpact}
+	\includegraphics[width=1.0\textwidth]{Images/TRPVsTEIFontSize.eps}
+	\caption{TRP vs. Total EDS Point}
+	\label{fig:receivedpointsvsimpact}
 \end{figure}
+%\begin{figure}
+%	\includegraphics[width=1.0\textwidth]{Images/receivedPoints_impact_impactAboveZero.eps}
+%	\caption{Received Points Vs. Total Endorsement Impact}
+%	\label{fig:receivedpointvsimpact}
+%\end{figure}
+
 \begin{figure}
 	\includegraphics[width=1.0\textwidth]{Images/HighImpact_Node4.eps}
 	\caption{High Impact Node}
@@ -229,8 +236,10 @@ it clear that ratio alone is not enough to have a high impact. The figure
 over all nodes. One can infer that higher ratio does not imply a higher impact
 but a higher impact most probably implies a higher ratio. As such, it is a
 contributing factor in the long run. 
+
+%\includegraphics[width=0.95\textwidth]{Images/ratio_impact_impactAboveZero.eps}
 \begin{figure}
-	\includegraphics[width=0.95\textwidth]{Images/ratio_impact_impactAboveZero.eps}
+	\includegraphics[width=0.95\textwidth]{Images/RatioVsTEIFontsize.eps}
 	\caption{Relation of Ratio and Total endorsement impact}
 	\label{fig:ratioimpact}
 \end{figure}
@@ -245,46 +254,51 @@ maximum impact henceforth refers to the more trustworthy nodes, average impact
 to average trustworthy and minimum impact refers to less trustworthy nodes. 
 Figure ~\ref{fig:highImpactNode} gives the interaction subgraph of the most
 impactful node for the provided network.
+\begin{figure}
+	\includegraphics[width=1.0\textwidth]{Images/NoOfNodesVSImpactRanges.eps}
+	\caption{table:totalimpact}
+	\label{}
+\end{figure}
 
-\begin{tabularx}{\textwidth}{| X | X | }
-  \hline
-   \textbf{No. of nodes} & \textbf{Impact Range} \\
-  \hline 
-  419  & 0-5  \\
-  \hline
-   51 & 5-10 \\
-  \hline
-  5 & 10-15 \\
-  \hline
-  10 & 15-20 \\
-  \hline
-  2 & 20-25 \\
-  \hline
-  1 & 25-30 \\
-  \hline
-  1 & 30-35 \\
-  \hline
-  0 & 35-65 \\
-  \hline
-  1 & 65-70 \\
-  \hline
-  0 & 70-85 \\
-  \hline
-  2 & 85-90 \\
-  \hline
-  0 & 90-115 \\
-  \hline
-  1 & 115-120 \\
-  \hline
-  3 & 120-125 \\
-  \hline
-  0 & 125-150 \\
-  \hline
-  1 & 150-155 \\
-  \hline
-  \caption{No. of nodes and the corresponding impact ranges}
-  \label{table:totalimpact}
-\end{tabularx}
+%\begin{tabularx}{\textwidth}{| X | X | }
+%  \hline
+%   \textbf{No. of nodes} & \textbf{Impact Range} \\
+%  \hline 
+%  419  & 0-5  \\
+%  \hline
+%   51 & 5-10 \\
+%  \hline
+%  5 & 10-15 \\
+%  \hline
+%  10 & 15-20 \\
+%  \hline
+%  2 & 20-25 \\
+%  \hline
+%  1 & 25-30 \\
+%  \hline
+%  1 & 30-35 \\
+%  \hline
+%  0 & 35-65 \\
+%  \hline
+%  1 & 65-70 \\
+%  \hline
+%  0 & 70-85 \\
+%  \hline
+%  2 & 85-90 \\
+%  \hline
+%  0 & 90-115 \\
+%  \hline
+%  1 & 115-120 \\
+%  \hline
+%  3 & 120-125 \\
+%  \hline
+%  0 & 125-150 \\
+%  \hline
+%  1 & 150-155 \\
+%  \hline
+%  \caption{No. of nodes and the corresponding impact ranges}
+%  \label{table:totalimpact}
+%\end{tabularx}
 \section{Total impact across several factors with different scenarios}\label{Allcases}
 \begin{figure}[h]
 	\includegraphics[width=0.8\textwidth]{Images/AllCases-acronyms.eps}

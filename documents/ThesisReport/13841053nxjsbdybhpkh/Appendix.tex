@@ -13,18 +13,10 @@
 \renewcommand{\clearpage}{}
 \vspace*{-5em}
 
-\chapter{[Appendix]}
+\chapter{[Appendix: SmartContracts]}
 \label{ch:appendix}
 
 \vspace*{-1em}
-%\begin{figure}[H]
-%\centering
-%\captionsetup{justification=centering}
-%\includegraphics[width=\textwidth]{Images/placeholder}
-%\caption[Caption that appears in the table of contents]{Caption that appears below the figure.}
-%\label{fig:figure}
-%\vspace{-0.5em}
-%\end{figure}
 
 \chaptermark{Appendices}
 \lstinputlisting[caption={Endorsement Contract}]{../../../endorsements/ethereum/contracts/Endorsement.sol}
@@ -32,10 +24,36 @@
 \lstinputlisting[caption={Killable Contract}]{../../../endorsements/ethereum/contracts/Killable.sol}
 \lstinputlisting[caption={MarketPlace Contract}]{../../../endorsements/ethereum/contracts/MarketPlace.sol}
 
+
+\chapter{[Appendix: Ethereum Application] }
+\label{ch:appendixb}
+
+\vspace*{-1em}
+
+\chaptermark{appendixb}
+\lstinputlisting[caption={web3 connector}]{../../../endorsements/ethereum/web32.js}
+\lstinputlisting[caption={Participants addresses}]{../../../endorsements/ethereum/participants.js}
+\lstinputlisting[caption={Compile script}]{../../../endorsements/ethereum/compile.js}
+\lstinputlisting[caption={Script to deploy locally or to Rinkeby}]{../../../endorsements/ethereum/deploy2.js}
+
+
+\chapter{[Appendix: Application]}
+\label{ch:appendixc}
+
+\vspace*{-1em}
+
+\chaptermark{appendixc}
+\lstinputlisting[caption={Application Index}]{../../../endorsements/pages/index.js}
+\lstinputlisting[caption={New participants}]{../../../endorsements/pages/participants/new.js }
+\lstinputlisting[caption={Show all details of Participants}]{../../../endorsements/pages/participants/show.js }
+Application Components: 
+\lstinputlisting[caption={Header}]{../../../endorsements/components/Header.js}
+\lstinputlisting[caption={Layout}]{../../../endorsements/components/Layout.js}
+\lstinputlisting[caption={Out Rows}]{../../../endorsements/components/OutRow.js}
+\lstinputlisting[caption={Connection Rows}]{../../../endorsements/components/ConnectionRow.js}
+\lstinputlisting[caption={Server}]{../../../endorsements/server.js}
+\lstinputlisting[caption={Routes}]{../../../endorsements/routes.js}
 %\begin{lstlisting}[language=Solidity]
 %\end{lstlisting}
-
-
-
 
 \endgroup
