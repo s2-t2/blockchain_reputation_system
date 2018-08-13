@@ -1,7 +1,13 @@
 %%% 3Background / %%%
 \chapter{Background} \label{ch:background}
-This chapter provides an overview of the basic concepts necessary to understand
-the subsequent sections.
+To understand the interpretation of interaction graph and design of endorsement
+model, basic concepts about graph properties and metrics is required.
+Similarly, Blockchain relies a lot on cryptographic functions to maintain its
+property of the secure, immutable and attack-resilient structure. This chapter,
+therefore, provides a general overview of the background concepts that is
+required for the subsequent sections. 
+%This chapter provides an overview of the basic concepts necessary to understand
+%the subsequent sections.
 
 \section{Graph properties}
 A graph, as the name suggests can be used to represent objects and their
@@ -197,8 +203,26 @@ years of single CPU computation time and 110 years of GPU computation time.
 Applications of hashing algorithms include digital signature, ISO checksums,
 fingerprinting data etc. This cryptographic hash functions is relevant for
 understanding blockchain data structure. Especially significant for
-verification of transactions, creation of blocks, linking them to the existing
-chain. The consensus mechanism, namely PoW relies on SHA-256 hash(in Bitcoin)
+verification of transactions that make use of hash tree, namely Merkle Tree for
+including list of transactions in the block and chaining the blocks together.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{Images/MerkleeTree.eps}
+		\caption{Merkle Tree}
+		\label{fig:merkleTree}
+	\end{center}
+\end{figure}
+The process of getting a root hash is given by ~\ref{fig:merkleTree} 
+Two significant use of Merkle tree are: \\
+i) Data integrity verification:An attempt to change any transaction data would
+completely change the root hash of the block.  
+
+ii) Data inclusion verifcation:It is easy to verify the inclusion of a
+transaction in a block without requiring to include all the transactions. From
+figure ~\ref{fig:merkleTree}, to verify inclusion of transaction H$_$K, only
+the hash values that are shown in blue needs to stored.  \\
+
+The PoW consensus mechanism, relies on SHA-256 hash(in Bitcoin)
 applied to the block header and nonce to produce a verifiable fingerprint of
 data. This is discussed in more detail in ~\ref{sec:blockchain}. Proof-of-work
 was originally used in 1997 by Adam Back as a anti-spam system for the then
@@ -208,7 +232,8 @@ sending the message.  The generated fingerprint could be checked by anyone to
 see if the sender has actually done the required number of computations. If a
 legitimate user sending out one email had to spend 'x' seconds to do the sha
 operations, a malicious user intending to send thousands of emails had to spend
-1000x seconds. 
+1000x seconds. \\
+
 
 
 %Cryptographic hash functions are a one-way function, also known as mathematical
@@ -307,15 +332,15 @@ permissioned, and private permissioned.
 		business use-cases where one business doesn't need to know about other
 		business policies or customer information etc. 
 \end{itemize}
-~\cite{voronchenko2017you} provides a detailed discussion on various blockchain types and their
-uses.
+~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
+types and their uses.
 
 
 \subsection{Consensus Mechanisms}
 As a distributed database with multiple writers, there has to be a way for
 everyone to reach a consensus on a shared global view of the network. Consensus
 mechanisms allow doing so. Based on consensus mechanisms, systems can be
-distinctly categorized into\footnote{Categorization based on presentation of Hashgraph}:
+distinctly categorized into\footnote{Categorization based on Hashgraph's presentation \cite{baird2016hashgraph}}:
 \begin{itemize}
 	\item Leader Based System: In this case, there is a pre-selected leader
 		that collects all the transactions and appends new records to the
@@ -335,13 +360,23 @@ distinctly categorized into\footnote{Categorization based on presentation of Has
 		that everyone(all miners) compete to be the writer of the next block
 		for which they need to solve a cryptographic puzzle. Mainly, they need
 		to find a hash value that can be associated with the proposed block.
-		The only way to find this value is by brute-forcing. The apparent
-		advantage of such consensus mechanism is that it makes the system DDOS
-		resistant while offering immutable audit trail and scalability.
-		However, miners can still decide upon the order of transactions to
-		include in the block although they cannot modify the transaction. As
-		such, one could term this as 'unfair' since the transaction doesn't get
-		picked up in order of when it was broadcasted to the network. 
+		The only way to find this value is by brute-forcing.  The simplified
+		overview of this mining process is given by figure
+		~\ref{fig:cryptographicPuzzle} 
+		\begin{figure}
+			\begin{center}
+			\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
+			\caption{Cryptographic Puzzle}
+			\label{fig:cryptographicPuzzle}
+			\end{center}
+		\end{figure}
+		The apparent advantage of such consensus mechanism is that it makes the
+		system DDOS resistant while offering immutable audit trail and
+		scalability.  However, miners can still decide upon the order of
+		transactions to include in the block although they cannot modify the
+		transaction. As such, one could term this as 'unfair' since the
+		transaction doesn't get picked up in order of when it was broadcasted
+		to the network. 
 	\item Economy based systems: Consensus mechanisms such as Proof-of-stake or
 		delegated proof-of-stake can be seen as an economy based system. Unlike
 		PoW, miners don't compete with each other to be the writer of next
