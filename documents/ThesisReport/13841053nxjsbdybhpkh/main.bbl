@@ -17,6 +17,35 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{rasmusson1996simulated}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=RL}{%
+         family={Rasmusson},
+         familyi={R\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={Jansson},
+         familyi={J\bibinitperiod},
+         given={Sverker},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{RLJS1}
+    \strng{fullhash}{RLJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 1996 workshop on New security
+  paradigms}
+    \field{pages}{18\bibrangedash 25}
+    \field{title}{Simulated social control for secure Internet commerce}
+    \field{year}{1996}
+  \endentry
+
   \entry{mcknight1996meanings}{article}{}
     \name{author}{2}{}{%
       {{hash=MDH}{%
@@ -246,103 +275,18 @@
     \field{year}{2007}
   \endentry
 
-  \entry{rasmusson1996simulated}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=RL}{%
-         family={Rasmusson},
-         familyi={R\bibinitperiod},
-         given={Lars},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=JS}{%
-         family={Jansson},
-         familyi={J\bibinitperiod},
-         given={Sverker},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {ACM}%
-    }
-    \strng{namehash}{RLJS1}
-    \strng{fullhash}{RLJS1}
-    \field{labelnamesource}{author}
+  \entry{ISOTC307}{inproceedings}{}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1996 workshop on New security
-  paradigms}
-    \field{pages}{18\bibrangedash 25}
-    \field{title}{Simulated social control for secure Internet commerce}
-    \field{year}{1996}
-  \endentry
-
-  \entry{mui2002notions}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=ML}{%
-         family={Mui},
-         familyi={M\bibinitperiod},
-         given={Lik},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=MM}{%
-         family={Mohtashemi},
-         familyi={M\bibinitperiod},
-         given={Mojdeh},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=HA}{%
-         family={Halberstadt},
-         familyi={H\bibinitperiod},
-         given={Ari},
-         giveni={A\bibinitperiod},
-      }}%
+    \field{note}{ISO/TC 307}
+    \field{title}{{Blockchain and distributed ledger technologies}}
+    \list{location}{1}{%
+      {Standards Australia}%
     }
-    \list{organization}{1}{%
-      {ACM}%
+    \list{institution}{1}{%
+      {International Organization for Standardization}%
     }
-    \strng{namehash}{ML+1}
-    \strng{fullhash}{MLMMHA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the first international joint conference
-  on Autonomous agents and multiagent systems: part 1}
-    \field{pages}{280\bibrangedash 287}
-    \field{title}{Notions of reputation in multi-agents systems: a review}
-    \field{year}{2002}
-  \endentry
-
-  \entry{carbone2003formal}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=CM}{%
-         family={Carbone},
-         familyi={C\bibinitperiod},
-         given={Marco},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=NM}{%
-         family={Nielsen},
-         familyi={N\bibinitperiod},
-         given={Mogens},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=SV}{%
-         family={Sassone},
-         familyi={S\bibinitperiod},
-         given={Vladimiro},
-         giveni={V\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{CM+1}
-    \strng{fullhash}{CMNMSV1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Software Engineering and Formal Methods, 2003.
-  Proceedings. First International Conference on}
-    \field{pages}{54\bibrangedash 61}
-    \field{title}{A formal model for trust in dynamic networks}
-    \field{year}{2003}
+    \field{type}{Standard}
+    \field{year}{2016}
   \endentry
 
   \entry{Bitcoin_Satoshi}{inproceedings}{}
@@ -403,24 +347,59 @@
     \field{year}{2010}
   \endentry
 
-  \entry{swan2015blockchain}{book}{}
+  \entry{experian}{misc}{}
     \name{author}{1}{}{%
-      {{hash=SM}{%
-         family={Swan},
-         familyi={S\bibinitperiod},
-         given={Melanie},
-         giveni={M\bibinitperiod},
+      {{hash=E}{%
+         family={Experian},
+         familyi={E\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {" O'Reilly Media, Inc."}%
-    }
-    \strng{namehash}{SM1}
-    \strng{fullhash}{SM1}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Blockchain: Blueprint for a new economy}
-    \field{year}{2015}
+    \field{note}{Accessed Aug 17, 2018, [Online]. Available:
+  \url{https://www.experian.com/assets/decision-analytics/reports/global-fraud-report-2018.pdf}}
+    \field{title}{The 2018 Global Fraud and Identity Report}
+    \field{year}{2018}
+  \endentry
+
+  \entry{javelin}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=APSMKM}{%
+         family={Al\bibnamedelima Pascual},
+         familyi={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+         suffix={Kyle\bibnamedelima Marchini},
+         suffixi={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+         given={Sarah\bibnamedelima Miller},
+         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{APKMSM1}
+    \strng{fullhash}{APKMSM1}
+    \field{labelnamesource}{author}
+    \field{note}{Accessed Aug 17, 2018, [Online]. Available:
+  \url{https://www.javelinstrategy.com/coverage-area/2018-identity-fraud-fraud-enters-new-era-complexity#}}
+    \field{year}{2018}
+  \endentry
+
+  \entry{finland}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TH}{%
+         family={Times},
+         familyi={T\bibinitperiod},
+         given={Helsinki},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TH1}
+    \strng{fullhash}{TH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 17, 2018, [Online]. Available:
+  \url{http://www.helsinkitimes.fi/finland/finland-news/domestic/15448-130-000-login-credentials-compromised-in-large-scale-hacking.html}}
+    \field{title}{130,000 login credentials compromised in large-scale hacking}
+    \field{year}{2018}
   \endentry
 
   \entry{resnick2002trust}{incollection}{}
@@ -1050,6 +1029,27 @@
     \field{year}{2017}
   \endentry
 
+  \entry{baird2016hashgraph}{report}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Baird},
+         familyi={B\bibinitperiod},
+         given={Leemon},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL1}
+    \strng{fullhash}{BL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Hashgraph consensus: fair, fast, byzantine fault tolerance}
+    \list{institution}{1}{%
+      {Swirlds Tech Report}%
+    }
+    \field{type}{techreport}
+    \field{year}{2016}
+  \endentry
+
   \entry{houy2014will}{article}{}
     \name{author}{1}{}{%
       {{hash=HN}{%
@@ -1292,27 +1292,6 @@
     \field{title}{IPFS-content addressed, versioned, P2P file system}
     \field{journaltitle}{arXiv preprint arXiv:1407.3561}
     \field{year}{2014}
-  \endentry
-
-  \entry{baird2016hashgraph}{report}{}
-    \name{author}{1}{}{%
-      {{hash=BL}{%
-         family={Baird},
-         familyi={B\bibinitperiod},
-         given={Leemon},
-         giveni={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BL1}
-    \strng{fullhash}{BL1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Hashgraph consensus: fair, fast, byzantine fault tolerance}
-    \list{institution}{1}{%
-      {Swirlds Tech Report}%
-    }
-    \field{type}{techreport}
-    \field{year}{2016}
   \endentry
 
   \entry{tobin2016inevitable}{article}{}

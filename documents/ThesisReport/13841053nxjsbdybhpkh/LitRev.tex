@@ -1,21 +1,22 @@
 %%% 2LiteratureReview/ %%%
 \chapter{Literature Review}\label{ch:litrev}
 The earliest and most known internet reputation is that of
-eBay\footnote{https://www.ebay.com/}. It uses a feedback based rating system
-where a user can rate a transaction along with some textual feedback. The range
-of values used being \{1, 0, -1\}, positive, neutral and negative respectively.
-The final aggregated score is computed by subtracting the total of positive and
-negative ratings. This system \cite{resnick2002trust} \cite{resnick2006value}
-could be judged as working based on the sales volume and the observation that
-more than half the buyers usually engage in providing feedback. However, this
-method fails to address issues such as Sybil attack, inactive
-participation(e.g., users fear retaliation from giving negative feedback),
-whitewashing etc. There are many none E-commerce online systems such as
-StackExchange \footnote{https://stackexchange.com/}, Yelp
-\footnote{https://www.yelp.com/}, Quora \footnote{https://www.quora.com/},
-Reddit \footnote{https://www.reddit.com/} e.t.c, that make use of similar
-reputation mechanism to filter the participating users and avoid serving
-malicious participation. Most of the E-commerce systems employ a client-server
+eBay\footnote{https://www.ebay.com/}~\cite{resnick2002trust}. It uses a
+feedback based rating system where a user can rate a transaction along with
+some textual feedback. The range of values used being \{1, 0, -1\}, positive,
+neutral and negative respectively.  The final aggregated score is computed by
+subtracting the total of positive and negative ratings. This system
+\cite{resnick2002trust} \cite{resnick2006value} could be judged as working
+based on the sales volume and the observation that more than half the buyers
+usually engage in providing feedback. However, this method fails to address
+issues such as Sybil attack, inactive participation(e.g., users fear
+retaliation from giving negative feedback), whitewashing etc. There are many
+none E-commerce online systems such as StackExchange
+\footnote{https://stackexchange.com/}, Yelp \footnote{https://www.yelp.com/},
+Quora \footnote{https://www.quora.com/}, Reddit
+\footnote{https://www.reddit.com/} e.t.c, that make use of similar reputation
+mechanism to filter the participating users and avoid serving malicious
+participation. Most of the E-commerce systems employ a client-server
 architecture which lets a central entity in control of stored data.  A single
 point of control is a single point of failure. In light of this, there have
 been several research and proposals on decentralized reputation methods for the
