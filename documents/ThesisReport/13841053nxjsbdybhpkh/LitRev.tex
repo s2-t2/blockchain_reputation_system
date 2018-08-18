@@ -1,48 +1,70 @@
 %%% 2LiteratureReview/ %%%
 \chapter{Literature Review}\label{ch:litrev}
-The earliest and most known internet reputation is that of
-eBay\footnote{https://www.ebay.com/}~\cite{resnick2002trust}. It uses a
+The earliest and most known internet reputation is assumed to be that of
+eBay~\cite{resnick2002trust}~\footnote{https://www.ebay.com}. It uses a
 feedback based rating system where a user can rate a transaction along with
 some textual feedback. The range of values used being \{1, 0, -1\}, positive,
-neutral and negative respectively.  The final aggregated score is computed by
-subtracting the total of positive and negative ratings. This system
-\cite{resnick2002trust} \cite{resnick2006value} could be judged as working
-based on the sales volume and the observation that more than half the buyers
-usually engage in providing feedback. However, this method fails to address
-issues such as Sybil attack, inactive participation(e.g., users fear
-retaliation from giving negative feedback), whitewashing etc. There are many
-none E-commerce online systems such as StackExchange
-\footnote{https://stackexchange.com/}, Yelp \footnote{https://www.yelp.com/},
-Quora \footnote{https://www.quora.com/}, Reddit
-\footnote{https://www.reddit.com/} e.t.c, that make use of similar reputation
-mechanism to filter the participating users and avoid serving malicious
-participation. Most of the E-commerce systems employ a client-server
-architecture which lets a central entity in control of stored data.  A single
-point of control is a single point of failure. In light of this, there have
-been several research and proposals on decentralized reputation methods for the
-distributed network discussed briefly in the following sections. Especially
+neutral and negative respectively. The final aggregated score is computed by
+subtracting the total of positive and negative ratings. This system could be
+judged as working based on the sales volume and the observation that more than
+half the buyers usually engage in providing feedback~\cite{resnick2006value}. 
+However, there are various issues of an online interaction system that this
+method fails to address such as: \\
+\textbf{Sybil Attack:} A user(buyer/seller) can create multiple accounts(sybil
+identities) and give enough positive feedback to their original account to
+inflate one's reputation. Similarly, they can also provide multiple negative
+feedbacks to any merchant and damage their reputation.\\
+\textbf{Inactive participation:}Users are more likely to provide feedback for a
+satisfactory transaction and ignore a bad deal. Since the system is not
+anonymous, it is possible to trace the sender of received feedback. Therefore,
+users are more likely to fear retaliation from giving negative feedback.\\ 
+\textbf{Whitewashing:}The overall trust score of an entity is the difference
+between positive and negative ratings received in total. As such, an account
+can have a significant negative value. In which case, it is more beneficial to
+start afresh with a new account then to recuperate the account with poor
+reputation scores.\\
+
+Other online systems that make use of similar reputation mechanism based on
+votings/ratings are StackExchange~\footnote{https://stackexchange.com/},
+yelp~\footnote{https://www.yelp.com/}, Quora~\footnote{https://www.quora.com},
+Reddit~\footnote{https://www.reddit.com/}. Most of the online interaction
+system (e.g., e-commerce, Q\&A platform) employ a client-server architecture
+which lets a central entity in control of stored data. The centralization of
+data management has both pros and cons to it. While it makes the network simple
+to filter out malicious content from being served, it also acts as a single
+point of failure. On the other hand, distributing data from a P2P system where
+any nodes on the network can serve contents solves this issue of central point
+of failure. The distributed nature of a P2P system also makes it more
+straightforward to distribute malicious contents over the network. The peer
+requesting a file can have it served from any participating node. If the
+content of this file is malicious, then it is more likely to spread faster in a
+P2P network than a centralized system. Therefore, a reputation management
+system that can work in a distributed and decentralized environment is
 significant for P2P systems such as file-sharing, content delivery
-applications, etc. for detecting the quality of file/content and the owner of
-those files.\\
-Resnick et al. \cite{resnick2000reputation}points out that a reputation system
+applications, etc. for detecting the quality of file/content or the owner of
+those files. In light of this, researches and proposals on decentralized
+reputation methods have been performed, few of which are discussed below.\\ 
+
+Resnick et al.~\cite{resnick2000reputation}points out that a reputation system
 should be able to provide enough information to help infer the trustworthiness
 of participating users, encourage a user to be trustworthy and discourage
-dishonest behavior. TrustDavis \cite{defigueiredo2005trustdavis} is a
+dishonest behavior. TrustDavis~\cite{defigueiredo2005trustdavis} is a
 reputation system that addresses these concerns. It introduces the role of
 insurers between interacting entities such that a user can ask to be insured
 for their transaction or insure someone else's transaction in exchange for a
 reward. The system relies on the insurer's capability of estimating failure
-probability. Schaub, Alexander, et al. \cite{schaub2016trustless} proposes a
+probability. Schaub, Alexander, et al.~\cite{schaub2016trustless} proposes a
 block-chain based reputation model that recommends the use of blind signature
 to disconnect the link between customer and ratings. Doing so lets a customer
 freely rate/review the transaction without fear of retaliation. It is more
 customer-centric in the sense that it allows only a customer to rate the
-transaction. Thus, Sybil identities is not a concern here as a customer is
-allowed to make multiple identities and in fact, a unique identifier is
-recommended for a unique transaction. The obvious problem here is the unfair
-rating attack. A buyer can transact with a service provider and provide negative
-feedback with an intention to damage the service provider's reputation despite
-their honest behavior in the network. 
+transaction. A merchant has no say in the quality of transactions. A buyer can
+use same or different identity for different transactions. The system
+recommends the latter. As such, a merchant cannot trace back the identity of
+the buyer from whom he might have received the negative feedback. Therefore, an
+unfair rating attack is possible in this system. A buyer who intends to damage
+the merchant's(service provider) reputation can do so by giving dishonest
+negative feedback. 
 %Another blockchain based appro
 %\cite{dennis2015rep} 
 
@@ -65,46 +87,46 @@ their honest behavior in the network.
 
 \section{Reputation Algorithms}
 The most known and widely used reputation algorithm in a P2P network is
-EigenTrust \cite{kamvar2003eigentrust} which recommends a method to aggregate
+EigenTrust~\cite{kamvar2003eigentrust} which recommends a method to aggregate
 local trust values of all peers. It uses the notion of transitive trust. i.e.,
-if a peer 'i' trusts a peer 'j' and peer 'j' trusts peer 'k' then 'i' would
-also trust 'k'. Peers can rate another peer as either positive or negative [-1,
-+1]. The users can decide if a peer can be considered trustworthy as a download
-source based on its total aggregated score. EigenTrust defines five issues that
-any P2P reputation system should consider. They are self-policing (i.e.,
-enforced by peers and not some central authority), anonymity (i.e., peer's
-reputation should only be linked to an opaque identifier), no profit to
-newcomers, minimal overhead for computation/storage and robust to malicious
-collectives of peers. A significant disadvantage of this algorithm is that
-peers are more likely to center around a static set of pre-trusted peers that
-joined the network and thus has limited reliability if they leave the network.
-Pre-trusted peer is a notion of trust where few peers that join the network are
-assumed trustworthy by design. Advogato's trust metric \cite{levien2003advogato}
-also uses this notion.  HonestPeer \cite{kurdi2015honestpeer} proposes to
-enhance EigenTrust algorithm further by selecting reputable nodes dynamically
-and not just relying on pre-trusted nodes. It claims to have a better success
-rate in quality file serving and lower malicious participation compared to
-EigenTrust.
-As mentioned by Alkharji, Sarah, et al. \cite{alkharji2017authenticpeer++}, a
-reputation system can serve one of the following purpose, a peer-based
-reputation system or file-based reputation system. The peer-based system allows
-peers in the network to be rated and assigned a value. A file-based system is
-concerned more with the integrity of a file that is being delivered/served on
-the network regardless of who(peer) owns or serves it.
-AuthenticPeer++ \cite{alkharji2017authenticpeer++} is a trust management system
+if a peer \textit{'i'} trusts a peer \textit{'j'} and peer \textit{'j'} trusts
+peer \textit{'k'} then \textit{'i'} would also trust \textit{'k'}. Peers can
+rate another peer as either positive or negative [-1, +1]. The users can decide
+if a peer can be considered trustworthy as a download source based on its total
+aggregated score. EigenTrust defines five issues that any P2P reputation system
+should consider. They are self-policing (i.e., enforced by peers and not some
+central authority), anonymity (i.e., peer's reputation should only be linked to
+an opaque identifier), no profit to newcomers, minimal overhead for
+computation/storage and robust to malicious collectives of peers. A significant
+disadvantage of this algorithm is that peers are more likely to center around a
+static set of pre-trusted peers that joined the network and thus has limited
+reliability if they leave the network.  Pre-trusted peer is a notion of trust
+where few peers that join the network are assumed trustworthy by design.
+Advogato's trust metric~\cite{levien2003advogato} also uses this notion.
+HonestPeer~\cite{kurdi2015honestpeer} proposes to enhance EigenTrust algorithm
+further by selecting reputable nodes dynamically and not just relying on
+pre-trusted nodes. It claims to have a better success rate in quality file
+serving and lower malicious participation compared to EigenTrust.  As mentioned
+by Alkharji, Sarah, et al.~\cite{alkharji2017authenticpeer++}, a reputation
+system can serve one of the following purpose, a peer-based reputation system
+or file-based reputation system. The peer-based system allows peers in the
+network to be rated and assigned a value. A file-based system is concerned more
+with the integrity of a file that is being delivered/served on the network
+regardless of who(peer) owns or serves it.
+AuthenticPeer++~\cite{alkharji2017authenticpeer++} is a trust management system
 for P2P networks that combines both. i.e., it shares the notion of both trusted
 peers and trusted files. As such, it only allows trusted peers to rank the file
 after they have downloaded it and uses a DHT-based structure to manage the
-integrity of file information. 
-Bartercast \cite{meulpolder2009bartercast} is a distributed reputation mechanism
-designed for P2P file-sharing systems. It creates a graph based on data
-transfers between peers and uses max flow algorithm to compute the reputation
-values for each node. Tribler\footnote{https://www.tribler.org/} is a
-BitTorrent based torrent client that uses Bartercast to rank its peers. 
-PowerTrust \cite{zhou2007powertrust} proposes a robust and scalable reputation
-system that makes use of Bayesian learning. It
-uses Bayesian method to generate local trust scores and a distributed ranking
-mechanism to aggregate reputation scores. 
+integrity of file information.  Bartercast~\cite{meulpolder2009bartercast} is a
+distributed reputation mechanism designed for P2P file-sharing systems. It
+creates a graph based on data transfers between peers and uses max flow
+algorithm to compute the reputation values for each node.
+Tribler~\footnote{https://www.tribler.org/} is a BitTorrent based torrent
+client that uses Bartercast to rank its peers.
+PowerTrust~\cite{zhou2007powertrust} proposes a robust and scalable reputation
+system that makes use of Bayesian learning. It uses Bayesian method to generate
+local trust scores and a distributed ranking mechanism to aggregate reputation
+scores. 
 
 %\subsection{Centralized}
 %%probably can move this to motivation section rather than here. 

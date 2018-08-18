@@ -5,39 +5,56 @@ essential aspect of any online system where they interact with each other for
 any purpose, be it shopping, content delivery or file sharing. This chapter
 follows on a discussion of a proposed endorsement network where physically or
 digitally acquainted entities can endorse each other or their presented
-information. The model will address several concerns such as the roles and
-requirements of participants as endorser and endorsee, why a participant would
-play by the rule and what is to stop them from not doing so, threat models,
-etc. With a system of smart contracts, PoC design will confer interaction
-between entities, aggregation of information and assignment of scores for final
-computation. The storage of data both on and off-chain will be discussed.  
+information. The model addresses different concerns such as roles and
+requirements of participants as endorser and endorsee and several possible
+behaviors of an interaction system. A system of smart contact is set up that
+specifies the interaction between entities, aggregates interaction information
+and assigns a trust score to each participating entities. The storage of data
+both on and off-chain along with the governance model is discussed. 
 
 \section{Problem Statement}
 To be able to rely on the trustworthiness of an entity as presented by any
 online systems, the underlying reputation system needs to be robust and as
 transparent as possible. The assurance that available information has not been
 tampered with and correctness of claimed identity should be provided to sustain
-minimal risk of fraud. The immutable, trustless, decentralized and distributed
-attribute of blockchain protocol is a recommended solution on a public
-permissionless network.
+minimal risk of fraud. 
+The centralized nature of current online systems fails to provide the guarantee
+of reliable and immutable data. As such, the reputation information is
+vulnerable to external attacks as well as internal modifications. Additionally,
+the reputation systems do not take into account the anonymity/pseudonymity of
+participants, which is an essential attribute for getting honest feedback. 
+This masters' thesis proposes the use of blockchain technology for storage and
+governance of reputation data to ensure reliable and verifiable information. By
+modeling trust among entities in a pseudonymous manner, the proposed system
+also considers the user's anonymity requirements. 
 
 \section{ User stories \& Requirements} \label{ch:UserStories}
-Anyone can join the network and become a participant in the endorsement system.
-The two notable roles of a user are endorser and endorsee. An endorser can
-initiate the transaction by sending an endorsement to the participant they wish
-to. The same user can assume both the roles of endorser and endorsee as long as
-a set of predefined requirements are met.  \\ 
+The endorsement system is proposed as a system that can model the trust of
+pseudonymous entities. First, the system requirements and identification of
+user type are outlined. Data verifiability being a primary system requirement,
+a public network is considered. As such, anyone can join the network and become
+a participant in the endorsement system.  The two notable roles of a user are
+endorser and endorsee. An endorser can initiate the transaction by sending an
+endorsement to the participant they trust which is received by the endorsee.
+The same user can assume both positions as long as a set of predefined
+requirements are met.  \\ 
 
 %figure - System Context Diagram
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{Images/1SystemContext.eps}
+	\includegraphics[width=0.9\textwidth]{Images/ContextLayer.eps}
 	\caption{Context Layer}
 	\label{fig:context}
 \end{figure}
-
-The user stories for each role that defines the system requirements for each
-user type is presented in table ~\ref{table:userstories}. 
+User stories provide an informal description of a system's feature from the
+end-users perspective. They are useful in precisely determining the
+capabilities of different user types and leads to the definition of system
+requirements. Table~\ref{table:userstories} presents the user stories and
+follows a general template that specifies the who, what and why of system
+features. The traceability column is used to trace back to that specific
+feature when checking the fulfillment of requirements. 
+%The user stories for each role that defines the system requirements for each
+%user type is presented in table ~\ref{table:userstories}. 
 \begin{center} \label{table:userstories} 
 	\begin{table}
 	\begin{tabular} {| l | p{8cm} | l |}
@@ -69,8 +86,7 @@ user type is presented in table ~\ref{table:userstories}.
 	\caption{User Stories and Requirements}
 \end{table}
 \end{center}
-
-The functional requirements can be listed in points as : \\
+The functional requirements can be listed in points as : 
 \begin{enumerate}
 	\item It must be impossible to make an Endorsement if the endorser and
 		endorsee is same address or not a registered participant.
@@ -97,22 +113,29 @@ The non-functional system requirements are :
 \end{enumerate}
 
 \section{The Model - Endorsement Network}\label{sec:endorsementModel}
+%\begin{figure}
+%	\begin{center}
+%		\includegraphics[width=0.4\textwidth]{Images/TrustReputationSteps.eps}
+%		\caption{Trust and Reputation Model steps taken from~\cite{marmol2009security}}
+%		\label{fig:truststep}
+%	\end{center}
+%\end{figure}
+Complete trust and reputation model consists of four different steps as
+depicted by Figure~\ref{fig:truststep}. Among these steps, endorsement network
+concentrates on the first two steps, collection, and aggregation of
+information. For the last two steps, selecting and interacting with a peer for
+transaction based on which they get punished or rewarded is based on a
+transactional network. As implementing transaction network is not the main task
+of this project, feedback based on success or failure of a transaction will be
+mostly  
 \begin{wrapfigure}{l}{0.6\textwidth}
 	\begin{center}
-		\includegraphics[width=0.2\textwidth]{Images/TrustAndReputationSteps.eps}
+		\includegraphics[width=0.3\textwidth]{Images/TrustReputationSteps.eps}
 		\caption{Trust and Reputation Model steps taken from \cite{marmol2009security}}
 		\label{fig:truststep}
 	\end{center}
 \end{wrapfigure}
-Complete trust and reputation model consists of four different steps as
-depicted in figure ~\ref{fig:truststep}. Among these steps, endorsement network
-concentrates on the first two steps, collection, and aggregation of
-information. For the last two steps, selecting and interacting with a peer for
-transaction based on which they get punished or rewarded is based on a
-transactional network. 
-As implementing transaction network is not the main task
-of this project, feedback based on success or failure of a transaction will be
-mostly based on the assumption that can be used by endorsement system.  Thus,
+based on the assumption that can be used by endorsement system.  Thus,
 most of the section in this chapter is based on the smart contract logic for
 endorsement model and discussion on the possibility to be used by other
 transactional systems. 
@@ -120,8 +143,8 @@ transactional systems.
 The initial assumption on endorsement system is that all nodes are honest and
 as such receive equal points that they can spend at will once registered on the
 network. This received points are the consumable power that keeps depleting
-with every endorsement connection made along the way. As can be seen in figure
-~\ref{consumablePoint} , these points follow a convergent sequence that
+with every endorsement connection made along the way. As can be seen in
+figure~\ref{consumablePoint}, these points follow a convergent sequence that
 converges to the limit 0 as the number of connection `n' increases. As such,
 increasing the number of connection alone will not be enough to achieve a
 higher impact on the network.
@@ -173,19 +196,20 @@ Finally, the \ac{TEI} made by 'A' is given by: \\
 %an endorsee has made already
 
 \section{Design of PoC}\label{sec:pocDesign}
-The PoC design for \ac{EDS} system is based on the requirements mentioned in section
-\ref{ch:UserStories}. This section explains the design considerations and the
-setup of smart contracts used for the \acrshort{EDS} system. A high-level overview of the
-overall system is presented in figure ~\ref{fig:SystemContainer}. The
-visualization is based on an architectural model by \cite{brown2013software}.
-It essentially uses three-layer to visualize a software architecture. i.e.,
-context layer, container layer, and component layer. The context layer attempts
-to describe several user types and their interaction with the system on a high
-level. The container layer takes it further by expanding on the software system
-and shows a high-level overview of the components involved. The component layer
-then goes on to explain in detail the connected component. For endorsement
-system, the component that is most relevant and thus explained in detail is the
-smart contract.
+The PoC design for \ac{EDS} system is based on the requirements mentioned in
+section \ref{ch:UserStories}. This section explains the design considerations
+and the setup of smart contracts used for the \acrshort{EDS} system. A
+high-level overview of the overall system is presented in figure
+~\ref{fig:SystemContainer}. The visualization is based on an architectural
+model by \cite{brown2013software}.  It essentially uses three-layer to
+visualize a software architecture. i.e., context layer, container layer, and
+component layer. The context layer attempts to describe several user types and
+their interaction with the system on a high level and is given by
+figure~\ref{fig:context} The container layer takes it further by expanding on
+the software system and shows a high-level overview of the components involved.
+The component layer then goes on to explain in detail the connected component.
+For endorsement system, the component that is most relevant and thus explained
+in detail is the smart contract.
 After the design details, the section ends with the discussion on graph
 algorithms that can be used by the transactional network, blockchain
 infrastructure, governance model, and storage of information on and off-chain.

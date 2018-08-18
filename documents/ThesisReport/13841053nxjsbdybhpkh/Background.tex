@@ -11,28 +11,35 @@ required for the subsequent sections.
 
 \section{Graph properties}
 A graph, as the name suggests can be used to represent objects and their
-relationships graphically. Formally, a graph G is an ordered triple (V,
-E,$\varphi _G$ ) where V is a non empty set of vertices v, E is a non empty set
-of edges e that connects two vertices and $v \in V, e \in E$. $\varphi _G$ is
-an incidence function that assigns pair of vertices to each edge of the graph
-G.\\ $\varphi _G $(e) = uv represents that e is an edge that joins vertices u
-and v~\cite{bondy1976graph}.  Based on these properties, any online interaction
-system can be modeled graphically including reputation system. Each node on the
-network can represent agents/users that interact with other users. This
-interaction can represent the relationship between nodes as the edges
-connecting vertices. The transfer of data between the nodes can be quantified
-to represent the weight of the edge.  This weight value can be used to
-determine the strength or weakness of relationship between the nodes.  Modeling
-the interaction as a graph can help to understand and analyze its complexity at
-micro, meso, and macro level~\cite{gkorou2014exploiting}. At a micro-level, the
+relationships graphically. \\
+Formally, a graph~\cite{bondy1976graph}, G, is an ordered triple
+\displaystyle{(V,E,$\varphi _G$)} where, \\
+\displaystyle{V} \text{ is a non empty set of vertices } \displaystyle{ v}.
+\\ \displaystyle{E} \text{ is a non empty set of edges } \displaystyle{ e}.
+\\ \displaystyle{e} \text{ connects two vertices, where, } \displaystyle{v
+\in V } \text{ and } \displaystyle{e \in E}. \\ \displaystyle{\varphi _G}
+\text{ is an incidence function that assigns pair of vertices to each edge
+of the graph G.} \\ \displaystyle{\varphi _G(e) = uv} \text{ represents
+that } \displaystyle{e} \text{ is an edge that joins vertices }
+\displaystyle{u} \text{ and } \displaystyle{v} \\
+
+Based on these properties, any online interaction system can be modeled
+graphically including reputation system. Each node on the network can represent
+agents/users that interact with other users. This interaction can represent the
+relationship between nodes as the edges connecting vertices. The transfer of
+data between the nodes can be quantified to represent the weight of the edge.
+This weight value can be used to determine the strength or weakness of
+relationship between the nodes. Modeling the interaction as a graph can help
+to understand and analyze its complexity at different level. By observing the
 local properties of a particular node such as its activity, connection degree,
-its neighbors, and interactions can be observed. On a meso-level, the node's
-relative position in a given graph that can help to determine its centrality
-and connectivity can be observed. On a macro-level, one can view the overall
-network as the topology of the graph itself. It helps to study the global
-properties of the graph.\\ 
-Network metrics that are helpful in analyzing the complexity of
-interactions at macro and meso-level are~\cite{gkorou2014exploiting}: \\
+its neighbors, and interactions, one can derive useful information about a node.
+Similarly, the node's relative position in a given graph can help to determine
+its centrality and connectivity. An overall structure of the network(graph
+topology) can help to study the global properties of the graph. 
+
+Network metrics that are helpful in analyzing the complexity of interactions at
+different levels~\cite{gkorou2014exploiting} and used for evaluation of results
+in this project are: \\
 \textbf{Degree Connectivity:} The number of connections a node has is the
 degree of its connectivity. The number of inflow is referred to as indegree
 whereas the number of outflows is the outdegree of a node. Usually, a higher
@@ -142,12 +149,24 @@ agreed upon key. Authenticity relates to confirming the truth of an attribute
 claimed by an entity. Non-repudiation is associated with the property that any
 entity who has previously sent the message cannot deny their
 authorship~\cite{katz1996handbook}. \\ 
-A cryptosystem can be defined as a five-tuple (P, C, K, E, D) where, \\
-P, is a finite set of plaintexts and C, a finite set of ciphertexts. \\
-E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
-D, set of decryption rules such that $d_{k}:C \Rightarrow P$\\ 
-For each k in $in$ K, there is $e_{k } \in$E and $d_{k } \in$ D such that
-$d_{k}(e_{k}(m))$= m for every plaintext m $\in$ P.\\
+A cryptosystem can be defined as a five-tuple $\displaystyle(P, C, K, E, D)$ where, 
+\begin{itemize}
+	\item $\displaystyle P, \text{ is a finite set of plain texts. }$
+	\item $\displaystyle C, \text{ is a finite set of ciphertexts. } $
+	\item $\displaystyle E,$ \text{ set of encryption rules such that}
+		$\displaystyle e_{k}:P \Rightarrow C$
+	\item $\displaystyle D,$ \text{ set of decryption rules such that}
+		$\displaystyle d_{k}:C  \Rightarrow P$ 
+	\item For each k $\displaystyle \in$ K, there is $\displaystyle e_k \in E$
+		and $\displaystyle d_k \in D$ such that $\displaystyle d_k(e_k(m)) = m$
+		for every plaintext $\displaystyle m \in P$
+\end{itemize}
+%$\displaystyle P$, is a finite set of plaintexts and $\displaystyle C$, a finite set of ciphertexts. \\
+%E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
+%D, set of decryption rules such that $d_{k}:C \Rightarrow P$\\ 
+%For each k in $in$ K, there is $e_{k } \in$E and $d_{k } \in$ D such that
+%$d_{k}(e_{k}(m))$= m for every plaintext m $\in$ P.\\
+
 A cryptosystem can be either symmetric or asymmetric. Symmetric makes use of
 the same key for both encryption and decryption whereas asymmetric, also known
 as public-key cryptography makes use of key pairs, public and private keys. The
@@ -173,11 +192,11 @@ one example of a public-private cryptosystem.
 %encryption, decryption 
 
 \subsection{Hash functions}
-Cryptographic hash functions are a one-way function, also known as mathematical
+Cryptographic hash functions are one-way functions, also known as mathematical
 trapdoor function that transforms an input message into a fixed length binary
 output. It is one way because although converting a message input to a hash
 value or a message digest can be done in constant time, reversing the operation
-is practically impossible to achieve as its computationally inefficient. An
+is practically impossible to achieve as it is computationally inefficient. An
 important characteristics of hash function is its deterministic output. i.e.,
 given an input, it will always produce the same output. This attribute
 contributes to data verifiability as anyone can always verify if the produced
@@ -187,13 +206,13 @@ Other significant properties of hash function that contributes to
 reliability in digital security are~\cite{mironov2005hash}: \\
 One-way: Given a key k, and an output w, it should be hard for an attacker to find x
 such that the hash of x applied with k, produces w. ie., $H_k(x)$ = w.\\ 
-second pre-image resistant: Given a key k and a string x, it should be hard for
+Second pre-image resistant: Given a key k and a string x, it should be hard for
 an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
 Collision-resistant: Given a key k, it should be hard for an attacker to find x and y such that
 $H_k(x)$ = $H_k(y)$. \\
 Earlier hash functions include MD5 which produced an output of size 128 bits.
 Collision-resistant attack in MD5 is possible within seconds with a complexity
-of $2^{24}$~\cite{wang2005break}. NIST published secure hashing algorithm (SHA)
+of $2^{39}$~\cite{wang2005break} MD5 operations. NIST published secure hashing algorithm (SHA)
 in 1993 as the secure hash standard. Currently, SHA-3 is the latest in SHA
 family of standards that was released in 2015 with SHA-0, SHA-1 and SHA-2 as
 it's predecessor algorithms. Collision attack for SHA-1 was shown to be
@@ -212,15 +231,21 @@ including list of transactions in the block and chaining the blocks together.
 		\label{fig:merkleTree}
 	\end{center}
 \end{figure}
-The process of getting a root hash is given by ~\ref{fig:merkleTree} 
-Two significant use of Merkle tree are: \\
-i) Data integrity verification:An attempt to change any transaction data would
-completely change the root hash of the block.  
-
-ii) Data inclusion verifcation:It is easy to verify the inclusion of a
-transaction in a block without requiring to include all the transactions. From
-figure ~\ref{fig:merkleTree}, to verify inclusion of transaction H$_$K, only
-the hash values that are shown in blue needs to stored.  \\
+To create merkle tree, list of transactions are paired and hashed together.
+This process is repeated until there is only one hash value left which acts a
+root value of the tree. This root hash is included as a block header that
+entails all the transactions data. Figure ~\ref{fig:merkleTree} illustrates the
+process of creating a merkle root. 
+Two significant use of merkle tree are: \\
+\begin{enumerate}
+	\item Data integrity verification: An attempt to change any transaction data
+		would completely change the root hash of the block.  
+	\item Data inclusion verifcation: It is easy to verify the inclusion of a
+		transaction in a block without requiring to include all the
+		transactions. From figure ~\ref{fig:merkleTree}, to verify inclusion of
+		transaction $H_{K}$, only the hash values that are shown in blue needs to
+		stored.  \\
+\end{enumerate}
 
 The PoW consensus mechanism, relies on SHA-256 hash(in Bitcoin)
 applied to the block header and nonce to produce a verifiable fingerprint of
