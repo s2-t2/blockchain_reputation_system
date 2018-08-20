@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 
 font = {'family' : 'monospace',
         #'weight' : 'bold',
-        'size'   : 18}
+        'size'   : 20}
 
 
 titleFont = {'family' : 'monospace',
         'weight' : 'bold',
-        'size'   : 23}
+        'size'   : 24}
 
 
 xAxis = [];
@@ -21,8 +21,8 @@ for j in range(1,51):
     yAxis.append(temp);
 
 plt.plot([xAxis], [yAxis], 'bo', linewidth=0.5 )
-plt.ylabel('consumedPoints', font);
-plt.xlabel('number of connections',font);
-plt.title('depletion of consumable points',titleFont );
+plt.ylabel('ConsumedPoints', font);
+plt.xlabel('Number of connections',font);
+plt.title('Depletion of consumable points',titleFont );
 plt.show()
 

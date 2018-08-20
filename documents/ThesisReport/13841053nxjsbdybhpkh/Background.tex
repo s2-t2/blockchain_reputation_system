@@ -13,16 +13,29 @@ required for the subsequent sections.
 A graph, as the name suggests can be used to represent objects and their
 relationships graphically. \\
 Formally, a graph~\cite{bondy1976graph}, G, is an ordered triple
-\displaystyle{(V,E,$\varphi _G$)} where, \\
-\displaystyle{V} \text{ is a non empty set of vertices } \displaystyle{ v}.
-\\ \displaystyle{E} \text{ is a non empty set of edges } \displaystyle{ e}.
-\\ \displaystyle{e} \text{ connects two vertices, where, } \displaystyle{v
-\in V } \text{ and } \displaystyle{e \in E}. \\ \displaystyle{\varphi _G}
-\text{ is an incidence function that assigns pair of vertices to each edge
-of the graph G.} \\ \displaystyle{\varphi _G(e) = uv} \text{ represents
-that } \displaystyle{e} \text{ is an edge that joins vertices }
-\displaystyle{u} \text{ and } \displaystyle{v} \\
-
+\displaystyle${(V,E,\varphi _G)}$ where: 
+\begin{itemize}
+	\item $V$ is a non empty set of vertices $v$.
+	\item $E$ is a non empty set of edges $e$.
+	\item $e$ connects two vertices, where, $v \in V$ and $e \in E$.  
+	\item $\varphi _G$ is an incidence function that assigns pair of vertices
+		to each edge of the graph G. 
+	\item $\varphi _G(e) = uv$ represents that $e$ is an edge that joins vertices $u$ and $v$.  
+\end{itemize}
+%\begin{itemize}
+%	\item \displaystyle${V}$ \text{ is a non empty set of vertices }  
+%		\displaystyle${ v}.$ \\ 
+%	\item 
+%	\item \displaystyle${E}$ \text{ is a non empty set of edges }
+%		\displaystyle${ e}.$ \\ 
+%	\item \displaystyle${e}$ \text{ connects two vertices, where, }
+%		\displaystyle${v \in V }$ \text{ and } $\displaystyle{e \in E}.$ \\
+%	\item \displaystyle${\varphi _G}$ \text{ is an incidence function that
+%		assigns pair of vertices to each edge of the graph G.} \\
+%	\item \displaystyle${\varphi _G(e) = uv}$ \text{ represents that }
+%		\displaystyle${e}$ \text{ is an edge that joins vertices }
+%		\displaystyle${u}$ \text{ and } \displaystyle${v}$. \\
+%\end{itemize}
 Based on these properties, any online interaction system can be modeled
 graphically including reputation system. Each node on the network can represent
 agents/users that interact with other users. This interaction can represent the
@@ -34,7 +47,7 @@ to understand and analyze its complexity at different level. By observing the
 local properties of a particular node such as its activity, connection degree,
 its neighbors, and interactions, one can derive useful information about a node.
 Similarly, the node's relative position in a given graph can help to determine
-its centrality and connectivity. An overall structure of the network(graph
+its centrality and connectivity. An overall structure of the network (graph
 topology) can help to study the global properties of the graph. 
 
 Network metrics that are helpful in analyzing the complexity of interactions at
@@ -43,7 +56,7 @@ in this project are: \\
 \textbf{Degree Connectivity:} The number of connections a node has is the
 degree of its connectivity. The number of inflow is referred to as indegree
 whereas the number of outflows is the outdegree of a node. Usually, a higher
-degree of connectivity implies a higher likelihood for information(relevant
+degree of connectivity implies a higher likelihood for information (relevant
 data to the network) to pass through that node.\\
 \textbf{Network Centrality:} Centrality refers to the significance of a node in
 the network. i.e., how important the node is in the overall network. The degree
@@ -149,7 +162,7 @@ agreed upon key. Authenticity relates to confirming the truth of an attribute
 claimed by an entity. Non-repudiation is associated with the property that any
 entity who has previously sent the message cannot deny their
 authorship~\cite{katz1996handbook}. \\ 
-A cryptosystem can be defined as a five-tuple $\displaystyle(P, C, K, E, D)$ where, 
+A cryptosystem can be defined as a five-tuple $\displaystyle(P, C, K, E, D)$ where: 
 \begin{itemize}
 	\item $\displaystyle P, \text{ is a finite set of plain texts. }$
 	\item $\displaystyle C, \text{ is a finite set of ciphertexts. } $
@@ -159,7 +172,7 @@ A cryptosystem can be defined as a five-tuple $\displaystyle(P, C, K, E, D)$ whe
 		$\displaystyle d_{k}:C  \Rightarrow P$ 
 	\item For each k $\displaystyle \in$ K, there is $\displaystyle e_k \in E$
 		and $\displaystyle d_k \in D$ such that $\displaystyle d_k(e_k(m)) = m$
-		for every plaintext $\displaystyle m \in P$
+		for every plaintext $\displaystyle m \in P$.
 \end{itemize}
 %$\displaystyle P$, is a finite set of plaintexts and $\displaystyle C$, a finite set of ciphertexts. \\
 %E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
@@ -204,12 +217,15 @@ hash output for data matches by simply applying the data to the respective hash
 function. 
 Other significant properties of hash function that contributes to
 reliability in digital security are~\cite{mironov2005hash}: \\
-One-way: Given a key k, and an output w, it should be hard for an attacker to find x
-such that the hash of x applied with k, produces w. ie., $H_k(x)$ = w.\\ 
-Second pre-image resistant: Given a key k and a string x, it should be hard for
-an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
-Collision-resistant: Given a key k, it should be hard for an attacker to find x and y such that
-$H_k(x)$ = $H_k(y)$. \\
+\begin{itemize}
+	\item One-way: Given a key k, and an output w, it should be hard for an
+		attacker to find x such that the hash of x applied with k, produces w.
+		ie., $H_k(x)$ = w.\\ 
+	\item Second pre-image resistant: Given a key k and a string x, it should
+		be hard for an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
+	\item Collision-resistant: Given a key k, it should be hard for an attacker
+		to find x and y such that $H_k(x)$ = $H_k(y)$. \\
+\end{itemize}
 Earlier hash functions include MD5 which produced an output of size 128 bits.
 Collision-resistant attack in MD5 is possible within seconds with a complexity
 of $2^{39}$~\cite{wang2005break} MD5 operations. NIST published secure hashing algorithm (SHA)
@@ -227,7 +243,7 @@ including list of transactions in the block and chaining the blocks together.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Images/MerkleeTree.eps}
-		\caption{Merkle Tree}
+		\caption{Creation of root hash of transactions via Merkle Tree}
 		\label{fig:merkleTree}
 	\end{center}
 \end{figure}
@@ -247,9 +263,9 @@ Two significant use of merkle tree are: \\
 		stored.  \\
 \end{enumerate}
 
-The PoW consensus mechanism, relies on SHA-256 hash(in Bitcoin)
+The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
 applied to the block header and nonce to produce a verifiable fingerprint of
-data. This is discussed in more detail in ~\ref{sec:blockchain}. Proof-of-work
+data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
 was originally used in 1997 by Adam Back as a anti-spam system for the then
 proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
 sender of message would have to compute some number of sha operations before
@@ -290,7 +306,7 @@ operations, a malicious user intending to send thousands of emails had to spend
 A digital signature acts as an intermediary to prove that an entity A, has the
 password without ever requiring A to reveal it. As discussed earlier,
 public-key cryptography uses key-pairs that correspond with each other. In
-context of Blockchain, If Alice wants to send a value(transaction) to Bob, she
+context of blockchain, if Alice wants to send a value (transaction) to Bob, she
 can create a transaction message, sign it using her private key and broadcast
 the transaction over the network. Her signature and the transaction message
 will be publicly available on the network(assuming a public blockchain
@@ -305,27 +321,27 @@ signature.
 \section{Blockchain Technology} \label{sec:blockchain}
 Blockchain Technology is a variant of distributed database implemented on a P2P
 network. Every participating node in the network has the same copy of history
-of records of database. Blockchain is essentially a chain of blocks, as the
-name suggests. Each block consists of list of valid transactions(signed
+of records of the database. Blockchain is essentially a chain of blocks, as the
+name suggests. Each block consists of list of valid transactions (signed
 messages) collected by validators/miners of the network. The linking and
 ordering of transactions are also the responsibility of validators. The
-validators proposes a block they have unlocked to the network which can either
+validators propose a block they have unlocked to the network which can either
 be accepted or rejected. If accepted, the newly created block gets linked to
-the existing blockchain with a hash pointer pointing to the previous block. As
-such, blockchain provides the transaction ordering that every node agreed on at
-a given time. Consensus metric helps to establish and maintain the integrity of
-a blockchain
-system\footnote{https://github.com/ethereumbook/ethereumbook/blob/develop/consensus.asciidoc}.
+the existing blockchain with a hash pointing to the previous block. As such,
+blockchain provides the transaction ordering that every node agreed on at a
+given time. Consensus metric helps to establish and maintain the integrity of a
+blockchain
+system~\footnote{https://github.com/ethereumbook/ethereumbook/blob/develop/consensus.asciidoc}.
 The primary attributes that constitute a blockchain system are distributed,
-decentralized, time-stamped transactions.  
-There have been P2P protocols deployed as a file-sharing or other form of
-content delivery services before Blockchain. What separates Blockchain from
-them is that for the first time, it made possible to transfer values online on
-a P2P network without a double-spending problem. i.e., If a peer 'A' sends a
-file or a value 'v' to 'B,' then the file should be owned by 'B' and removed
-from the account of A. 'A' should not be able to send the same file 'v' to
-other entities on the network. This was the significant contribution of the
-technology. 
+decentralized and time-stamped transactions.  There have been P2P protocols
+deployed as a file-sharing or other form of content delivery services before
+Blockchain. What makes Blockchain stand out from them is, for the first time,
+it makes it possible to transfer values online on a P2P network without a
+double-spending problem, i.e., if a peer \textit{'A'} sends a file or a value
+\textit{'v'} to \textit{'B'}, then the file should be owned by \textit{'B'} and
+removed from the account of \textit{A}. \textit{'A'} should not be able to send
+the same file \textit{'v'} to other entities on the network. This was the
+significant contribution of the technology. 
 %While, transferring digital contents, sharing information were
 %possible before, transferring values was made possible by Blockchain
 %technology.
@@ -337,35 +353,35 @@ technology.
 
 \subsection{Evolution \& Categories}
 Bitcoin was the first application that made use of Blockchain technology which
-was a peer-to-peer electronic cash system. The major contribution of this
+is a peer-to-peer electronic cash system. The major contribution of this
 application was solving distributed trust at scale without using a trusted
 intermediary. 
 Along the dimension of validation and access control~\cite{voronchenko2017you},
-blockchains can be categorized as a public permissionless system, public
+Blockchain can be categorized as a public permissionless system, public
 permissioned, and private permissioned. 
 \begin{itemize}
-	\item Public Permissionless:Anyone can join the network and become a writer
+	\item Public Permissionless: Anyone can join the network and become a writer
 		of the block as long as they can solve a problem or reach the consensus
 		that satisfies the underlying protocol. The records are publicly
 		available and thus publicly verifiable. 
 	\item Public Permissioned: Anyone can still join the network, but a writer
-		of the block is known but not necessarily trusted entity. The records
+		of the block is known but not necessarily a trusted entity. The records
 		are publicly verifiable. 
-	\item Private Permissioned: This is similar to a Public permissioned
+	\item Private Permissioned: This is similar to the Public permissioned
 		setting, but the records are not made public and therefore doesn't
 		offer public verifiability. This kind of setup is more specific to
-		business use-cases where one business doesn't need to know about other
+		business use-cases where one business does not need to know about other
 		business policies or customer information etc. 
 \end{itemize}
-~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
-types and their uses.
+%~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
+%types and their uses.
 
 
 \subsection{Consensus Mechanisms}
 As a distributed database with multiple writers, there has to be a way for
 everyone to reach a consensus on a shared global view of the network. Consensus
 mechanisms allow doing so. Based on consensus mechanisms, systems can be
-distinctly categorized into\footnote{Categorization based on Hashgraph's presentation \cite{baird2016hashgraph}}:
+distinctly categorized into~\footnote{Categorization based on Hashgraph's presentation~\cite{baird2016hashgraph}.}:
 \begin{itemize}
 	\item Leader Based System: In this case, there is a pre-selected leader
 		that collects all the transactions and appends new records to the
@@ -373,21 +389,21 @@ distinctly categorized into\footnote{Categorization based on Hashgraph's present
 		computational requirements. As a blockchain protocol, it offers an
 		immutable audit of the records. However, just like any other
 		centralized system, this system is susceptible to DDOS attacks and
-		third-party(leader) interference. Generally used in a private or
+		third-party (leader) interference. Generally used in a private or
 		permissioned blockchain setup, it offers higher throughput compared to
 		public permissionless blockchains. Examples include Hyperledger Fabric,
 		R3 Corda etc. 
-	\item Proof-Of-Work: This is the most widely used consensus mechanism in a
+	\item Proof-Of-Work (PoW): This is the most widely used consensus mechanism in a
 		public permissionless setup. As the name suggests, a validator/miner
 		needs to provide the proof to the network that it has done a
 		significant amount of work. This work requires miners to invest a
-		substantial amount of computational resource. The reason for this is
-		that everyone(all miners) compete to be the writer of the next block
+		substantial amount of computational resources. The reason for this is
+		that everyone (all miners) compete to be the writer of the next block
 		for which they need to solve a cryptographic puzzle. Mainly, they need
 		to find a hash value that can be associated with the proposed block.
-		The only way to find this value is by brute-forcing.  The simplified
+		The only way to find this value is by brute-force.  The simplified
 		overview of this mining process is given by figure
-		~\ref{fig:cryptographicPuzzle} 
+		~\ref{fig:cryptographicPuzzle}. 
 		\begin{figure}
 			\begin{center}
 			\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
@@ -399,22 +415,22 @@ distinctly categorized into\footnote{Categorization based on Hashgraph's present
 		system DDOS resistant while offering immutable audit trail and
 		scalability.  However, miners can still decide upon the order of
 		transactions to include in the block although they cannot modify the
-		transaction. As such, one could term this as 'unfair' since the
-		transaction doesn't get picked up in order of when it was broadcasted
+		transaction. As such, one could term this as 'unfair', since the
+		transaction does not get picked up in order of when it was broadcasted
 		to the network. 
 	\item Economy based systems: Consensus mechanisms such as Proof-of-stake or
 		delegated proof-of-stake can be seen as an economy based system. Unlike
-		PoW, miners don't compete with each other to be the writer of next
+		PoW, miners do not compete with each other to be the writer of next
 		block thus saving lots of computational resources. The general idea is
 		that participants can put the respective platform based native token
 		they own at stake to validate a block. Whoever has the highest value at
 		stake gets to write the next block. If the participation turned out to
 		be a malicious one, then all the tokens that were at stake get lost. As
 		such, it puts scarce resource at stake. However, this includes problem
-		such as nothing-at-stake~\cite{houy2014will}. i.e., a node could vouch for two forks
+		such as nothing-at-stake~\cite{houy2014will}, i.e., a node could vouch for two forks
 		of the same blockchain with nothing to lose. Other drawbacks of this
 		approach are that there is no certainty of consensus, and often has no
-		total ordering of transactions. Examples include Casper etc. 
+		total ordering of transactions, Examples include Casper etc. 
 \end{itemize}
 
 \subsection{Smart contracts}
@@ -422,53 +438,56 @@ A contract in a classical sense is a set of rules with pre-defined obligations
 and permissions that participants are assumed to follow. 
 A smart contract, however is a computer program that can codify the
 interaction between participating entities and self-executes when triggered by
-an event. It doesn't necessarily need to be legally binding or even associated
+an event. It does not necessarily need to be legally binding or even associated
 with the outside world~\footnote{https://universe.ida.dk/media/23422289/fritz-henglein.pdf}.
 The term Smart contact was first coined by Cryptographer Nick Szabo, in 1994
 ~\cite{SzaboSmart1994} and defined as a computerized transaction protocol that
 can execute the terms of a contract. Szabo points out that the contract
 design should fulfill four objectives~\cite{szabo1996smart}: \\
-\textbf{Observability}, ability to observe the performance of principal(agents
-who have agreed to the contract) and prove their performance.\\
-\textbf{Verifiability}, the ability of principals to prove to the arbitrators
-that the contract has been performed or breached. \\ 
-\textbf{Privity}, to ensure that the third party should not have control or
-knowledge of the content or performance. It correlates to both privacy and
-confidentiality of principals of contract and the contract itself. \\
-\textbf{Enforceability}, to make the contract self-enforcing which can be
-attributed to by verifiability, built-in incentives mechanism, and objective
-mentioned above. \\
+\begin{itemize}
+	\item \textbf{Observability}, ability to observe the performance of
+		principal(agents who have agreed to the contract) and prove their
+		performance.\\
+	\item \textbf{Verifiability}, the ability of principals to prove to the
+		arbitrators that the contract has been performed or breached. \\ 
+	\item \textbf{Privity}, to ensure that the third party should not have
+		control or knowledge of the content or performance. It correlates to
+		both privacy and confidentiality of principals of contract and the
+		contract itself. \\
+	\item \textbf{Enforceability}, to make the contract self-enforcing which
+		can be attributed to by verifiability, built-in incentives mechanism,
+		and objectives mentioned above. \\
+\end{itemize}
 Privity refers to minimization of third-party vulnerability by limiting
 knowledge and control whereas, on the other end, observability and
-verifiability demand invoking it to an extent. As such, a trade-off is
+verifiability demands invoking it to an extent. As such, a trade-off is
 required wherein an optimal balance between these objectives should meet. Thus,
 trusted intermediaries were introduced with minimal control/observability.
-However, privity was not guaranteed in case of dispute. 
-~\cite{szabo1997formalizing}.
-Following the invention of Bitcoin and several decentralized blockchains, the
-definition of smart contracts have evolved. Ethereum being the first platform
-to offer programmable blockchains, introduced a virtual machine, EVM, where the
+However, privity was not guaranteed in case of
+dispute~\cite{szabo1997formalizing}. Following the invention of Bitcoin and
+several decentralized blockchains, the definition of smart contracts have
+evolved. Ethereum being the first platform to offer programmable blockchains,
+introduced a virtual machine, EVM (Ethereum Virtual Machine), where the
 contract code can be executed that results in a deterministic output provided
 the same transaction context and blockchain
-state~\footnote{https://github.com/ethereumbook/ethereumbook/blob/develop/smart-contracts.asciidoc}.
-EVM often referred to as a single world computer runs on every ethereum node
+state~\footnote{\url{https://github.com/ethereumbook/ethereumbook/blob/develop/smart-contracts.asciidoc}}.
+EVM often referred to as a single world computer, runs on every ethereum node
 and given the same initial state produces the same final state. Several high
 level languages can be used to write smartcontracts for different blockchain
-platform. Examples include solidity, serpent, LLL, etc.  For the sake of
+platforms. Examples include solidity, serpent, LLL, etc.  For the sake of
 relevance to this project, solidity as the smart contract language and Ethereum
 as the blockchain will be used as a point of view henceforth. Contract's code
 resides in the blockchain as an immutable form.  They are not autonomous
-self-executing program but rather needs to be called by a transaction or
+self-executing programs but rather needs to be called by a transaction or
 invoked by other contracts. Once the code is registered and deployed on the
 blockchain, its code cannot be altered by anyone, including the owner of the
-contract. However, there exists a possibility to include killable function that
-can be executed by the owner which when called executes an EVM opcode called
-SELFDESTRUCT and deletes the contract from the blockchain.  As in any
-Turing-complete language, solidity is affected by the halting problem.  To
-address this, Ethereum introduces the concept of gas. To store any state, or
-execute any operation, gas needs to be supplied. Thus, a program that has a bug
-or a non-terminating intention will eventually run out of gas and
-stop~\cite{whataresmartcontracts}.
+contract. However, a possibility to include a killable function by the owner
+exists which when called executes an EVM opcode called SELFDESTRUCT. This
+deletes the contract from the blockchain. As in any Turing-complete language,
+solidity is affected by the halting problem.  To address this, Ethereum
+introduces the concept of gas. To store any state, or execute any operation,
+gas needs to be supplied. Thus, a program that has a bug or a non-terminating
+intention will eventually run out of gas and stop~\cite{whataresmartcontracts}.
 
 %\subsection{Ethereum specific concepts}
 

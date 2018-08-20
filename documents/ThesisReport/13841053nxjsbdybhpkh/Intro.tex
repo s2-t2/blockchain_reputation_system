@@ -1,26 +1,26 @@
 %%% 1 Introduction/ %%%
-\chapter{Introduction} \label{ch:intro}
+\chapter{Introduction}\label{ch:intro}
 %WHAT - what the reader needs to know to understand the presented 
 %work, explain the background of research
 Any online platform that has multiple users communicating with each other for
-different purposes(e.g., digital transaction, file upload/download, news
+different purposes (e.g., digital transaction, file upload or download, news
 posting) can be termed as an online interaction system. Reputation model of
-this system is essential in maintaining its security. The risk of failure or
+such system is essential in maintaining its security. The risk of failure or
 probability of success when transacting with an entity is reliant on the
 underlying reputation system. Online identities have information attached to
 them. The interaction between these identities is gathered and aggregated to
 provide enough information that can help to infer the trustworthiness. As can
-be seen in figure ~\ref{fig:introduction}, online identities, their interaction
+be seen in figure~\ref{fig:introduction}, online identities, their interaction
 and the inference of trust scores is a continuous process. Before engaging in
 interaction, the entities need to pick the online identity with whom to
 communicate. After gauging the trustworthiness of a specific entity in
 question, interaction takes place. This interaction can then help to update
 further the trust scores based on the success or failure of a transaction. As
 this process keeps repeating, more information is gathered, and the system can
-be assumed to be more robust. Trust frameworks and reputation model attempts to
+be assumed to be more robust. Trust frameworks and reputation models attempt to
 prevent harm by giving enough information to predict the outcome. As such, it
 can be stated as a soft security mechanism. This term was first used by
-Rasmusson, Lars and Jansson, Sverker\cite{rasmusson1996simulated} to describe
+Rasmusson, Lars and Jansson, Sverker~\cite{rasmusson1996simulated} to describe
 the idea of identifying malicious users and preventing harm to other users in
 the context of secure open electronic commerce. Thus, it is upto the
 individuals rather than the software to maintain security.  \\
@@ -31,20 +31,21 @@ individuals rather than the software to maintain security.  \\
 		\label{fig:introduction}
 	\end{center}
 \end{wrapfigure}
-Examples of reputation system are eBay, which is an e-commerce platform,
-StackExchange, an online Q&A platform. The trust score of users is based on
-feedbacks, positive/negative ratings, upvotes/downvotes from the participants
-with an equal privilege to interact with the system. The final score aggregated
-via these objective measures can either increase or lower the reputation of the
-user and limit the interaction ability.\\
+Examples of reputation systems are eBay, which is an e-commerce platform, and
+StackExchange, an online Q\&A platform. The trust score of users is based on
+their feedback, positive/negative ratings, upvotes/downvotes from the
+participants with an equal privilege to interact with the system. The final
+score aggregated via these objective measures can either increase or lower the
+reputation of the user and limit their interaction ability.\\
+A general trust framework to
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{Images/WhyBlockchain.eps}
-		\caption{Centralized Vs. Decentralized network}
+		\caption{Centralized Vs. decentralized network}
 		\label{fig:WhyBlockchain}
 	\end{center}
 \end{figure}
-A general trust framework to specify the rules of online identities and a good
+specify the rules of online identities and a good
 reputation model is therefore essential to maintain the security of an online
 interaction system. Equally important is to protect the integrity of reputation
 data such that they are reliable, untampered and always available. Any
@@ -54,33 +55,32 @@ govern the data usage. As such, the system is centralized and prone to both
 external attack and internal modification. If the server node fails, then the
 whole system fails since none of the clients can access the data anymore. An
 alternative architecture that is primarily utilized by file sharing systems is
-a Peer-to-Peer(P2P) networking. In a P2P system, all nodes(peers) are equally
-privileged and can act as both client and server. i.e., A peer can both request
+a Peer-to-Peer (P2P) network. In a P2P system, all nodes (peers) are equally
+privileged and can act as both client and server. i.e., a peer can both request
 and serve data. Thus, if one node fails then, clients can still request data
 from other nodes in the network. This architecture solves the problem by P2P
 data distribution. However, the governance of data is still centralized such
 that clients still need to wait for a special node that has the privilege to
-add new data. This system is therefore still vulnerable to internal
-modifications and is reliant on a trusted entity(administrator node). P2P data
+add new data. This system, therefore is still vulnerable to internal
+modifications and is reliant on a trusted entity (administrator node). P2P data
 distribution and decentralized governance are precisely the design principles
 of blockchain technology. Figure~\ref{fig:WhyBlockchain} attempts to
 illustrate the significant difference between the models mentioned above.\\
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.9\textwidth]{Images/ThesisSteps.eps}
-		\caption{Project workflow}
+		\includegraphics[width=0.9\textwidth]{Images/workflow.eps}
+		\caption{Workflow of the project}
 		\label{fig:thesisSteps}
 	\end{center}
 \end{figure}
-This masters' thesis, therefore, proposes the use of blockchain technology and
+This master's thesis project, therefore, proposes the use of blockchain technology and
 smart contracts to model a trust framework and implement a reputation system.
-Figure ~\ref{fig:thesisSteps} gives the workflow of this project. The initial
+Figure~\ref{fig:thesisSteps} gives the workflow of this master's thesis project. The initial
 step is the identification of relevant concepts by the study of existing
-reputation model, graph-based algorithms and their properties and blockchain
-architecture. The study motivated the design of the solution, and a model is
-proposed where participating entities can endorse each other. This endorsement
+reputation models, graph-based algorithms and their properties and blockchain
+architecture. The study motivates the design of the solution, where in the proposed model, the participating entities can endorse each other. This endorsement
 information is collected and quantified by the proposed software system to
-assign a trust score to each entity. Codified restrictions along with
+assign a trust score to each entity. Restrictions on endorsement based on
 game-theoretic assumptions are made for specifying the users intearction. The
 project uses solidity, as a smart contract language and ethereum as blockchain
 backend. The final step involved the test and evaluation of results. The model
@@ -92,6 +92,11 @@ The model addressed relevant threat models, such as Sybil attack,
 white-washing, malicious collective. 
 
 \section{Definition}
+Trust and reputation can have different meanings based on context. Similarly,
+blockchain still lacks a standard definition. As such, this section aims to
+provide a general introduction and definition that will be followed by this
+master's thesis project. 
+
 \subsection{Trust and Reputation}
 Trust encompasses a broad spectrum of domains and is context dependent.
 Therefore, its definition varies based on context and discipline and as such
@@ -125,7 +130,7 @@ between trust and reputation is that the former takes the subjective measure as
 input whereas the latter takes an objective standard (e.g., transaction
 history, ratings) as an input to yield a resulting score that can aid in
 detecting reliability/trustworthiness of an
-entity~\cite{Sabater2005}~\cite{castelfranchi2000trust}. \\
+entity~\cite{Sabater2005,castelfranchi2000trust}. \\
 
 Previous survey~\cite{ josang2007survey} has classified trust and reputation
 measures as either subjective or objective measure. This classification is
@@ -147,19 +152,19 @@ objective measure accounts for all the relevant aspects and averages the
 performance to give an average rating/score on a specific scale. \\
 
 The table below shows the classification of trust and reputation measures as
-discussed above based on~\cite{ josang2007survey}: 
+discussed above based on~\cite{ josang2007survey}: \\
 %The classification of trust and reputation measures based on previous survey   
- \begin{center} \label{table:classificationTrust}
+ \begin{center}\label{table:classificationTrust}
 	\begin{tabularx}{\textwidth }{|X| X| X| }
 		\hline
 		 & Specific, vector-based & General, Synthesized \\
 		 \hline
 		Subjective & Survey questionnaires & eBay, voting \\
 		\hline
-		Objective & Product tests & Synthesised general score from product tests 
+		Objective & Product tests & Synthesised general score from product tests \\
 		\hline
-	\end{tabularx}
 	\caption{Trust and Reputation measures classification}
+	\end{tabularx}
 \end{center}
 Individuals in online systems are identified by their online identities which
 can be anything and not necessarily linked to their real-world identities.
@@ -192,8 +197,7 @@ closest use case. A formal standard definition of Blockchain is under
 development as ISO/TC 307~\cite{ISOTC307}.\\
 %\footnote{\url{https://www.iso.org/committee/6266604/x/catalogue/p/0/u/1/w/0/d/0}}. \\
 Vitalik Buterin, the founder of Ethereum, defines it this
-way\footnote{\url{https://blog.ethereum.org/2015/04/13/visions-part-1-the-value-of-blockchain-technology}}:
-"A blockchain is a magic computer that anyone can upload programs to and leave
+way~\footnote{\url{https://blog.ethereum.org/2015/04/13/visions-part-1-the-value-of-blockchain-technology}}: "A blockchain is a magic computer that anyone can upload programs to and leave
 the programs to self-execute, where the current and all previous states of
 every program are always publicly visible, and which carries a very strong
 cryptoeconomically secured guarantee that programs running on the chain will
@@ -212,7 +216,7 @@ specifies."\\
 This definition provides a broad overview of what blockchain does. As a
 continually developing discipline, it keeps adapting to a new definition while
 maintaining the essence. The major innovation of blockchain as an architecture
-is distributed, decentralized trustless(i.e., verification of transaction
+is distributed, decentralized trustless (i.e., verification of transaction
 doesn't require a trusted third party or require transacting parties to trust
 each other) transactions~\cite{Bitcoin_Satoshi}. It completely removed the need
 for an intermediary trusted third party by building trust in the system itself.
@@ -277,7 +281,7 @@ Javelin~\cite{javelin} and Javelin indicate that E-commerce fraud has risen to
 %that leads to spread of misinformation from malicious users or portals, attack
 %on an existing system continues.
 A recent report of data breach on Finnish Enterprise Agency for
-Helsinki(liiketoimintasuunnitelma.com)~\cite{finland} exposed 130,000 users login details
+Helsinki (liiketoimintasuunnitelma.com)~\cite{finland} exposed 130,000 users login details
 while Facebook has admitted to the compromise of 2.2 billion of its user's data
 \footnote{\url{https://thenextweb.com/facebook/2018/04/05/zuckerberg-facebooks-2-billion-users-assume-data-compromised/}}.
 %\footnote{\url{https://thehackernews.com/2018/04/facebook-data-privacy.html}}.
@@ -328,7 +332,7 @@ The research questions that this masters' thesis work aims to address are :
 			while also preserving users anonymity and how can it be generalized
 			to other transactional network or added on top of it to serve other
 			use cases such as content filtering, E-Commerce
-			etc?\label{question3} 
+			etc.?\label{question3} 
 \end{enumerate}
 
 \section{Scope} 
@@ -336,7 +340,7 @@ The research questions that this masters' thesis work aims to address are :
 %what the project is supposed to do and the work required to meet 
 %the objective
 This masters' thesis work attempts to answer all the research questions mentioned
-in section \ref{ResearchQuestions}. \\
+in section~\ref{ResearchQuestions}. \\
 \textbf{Research Question 1}\\
 To answer research question 1, literature survey is performed on various
 reputation algorithms and existing models. This survey follows with the
@@ -368,17 +372,12 @@ endorsement model can be used on top of other systems is also presented.
 %see how well it behaves in a dynamic environment. \\
 
 \section{Structure of Report}
-This paper is structured as follows. Chapter ~\ref{ch:litrev} performs a
-literature survey on the existing algorithms and their implementations. Chapter
-~\ref{ch:background} provides a background overview of relevant concepts
-necessary to understand the following sections. In chapter ~\ref{ch:method},
+This paper is structured as follows. Chapter~\ref{ch:litrev} performs a
+literature survey on the existing algorithms and their implementations.
+Chapter~\ref{ch:background} provides a background overview of relevant concepts
+necessary to understand the following sections. In chapter~\ref{ch:method},
 system requirements and the approach taken for the model design is shown. It
-shows the overall system design and architecture. Chapter ~\ref{ch:results}
+shows the overall system design and architecture. Chapter~\ref{ch:results}
 follows on with discussion of evaluation metrics and test methods and present
 results representative of the designed model. Finally, conclusion and future
-work is presented in chapter ~\ref{ch:conclusion}. 
-
-%\subsection{acronyms}
-%\ac{aep}.
-
-
+work is presented in chapter~\ref{ch:conclusion}. 

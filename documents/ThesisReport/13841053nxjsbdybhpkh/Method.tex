@@ -7,7 +7,7 @@ follows on a discussion of a proposed endorsement network where physically or
 digitally acquainted entities can endorse each other or their presented
 information. The model addresses different concerns such as roles and
 requirements of participants as endorser and endorsee and several possible
-behaviors of an interaction system. A system of smart contact is set up that
+behaviors of an interaction system. A system of smart contract is set up that
 specifies the interaction between entities, aggregates interaction information
 and assigns a trust score to each participating entities. The storage of data
 both on and off-chain along with the governance model is discussed. 
@@ -18,15 +18,15 @@ online systems, the underlying reputation system needs to be robust and as
 transparent as possible. The assurance that available information has not been
 tampered with and correctness of claimed identity should be provided to sustain
 minimal risk of fraud. 
-The centralized nature of current online systems fails to provide the guarantee
+The centralized nature of current online systems fail to provide the guarantee
 of reliable and immutable data. As such, the reputation information is
 vulnerable to external attacks as well as internal modifications. Additionally,
 the reputation systems do not take into account the anonymity/pseudonymity of
 participants, which is an essential attribute for getting honest feedback. 
-This masters' thesis proposes the use of blockchain technology for storage and
+This master's thesis project proposes the use of blockchain technology for storage and
 governance of reputation data to ensure reliable and verifiable information. By
 modeling trust among entities in a pseudonymous manner, the proposed system
-also considers the user's anonymity requirements. 
+also considers the users' anonymity requirements. 
 
 \section{ User stories \& Requirements} \label{ch:UserStories}
 The endorsement system is proposed as a system that can model the trust of
@@ -37,12 +37,11 @@ a participant in the endorsement system.  The two notable roles of a user are
 endorser and endorsee. An endorser can initiate the transaction by sending an
 endorsement to the participant they trust which is received by the endorsee.
 The same user can assume both positions as long as a set of predefined
-requirements are met.  \\ 
-
+requirements are met. 
 %figure - System Context Diagram
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{Images/ContextLayer.eps}
+	\includegraphics[width=0.7\textwidth]{Images/ContextLayer.eps}
 	\caption{Context Layer}
 	\label{fig:context}
 \end{figure}
@@ -66,7 +65,7 @@ feature when checking the fulfillment of requirements.
 		\\\cline{2-3} 
 		& remove endorsement so that the endorsement is removed from the
 		endorsee.  & R2 \\\cline{2-3}
-		& view a list of endorsees so that i can see to whom i have sent
+		& view a list of endorsees so that i can see from whom i have received 
 		endorsements.& R3 \\\cline{2-3}
 		& view/edit my personal information so that i can keep it up to
 		date& R5 \\\cline{2-3}
@@ -75,11 +74,11 @@ feature when checking the fulfillment of requirements.
 		from whom I have received endorsements.& R3 \\\cline{2-3}
 		\hline
 		\multirow{2}{*}{other users} & compute the total endorsement
-		impact(i.e., final computed score) of any registered members so that I
+		impact (i.e., final computed score) of any registered members so that I
 		can make an informed decision about the future transactions.
 		& R4.1 \\\cline{2-3}
 		& make a request to join the endorsement network so that I can start
-		sending/receiving endorsements.  
+		sending and receiving endorsements.  
 		& R4.2 \\\cline{2-3}
 		\hline
 	\end{tabular}
@@ -88,10 +87,10 @@ feature when checking the fulfillment of requirements.
 \end{center}
 The functional requirements can be listed in points as : 
 \begin{enumerate}
-	\item It must be impossible to make an Endorsement if the endorser and
+	\item It must be impossible to make an endorsement if the endorser and
 		endorsee is same address or not a registered participant.
 	\item It must be impossible to remove an endorsement if the endorser
-		doesn't belong to the list of endorsers for the given endorsee.
+		does not belong to the list of endorsers for the given endorsee.
 	\item All the endorsements must be stored such that, it is possible to see: 
 		\begin{itemize}
 			\item endorser and endorsee for the given endorsement.
@@ -99,8 +98,7 @@ The functional requirements can be listed in points as :
 		\end{itemize}
 	\item There must be a way to link the public key hashes to the
 		corresponding computed trust scores. 
-	\item It must be possible for a participant to edit their own profile if
-		the editor is the same as the profile owner. 
+	\item It must be possible for a participant to edit their own profile. 
 \end{enumerate}
 
 The non-functional system requirements are : 
@@ -108,7 +106,7 @@ The non-functional system requirements are :
 	\item Security: There should be minimal security considerations taken into
 		account while writing the smart contract that can avoid simple bugs.  
 	\item Reliability: The data stored on the blockchain should be immutable
-		and verifiable by anyone publicly.
+		and publicly verifiable.
 	\item Trust metrics should correctly describe the actual trust score/impact of the nodes.  
 \end{enumerate}
 
@@ -127,69 +125,66 @@ information. For the last two steps, selecting and interacting with a peer for
 transaction based on which they get punished or rewarded is based on a
 transactional network. As implementing transaction network is not the main task
 of this project, feedback based on success or failure of a transaction will be
-mostly  
+mostly  based on the assumption that can be used by the endorsement system.
+Thus, most of the sections is based on the smart contract logic for the
+endorsement model and discussion on the possibility to be used by other
+transactional systems.  The initial assumption on 
 \begin{wrapfigure}{l}{0.6\textwidth}
 	\begin{center}
 		\includegraphics[width=0.3\textwidth]{Images/TrustReputationSteps.eps}
-		\caption{Trust and Reputation Model steps taken from \cite{marmol2009security}}
+		\caption{Trust and Reputation Model steps taken from \cite{marmol2009security}.}
 		\label{fig:truststep}
 	\end{center}
 \end{wrapfigure}
-based on the assumption that can be used by endorsement system.  Thus,
-most of the section in this chapter is based on the smart contract logic for
-endorsement model and discussion on the possibility to be used by other
-transactional systems. 
-
-The initial assumption on endorsement system is that all nodes are honest and
-as such receive equal points that they can spend at will once registered on the
-network. This received points are the consumable power that keeps depleting
-with every endorsement connection made along the way. As can be seen in
+endorsement system is that all nodes are honest and as such receive equal
+points that they can spend at will, once registered on the network. These
+received points are the consumable power that keeps depleting with every
+endorsement connections made along the way. As can be seen in
 figure~\ref{consumablePoint}, these points follow a convergent sequence that
-converges to the limit 0 as the number of connection `n' increases. As such,
-increasing the number of connection alone will not be enough to achieve a
+converges to the limit zero as the number of connection `n' increases. As such,
+increasing the number of connections alone will not be enough to achieve a
 higher impact on the network.
 \begin{figure}
 	\centering
-	\includegraphics[width=1.0\textwidth]{Images/ConsumablePoints.eps}
-	\caption{Convergent behaviour of consumable points as 'n' increases}
+	\includegraphics[width=1.2\textwidth]{Images/ConsumablePoints.eps}
+	\caption{Convergent behaviour of consumable points as 'n' increases.}
 	\label{consumablePoint}
 \end{figure}
 
-\subsection{Computation of Total Endorsement Impact(TEI)} 
+\subsection{Computation of Total Endorsement Impact (TEI)} 
 The collection of information refers to the collection of endorsement
-interaction between endorsers and endorsees.  Aggregation of them to get the
+interactions between endorsers and endorsees.  Aggregation of them to get the
 global trust score, total endorsement impact for all the nodes is made based on
 various factors. A short definition of them and the terminology used throughout
 the endorsement model is given below. \\ 
 
 %\acrlong{nEG}
-\acrshort{nEG}$_A$: \ac{nEG} by a participant 'A'. \\
+\acrshort{nEG}$_A$: \ac{nEG} by a participant \textit{'A'}. \\
 
-\acrshort{nER}$_A$: \ac{nER} by a pariticipant 'A'. \\
+\acrshort{nER}$_A$: \ac{nER} by a pariticipant \textit{'A'}. \\
 {$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value
 ensures that sent and received endorsement are not far off from  each other.
-\textit{$ratio_A$} is always assumed to be less than 1 and is given by: 
+\textit{$ratio_A$} is always assumed to be less than or equal to 1 and is given by: 
 \begin{equation}
 	ratio_A = \frac{min(nEG_A,nER_A)}{max(nEG_A,nER_A)} 
 \end{equation}
 
-\acrshort{CP}$_A$: \ac{CP} of a participant 'A' that updates with each
+\acrshort{CP}$_A$: \ac{CP} of a participant \textit{'A'} that updates with each
 new endorsement interaction. 1 being the initial consumable points received by
-everyone who joins the network,\textit{$CP_A$}is given by 1 /\textit{$nEG_A$}.
+everyone who joins the network,\textit{$CP_A$} is given by $\frac{1}{nEG_A}$.
 
-\textit{$TRP_A$}: This corresponds to A's \ac{TRP} which is the accumulated sum
-of consumable points by all endorser of A. If a peer 'A' receives an
-endorsement from 'n' number of peers, then the \textit{$TRP_A$} is calculated
+\textit{$TRP_A$}: \textit{A's} \ac{TRP} which is the accumulated sum
+of consumable points by all endorser of \textit{'A'}. If a peer \textit{'A'} receives an
+endorsement from \textit{'n'} number of peers, then the \textit{$TRP_A$} is calculated
 as:
 \begin{equation}
 	TRP_A  = \sum_{i=0}^{n}cp_{i}
 \end{equation}
 
-Finally, the \ac{TEI} made by 'A' is given by: \\
+Finally, the \ac{TEI} made by \textit{'A'} is given by: \\
 \begin{equation}
-	TEI_a = ratio_a * TRP_a
+	TEI_a = ratio_a \times TRP_a
 \end{equation}
-
 %
 %ratio of nEG and nER to create a balance in the network
 %final score considers both given and received, and how much impact endorser of
