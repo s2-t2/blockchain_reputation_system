@@ -8,7 +8,6 @@ therefore, provides a general overview of the background concepts that is
 required for the subsequent sections. 
 %This chapter provides an overview of the basic concepts necessary to understand
 %the subsequent sections.
-
 \section{Graph properties}
 A graph, as the name suggests can be used to represent objects and their
 relationships graphically. \\
@@ -43,7 +42,7 @@ relationship between nodes as the edges connecting vertices. The transfer of
 data between the nodes can be quantified to represent the weight of the edge.
 This weight value can be used to determine the strength or weakness of
 relationship between the nodes. Modeling the interaction as a graph can help
-to understand and analyze its complexity at different level. By observing the
+to understand and analyze its complexity at different levels. By observing the
 local properties of a particular node such as its activity, connection degree,
 its neighbors, and interactions, one can derive useful information about a node.
 Similarly, the node's relative position in a given graph can help to determine
@@ -162,24 +161,19 @@ agreed upon key. Authenticity relates to confirming the truth of an attribute
 claimed by an entity. Non-repudiation is associated with the property that any
 entity who has previously sent the message cannot deny their
 authorship~\cite{katz1996handbook}. \\ 
-A cryptosystem can be defined as a five-tuple $\displaystyle(P, C, K, E, D)$ where: 
+A cryptosystem can be defined as a five-tuple $(P, C, K, E, D)$ where: 
 \begin{itemize}
-	\item $\displaystyle P, \text{ is a finite set of plain texts. }$
-	\item $\displaystyle C, \text{ is a finite set of ciphertexts. } $
-	\item $\displaystyle E,$ \text{ set of encryption rules such that}
-		$\displaystyle e_{k}:P \Rightarrow C$
-	\item $\displaystyle D,$ \text{ set of decryption rules such that}
-		$\displaystyle d_{k}:C  \Rightarrow P$ 
-	\item For each k $\displaystyle \in$ K, there is $\displaystyle e_k \in E$
-		and $\displaystyle d_k \in D$ such that $\displaystyle d_k(e_k(m)) = m$
-		for every plaintext $\displaystyle m \in P$.
+	\item $P$, is a finite set of plain texts.
+	\item $C$, is a finite set of ciphertexts.
+	\item $E$, set of encryption rules such that $e_{k}:P \Rightarrow C$
+	\item $D$, set of decryption rules such that $d_{k}:C \Rightarrow P$ 
+	\item For each $k \in K$, there is $e_k \in E$ and $d_k \in D$ such that $d_k(e_k(m)) = m$ for every plaintext $m \in P$.
 \end{itemize}
 %$\displaystyle P$, is a finite set of plaintexts and $\displaystyle C$, a finite set of ciphertexts. \\
 %E, set of encryption rules such that $e_{k}:P \Rightarrow C $. \\ 
 %D, set of decryption rules such that $d_{k}:C \Rightarrow P$\\ 
 %For each k in $in$ K, there is $e_{k } \in$E and $d_{k } \in$ D such that
 %$d_{k}(e_{k}(m))$= m for every plaintext m $\in$ P.\\
-
 A cryptosystem can be either symmetric or asymmetric. Symmetric makes use of
 the same key for both encryption and decryption whereas asymmetric, also known
 as public-key cryptography makes use of key pairs, public and private keys. The
@@ -192,7 +186,6 @@ $k_{p}$ is computationally infeasible in a secure system. Besides public-key
 encryption, public-key cryptography also has use in digital signature as
 discussed in section~\ref{ss:digitalsignature}. RSA~\cite{rivest1978method} is
 one example of a public-private cryptosystem.
-
 % A cryptosystem shouldn't rely on the privacy of algorithm used to secure the system. 
 % According to Kerckhoff's principle, a cryptosystem should be secure even if everything 
 % about the system, except the key, is public knowledge. Another encryption method 
@@ -214,18 +207,26 @@ important characteristics of hash function is its deterministic output. i.e.,
 given an input, it will always produce the same output. This attribute
 contributes to data verifiability as anyone can always verify if the produced
 hash output for data matches by simply applying the data to the respective hash
-function. 
+function. \\ 
 Other significant properties of hash function that contributes to
-reliability in digital security are~\cite{mironov2005hash}: \\
-\begin{itemize}
-	\item One-way: Given a key k, and an output w, it should be hard for an
-		attacker to find x such that the hash of x applied with k, produces w.
-		ie., $H_k(x)$ = w.\\ 
-	\item Second pre-image resistant: Given a key k and a string x, it should
-		be hard for an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
-	\item Collision-resistant: Given a key k, it should be hard for an attacker
-		to find x and y such that $H_k(x)$ = $H_k(y)$. \\
-\end{itemize}
+reliability in digital security are~\cite{mironov2005hash}: 
+\paragraph{One-way:} Given a key k, and an output w, it should be hard for an
+attacker to find x such that the hash of x applied with k, produces w.  ie.,
+$H_k(x)$ = w.
+\paragraph{Second pre-image resistant:} Given a key k and a string x, it should
+be hard for an attacker to find y such that $H_k(x)$ = $H_k(y)$. 
+\paragraph{Collision-resistant:} Given a key k, it should be hard for an
+attacker to find x and y such that $H_k(x)$ = $H_k(y)$.  \\ 
+%\begin{itemize}
+%	\item One-way: Given a key k, and an output w, it should be hard for an
+%		attacker to find x such that the hash of x applied with k, produces w.
+%		ie., $H_k(x)$ = w.\\ 
+%	\item Second pre-image resistant: Given a key k and a string x, it should
+%		be hard for an attacker to find y such that $H_k(x)$ = $H_k(y)$.\\ 
+%	\item Collision-resistant: Given a key k, it should be hard for an attacker
+%		to find x and y such that $H_k(x)$ = $H_k(y)$. \\
+%\end{itemize}
+
 Earlier hash functions include MD5 which produced an output of size 128 bits.
 Collision-resistant attack in MD5 is possible within seconds with a complexity
 of $2^{39}$~\cite{wang2005break} MD5 operations. NIST published secure hashing algorithm (SHA)
@@ -239,7 +240,7 @@ Applications of hashing algorithms include digital signature, ISO checksums,
 fingerprinting data etc. This cryptographic hash functions is relevant for
 understanding blockchain data structure. Especially significant for
 verification of transactions that make use of hash tree, namely Merkle Tree for
-including list of transactions in the block and chaining the blocks together.
+including list of transactions in the block.
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Images/MerkleeTree.eps}
@@ -252,28 +253,28 @@ This process is repeated until there is only one hash value left which acts a
 root value of the tree. This root hash is included as a block header that
 entails all the transactions data. Figure ~\ref{fig:merkleTree} illustrates the
 process of creating a merkle root. 
-Two significant use of merkle tree are: \\
+Two significant use of merkle tree are: 
 \begin{enumerate}
 	\item Data integrity verification: An attempt to change any transaction data
 		would completely change the root hash of the block.  
-	\item Data inclusion verifcation: It is easy to verify the inclusion of a
+	\item Data inclusion verification: It is easy to verify the inclusion of a
 		transaction in a block without requiring to include all the
 		transactions. From figure ~\ref{fig:merkleTree}, to verify inclusion of
-		transaction $H_{K}$, only the hash values that are shown in blue needs to
-		stored.  \\
+		transaction $H_{K}$, only the hash values that are shown in blue needs
+		to be stored.
 \end{enumerate}
 
-The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
-applied to the block header and nonce to produce a verifiable fingerprint of
-data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
-was originally used in 1997 by Adam Back as a anti-spam system for the then
-proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
-sender of message would have to compute some number of sha operations before
-sending the message.  The generated fingerprint could be checked by anyone to
-see if the sender has actually done the required number of computations. If a
-legitimate user sending out one email had to spend 'x' seconds to do the sha
-operations, a malicious user intending to send thousands of emails had to spend
-1000x seconds. \\
+%The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
+%applied to the block header and nonce to produce a verifiable fingerprint of
+%data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
+%was originally used in 1997 by Adam Back as a anti-spam system for the then
+%proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
+%sender of message would have to compute some number of sha operations before
+%sending the message.  The generated fingerprint could be checked by anyone to
+%see if the sender has actually done the required number of computations. If a
+%legitimate user sending out one email had to spend 'x' seconds to do the sha
+%operations, a malicious user intending to send thousands of emails had to spend
+%1000x seconds. \\
 
 
 
@@ -488,6 +489,52 @@ solidity is affected by the halting problem.  To address this, Ethereum
 introduces the concept of gas. To store any state, or execute any operation,
 gas needs to be supplied. Thus, a program that has a bug or a non-terminating
 intention will eventually run out of gas and stop~\cite{whataresmartcontracts}.
+
+\section{Reputation systems}
+The earliest and most known internet reputation is assumed to be that of
+eBay~\cite{resnick2002trust}~\footnote{https://www.ebay.com/}. It uses a
+feedback based rating system where a user can rate a transaction along with
+some textual feedback. The range of values used being \{1, 0, -1\}, positive,
+neutral and negative respectively. The final aggregated score is computed by
+subtracting the total of positive and negative ratings. This system could be
+judged as working based on the sales volume and the observation that more than
+half the buyers usually engage in providing feedback~\cite{resnick2006value}.
+However, there are various issues of an online interaction system that this
+method fails to address such as: 
+\paragraph{Sybil Attack:} A user (buyer/seller) can create multiple
+accounts(sybil identities) and give enough positive feedback to their original
+account to inflate one's reputation.  Similarly, they can also provide multiple
+negative feedbacks to any merchant and damage their reputation.
+\paragraph{Inactive participation:} Users are more likely to provide feedback
+for a satisfactory transaction and ignore a bad deal. Since the system is not
+anonymous, it is possible to trace the sender of received feedback. Therefore,
+users are more likely to fear retaliation from giving negative feedback.
+\paragraph{Whitewashing:} The overall trust score of an entity is the
+difference between positive and negative ratings received in total. As such, an
+account can have a significant negative value. In which case, it is more
+beneficial to start afresh with a new account then to recuperate the account
+with poor reputation scores.
+
+Other online systems that make use of similar reputation mechanism based on
+votings/ratings are StackExchange~\footnote{https://stackexchange.com/},
+yelp~\footnote{https://www.yelp.com/}, Quora~\footnote{https://www.quora.com},
+Reddit~\footnote{https://www.reddit.com/}. Most of the online interaction
+system (e.g., e-commerce, Q\&A platform) employ a client-server architecture
+which lets a central entity in control of stored data. The centralization of
+data management has both pros and cons to it. While it makes the network simple
+to filter out malicious content from being served, it also acts as a single
+point of failure. On the other hand, distributing data from a P2P system where
+any nodes on the network can serve contents solves this issue of central point
+of failure. The distributed nature of a P2P system also makes it more
+straightforward to distribute malicious contents over the network. The peer
+requesting a file can have it served from any participating node. If the
+content of this file is malicious, then it is more likely to spread faster in a
+P2P network than a centralized system. Therefore, a reputation management
+system that can work in a distributed and decentralized environment is
+significant for P2P systems such as file-sharing, content delivery
+applications, etc. for detecting the quality of file/content or the owner of
+those files. In light of this, researches and proposals on decentralized
+reputation methods have been performed, few of which are discussed below.\\ 
 
 %\subsection{Ethereum specific concepts}
 

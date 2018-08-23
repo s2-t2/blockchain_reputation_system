@@ -17,33 +17,118 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
-  \entry{rasmusson1996simulated}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=RL}{%
-         family={Rasmusson},
-         familyi={R\bibinitperiod},
-         given={Lars},
-         giveni={L\bibinitperiod},
+  \entry{InternetWorldStat}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2018-08-22}
+    \field{title}{Internet World Stats}
+    \verb{url}
+    \verb \url{https://www.internetworldstats.com/stats.htm}
+    \endverb
+    \field{year}{2018}
+  \endentry
+
+  \entry{InternetLiveStat}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2018-08-22}
+    \field{title}{Internet Live Stats}
+    \verb{url}
+    \verb \url{http://www.internetlivestats.com/}
+    \endverb
+    \field{year}{2018}
+  \endentry
+
+  \entry{selcuk2004reputation}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SAA}{%
+         family={Selcuk},
+         familyi={S\bibinitperiod},
+         given={Ali\bibnamedelima Aydin},
+         giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod},
       }}%
-      {{hash=JS}{%
-         family={Jansson},
-         familyi={J\bibinitperiod},
-         given={Sverker},
-         giveni={S\bibinitperiod},
+      {{hash=UE}{%
+         family={Uzun},
+         familyi={U\bibinitperiod},
+         given={Ersin},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=PMR}{%
+         family={Pariente},
+         familyi={P\bibinitperiod},
+         given={Mark\bibnamedelima Resat},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
       }}%
     }
     \list{organization}{1}{%
-      {ACM}%
+      {IEEE}%
     }
-    \strng{namehash}{RLJS1}
-    \strng{fullhash}{RLJS1}
+    \strng{namehash}{SAA+1}
+    \strng{fullhash}{SAAUEPMR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1996 workshop on New security
-  paradigms}
-    \field{pages}{18\bibrangedash 25}
-    \field{title}{Simulated social control for secure Internet commerce}
-    \field{year}{1996}
+    \field{booktitle}{ccgrid}
+    \field{pages}{251\bibrangedash 258}
+    \field{title}{A reputation-based trust management system for P2P networks}
+    \field{year}{2004}
+  \endentry
+
+  \entry{kang2012megaupload}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KC}{%
+         family={Kang},
+         familyi={K\bibinitperiod},
+         given={Cecilia},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KC1}
+    \strng{fullhash}{KC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Megaupload shutdown raises new Internet-sharing fears}
+    \field{journaltitle}{The Washington Post}
+    \field{year}{2012}
+  \endentry
+
+  \entry{stern2000napster}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SR}{%
+         family={Stern},
+         familyi={S\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{SR1}
+    \strng{fullhash}{SR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{6}
+    \field{pages}{4\bibrangedash 5}
+    \field{title}{Napster: a walking copyright infringement?}
+    \field{volume}{20}
+    \field{journaltitle}{IEEE micro}
+    \field{year}{2000}
+  \endentry
+
+  \entry{atzori2015blockchain}{article}{}
+    \name{author}{1}{}{%
+      {{hash=AM}{%
+         family={Atzori},
+         familyi={A\bibinitperiod},
+         given={Marcella},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AM1}
+    \strng{fullhash}{AM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Blockchain technology and decentralized governance: Is the
+  state still necessary?}
+    \field{year}{2015}
   \endentry
 
   \entry{mcknight1996meanings}{article}{}
@@ -275,6 +360,55 @@
     \field{year}{2007}
   \endentry
 
+  \entry{stallings2017cryptography}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SW}{%
+         family={Stallings},
+         familyi={S\bibinitperiod},
+         given={William},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson Upper Saddle River, NJ}%
+    }
+    \strng{namehash}{SW1}
+    \strng{fullhash}{SW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Cryptography and network security: principles and practice}
+    \field{year}{2017}
+  \endentry
+
+  \entry{rasmusson1996simulated}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=RL}{%
+         family={Rasmusson},
+         familyi={R\bibinitperiod},
+         given={Lars},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=JS}{%
+         family={Jansson},
+         familyi={J\bibinitperiod},
+         given={Sverker},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{RLJS1}
+    \strng{fullhash}{RLJS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Proceedings of the 1996 workshop on New security
+  paradigms}
+    \field{pages}{18\bibrangedash 25}
+    \field{title}{Simulated social control for secure Internet commerce}
+    \field{year}{1996}
+  \endentry
+
   \entry{ISOTC307}{inproceedings}{}
     \field{labeltitlesource}{title}
     \field{note}{ISO/TC 307}
@@ -287,6 +421,17 @@
     }
     \field{type}{Standard}
     \field{year}{2016}
+  \endentry
+
+  \entry{VitalikVisions}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2018-08-22}
+    \field{title}{The Value of Blockchain Technology}
+    \verb{url}
+    \verb \url{https://ethereum.github.io/blog/2015/04/13/visions-part-1-the-va
+    \verb lue-of-blockchain-technology/}
+    \endverb
+    \field{year}{2015}
   \endentry
 
   \entry{Bitcoin_Satoshi}{inproceedings}{}
