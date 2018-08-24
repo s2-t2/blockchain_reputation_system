@@ -2,6 +2,7 @@
 
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
 
+\usepackage[compact]{titlesec}
 %%% Language settings %%%
 \usepackage[english]{babel}
 %\addto\captionsUSenglish{%
@@ -22,6 +23,7 @@
 
 %%% Page settings %%%
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{1em} 
 \setlength{\textheight}{240mm}
 \setlength{\footskip}{10mm}
 \setlength{\belowcaptionskip}{0pt}
@@ -40,10 +42,11 @@
 \fancyhead[L]{\slshape \nouppercase{\leftmark}} %header left
 \fancyhead[C]{} %centered header
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\fancyhead[R]{\slshape \thepage} %header right
+%\fancyhead[R]{\slshape \thepage} %header right
 \renewcommand{\headrulewidth}{0.5pt} %headrule
 %\fancyfoot[L]{\slshape \copyright\, Uppsala University} %footer left
-\fancyfoot[R]{\slshape Sujata Tamang} %footer right
+%\fancyfoot[R]{\slshape Sujata Tamang} %footer right
+\fancyfoot[C]{\slshape \thepage} %page number right
 \renewcommand{\footrulewidth}{0.5pt} %footrule
 \fancypagestyle{plain}{}
 
@@ -192,7 +195,7 @@
 }
 
 \usepackage[pdftex,
-			colorlinks=true,
+	colorlinks=false, %set to true, to remove the red boxes in links
             bookmarks=true,
             pdfstartview=FitV,
             linkcolor=black,

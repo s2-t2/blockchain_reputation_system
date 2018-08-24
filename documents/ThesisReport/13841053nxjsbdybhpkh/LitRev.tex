@@ -1,5 +1,14 @@
 %%% 2LiteratureReview/ %%%
 \chapter{Related Works}\label{ch:litrev}
+The growth of online services offered possibilities to trade and interact with
+anyone on a global scale freely. It also offered an accessible way for bad
+actors to exploit the system. As such, trust and reputation system to detect
+and limit those kinds of behavior has been a subject of interest ever since.
+There is a significant amount of research literature in trust frameworks and
+reputation management systems. This section aims to offer an overview of the
+research literature and the implementations of trust and reputation as it
+exists. 
+\section{Reputation systems and algorithms}
 Resnick et al.~\cite{resnick2000reputation} points out that a reputation system
 should be able to provide enough information to help infer the trustworthiness
 of participating users, encourage a user to be trustworthy and discourage
@@ -18,8 +27,52 @@ use same or different identity for different transactions. The system
 recommends the latter. As such, a merchant cannot trace back the identity of
 the buyer from whom he might have received the negative feedback. Therefore, an
 unfair rating attack is possible in this system. A buyer who intends to damage
-the merchant's(service provider) reputation can do so by giving dishonest
-negative feedback. 
+the merchant's (service provider) reputation can do so by giving dishonest
+negative feedback. \par
+
+The most known and widely used reputation algorithm in a P2P network is
+EigenTrust~\cite{kamvar2003eigentrust} which recommends a method to aggregate
+local trust values of all peers. It uses the notion of transitive trust. i.e.,
+if a peer $'i'$ trusts a peer $'j'$ and peer $'j'$ trusts peer $'k'$ then $'i'$
+would also trust $'k'$. Peers can rate another peer as either positive or
+negative [-1, +1]. The users can decide if a peer can be considered trustworthy
+as a download source based on its total aggregated score. EigenTrust defines
+five issues that any P2P reputation system should consider. They are
+self-policing (i.e., enforced by peers and not some central authority),
+anonymity (i.e., peer's reputation should only be linked to an opaque
+identifier), no profit to newcomers, minimal overhead for computation/storage
+and robust to malicious collectives of peers. This master's thesis project has
+followed these principles closely during the solution design of the proposed
+model. A significant disadvantage of this algorithm is that peers are more
+likely to center around a static set of pre-trusted peers that joined the
+network and thus has limited reliability if they leave the network.
+Pre-trusted peer is a notion of trust where few peers that join the network are
+assumed trustworthy by design.  Advogato's trust
+metric~\cite{levien2003advogato} also uses this notion.
+HonestPeer~\cite{kurdi2015honestpeer} proposes to enhance EigenTrust algorithm
+further by selecting reputable nodes dynamically and not just relying on
+pre-trusted nodes. It claims to have a better success rate in quality file
+serving and lower malicious participation compared to EigenTrust. \par
+As mentioned by Alkharji, Sarah, et al.~\cite{alkharji2017authenticpeer++}, a
+reputation system can serve one of the following purpose, a peer-based
+reputation system or file-based reputation system. The peer-based system allows
+peers in the network to be rated and assigned a value. A file-based system is
+concerned more with the integrity of a file that is being delivered/served on
+the network regardless of who (peer) owns or serves it.
+AuthenticPeer++~\cite{alkharji2017authenticpeer++} is a trust management system
+for P2P networks that combines both. i.e., it shares the notion of both trusted
+peers and trusted files. As such, it only allows trusted peers to rank the file
+after they have downloaded it and uses a DHT-based structure to manage the
+integrity of file information.  Bartercast~\cite{meulpolder2009bartercast} is a
+distributed reputation mechanism designed for P2P file-sharing systems. It
+creates a graph based on data transfers between peers and uses max flow
+algorithm to compute the reputation values for each node.
+Tribler~\footnote{https://www.tribler.org/} is a BitTorrent based torrent
+client that uses Bartercast to rank its peers.
+PowerTrust~\cite{zhou2007powertrust} proposes a robust and scalable reputation
+system that makes use of Bayesian learning. It uses Bayesian method to generate
+local trust scores and a distributed ranking mechanism to aggregate reputation
+scores. 
 %Another blockchain based appro
 %\cite{dennis2015rep} 
 
@@ -39,48 +92,7 @@ negative feedback.
 % i trusts all other peers trusted by j. Trustdavis(cite) makes translates the
 % reputation model
 
-\section{Reputation Algorithms}
-The most known and widely used reputation algorithm in a P2P network is
-EigenTrust~\cite{kamvar2003eigentrust} which recommends a method to aggregate
-local trust values of all peers. It uses the notion of transitive trust. i.e.,
-if a peer $'i'$ trusts a peer $'j'$ and peer $'j'$ trusts
-peer $'k'$ then $'i'$ would also trust $'k'$. Peers can
-rate another peer as either positive or negative [-1, +1]. The users can decide
-if a peer can be considered trustworthy as a download source based on its total
-aggregated score. EigenTrust defines five issues that any P2P reputation system
-should consider. They are self-policing (i.e., enforced by peers and not some
-central authority), anonymity (i.e., peer's reputation should only be linked to
-an opaque identifier), no profit to newcomers, minimal overhead for
-computation/storage and robust to malicious collectives of peers. A significant
-disadvantage of this algorithm is that peers are more likely to center around a
-static set of pre-trusted peers that joined the network and thus has limited
-reliability if they leave the network.  Pre-trusted peer is a notion of trust
-where few peers that join the network are assumed trustworthy by design.
-Advogato's trust metric~\cite{levien2003advogato} also uses this notion.
-HonestPeer~\cite{kurdi2015honestpeer} proposes to enhance EigenTrust algorithm
-further by selecting reputable nodes dynamically and not just relying on
-pre-trusted nodes. It claims to have a better success rate in quality file
-serving and lower malicious participation compared to EigenTrust.  As mentioned
-by Alkharji, Sarah, et al.~\cite{alkharji2017authenticpeer++}, a reputation
-system can serve one of the following purpose, a peer-based reputation system
-or file-based reputation system. The peer-based system allows peers in the
-network to be rated and assigned a value. A file-based system is concerned more
-with the integrity of a file that is being delivered/served on the network
-regardless of who(peer) owns or serves it.
-AuthenticPeer++~\cite{alkharji2017authenticpeer++} is a trust management system
-for P2P networks that combines both. i.e., it shares the notion of both trusted
-peers and trusted files. As such, it only allows trusted peers to rank the file
-after they have downloaded it and uses a DHT-based structure to manage the
-integrity of file information.  Bartercast~\cite{meulpolder2009bartercast} is a
-distributed reputation mechanism designed for P2P file-sharing systems. It
-creates a graph based on data transfers between peers and uses max flow
-algorithm to compute the reputation values for each node.
-Tribler~\footnote{https://www.tribler.org/} is a BitTorrent based torrent
-client that uses Bartercast to rank its peers.
-PowerTrust~\cite{zhou2007powertrust} proposes a robust and scalable reputation
-system that makes use of Bayesian learning. It uses Bayesian method to generate
-local trust scores and a distributed ranking mechanism to aggregate reputation
-scores. 
+%\section{Reputation Algorithms}
 
 %\subsection{Centralized}
 %%probably can move this to motivation section rather than here. 

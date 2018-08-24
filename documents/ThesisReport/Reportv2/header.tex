@@ -1,0 +1,77 @@
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{dirtree}
+
+\usepackage[style=ieee,backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{indentfirst}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm} \newtheorem{theorem}{Theorem}
+\usepackage{color}
+\usepackage{float}
+\usepackage{listings}
+\lstset{% parameters for all code listings
+	language=Python,
+	frame=single,
+	basicstyle=\small,  % nothing smaller than \footnotesize, please
+	tabsize=2,
+	numbers=left,
+	framexleftmargin=3em,  % extend frame to include line numbers
+	% xrightmargin=2em,  % extra space to fit 79 characters
+	breaklines=true,
+	breakatwhitespace=true,
+	prebreak={/},
+	captionpos=b,
+	columns=fullflexible,
+	escapeinside={\#*}{\^^M},
+	mathescape
+}
+\usepackage{multirow}
+\usepackage{tikz} \usetikzlibrary{trees}
+\usepackage{enumitem}
+\usepackage{hyperref}  % should always be the last package
+\usepackage{verbatim}
+\usepackage{lipsum}
+
+% useful colours (use sparingly!):
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\green}[1]{{\color{green}#1}}
+\newcommand{\red}[1]{{\color{red}#1}}
+
+% useful wrappers for algorithmic/Python notation:
+\newcommand{\length}[1]{\text{len}(#1)}
+\newcommand{\twodots}{\mathinner{\ldotp\ldotp}}  % taken from clrscode3e.sty
+\newcommand{\Oh}[1]{\mathcal{O}\left(#1\right)}
+
+% useful (wrappers for) math symbols:
+\newcommand{\Cardinality}[1]{\left\lvert#1\right\rvert}
+%\newcommand{\Cardinality}[1]{\##1}
+\newcommand{\Ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\Floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\Iff}{\Leftrightarrow}
+\newcommand{\Implies}{\Rightarrow}
+\newcommand{\Intersect}{\cap}
+\newcommand{\Sequence}[1]{\left[#1\right]}
+\newcommand{\Set}[1]{\left\{#1\right\}}
+\newcommand{\SetComp}[2]{\Set{#1\SuchThat#2}}
+\newcommand{\SuchThat}{\mid}
+\newcommand{\Tuple}[1]{\langle#1\rangle}
+\newcommand{\Union}{\cup}
+\newcommand{\Returns}{\longrightarrow}
+\setlength{\parindent}{10ex}
+
+% fancy characters:
+\usepackage{pifont}
+%\newcommand{\scissors}{\ding{36}}
+%\newcommand{\phone}{\ding{37}}
+%\newcommand{\aircraft}{\ding{40}}
+%\newcommand{\envelope}{\ding{41}}
+\newcommand{\handpoint}{\ding{43}}
+%\newcommand{\victory}{\ding{44}}
+%\newcommand{\handwrite}{\ding{45}}
+%\newcommand{\tick}{\ding{51}}
+%\newcommand{\notick}{\ding{55}}

@@ -11,23 +11,21 @@ behaviors of an interaction system. A system of smart contract is set up that
 specifies the interaction between entities, aggregates interaction information
 and assigns a trust score to each participating entities. The storage of data
 both on and off-chain along with the governance model is discussed. 
-
 \section{Problem Statement}
 To be able to rely on the trustworthiness of an entity as presented by any
 online systems, the underlying reputation system needs to be robust and as
 transparent as possible. The assurance that available information has not been
 tampered with and correctness of claimed identity should be provided to sustain
-minimal risk of fraud. 
-The centralized nature of current online systems fail to provide the guarantee
-of reliable and immutable data. As such, the reputation information is
-vulnerable to external attacks as well as internal modifications. Additionally,
-the reputation systems do not take into account the anonymity/pseudonymity of
-participants, which is an essential attribute for getting honest feedback. 
-This master's thesis project proposes the use of blockchain technology for storage and
-governance of reputation data to ensure reliable and verifiable information. By
-modeling trust among entities in a pseudonymous manner, the proposed system
-also considers the users' anonymity requirements. 
-
+minimal risk of fraud.  The centralized nature of current online systems fail
+to provide the guarantee of reliable and immutable data. As such, the
+reputation information is vulnerable to external attacks as well as internal
+modifications. Additionally, the reputation systems do not take into account
+the anonymity/pseudonymity of participants, which is an essential attribute for
+getting honest feedback.  This master's thesis project proposes the use of
+blockchain technology for storage and governance of reputation data to ensure
+reliable and verifiable information. By modeling trust among entities in a
+pseudonymous manner, the proposed system also considers the users' anonymity
+requirements. 
 \section{ User stories \& Requirements} \label{ch:UserStories}
 The endorsement system is proposed as a system that can model the trust of
 pseudonymous entities. First, the system requirements and identification of
@@ -126,9 +124,6 @@ transaction based on which they get punished or rewarded is based on a
 transactional network. As implementing transaction network is not the main task
 of this project, feedback based on success or failure of a transaction will be
 mostly  based on the assumption that can be used by the endorsement system.
-Thus, most of the sections is based on the smart contract logic for the
-endorsement model and discussion on the possibility to be used by other
-transactional systems.  The initial assumption on 
 \begin{wrapfigure}{l}{0.6\textwidth}
 	\begin{center}
 		\includegraphics[width=0.3\textwidth]{Images/TrustReputationSteps.eps}
@@ -136,6 +131,10 @@ transactional systems.  The initial assumption on
 		\label{fig:truststep}
 	\end{center}
 \end{wrapfigure}
+
+Thus, most of the sections is based on the smart contract logic for the
+endorsement model and discussion on the possibility to be used by other
+transactional systems.  The initial assumption on 
 endorsement system is that all nodes are honest and as such receive equal
 points that they can spend at will, once registered on the network. These
 received points are the consumable power that keeps depleting with every
@@ -150,21 +149,20 @@ higher impact on the network.
 	\caption{Convergent behaviour of consumable points as 'n' increases.}
 	\label{consumablePoint}
 \end{figure}
-
 \subsection{Computation of Total Endorsement Impact (TEI)} 
 The collection of information refers to the collection of endorsement
 interactions between endorsers and endorsees.  Aggregation of them to get the
 global trust score, total endorsement impact for all the nodes is made based on
 various factors. A short definition of them and the terminology used throughout
 the endorsement model is given below. \\ 
-
 %\acrlong{nEG}
 \acrshort{nEG}$_A$: \ac{nEG} by a participant \textit{'A'}. \\
 
 \acrshort{nER}$_A$: \ac{nER} by a pariticipant \textit{'A'}. \\
-{$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value
-ensures that sent and received endorsement are not far off from  each other.
-\textit{$ratio_A$} is always assumed to be less than or equal to 1 and is given by: 
+{$ratio_A$}: ratio of \textit{$nEG_A$} to \textit{$nER_A$}. This value ensures
+that sent and received endorsement are not far off from  each other.
+\textit{$ratio_A$} is always assumed to be less than or equal to 1 and is given
+by: 
 \begin{equation}
 	ratio_A = \frac{min(nEG_A,nER_A)}{max(nEG_A,nER_A)} 
 \end{equation}
