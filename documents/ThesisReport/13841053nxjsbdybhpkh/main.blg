@@ -27,10 +27,6 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated field_info (elt_size=8) to 14313 items from 5000.
 Database file #1: main-blx.bib
 Database file #2: library.bib
-Repeated entry---line 421 of file library.bib
- : @online{MasteringEthereum
- :                          ,
-I'm skipping whatever remains of this entry
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
@@ -75,4 +71,3 @@ warning$ -- 0
 while$ -- 3629
 width$ -- 0
 write$ -- 1701
-(There was 1 error message)

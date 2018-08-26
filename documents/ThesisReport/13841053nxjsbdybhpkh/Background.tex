@@ -11,7 +11,7 @@ vary depending on context. It is essential to recognize the context in which
 this term is being used. Similarly, blockchain can be seen as a relatively new
 technology although the underlying sets of cryptographic functions it uses have
 been around for a long time. Blockchain technology is being researched both by
-academia and industry to explore its possibilities and in diverse use cases.
+academia and industry to explore its possibilities and in diverse use cases,
 e.g., as a privacy-preserving smart contract~\cite{kosba2016hawk} or as a way
 to protect personal data~\cite{zyskind2015decentralizing}. This chapter aims to
 provide the necessary background theory by discussing the definition of trust
@@ -342,12 +342,13 @@ blockchain is under development as ISO/TC 307~\cite{ISOTC307}. There are
 several blockchain platforms in operation today with varying design goals and
 principles. Bitcoin~\cite{Bitcoin_Satoshi} is believed to be the first
 application that made use of blockchain technology. However, the blockchain
-applications and platform have evolved since then, and the current uses barely
+applications and platform have evolved since then, and not all current uses
 show similarity to the first application. The purpose of bitcoin as the first
 application was to have a P2P electronic cash system in an open, public,
 distributed, decentralized and trustless environment. Trustless is a
 significant attribute here because it completely removed the need for a trusted
-intermediary. The idea of digital cash had been around since 1990 with
+intermediary in an environment where entities did not necessarily trust each
+other. The idea of digital cash had been around since the 1990's with
 cryptographer David Chaum discussing untraceable electronic
 cash~\cite{chaum1988untraceable}. However, bitcoin was able to solve the flaw
 of a digital cash scheme, namely double spending problem. i.e., If $A$ had $10$
@@ -359,8 +360,7 @@ solved the Byzantine General's problem which is a problem in the distributed
 computing environment where several agents need to agree on a state over an
 unreliable network and without a trusted third party. \par
 Examples of other platforms that extends bitcoin are
-Namecoin~\footnote{https://namecoin.org/},
-counterparty~\footnote{https://counterparty.io/}. Similarly,
+Namecoin~\footnote{https://namecoin.org/}, which offers decentralized name resolution system, counterparty~\footnote{https://counterparty.io/}, which provides a platform for creating P2P financial applications. Similarly,
 ethereum~\cite{buterin2013ethereum} is a programmable blockchain platform that
 offers a turing complete programming language~\cite{dannen2017introducing} and
 allows anyone to write smart contracts and execute code to change the
@@ -374,16 +374,41 @@ fabric~\footnote{https://www.hyperledger.org/projects/fabric/},
 Multichain~\footnote{https://www.multichain.com/} etc.\par
 Blockchain technology is a variant of a distributed database implemented on a
 P2P network. Every participating node in the network has the same copy of the
-history of records of the database. It is essentially a chain of blocks, as the
-name suggests. Each block consists of a list of transactions and the ordering
-of block shows the time at which the particular block was added to the chain.
-The data structure of blockchain is analogous to singly linked list with each
-blocks having a hash value pointing to the previous block. \par
+history of records of the database, and the consensus algorithm ensures that
+everyone agrees to a single source of truth about the network state. 
+As mentioned by Antonopoulos, Andreas M., and Wood,
+Gavin~\cite{MasteringEthereum}, the components that make up an open, public,
+blockchain are (usually):
+\begin{itemize}
+	\item A P2P network connecting participants and propagating transactions
+		and blocks of verified transactions, based on a standardized "gossip"
+		protocol. 
+	\item Messages, in the form of transactions, representing state
+		transitions.
+	\item A set of consensus rules, governing what constitutes a transaction
+		and what makes for a valid state transition.
+	\item A state machine that processes transactions according to the
+		consensus rules.
+	\item A chain of cryptographically secured blocks that acts as a journal of
+		all the verified and accepted state transitions.
+	\item A consensus algorithm that decentralizes control over the blockchain,
+		by forcing participants to cooperate in the enforcement of the
+		consensus rules. 
+	\item A game-theoretically sound incentivization scheme (e.g.,
+		proof-of-work plus block rewards) to economically secure the state
+		machine in an open environment.
+\end{itemize}
+%It is essentially a chain of blocks, as the name suggests.  Each block consists
+%of a list of transactions and the ordering of block shows the time at which the
+%particular block was added to the chain.  The data structure of blockchain is
+%analogous to singly linked list with each blocks having a hash value pointing
+%to the previous block. \par
+
 \paragraph{Transactions:} Transactions are signed messages that can be
 submitted by the originator and are collected and stored on blockchain network
 by miners. Miners are special nodes that have the computational resource to add
 transactions to the block. Miners collect the list of unconfirmed transactions
-(transactions that are submitted but not yet added to the block),finds the root
+(transactions that are submitted but not yet added to the block), finds the root
 hash of all transactions and attempts to find the solution to the cryptographic
 puzzle (e.g., Proof-Of-Work). The process of finding the hash value is given in
 section~\ref{subsec:consensus}.
@@ -658,19 +683,7 @@ constituent parts are interconnected to form the graph as a whole. They can
 form ring, star, tree, or mesh structure or be a fully connected graph where
 each node are connected to each other.
 
-
-
-
-
-
-
-
-
 %\subsection{Ethereum specific concepts}
-
-
-
-%\subsection{Applications}
 
 
 

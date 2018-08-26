@@ -2,63 +2,41 @@
 \chapter{Introduction}\label{ch:intro}
 %WHAT - what the reader needs to know to understand the presented 
 %work, explain the background of research
-Any online platform where users communicate with each other for different
-purposes (e.g., digital transaction, news or file sharing) can be termed as an
-online interaction system. Statistics~\cite{InternetWorldStat} suggest that
-there are approximately 4 billion internet users worldwide and this number is
-only increasing with each passing day. Internet live
+%Society, Honesty difficult to predict, spy problem.
+%only way - to constantly get feedback about the current behavior
+%prisoner's dilemma an expermient that suggests, people act honestly if there is 
+% long term benefit 
+%i.e., if a user might have to interact again with the same person for some
+%reason, then they are more likely to behave honestly. 
+From using emails to communicate with one another, searching for an online
+source to get the news or media files to shopping for everyday things, we rely
+heavily on the internet today. One can say that the internet has become an
+inseparable part of our society. Statistics~\cite{InternetWorldStat} suggest
+that there are approximately 4 billion internet users worldwide and this number
+is only increasing with each passing day. Internet live
 stats~\cite{InternetLiveStat} is an online service that provides live
 statistics on various online activities such as blog posts, social media usage,
-internet traffic and emails sent.  Given the diversity of internet users, one
-can reasonably assume that not all online interactions happen between known
-entities. Depending on the nature of this interaction, the result can have a
-significant impact on interacting entities. For instance, the failure of an
-interaction that involves buying a house is not the same as failing to receive
-a high-quality music file. To prevent severe damage that might result from a
-failed transaction, trust frameworks and reputation model of the interaction
-system plays a crucial role. They attempt to prevent harm by giving enough
-information to predict the outcome.\par
-%and therefore can be stated as a soft
-%security mechanism. Rasmusson, Lars and Jansson,
-%Sverker~\cite{rasmusson1996simulated} first used this term to describe the idea
-%of identifying malicious users and preventing harm to other users in the
-%context of secure open electronic commerce. Here, it is up to the individuals
-%rather than the software to maintain security.
-\begin{wrapfigure}{l}{0.6\textwidth}
-	\begin{center}
-		\includegraphics[width=0.5\textwidth]{Images/Introduction.eps}
-		\caption{Online identities and their interaction}}
-		\label{fig:introduction}
-	\end{center}
-\end{wrapfigure}
-The risk of failure or probability of success when transacting with an entity
-is reliant on the information provided by the underlying reputation system.
-This information is usually presented in the form of trust scores assigned to
-each online identities. Before engaging in an online transaction, the entities
-need to select the online identity of the user with whom they intend to
-interact. The interaction can then take place whose outcome is observed and
-stored by the reputation system to update the current trust value further. As
-can be seen in figure~\ref{fig:introduction} in section~\ref{ch:intro}, the
-collection of online identities, their interaction and inference of trust
-scores is a continuous process. Examples of reputation systems in use by
-current online interaction platform are eBay~\footnote{https://www.ebay.com/},
-which is an e-commerce platform,
-stackExchange~\footnote{https://stackexchange.com/}, which is a Q \& A platform
-and Reddit~\footnote{https://www.reddit.com/}, which is a content rating and
-discussion platform. The trust score of users is based on their feedback,
-positive/negative ratings, upvotes/downvotes from the participants with an
-equal privilege to interact with the system. The final score aggregated via
-these objective measures can either increase or lower the reputation of the
-user and limit their interaction ability. A general trust framework and a good
-reputation model to specify the rules of interaction between online identities
-and the extraction of useful information from them is, therefore, essential to
-maintaining the security of an online interaction system. Equally significant
-is to protect the integrity of this information such that they are reliable,
-untampered (no deliberate alteration of data) and always available. Most of the
-online interaction systems make use of a client-server architecture to serve
-and govern the data usage. As such, the system is centralized and prone to both
-external attack and internal modifications. If the server node fails, then the
-whole network fails since none of the clients can access the data anymore. 
+internet traffic and emails sent. Given the global reach of the internet and
+diversity of users, one can reasonably assume that not all online interactions
+happen between known entities. The online identities that everyone uses to
+interact with one another provide no way to confirm the real-world identity or
+the attitude of the person behind. To determine the trustworthiness of an
+entity is a difficult task even in the real world. If Alice needs to interact
+with Bob, she has no way of actually measuring the trustworthiness of Bob with
+100\% certainty. One way to do that is to get a reference from others in the
+society, i.e., by referring to Bob's reputation. If Bob has a good standing
+among members of the community due to good records or other objective measures,
+there is a high probability that Alice's interaction with Bob will result in a
+good outcome. i.e., Alice's perception of Bob will turn out to be true.
+However, this doesn't provide any guarantee of Bob's behavior. Bob could be a
+malicious actor in a society who was waiting for the right moment to deal
+severe damage. There is no way of guaranteeing that the behavior of an entity
+will always be an honest one. Honesty can be seen as an attribute at a given
+time. Alice may trust Bob today but not tomorrow because of certain actions.
+Depending on the action and damage caused, the level of trustworthiness also
+gets affected. As such, we can say that anyone is honest until they deal damage
+to be known as a malicious actor in the society. That is when they lose their
+reputation, and other members are less likely to trust them. \par 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=1.0\textwidth]{Images/WhyBlockchain.eps}
@@ -66,23 +44,61 @@ whole network fails since none of the clients can access the data anymore.
 		\label{fig:WhyBlockchain}
 	\end{center}
 \end{figure}
-An alternative architecture that is primarily utilized by file sharing systems
-is a Peer-to-Peer (P2P) network, and reputation-based trust management system
-for them exists as well~\cite{selcuk2004reputation}. In a P2P network, all
-nodes (peers) can act as both client and server, i.e., a peer can both request
-and serve data. Thus, if one node fails then, clients can still request data
-from other nodes in the network. This architecture solves the problem by P2P
-data distribution. However, the governance of data is still centralized such
-that clients still need to wait for a particular node that has the privilege to
-add new data. This leaves the possibility for an online service running on
-these networks to be shut down by a central authority. Examples include the
+This notion of trust and reputation, when used in online interactions, can help
+to predict the outcome of online transactions. Any online platform where users
+communicate with each other for different purposes (e.g., digital transaction,
+news or file sharing) can be termed as online interaction system. Depending on
+the nature of the interaction, the outcome can have a significant impact on
+interacting entities. For instance, the failure of an interaction that involves
+buying a house is not the same as failing to receive a high-quality music file.
+To prevent severe damage that might result from a failed transaction, trust
+frameworks and reputation model of the interaction system plays a crucial role.
+They attempt to avoid harm by giving enough information about the interacting
+entities to be able to predict the outcome. A reputation system collects
+information about the interacting entities continuously by continually updating
+the state based on feedbacks. The risk of failure or probability of success
+when transacting with an entity is reliant on the information provided by the
+underlying reputation system. This information is usually presented in the form
+of trust scores assigned to each online identities. Before engaging in an
+online transaction, the entities need to select the online identity of the user
+with whom they intend to interact. The interaction can then take place whose
+outcome is observed and stored by the reputation system to update the current
+trust value further. Examples of reputation systems in use by current online
+interaction platform are eBay~\footnote{https://www.ebay.com/}, which is an
+e-commerce platform, StackExchange~\footnote{https://stackexchange.com/}, which
+is a Q\&A platform, and Reddit~\footnote{https://www.reddit.com/}, which is a
+content rating and discussion platform. The trust score of users is based on
+their feedback, positive/negative ratings, upvotes/downvotes from the
+participants with an equal privilege to interact with the system. The final
+score aggregated via these objective measures can either increase or lower the
+reputation of the user and limit their interaction ability. \par 
+
+A general trust framework and a good reputation model to specify the rules of
+interaction between online identities and the extraction of useful information
+from them is, therefore, essential to maintaining the security of an online
+interaction system. Equally significant is to protect the integrity of this
+information such that they are reliable, untampered (no deliberate alteration
+of data) and always available. Most of the online interaction systems make use
+of a client-server architecture to serve and govern the data usage. As such,
+the system is centralized and prone to both external attacks and internal
+modifications. If the server node fails, then the whole network fails since
+none of the clients can access the data anymore. An alternative architecture
+that is primarily utilized by file sharing systems is a Peer-to-Peer (P2P)
+network, and reputation-based trust management system for them exists as
+well~\cite{selcuk2004reputation}. In a P2P network, all nodes (peer) can act as
+both client and server, i.e., a peer can both request and serve data. Thus, if
+one node fails then, clients can still request data from other nodes in the
+network. This architecture solves the problem by P2P data distribution.
+However, the governance of data is still centralized such that clients still
+need to wait for a particular node that has the privilege to add new data. This
+leaves the possibility for an online service running on these networks to be
+shut down or data to be modified by the central authority. Examples include the
 shutdown of P2P services such as KaZaA~\cite{mlcakova2004configuring} and
 Napster~\cite{stern2000napster}. Therefore, this system is still vulnerable to
-internal modifications as it is reliant on a trusted entity (administrator
-node). Blockchain~\cite{atzori2015blockchain} solves these issues by providing
-P2P data distribution along with decentralized governance.
-Figure~\ref{fig:WhyBlockchain} in section~\ref{ch:intro} shows the difference
-between the models mentioned above. \par
+internal modifications as it is reliant on a trusted entity (special node to
+add data). Blockchain~\cite{atzori2015blockchain} solves these issues by
+providing P2P data distribution along with decentralized data governance. 
+The figure~\ref{fig:WhyBlockchain} in section~\ref{ch:intro} shows the difference between the models mentioned above. \par
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{Images/workflow.eps}
@@ -90,7 +106,7 @@ between the models mentioned above. \par
 		\label{fig:thesisSteps}
 	\end{center}
 \end{figure}
-This master's thesis project, therefore, proposes the use of blockchain
+This master’s thesis project, therefore, proposes the use of blockchain
 technology and smart contracts to model a trust framework and implement a
 reputation system. The initial step of the project was the identification of
 relevant concepts by performing a literature survey on existing reputation
@@ -106,9 +122,38 @@ assess the working of the proposed model, it is applied to an existing real
 dataset. Computation of trust scores for each participant based on the defined
 trust metrics is presented. The simulated graph and computed trust scores do
 support the defined metrics. A discussion of relevant threat models on
-reputation systems and how the proposed model addresses them is performed.
-Figure~\ref{fig:thesisSteps} in section~\ref{ch:intro} gives the workflow of
-this master's thesis project.
+reputation systems and how the proposed model addresses them is performed. The
+figure~\ref{fig:thesisSteps} in section~\ref{ch:intro} gives the workflow of
+this master’s thesis project. \par
+
+The major contribution of this master's thesis project is:
+\begin{itemize}
+	\item Design of an endorsement model where entities can endorse each
+		other's information and a method to aggregate this information such
+		that a global value can be assigned to individual entities to infer
+		their trustworthiness. 
+	\item Deployment of the endorsement system on blockchain network that
+		updates and computes the trust scores of entities by executing the
+		smart contract code based on user's interaction ensuring reliable and
+		verifiable information. 
+	\item Evaluation of the endorsement model by applying it to an existing
+		data set and discussion of relevant threat model
+\end{itemize}
+
+%and therefore can be stated as a soft
+%security mechanism. Rasmusson, Lars and Jansson,
+%Sverker~\cite{rasmusson1996simulated} first used this term to describe the idea
+%of identifying malicious users and preventing harm to other users in the
+%context of secure open electronic commerce. Here, it is up to the individuals
+%rather than the software to maintain security.
+
+%\begin{wrapfigure}{l}{0.6\textwidth}
+%	\begin{center}
+%		\includegraphics[width=0.5\textwidth]{Images/Introduction.eps}
+%		\caption{Online identities and their interaction}}
+%		\label{fig:introduction}
+%	\end{center}
+%\end{wrapfigure}
  
 \section{Motivation}
 %WHY: why is it interesting to study reputation system/trust 
