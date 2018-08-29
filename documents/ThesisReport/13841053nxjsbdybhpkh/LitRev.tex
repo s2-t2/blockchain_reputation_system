@@ -39,15 +39,15 @@ negative [-1, +1]. The users can decide if a peer can be considered trustworthy
 as a download source based on its total aggregated score. EigenTrust defines
 five issues that any P2P reputation system should consider. They are
 self-policing (i.e., enforced by peers and not some central authority),
-anonymity (i.e., peer's reputation should only be linked to an opaque
+anonymity (i.e., peers' reputation should only be linked to an opaque
 identifier), no profit to newcomers, minimal overhead for computation/storage
 and robust to malicious collectives of peers. This master's thesis project has
 followed these principles closely during the solution design of the proposed
 model. A significant disadvantage of this algorithm is that peers are more
 likely to center around a static set of pre-trusted peers that joined the
 network and thus has limited reliability if they leave the network.
-Pre-trusted peer is a notion of trust where few peers that join the network are
-assumed trustworthy by design.  Advogato's trust
+Pre-trusted peer is a notion of trust, where few peers that join the network are
+assumed trustworthy by design. Advogato's trust
 metric~\cite{levien2003advogato} also uses this notion.
 HonestPeer~\cite{kurdi2015honestpeer} proposes to enhance EigenTrust algorithm
 further by selecting reputable nodes dynamically and not just relying on
@@ -60,10 +60,10 @@ peers in the network to be rated and assigned a value. A file-based system is
 concerned more with the integrity of a file that is being delivered/served on
 the network regardless of who (peer) owns or serves it.
 AuthenticPeer++~\cite{alkharji2017authenticpeer++} is a trust management system
-for P2P networks that combines both. i.e., it shares the notion of both trusted
+for P2P networks that combines both, i.e., it shares the notion of both trusted
 peers and trusted files. As such, it only allows trusted peers to rank the file
 after they have downloaded it and uses a DHT-based structure to manage the
-integrity of file information.  Bartercast~\cite{meulpolder2009bartercast} is a
+integrity of file information. Bartercast~\cite{meulpolder2009bartercast} is a
 distributed reputation mechanism designed for P2P file-sharing systems. It
 creates a graph based on data transfers between peers and uses max flow
 algorithm to compute the reputation values for each node.
@@ -73,6 +73,58 @@ PowerTrust~\cite{zhou2007powertrust} proposes a robust and scalable reputation
 system that makes use of Bayesian learning. It uses Bayesian method to generate
 local trust scores and a distributed ranking mechanism to aggregate reputation
 scores. 
+
+\section{Trust Model}
+Ries, S., Kangasharju, J. and Mühlhäuser, M.,
+2006,~\cite{ries2006classification} have analyzed the classification criteria
+of trust systems from the aspect of the domain, dimension, and semantics of
+trust values. Domains of trust values can be in binary, discrete or continuous
+representation. The dimension of trust values can be either one or
+multi-dimensional. In a one-dimensional approach, the value represents the
+degree of trust an agent assigns to another one whereas, in a
+multi-dimensional, an uncertainty of trust value is also allowed. The semantics
+of trust values can be in the set: rating, ranking, probability, belief, and
+fuzzy value. Ratings can be specified by a range of values on a scale, such as
+[1,4], where 1 can represent more trustworthy and 4 can represent less
+trustworthy. Rankings are expressed in a relative way, such that a higher value
+means higher trustworthiness. The probability of a trust value represents the
+probability that an agent will behave as expected. Beliefs and fuzzy semantics
+are based on probability theory or belief theory.  Abdul-Rahman, Alfarez, and
+Stephen Hailes~\cite{abdul2000supporting} mentions in their research that trust
+is dynamic and non-monotonic, i.e., additional evidence or experience with an
+entity can either increase or decrease the degree of trust in another agent.
+They propose a distributed trust model~\cite{abdul1998distributed} that
+addresses direct trust and recommender trust. Direct trust refers to an agent's
+belief in another agent's trustworthiness whereas recommender trust refers to
+an agent's belief in another agent's ability of recommendations. It uses
+discrete labeled trust values as $\{vt, t, u, vu\}$ for direct trust where
+$vt,t,u,vu$ represents very trustworthy, trustworthy, untrustworthy, and very
+untrustworthy respectively. Similarly, it uses $\{vg, g, b, vb\}$ for
+recommender trust where $vg, g, b, vb$ represents very good, good, bad and
+very bad respectively. An agent in this model maintains two separate sets for
+direct trust experience and recommender trust experience. PGP trust
+model~\cite{abdul1997pgp} employs a web of trust approach instead of a
+centralized trusted authority for deriving certainty of the owner of a public
+key. Users sign each other's key that they know is authentic and this process
+helps to build a web of trust in and across communities. The two areas where
+trust is explicit in PGP are trustworthiness of public-key certificate and
+trustworthiness of introducer. Trustworthiness of introducer refers to the
+ability to trust the public key in being the signer of another public key. The
+degree of confidence in the trustworthiness of public-key uses a discrete
+labeled value as \{undefined, marginal, complete\}. Undefined refers to
+uncertainty, marginal refers to maybe the key is valid whereas complete refers
+to full confidence in that the key is valid. Similarly, the trustworthiness of
+the introducer is given by \{full, marginal, untrustworthy\}. In this case, full
+refers to the user's full confidence in the key being able to introduce another
+public key, marginal refers to uncertainty if the public key is fully
+competent, and untrustworthy represents that the key cannot be trusted to
+introduce another public key.  Jøsang, Audun~\cite{josang1999algebra}, proposes
+the trust model that uses subjective logic to bind keys and their owners in
+public key infrastructure. 
+
+
+
+
 %Another blockchain based appro
 %\cite{dennis2015rep} 
 

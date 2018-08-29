@@ -52,23 +52,23 @@ the nature of the interaction, the outcome can have a significant impact on
 interacting entities. For instance, the failure of an interaction that involves
 buying a house is not the same as failing to receive a high-quality music file.
 To prevent severe damage that might result from a failed transaction, trust
-frameworks and reputation model of the interaction system plays a crucial role.
-They attempt to avoid harm by giving enough information about the interacting
-entities to be able to predict the outcome. A reputation system collects
-information about the interacting entities continuously by continually updating
-the state based on feedbacks. The risk of failure or probability of success
-when transacting with an entity is reliant on the information provided by the
-underlying reputation system. This information is usually presented in the form
-of trust scores assigned to each online identities. Before engaging in an
-online transaction, the entities need to select the online identity of the user
-with whom they intend to interact. The interaction can then take place whose
-outcome is observed and stored by the reputation system to update the current
-trust value further. Examples of reputation systems in use by current online
-interaction platform are eBay~\footnote{https://www.ebay.com/}, which is an
-e-commerce platform, StackExchange~\footnote{https://stackexchange.com/}, which
-is a Q\&A platform, and Reddit~\footnote{https://www.reddit.com/}, which is a
-content rating and discussion platform. The trust score of users is based on
-their feedback, positive/negative ratings, upvotes/downvotes from the
+frameworks and reputation models of the interaction system plays a crucial
+role. They attempt to avoid harm by giving enough information about the
+interacting entities to be able to predict the outcome. A reputation system
+collects information about the interacting entities continuously by continually
+updating the state based on feedback. The risk of failure or probability of
+success when transacting with an entity is reliant on the information provided
+by the underlying reputation system. This information is usually presented in
+the form of trust scores assigned to each online identity. Before engaging in
+an online transaction, the entities need to select the online identity of the
+user with whom they intend to interact. The interaction can then take place
+whose outcome is observed and stored by the reputation system to update the
+current trust value further. Examples of reputation systems in use by current
+online interaction platform are eBay~\footnote{https://www.ebay.com/}, which is
+an e-commerce platform, StackExchange~\footnote{https://stackexchange.com/},
+which is a Q\&A platform, and Reddit~\footnote{https://www.reddit.com/}, which
+is a content rating and discussion platform. The trust score of users is based
+on their feedback, positive/negative ratings, upvotes/downvotes from the
 participants with an equal privilege to interact with the system. The final
 score aggregated via these objective measures can either increase or lower the
 reputation of the user and limit their interaction ability. \par 
@@ -81,13 +81,13 @@ information such that they are reliable, untampered (no deliberate alteration
 of data) and always available. Most of the online interaction systems make use
 of a client-server architecture to serve and govern the data usage. As such,
 the system is centralized and prone to both external attacks and internal
-modifications. If the server node fails, then the whole network fails since
+modifications. If the server nodes fails, then the whole network fails since
 none of the clients can access the data anymore. An alternative architecture
 that is primarily utilized by file sharing systems is a Peer-to-Peer (P2P)
 network, and reputation-based trust management system for them exists as
-well~\cite{selcuk2004reputation}. In a P2P network, all nodes (peer) can act as
-both client and server, i.e., a peer can both request and serve data. Thus, if
-one node fails then, clients can still request data from other nodes in the
+well~\cite{selcuk2004reputation}. In a P2P network, all nodes (peers) can act
+as both client and server, i.e., a peer can both request and serve data. Thus,
+if one node fails then, clients can still request data from other nodes in the
 network. This architecture solves the problem by P2P data distribution.
 However, the governance of data is still centralized such that clients still
 need to wait for a particular node that has the privilege to add new data. This
@@ -97,8 +97,9 @@ shutdown of P2P services such as KaZaA~\cite{mlcakova2004configuring} and
 Napster~\cite{stern2000napster}. Therefore, this system is still vulnerable to
 internal modifications as it is reliant on a trusted entity (special node to
 add data). Blockchain~\cite{atzori2015blockchain} solves these issues by
-providing P2P data distribution along with decentralized data governance. 
-The figure~\ref{fig:WhyBlockchain} in section~\ref{ch:intro} shows the difference between the models mentioned above. \par
+providing P2P data distribution along with decentralized data governance.
+These models can be seen in figure~\ref{fig:WhyBlockchain} in
+section~\ref{ch:intro}. \par
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.9\textwidth]{Images/workflow.eps}
@@ -116,15 +117,15 @@ participating entities can endorse each other. Based on assumptions about
 different possibilities of endorsement behavior that may occur, trust metrics
 were defined in a way that honest participation would be encouraged. The
 definition of honest and malicious participation from the perspective of an
-endorsement network is discussed. A method to collect and quantify this
-endorsement information to assign a trust score to each entity is presented. To
-assess the working of the proposed model, it is applied to an existing real
-dataset. Computation of trust scores for each participant based on the defined
-trust metrics is presented. The simulated graph and computed trust scores do
-support the defined metrics. A discussion of relevant threat models on
-reputation systems and how the proposed model addresses them is performed. The
-figure~\ref{fig:thesisSteps} in section~\ref{ch:intro} gives the workflow of
-this master’s thesis project. \par
+endorsement network is discussed in section~\ref{ch:method}. A method to
+collect and quantify this endorsement information to assign a trust score to
+each entity is presented. To assess the working of the proposed model, it is
+applied to an existing real dataset. Computation of trust scores for each
+participant based on the defined trust metrics is presented. The simulated
+graph and computed trust scores do support the defined metrics. A discussion of
+relevant threat models on reputation systems and how the proposed model
+addresses them is performed. The figure~\ref{fig:thesisSteps} in
+section~\ref{ch:intro} gives the workflow of this master’s thesis project. \par
 
 The major contribution of this master's thesis project is:
 \begin{itemize}
@@ -134,10 +135,10 @@ The major contribution of this master's thesis project is:
 		their trustworthiness. 
 	\item Deployment of the endorsement system on blockchain network that
 		updates and computes the trust scores of entities by executing the
-		smart contract code based on user's interaction ensuring reliable and
+		smart contract code based on users' interaction ensuring reliable and
 		verifiable information. 
 	\item Evaluation of the endorsement model by applying it to an existing
-		data set and discussion of relevant threat model
+		data set and discussion of relevant threat model.
 \end{itemize}
 
 %and therefore can be stated as a soft
@@ -164,8 +165,8 @@ platform published by Bob, unknown entity to Alice, the success or failure of
 the transaction is dependent on two factors that may or may not be transparent.
 \paragraph{Bob's reputation:}Bob's reputation can be inferred from his history
 of transactions, ratings provided by previous buyers that have dealt with him,
-reputation system of the platform in use, the integrity of all these relevant
-data.  
+reputation system of the platform in use and the integrity of all these
+relevant data.  
 \paragraph{Platform's reputation:}Reputation of the platform can also be
 inferred similarly based on the history of services it has been able to
 provide, a general perception in the community, etc.  Here, the platform in use
@@ -178,16 +179,16 @@ malformed decision on the trustworthiness of an entity could be expensive and
 deal severe damage to the user. \par 
 Statistics suggest that online shopping is the most adapted online
 activity~\cite{experian}. Reports by Experia~\cite{experian} and
-Javelin~\cite{javelin} indicate that E-commerce fraud has risen to
-30\% in 2017 from 2016 while identity fraud victims have risen by 8\% in 2017
-(16.7 million U.S victims). 
+Javelin~\cite{javelin} indicate that E-commerce fraud has risen to 30\% in 2017
+from 2016 while identity fraud victims have risen by 8\% in 2017 (16.7 million
+U.S. victims). 
 %Additionally, reports on fake news
 %\footnote{\url{https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research}}$^{,}$\footnote{\url{https://www.prnewswire.com/news-releases/84-percent-of-businesses-could-reduce-fraud-risk-if-certain-about-customers-identity-300587192.html}}
 %that leads to spread of misinformation from malicious users or portals, attack
 %on an existing system continues.
 A recent report of data breach on Finnish Enterprise Agency for
 Helsinki~\cite{finland}~\footnote{https://liiketoimintasuunnitelma.com/}
-exposed 130,000 users login details.
+exposed 130,000 users' login information.
 %while Facebook has admitted to the compromise of
 %2.2 billion of its user's data
 %\footnote{\url{https://thenextweb.com/facebook/2018/04/05/zuckerberg-facebooks-2-billion-users-assume-data-compromised/}}.
@@ -199,7 +200,7 @@ other hand, distributing information over a decentralized network would require
 a simultaneous attack to achieve the same effect, thereby increasing the
 difficulty level of attack. Similarly, Reputation models can help in measuring
 the reliability of interacting entities so that users can make an informed
-decision before participating in any transactions. Thus, a reputation system
+decision before participating in any transaction. Thus, a reputation system
 should be secure, robust, always available and aim for higher accuracy. The use
 of right reputation algorithms with Blockchain technology could help to ensure
 trustworthiness of online entities with correctness of data and a high degree
@@ -237,32 +238,32 @@ The research questions that this project aims to address are:
 			framework for a transactional network? How could the overall system
 			architecture look like? \label{question2} 
 		\item How can the discussed endorsement network ensure trustworthiness
-			while also preserving users anonymity and how can it be generalized
+			while also preserving user anonymity and how can it be generalized
 			to other transactional network or added on top of it to serve other
-			use cases such as content filtering, E-Commerce
+			use cases such as content filtering, E-Commerce,
 			etc.?\label{question3} 
 \end{itemize}
 \section{Scope} 
 %Identify goal, objective, timeplan, deliverables, 
 %what the project is supposed to do and the work required to meet 
 %the objective
-This master's thesis project attempts to answer all the research questions mentioned
-in section~\ref{ResearchQuestions}. \\
-\textbf{Research Question 1}\\
+This master's thesis project attempts to answer all the research questions
+mentioned in section~\ref{ResearchQuestions}.  
+\paragraph{Research Question 1}
 To answer research question 1, literature survey is performed on various
 reputation algorithms and existing models. This survey follows with the
-discussion on various analysis metrics and threat models that eventually leads to
-graph simulation of endorsement network.  
+discussion on various analysis metrics and threat models that eventually leads
+to graph simulation of endorsement network.  
 
-\textbf{Research Question 2 } \\
+\paragraph{Research Question 2 } 
 Interpretation of nodes connections and quantification of scores for individual
 nodes that represents trustworthiness based on score range is presented.
-Comparative analysis of on chain vs. off-chain storage requirements is 
-studied and analyzed. Overall system design and architecture is presented. 
+Comparative analysis of on chain vs. off-chain storage requirements is studied
+and analyzed. Overall system design and architecture is presented. 
 
-\textbf{Research Question 3} \\
-The endorsement network is analyzed against various network metrics to
-show resilience to threat models. Discussion on other use cases and how the
+\paragraph{Research Question 3} 
+The endorsement network is analyzed against various network metrics to show
+resilience to threat models. Discussion on other use cases and how the
 endorsement model can be used on top of other systems is also presented.
 
 %

@@ -1,16 +1,14 @@
 %%% Ch.3: Methodology %%%
 \chapter{Methodology and Implementation} \label{ch:method}
 The problem of measuring the trustworthiness of communicating entities is an
-essential aspect of any online system where they interact with each other for
-any purpose, be it shopping, content delivery or file sharing. This chapter
-follows on a discussion of a proposed endorsement network where physically or
-digitally acquainted entities can endorse each other or their presented
-information. The model addresses different concerns such as roles and
-requirements of participants as endorser and endorsee and several possible
-behaviors of an interaction system. A system of smart contract is set up that
-specifies the interaction between entities, aggregates interaction information
-and assigns a trust score to each participating entities. The storage of data
-both on and off-chain along with the governance model is discussed. 
+essential aspect of any online system. This chapter follows on a discussion of
+a proposed endorsement system where physically or digitally acquainted entities
+can endorse each other or their presented information. The user types and their
+roles in the endorsement system along with the design considerations are
+discussed. A system of smart contracts is set up to specify the rules of
+interaction and method to aggregate and compute the final global score for
+individual entities. Deployment of the contract to the blockchain network and
+analysis of data storage both on and off-chain is discussed. 
 \section{Problem Statement}
 To be able to rely on the trustworthiness of an entity as presented by any
 online systems, the underlying reputation system needs to be robust and as

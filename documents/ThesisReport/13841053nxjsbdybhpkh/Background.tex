@@ -49,9 +49,9 @@ pointed out by Gambetta et al.~\cite{gambetta2000can} ``Trust is the subjective
 probability by which an agent assesses that other agent or group of agents will
 perform a particular action that is beneficial or at least not detrimental.
 "For an entity, $'A'$ to trust another entity ${'B'}$ or to evaluate $B's$
-defined, \textit{reputation} is the perception of an individuals character or
-standing. Like trust, reputation is context-dependent. e.g., Alice may be
-trusted to answer linux questions efficiently but not windows related
+trustworthiness, \textit{reputation} is the perception of an individuals
+character or standing. Like trust, reputation is context-dependent. e.g., Alice
+may be trusted to answer linux questions efficiently but not windows related
 questions~\cite{zacharia2000collaborative}. A significant difference between
 trust and reputation is that the former takes the subjective measure as input
 whereas the latter takes an objective standard (e.g., transaction history,
@@ -133,9 +133,10 @@ A cryptosystem can be defined as a five-tuple $(P, C, K, E, D)$ where:
 \begin{itemize}
 	\item $P$, is a finite set of plain texts.
 	\item $C$, is a finite set of ciphertexts.
-	\item $E$, set of encryption rules such that $e_{k}:P \Rightarrow C$
-	\item $D$, set of decryption rules such that $d_{k}:C \Rightarrow P$ 
-	\item For each $k \in K$, there is $e_k \in E$ and $d_k \in D$ such that $d_k(e_k(m)) = m$ for every plaintext $m \in P$.
+	\item $E$, set of encryption rules such that $e_{k}:P \Rightarrow C$.
+	\item $D$, set of decryption rules such that $d_{k}:C \Rightarrow P$. 
+	\item For each $k \in K$, there is $e_k \in E$ and $d_k \in D$ such that
+		$d_k(e_k(m)) = m$ for every plaintext $m \in P$.
 \end{itemize}
 A cryptosystem can be either symmetric or asymmetric. Symmetric makes use of
 the same key for both encryption and decryption whereas asymmetric, also known
@@ -345,37 +346,54 @@ application that made use of blockchain technology. However, the blockchain
 applications and platform have evolved since then, and not all current uses
 show similarity to the first application. The purpose of bitcoin as the first
 application was to have a P2P electronic cash system in an open, public,
-distributed, decentralized and trustless environment. Trustless is a
-significant attribute here because it completely removed the need for a trusted
-intermediary in an environment where entities did not necessarily trust each
-other. The idea of digital cash had been around since the 1990's with
-cryptographer David Chaum discussing untraceable electronic
-cash~\cite{chaum1988untraceable}. However, bitcoin was able to solve the flaw
-of a digital cash scheme, namely double spending problem. i.e., If $A$ had $10$
-units of digital cash and sent it to $B$, then $A$ should have this amount
-deducted from his account such that he is not able to spend the same amount
-again. Bitcoin solved this problem without the use of trusted intermediaries
-and without requiring participating entities to trust each other. Similarly, it
-solved the Byzantine General's problem which is a problem in the distributed
-computing environment where several agents need to agree on a state over an
-unreliable network and without a trusted third party. \par
+distributed, decentralized and trustless (without the need to trust the
+participating nodes and without a trusted intermediary) environment. The idea
+of digital cash had been around since the 1990's with cryptographer David Chaum
+discussing untraceable electronic cash~\cite{chaum1988untraceable}. However,
+bitcoin was able to solve the flaw of a digital cash scheme, namely double
+spending problem. i.e., if $A$ had $10$ units of digital cash and sent it to
+$B$, then $A$ should have this amount deducted from his account such that he is
+not able to spend the same amount again. Bitcoin solved this problem without
+the use of trusted intermediaries and without requiring participating entities
+to trust each other.  Similarly, it solved the Byzantine General's
+problem~\cite{lamport1982byzantine,miller2014anonymous} probabilistically by
+using Proof-Of-Work, which is a problem in distributed computing where several
+agents need to agree on a state over an unreliable network and without a
+trusted third party. Proof-Of-Work is discussed in more details by
+section~\ref{subsec:consensus} \par
 Examples of other platforms that extends bitcoin are
-Namecoin~\footnote{https://namecoin.org/}, which offers decentralized name resolution system, counterparty~\footnote{https://counterparty.io/}, which provides a platform for creating P2P financial applications. Similarly,
-ethereum~\cite{buterin2013ethereum} is a programmable blockchain platform that
-offers a turing complete programming language~\cite{dannen2017introducing} and
-allows anyone to write smart contracts and execute code to change the
-blockchain state. Ethereum was considered to be suitable for this project for
-its open source ecosystem and the availability of several test networks and
-active community of developers with updated resources. Therefore, this master's
-thesis project uses ethereum to write smart contracts and deploy the
-application to the blockchain network. Examples of private blockchain
-platforms are hyper ledger
-fabric~\footnote{https://www.hyperledger.org/projects/fabric/},
-Multichain~\footnote{https://www.multichain.com/} etc.\par
-Blockchain technology is a variant of a distributed database implemented on a
-P2P network. Every participating node in the network has the same copy of the
-history of records of the database, and the consensus algorithm ensures that
-everyone agrees to a single source of truth about the network state. 
+Namecoin~\footnote{https://namecoin.org/}, which offers decentralized name
+resolution system, counterparty~\footnote{https://counterparty.io/}, which
+provides a platform for creating P2P financial applications. Hyperledger
+Fabric~\footnote{https://www.hyperledger.org/projects/fabric/} is an open
+source permissioned distributed ledger technology platform.
+Everledger~\footnote{https://www.everledger.io/} is a blockchain platform that
+provides a digital, global ledger to track and protect valuable assets.
+Ethereum is a programmable blockchain platform that offers a turing complete
+programming language and allows anyone to write smart contracts and execute
+code to change the blockchain state.  Ethereum was considered to be suitable
+for this project for its open source ecosystem and the availability of several
+test networks and active community of developers with updated resources.
+Therefore, this master's thesis project uses ethereum as a blockchain backend
+to write smart contracts and deploy the application.  For the sake of relevance
+to this project, solidity as the smart contract language, and ethereum as the
+blockchain is used as a point of view henceforth. Blockchain technology is a variant of a distributed database implemented on a P2P network. \par
+%Similarly,
+%ethereum~\cite{buterin2013ethereum} is a programmable blockchain platform that
+%offers a turing complete programming language~\cite{dannen2017introducing} and
+%allows anyone to write smart contracts and execute code to change the
+%blockchain state. Ethereum was considered to be suitable for this project for
+%its open source ecosystem and the availability of several test networks and
+%active community of developers with updated resources. Therefore, this master's
+%thesis project uses ethereum to write smart contracts and deploy the
+%application to the blockchain network. Examples of private blockchain platforms
+%are hyper ledger
+%fabric~\footnote{https://www.hyperledger.org/projects/fabric/},
+%Multichain~\footnote{https://www.multichain.com/} etc.\par
+%Blockchain technology is a variant of a distributed database implemented on a
+%P2P network. Every participating node in the network has the same copy of the
+%history of records of the database, and the consensus algorithm ensures that
+%everyone agrees to a single source of truth about the network state. 
 As mentioned by Antonopoulos, Andreas M., and Wood,
 Gavin~\cite{MasteringEthereum}, the components that make up an open, public,
 blockchain are (usually):
@@ -472,26 +490,39 @@ that collects all the transactions and appends new records to the blockchain.
 Having a small group or consortium, it has low computational requirements. As a
 blockchain protocol, it offers an immutable audit of the records. However, just
 like any other centralized system, this system is susceptible to DDOS attacks
-and third-party (leader) interference. Generally used in a private or
-permissioned blockchain setup, it offers higher throughput compared to public
-permissionless blockchains. Examples include Hyperledger Fabric, R3 Corda etc. 
-\paragraph{Proof-Of-Work (PoW):} This is the most widely used consensus
-mechanism in a public permissionless setup. As the name suggests, a
-validator/miner needs to provide the proof to the network that it has done a
-significant amount of work. This work requires miners to invest a substantial
-amount of computational resources. The reason for this is that everyone (all
-miners) compete to be the writer of the next block for which they need to solve
-a cryptographic puzzle. Figure~\ref{fig:cryptographicPuzzle} shows the process of
-finding a valid hash value. The miners are supposed to find a specific nonce
-value which when concatenated with the transaction data should output a hash
-value that is less than the target value. The target value keeps changing to
-maintain a normal distribution of average block time. The nonce keeps
-incrementing until the output hash satisfies the function requirement. Thus,
-they have to compute many hash operations before finding the valid hash. When a
-valid hash is found, then the miner gets to add the block to the existing chain
-of blocks. All the blocks in the blockchain are formed by same process except
-for genesis block. Genesis block is the first block in the blockchain and
-therefore has no pointer to previous block. Examples include Bitcoin, Ethereum.
+and third-party (leader) interference as the address of leader is known to all
+the nodes of the network, and also to the attackers. Generally used in a
+private or permissioned blockchain setup, it offers higher throughput compared
+to public permissionless blockchains. Examples include Hyperledger Fabric~\cite{androulaki2018hyperledger}, R3 Corda~\cite{brown2016corda}. 
+\paragraph{Proof-Of-Work (PoW):}This is the most widely
+used consensus mechanism in a public permissionless setup. As the name
+suggests, a validator node needs to provide the proof to the network that it
+has done a significant amount of work. This work requires miners to invest a
+substantial amount of computational resources. The reason for this is that
+everyone (all miners) compete to be the writer of the next block for which they
+need to solve a cryptographic puzzle. Figure~\ref{fig:cryptographicPuzzle}
+shows the process of finding a valid hash value. The miners are supposed to
+find a specific nonce value which when concatenated with the transaction data
+should output a hash value that is less than the specific target value. The
+nonce keeps incrementing until the output hash satisfies the function
+requirement. Thus, they have to compute many hash operations before finding the
+valid hash. When a valid hash is found, then the miner gets to add the block to
+the existing chain of blocks. All the blocks in the blockchain are formed by
+the same process except for the genesis block. Genesis block is the first block
+in the blockchain and therefore has no pointer to the previous block. Examples
+include Bitcoin~\cite{Bitcoin_Satoshi}, Ethereum~\cite{buterin2013ethereum}. The selection of validator node is random in that
+anyone among the competing node could be the first to solve the cryptographic
+puzzle. There is no way to know a priori, which node gets to be the writer of
+the next block. Thus, this consensus mechanism makes the system DDOS resistant
+as there is no one known node to direct the attack. However, miners can still
+decide upon the order of transactions to include in the block although they
+cannot modify the transaction. One may have to wait for few blocks before
+having their transactions confirmed and placed into the blockchain. The
+ordering of transactions, therefore, is not in the order of which they were
+received but in the order that was agreed upon by all the nodes in the network.
+i.e., whenever a validator node solves the cryptographic puzzle and proposes
+the block to the network, they agree on that particular ordering of transaction
+and start working on next block that can be associated with this one. 
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
@@ -499,26 +530,21 @@ therefore has no pointer to previous block. Examples include Bitcoin, Ethereum.
 	\label{fig:cryptographicPuzzle}
 	\end{center}
 \end{figure}
-The apparent advantage of such consensus mechanism is that it makes the
-system DDOS resistant while offering immutable audit trail and
-scalability.  However, miners can still decide upon the order of
-transactions to include in the block although they cannot modify the
-transaction. As such, one could term this as 'unfair', since the
-transaction does not get picked up in order of when it was broadcasted
-to the network. 
-\paragraph{Economy based systems:} Consensus mechanisms such as Proof-of-stake
+\paragraph{Economy based systems:}Consensus mechanisms such as Proof-of-stake
 or delegated proof-of-stake can be seen as an economy based system. Unlike PoW,
-miners do not compete with each other to be the writer of next block thus
+miners do not compete with each other to be the writer of the next block thus
 saving lots of computational resources. The general idea is that participants
 can put the respective platform based native token they own at stake to
 validate a block. Whoever has the highest value at stake gets to write the next
-block. If the participation turned out to be a malicious one, then all the
-tokens that were at stake get lost. As such, it puts scarce resource at stake.
-However, this includes problem such as nothing-at-stake~\cite{houy2014will},
-i.e., a node could vouch for two forks of the same blockchain with nothing to
-lose. Other drawbacks of this approach are that there is no certainty of
-consensus, and often has no total ordering of transactions, Examples include
-Casper etc. 
+block. Compared to PoW, it is computationally efficient as it doesn't need to
+invest substantial resources. However, this also leads to the problem of
+nothing at stake~\cite{houy2014will}. i.e., a node could vouch for two forks of
+the same blockchain. With this setup, a user could try to double spend the
+amount they have to two different accounts, and two different forks would be
+validating them both. Example of such system include
+Casper~\cite{buterin2017casper}. Casper tries to solve this problem by
+penalizing the node (destroy the stake) that is detected to have validated two
+blocks at the same height.
 %The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
 %applied to the block header and nonce to produce a verifiable fingerprint of
 %data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
@@ -537,98 +563,203 @@ necessarily need to be legally binding or even associated with the outside
 world. The term Smart contact was first coined by Cryptographer Nick Szabo, in
 1994~\cite{SzaboSmart1994} and defined as a computerized transaction protocol
 that can execute the terms of a contract. Szabo points out that the contract
-design should fulfill four objectives~\cite{szabo1996smart}: \\
+design should fulfill four objectives~\cite{szabo1996smart}: 
 %\footnote{https://universe.ida.dk/media/23422289/fritz-henglein.pdf}.
-\begin{itemize}
-	\item \textbf{Observability}, ability to observe the contract, performance of
-		principal(agents who have agreed to the contract) and prove their
-		performance.\\
-	\item \textbf{Verifiability}, the ability of principals to prove to the
-		arbitrators that the contract has been performed or breached. \\ 
-	\item \textbf{Privity}, to ensure that the third party should not have
-		control or knowledge of the content or performance. It correlates to
-		both privacy and confidentiality of principals of contract and the
-		contract itself. \\
-	\item \textbf{Enforceability}, to make the contract self-enforcing which
-		can be attributed to by verifiability, built-in incentives mechanism,
-		and objectives mentioned above. \\
-\end{itemize}
-Privity refers to minimization of third-party vulnerability by limiting
-knowledge and control whereas, on the other end, observability and
-verifiability demands invoking it to an extent. As such, a trade-off is
-required wherein an optimal balance between these objectives should meet. Thus,
-trusted intermediaries were introduced with minimal control/observability.
-However, privity was not guaranteed in case of
-dispute~\cite{szabo1997formalizing}. Following the invention of Bitcoin and
-several decentralized blockchains, the definition of smart contracts have
-evolved. Ethereum being the first platform to offer programmable blockchains,
-introduced a virtual machine, EVM (Ethereum Virtual Machine), where the
-contract code can be executed that results in a deterministic output provided
-the same transaction context and blockchain
-state~\cite{MasteringEthereum}}.
-EVM often referred to as a single world computer, runs on every ethereum node
-and given the same initial state produces the same final state. Several high
-level languages can be used to write smartcontracts for different blockchain
-platforms. Examples include solidity, serpent, LLL, etc.  For the sake of
-relevance to this project, solidity as the smart contract language and Ethereum
-as the blockchain will be used as a point of view henceforth. Contract's code
-resides in the blockchain as an immutable form.  They are not autonomous
-self-executing programs but rather needs to be called by a transaction or
-invoked by other contracts. Once the code is registered and deployed on the
-blockchain, its code cannot be altered by anyone, including the owner of the
-contract. However, a possibility to include a killable function by the owner
-exists which when called executes an EVM opcode called SELFDESTRUCT. This
-deletes the contract from the blockchain. As in any Turing-complete language,
-solidity is affected by the halting problem.  To address this, Ethereum
-introduces the concept of gas. To store any state, or execute any operation,
-gas needs to be supplied. Thus, a program that has a bug or a non-terminating
-intention will eventually run out of gas and stop~\cite{whataresmartcontracts}.
+\paragraph{Observability,}ability to observe the contract, performance of
+principal (agents who have agreed to the contract) and prove their
+performance.
+\paragraph{Verifiability,}the ability of principals to prove to the arbitrators
+that the contract has been performed or breached.  
+\paragraph{Privity,}to ensure that the third party, other than the designated
+intermediaries should not have control or knowledge of the content or
+performance. It correlates to both privacy and confidentiality of principals of
+contract and the contract itself. 
+\paragraph{Enforceability,}to make the contract self-enforcing which can be
+attributed to by verifiability, built-in incentives mechanism, self-enforcing
+protocols. \par
+%\begin{itemize}
+%	\item \textbf{Observability}, ability to observe the contract, performance of
+%		principal (agents who have agreed to the contract) and prove their
+%		performance.\\
+%	\item \textbf{Verifiability}, the ability of principals to prove to the
+%		arbitrators that the contract has been performed or breached. \\ 
+%	\item \textbf{Privity}, to ensure that the third party should not have
+%		control or knowledge of the content or performance. It correlates to
+%		both privacy and confidentiality of principals of contract and the
+%		contract itself. \\
+%	\item \textbf{Enforceability}, to make the contract self-enforcing which
+%		can be attributed to by verifiability, built-in incentives mechanism,
+%		and objectives mentioned above. \\
+%\end{itemize}
+While privity relates to limiting knowledge and control to the third-party, on
+the other end, observability and verifiability demand invoking it to an extent.
+As such, a trade-off is required wherein an optimal balance between these
+objectives should meet. Thus, trusted intermediaries were introduced with
+minimal control/observability.  However, privity was not guaranteed in case of
+dispute~\cite{szabo1997formalizing}. \par
+%Following the invention of Bitcoin and several decentralized blockchains, the
+%definition of smart contracts have evolved. 
+Ethereum being the first platform to offer programmable blockchains, introduced
+a virtual machine, EVM (Ethereum Virtual Machine), where the contract code can
+be executed that results in a deterministic output provided the same
+transaction context and blockchain state~\cite{MasteringEthereum}}.  EVM often
+referred to as a single world computer, runs on every ethereum node and given
+the same initial state produces the same final state. Several high level
+languages can be used to write smartcontracts for different blockchain
+platforms. Examples include solidity, serpent, LLL.  Contract's code resides in
+the blockchain as an immutable form.  They are not autonomous self-executing
+programs but rather needs to be called by a transaction or invoked by other
+contracts. Once the code is registered and deployed on the blockchain, its code
+cannot be altered by anyone, including the owner of the contract. However, a
+possibility to include a killable function by the owner exists which when
+called executes an EVM opcode called SELFDESTRUCT and logically deletes the
+contract from the blockchain. Doing so doesn't delete the history of
+transactions as the blockchain itself is immutable. As in any Turing-complete
+language, it is affected by the halting problem. i.e., there is no way of
+knowing if the program will terminate given an input. In the case of a
+non-terminating program, a transaction that is transmitted to the network might
+run forever, and the whole network can be rendered useless if transactions
+cannot be processed. To avoid this, ethereum introduces the concept of gas,
+which is an expendable resource on the network that acts as a fundamental
+network cost unit. To store any state, or execute any operation, gas needs to
+be supplied. Thus, a program that has a bug or a non-terminating intention will
+eventually run out of gas and stop~\cite{whataresmartcontracts}. 
+%To address this, Ethereum introduces the concept of
+%gas. To store any state, or execute any operation, gas needs to be supplied.
+%Thus, a program that has a bug or a non-terminating intention will eventually
+%run out of gas and stop~\cite{whataresmartcontracts}.
+\subsection{Ethereum}
 
-\section{Reputation systems}
-The most known internet reputation is assumed to be that of
-eBay~\cite{resnick2002trust}~\footnote{https://www.ebay.com/}. It uses a
-feedback based rating system where a user can rate a transaction along with
-some textual feedback. The range of values used being \{1, 0, -1\}, positive,
-neutral and negative respectively. The final aggregated score is computed by
-subtracting the total of positive and negative ratings. This system could be
-judged as working based on the sales volume and the observation that more than
-half the buyers usually engage in providing feedback~\cite{resnick2006value}.
-However, there are various issues of an online interaction system that this
-method fails to address such as: 
-\paragraph{Sybil Attack:} A user (buyer/seller) can create multiple
-accounts(sybil identities) and give enough positive feedback to their original
-account to inflate one's reputation.  Similarly, they can also provide multiple
-negative feedbacks to any merchant and damage their reputation.
-\paragraph{Inactive participation:} Users are more likely to provide feedback
-for a satisfactory transaction and ignore a bad deal. Since the system is not
-anonymous, it is possible to trace the sender of received feedback. Therefore,
-users are more likely to fear retaliation from giving negative feedback.
-\paragraph{Whitewashing:} The overall trust score of an entity is the
-difference between positive and negative ratings received in total. As such, an
-account can have a significant negative value. In which case, it is more
-beneficial to start afresh with a new account then to recuperate the account
-with poor reputation scores.
+\section{Threat scenarios in trust and reputation systems}
+A reputation system should provide correct and reliable information such that
+users can correctly infer the trustworthiness of the entity in question.
+Therefore, it is crucial to discuss several threat scenarios and methods to
+mitigate them in an online interaction system. Several classes of attack that
+can exist in trust and reputation system, as mentioned
+by~\cite{hoffman2009survey,marmol2009security} are:  
+\paragraph{Self-promoting attack:} In this case, an attacker tries to inflate
+his/her reputation score by falsely increasing it. This attack is more likely
+in systems that do not have a mechanism for data integrity verification or data
+authentication. An attacker could attempt to exploit a weakness in the
+calculation of reputation metric or during the dissemination of information.
+This attack can be performed by an individual or by forming a malicious
+collective where groups collude to increase an identity's reputation score
+falsely. Even if the systems do provide cryptographic mechanisms for source
+data authentication, the self-promoting attack is possible by creating multiple
+Sybil identities. This form of attack is also known as Sybil attack. An
+attacker can create multiple user accounts to self-promote an identity, or
+colluding identities can mutually participate to generate real feedback.
+Defense techniques for such attack can be requiring the user to provide proof
+of successful transactions, and the ability to limit or prevent an attacker
+from obtaining multiple identities. 
+\paragraph{Whitewashing:} Whitewashing is the process of exiting a system with
+an account with a bad reputation and entering afresh with a neutral or
+nonnegative account. This attack exploits the system's formulation of
+reputation score. For instance, eBay's rating system uses a range of values
+\{1, 0, -1\} for representing positive, neutral and negative rating
+respectively. The formulation of the final score is done by calculating the
+difference between the number of positive and negative scores. In this case, it
+makes more sense for an identity with 100 negatives and 5 positive scores to
+create a new account that gives a neutral score and start afresh. Another
+problem that can be observed in this formulation is that a user with 50
+positive and 10 negative is the same as the user with 40 positive and no
+negative scores. A technique to defend against whitewashing attack is to have a
+better method for formulation of final score such that a new user would be
+distinguished from an old user. 
+\paragraph{Slandering:} Slandering attack is the form of attack when an
+attacker (or groups) create false negative feedback about other identities with
+an aim to damage their reputation. Lack of mechanisms for data source
+authentication can lead to this attack, just like in self-promoting attack.
+Similarly, the high sensitivity of formulation to negative feedback facilitate
+slandering attacks. If the reputation system is sensitive to even lower value
+of the negative score, then an honest node will be more affected by this
+attack. On the other hand, if the reputation system is less sensitive to a
+negative score, then the amount of time an actual dishonest identity can live
+in the system to deal damage raises. Therefore, an optimal balance needs to be
+found by the reputation system to address this trade-off. Techniques to defend
+against this attack include employing stricter feedback authentication
+mechanism, validating input to make sure that feedback is actually tied to some
+transaction, and incorporating methods to limit the number of malicious
+identities nodes can assume.   
+\paragraph{Orchestrated:} In an orchestrated attack, attackers, collude with
+each other and combine multiple strategies to form a coordinated attack. They
+employ different attack vectors, change their behavior over time, and divide up
+identities to target. For instance, attackers can form teams with different
+roles where one team performs a slandering attack on benign users, and the
+other team makes the self-promoting attack to inflate their reputation. Another
+example is when one team acts honestly for a specific amount of time by serving
+good content or by giving negative feedback to the dishonest nodes of the
+network. The other team acts dishonest and gains the benefit of until the
+reputation is too low to allow them to do so. At this point, the teams can
+switch roles, and the honest team starts acting dishonest and gain benefit.
+This form of attack is difficult to detect as there is no pattern to detect an
+anomaly in the network and they keep adapting to the situation. In such an
+attack, it is challenging to make a distinction between honest and malicious
+nodes. 
+\paragraph{Denial of Service:} Denial of service is prevalent in systems that
+employ a centralized system and have no mechanism for load balancing. Attackers
+can send too many requests to the central entity and overload the system
+thereby, preventing the reputation system to operate correctly. These attacks
+target the calculation and dissemination of reputation information and
+therefore affects the data availability aspect of the network.  
+\paragraph{Free riders:} Free-riding is a problem mostly associated with P2P
+systems. Usually, P2P systems rely on voluntary contributions. As such,
+individual rationality results in free riding among peers, at the expense of
+collective welfare~\cite{feldman2006free}. The reputation system that aims to
+address this behavior differs from the classic use of reputation systems where
+the aim is to enhance the quality of transactions. In P2P systems that seeks to
+address free-riding behavior, the goal is to encourage contributors by giving
+them more benefits over consumers. The reputation system that addresses this
+behavior differs from classic reputation systems in the sense that it does not
+seek to increase the quality of transactions. Andrade, Nazareno, et
+al.~\cite{andrade2004can} discusses the use of an autonomous reputation scheme
+by prioritizing resource allocation to peers with higher reputation. 
 
-Other online systems that make use of similar reputation mechanism based on
-votings/ratings are StackExchange~\footnote{https://stackexchange.com/},
-yelp~\footnote{https://www.yelp.com/}, Quora~\footnote{https://www.quora.com},
-Reddit~\footnote{https://www.reddit.com/}. Most of the online interaction
-system (e.g., e-commerce, Q\&A platform) employ a client-server architecture
-which lets a central entity in control of stored data. The centralization of
-data management has both pros and cons to it. While it makes the network simple
-to filter out malicious content from being served, it also acts as a single
-point of failure. On the other hand, distributing data from a P2P system where
-any nodes on the network can serve contents solves this issue of central point
-of failure. The distributed nature of a P2P system also makes it more
-straightforward to distribute malicious contents over the network. The peer
-requesting a file can have it served from any participating node. If the
-content of this file is malicious, then it is more likely to spread faster in a
-P2P network than a centralized system. Therefore, a reputation management
-system that can work in a distributed and decentralized environment is
-significant for P2P systems such as file-sharing, content delivery
-applications, etc. for detecting the quality of file/content or the owner of
-those files. In light of this, researches and proposals on decentralized
-reputation methods have been performed, few of which are discussed below.\\ 
+
+%The most known internet reputation is assumed to be that of
+%eBay~\cite{resnick2002trust}~\footnote{https://www.ebay.com/}. It uses a
+%feedback based rating system where a user can rate a transaction along with
+%some textual feedback. The range of values used being \{1, 0, -1\}, positive,
+%neutral and negative respectively. The final aggregated score is computed by
+%subtracting the total of positive and negative ratings. This system could be
+%judged as working based on the sales volume and the observation that more than
+%half the buyers usually engage in providing feedback~\cite{resnick2006value}.
+%However, there are various issues of an online interaction system that this
+%method fails to address such as: 
+%\paragraph{Sybil Attack:} A user (buyer/seller) can create multiple
+%accounts (sybil identities) and give enough positive feedback to their original
+%account to inflate one's reputation. Similarly, they can also provide multiple
+%negative feedbacks to any merchant and damage their reputation.
+%\paragraph{Inactive participation:} Users are more likely to provide feedback
+%for a satisfactory transaction and ignore a bad deal. Since the system is not
+%anonymous, it is possible to trace the sender of received feedback. Therefore,
+%users are more likely to fear retaliation from giving negative feedback.
+%\paragraph{Whitewashing:} The overall trust score of an entity is the
+%difference between positive and negative ratings received in total. As such, an
+%account can have a significant negative value. In which case, it is more
+%beneficial to start afresh with a new account then to recuperate the account
+%with poor reputation scores.
+
+%Other online systems that make use of similar reputation mechanism based on
+%votings/ratings are StackExchange~\footnote{https://stackexchange.com/},
+%yelp~\footnote{https://www.yelp.com/}, Quora~\footnote{https://www.quora.com},
+%Reddit~\footnote{https://www.reddit.com/}. Most of the online interaction
+%system (e.g., e-commerce, Q\&A platform) employ a client-server architecture
+%which lets a central entity in control of stored data. The centralization of
+%data management has both pros and cons to it. While it makes the network simple
+%to filter out malicious content from being served, it also acts as a single
+%point of failure. On the other hand, distributing data from a P2P system where
+%any nodes on the network can serve contents solves this issue of central point
+%of failure. The distributed nature of a P2P system also makes it more
+%straightforward to distribute malicious contents over the network. The peer
+%requesting a file can have it served from any participating node. If the
+%content of this file is malicious, then it is more likely to spread faster in a
+%P2P network than a centralized system. Therefore, a reputation management
+%system that can work in a distributed and decentralized environment is
+%significant for P2P systems such as file-sharing, content delivery
+%applications, etc. for detecting the quality of file/content or the owner of
+%those files. In light of this, researches and proposals on decentralized
+%reputation methods have been performed, few of which are discussed below.\\ 
 
 \subsection{Graph properties}
 A graph, as the name suggests can be used to represent objects and their
@@ -665,7 +796,6 @@ degree of its connec- tivity. The number of inflow is referred to as indegree
 whereas the number of outflows is the outdegree of a node. Usually, a higher
 degree of connectivity implies a higher likelihood for information (relevant
 data to the network) to pass through that node.  
-
 \paragraph{Network Centrality:} Centrality refers to the significance of a node
 in the network. i.e., how important the node is in the overall network. The
 degree of connectivity is one way to measure centrality of a node. Similarly,
@@ -682,7 +812,6 @@ overall structure of the graph. i.e., Network topology that shows how
 constituent parts are interconnected to form the graph as a whole. They can
 form ring, star, tree, or mesh structure or be a fully connected graph where
 each node are connected to each other.
-
 %\subsection{Ethereum specific concepts}
 
 
