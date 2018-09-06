@@ -266,20 +266,19 @@ underlying serialization algorithm. A hash function is then applied to this
 serialized message. The signature on this hash value is created by using the
 signature algorithm of the blockchain. In case of
 ethereum~\footnote{https://www.ethereum.org/}, Alice would compute the ECDSA
-signature. This signature (or the components) is appended to the transaction
-and Alice can then submit this transaction over to the blockchain network. When
-the transaction gets broadcasted, there are some special nodes
-(miner/validator) that are supposed to pick this transaction and put it in a
-block. After this happens, the transaction can be seen and verified by anyone
-on the public blockchain network. If Bob or anyone wants to verify the
-signature, they need to provide the signature, serialized transaction, and the
-public key of Alice to the signature verification function. Alice can always
-prove that she owns the public key because she owns the corresponding private
-key that generated the signature. The transaction message is unalterable since
-any modification to the message would refute the signature.  The explanation
-above provides a high-level overview of the signing process.  Concepts such as
-data serialization and transaction validation are discussed in detail by
-section~\ref{subsec:consensus}.
+signature. This signature (components) is appended to the transaction and Alice
+can then submit this transaction over to the blockchain network. When the
+transaction gets broadcasted, there are some special nodes (miner/validator)
+that are supposed to pick this transaction and put it in a block. After this
+happens, the transaction can be seen and verified by anyone on the public
+blockchain network. If Bob or anyone wants to verify the signature, they need
+to provide the signature, serialized transaction, and the public key of Alice
+to the signature verification function. The public key of Alice can be derived
+from the ECDSA signature she created. Alice can always prove that she owns the
+public key because she owns the corresponding private key that generated the
+signature. The transaction message is unalterable since any modification to the
+message would refute the signature. Data serialization and transaction
+validation are discussed in detail by section~\ref{subsec:consensus}.
 %A digital signature acts as an intermediary to prove that an entity A, has the
 %password without ever requiring A to reveal it. As discussed earlier,
 %public-key cryptography uses key-pairs that correspond with each other. In
@@ -334,67 +333,29 @@ section~\ref{subsec:consensus}.
 %characteristics~\cite{swan2015blockchain}. 
 % ~\cite{enoughBitcoinForEthereum}
 \section{Blockchain Technology} \label{sec:blockchain}
-Blockchain can be defined as a distributed record of transactions that lets
-anyone on the network to audit the state changes and prove with mathematical
-certainty that the transactions transpired according to the blockchain
-protocol. There exist several ways to define blockchain, and every definition
-is relevant to its specific use cases. A formal standard definition of
-blockchain is under development as ISO/TC 307~\cite{ISOTC307}. There are
-several blockchain platforms in operation today with varying design goals and
-principles. Bitcoin~\cite{Bitcoin_Satoshi} is believed to be the first
-application that made use of blockchain technology. However, the blockchain
-applications and platform have evolved since then, and not all current uses
-show similarity to the first application. The purpose of bitcoin as the first
-application was to have a P2P electronic cash system in an open, public,
-distributed, decentralized and trustless (without the need to trust the
-participating nodes and without a trusted intermediary) environment. The idea
-of digital cash had been around since the 1990's with cryptographer David Chaum
-discussing untraceable electronic cash~\cite{chaum1988untraceable}. However,
-bitcoin was able to solve the flaw of a digital cash scheme, namely double
-spending problem. i.e., if $A$ had $10$ units of digital cash and sent it to
-$B$, then $A$ should have this amount deducted from his account such that he is
-not able to spend the same amount again. Bitcoin solved this problem without
-the use of trusted intermediaries and without requiring participating entities
-to trust each other.  Similarly, it solved the Byzantine General's
-problem~\cite{lamport1982byzantine,miller2014anonymous} probabilistically by
-using Proof-Of-Work, which is a problem in distributed computing where several
-agents need to agree on a state over an unreliable network and without a
-trusted third party. Proof-Of-Work is discussed in more details by
-section~\ref{subsec:consensus} \par
-Examples of other platforms that extends bitcoin are
-Namecoin~\footnote{https://namecoin.org/}, which offers decentralized name
-resolution system, counterparty~\footnote{https://counterparty.io/}, which
-provides a platform for creating P2P financial applications. Hyperledger
-Fabric~\footnote{https://www.hyperledger.org/projects/fabric/} is an open
-source permissioned distributed ledger technology platform.
-Everledger~\footnote{https://www.everledger.io/} is a blockchain platform that
-provides a digital, global ledger to track and protect valuable assets.
-Ethereum is a programmable blockchain platform that offers a turing complete
-programming language and allows anyone to write smart contracts and execute
-code to change the blockchain state.  Ethereum was considered to be suitable
-for this project for its open source ecosystem and the availability of several
-test networks and active community of developers with updated resources.
-Therefore, this master's thesis project uses ethereum as a blockchain backend
-to write smart contracts and deploy the application.  For the sake of relevance
-to this project, solidity as the smart contract language, and ethereum as the
-blockchain is used as a point of view henceforth. Blockchain technology is a variant of a distributed database implemented on a P2P network. \par
-%Similarly,
-%ethereum~\cite{buterin2013ethereum} is a programmable blockchain platform that
-%offers a turing complete programming language~\cite{dannen2017introducing} and
-%allows anyone to write smart contracts and execute code to change the
-%blockchain state. Ethereum was considered to be suitable for this project for
-%its open source ecosystem and the availability of several test networks and
-%active community of developers with updated resources. Therefore, this master's
-%thesis project uses ethereum to write smart contracts and deploy the
-%application to the blockchain network. Examples of private blockchain platforms
-%are hyper ledger
-%fabric~\footnote{https://www.hyperledger.org/projects/fabric/},
-%Multichain~\footnote{https://www.multichain.com/} etc.\par
-%Blockchain technology is a variant of a distributed database implemented on a
-%P2P network. Every participating node in the network has the same copy of the
-%history of records of the database, and the consensus algorithm ensures that
-%everyone agrees to a single source of truth about the network state. 
-As mentioned by Antonopoulos, Andreas M., and Wood,
+Blockchain technology can be defined as a distributed record of transactions
+that lets anyone on the network to audit state changes and prove with
+mathematical certainty that the transactions transpired according to the
+blockchain protocol~\cite{enoughBitcoinForEthereum}. There are several ways to
+define blockchain, and every definition is relevant to its specific use cases.
+A formal standard definition of blockchain is under development as ISO/TC
+307~\cite{ISOTC307}. 
+%Blockchain technology can be defined as a distributed record of transactions
+%that lets anyone on the network to audit state changes and prove with
+%mathematical certainty that the transactions transpired according to the
+%blockchain protocol~\cite{enoughBitcoinForEthereum}. There are several ways to
+%define blockchain, and every definition is relevant to its specific use cases.
+%A formal standard definition of blockchain is under development as ISO/TC
+%307~\cite{ISOTC307}. Blockchain, as the name suggests is a chain of blocks.
+%This chain of blocks is cryptographically secure such that the information
+%stored in each block is immutable, verifiable (publicly verifiable in a public
+%blockchain network), distributed and decentralized over a P2P network. The
+%immutability along with decentralization attribute ensures that the data stored
+%on blockchain is tamper-resistant to external or internal modifications. Every
+%blockchain platform has a consensus algorithm to allow all participating nodes
+%to come into an agreement about a single source of truth about the data,
+%thereby ensuring data consistency.  \par
+As pointed out by Antonopoulos, Andreas M., and Wood,
 Gavin~\cite{MasteringEthereum}, the components that make up an open, public,
 blockchain are (usually):
 \begin{itemize}
@@ -416,21 +377,41 @@ blockchain are (usually):
 		proof-of-work plus block rewards) to economically secure the state
 		machine in an open environment.
 \end{itemize}
-%It is essentially a chain of blocks, as the name suggests.  Each block consists
-%of a list of transactions and the ordering of block shows the time at which the
-%particular block was added to the chain.  The data structure of blockchain is
-%analogous to singly linked list with each blocks having a hash value pointing
-%to the previous block. \par
-
-\paragraph{Transactions:} Transactions are signed messages that can be
-submitted by the originator and are collected and stored on blockchain network
-by miners. Miners are special nodes that have the computational resource to add
-transactions to the block. Miners collect the list of unconfirmed transactions
-(transactions that are submitted but not yet added to the block), finds the root
-hash of all transactions and attempts to find the solution to the cryptographic
-puzzle (e.g., Proof-Of-Work). The process of finding the hash value is given in
-section~\ref{subsec:consensus}.
-
+The participating nodes in the blockchain network have an account address that
+is associated with their public/private key pair. The accounts are identified
+by their public address and have a state which can be changed by a transaction.
+The transactions are signed messages that originate from a user account, signed
+by the private key of the account owner. Every transaction gets broadcasted to
+the network. There are validator nodes (nodes with enough computational
+resource to solve the cryptographic puzzle) who picks up the list of
+unconfirmed transactions, verifies and orders them into a block. The rules for
+proposing and adding a new block to the blockchain by the validator nodes
+depends on the consensus mechanism in use. Different types of consensus
+mechanisms are discussed in detail by Section~\ref{subsec:consensus}. If the
+network agrees on the proposed block based on the underlying consensus
+mechanism, then it gets added to existing blockchain with a hash pointer that
+links to the previous block. As such, blockchain offers a verifiable record of
+all the transactions that have occurred throughout the history of the
+blockchain all the way up to genesis block. Genesis block is the first block in
+blockchain and is the only block that has no parent hash associated with it. A
+block usually consists of transaction root hash (root hash of transactions
+included in the block), timestamp (to verify the time when the block got
+created), and parent hash (to refer to the parent of current block). Once the
+transactions are ordered and added to the blockchain, their immutability is
+guaranteed by the blockchain protocol. The illustration of a blockchain
+structure is given by Figure~\ref{BlockchainStructure}. As we can see that
+Block 10, Block 11 and Block 12 are chained together by a cryptographic hash
+and shows the chronological ordering of blocks. A malicious node attempting to
+change the transaction data in Block 11 will need to find a hash value
+equivalent to the associated transaction root with a modified transaction data.
+The second pre-image resistant property of a hash function ensures that finding
+such a value is computationally infeasible.  
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{Images/BlockchainStructure.eps}
+	\caption{BlockchainStructure}
+	\label{BlockchainStructure}
+\end{figure}
 %Blockchain technology is a variant of distributed database implemented on a P2P
 %network. Every participating node in the network has the same copy of history
 %of records of the database. Blockchain is essentially a chain of blocks, as the
@@ -460,7 +441,103 @@ section~\ref{subsec:consensus}.
 %~\cite{pilkington201611}
 %\subsection{Basic Concepts}
 %transaction, message, signature, broadcast, verify, network, miners, validate, write blocks 
-\subsection{Evolution \& Categories}
+%~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
+%types and their uses.
+\subsection{Consensus Mechanisms}\label{subsec:consensus}
+Blockchain, being a distributed database with multiple writers, should have a
+way for every node to reach a consensus on a shared global view of the network.
+Consensus mechanisms allow doing so. Based on consensus mechanisms, systems can
+be distinctly categorized into~\cite{HashgraphConsensusCategory}:
+\paragraph{Leader Based System:}In this case, there is a pre-selected leader
+that is responsible for collecting all the transactions and appending new
+records to the blockchain. Having a small group or consortium, it has low
+computational requirements. As a blockchain protocol, it offers an immutable
+audit of the records. However, just like any other centralized system, this
+system is susceptible to DDOS attacks and third-party (leader) interference.
+Since the address of the leader is known to the nodes of the network, it is
+also known to the attackers. This form of consensus mechanism is generally used
+in a private or permissioned blockchain setup. Examples include Hyperledger
+Fabric~\cite{androulaki2018hyperledger}, R3 Corda~\cite{brown2016corda}. It is
+important to note that, in Hyperledger Fabric, the entire transaction flow
+(proposal, endorsement, ordering, validation, and commitment of transactions)
+is considered to be part of the consensus
+algorithm~\cite{hyperledgerfabric,hyperledgerfabric2}, unlike in other systems
+where consensus relates to the ordering of transactions. However, it makes use
+of a leader election mechanism to elect a leader that is responsible for
+ordering transactions.
+\paragraph{Proof-Of-Work (PoW):}This is the most widely used consensus
+mechanism in a public permissionless setup. As the name suggests, a validator
+node (miners) needs to provide the proof to the network that it has done a
+significant amount of work. This work requires them to invest a substantial
+amount of computational resources. The reason for this is that all the
+validator nodes compete to be the writer of the next block for which they need
+to solve a cryptographic puzzle. The puzzle requires the miner to find a
+specific nonce value that is less than a target value. This target value is
+also known as difficulty target because it is responsible for setting the
+difficulty level of the block. Lower the difficulty target, higher is the
+difficulty of the puzzle. The difficulty level is adjusted based on the average
+block time between two blocks. As can be seen in
+Figure~\ref{fig:cryptographicPuzzle}, the hash function applied to the
+concatenation of transaction data and the nonce should be less than the
+specified difficulty target. An important attribute of a hash function is that
+a change in even a single bit of input data will completely change the output
+hash value. Therefore, the only way to find the nonce value that can generate
+an output hash less than the target value is by brute forcing multiple possible
+values. Thus, they have to compute many hash operations before finding the
+valid hash value that satisfies the function requirement. The first validator
+node to solve the problem gets to add the proposed block to the existing
+blockchain. In such a system, the selection of the validator node is random in
+that anyone among the competing node could be the first to solve the
+cryptographic puzzle. There is no way to know a priori, which node is going to
+be the writer of the next block. As such, this consensus mechanism makes the
+system DDOS resistant. However, miners in a PoW setup can decide upon the order
+of transactions to include in the block although they cannot modify the
+transaction data. As such, one may have to wait for few blocks before having
+their transactions confirmed and placed into the blockchain. The transaction
+order is agreed upon by the network when the proposed block by validator node
+is broadcasted and accepted by the network. The randomness in the cryptographic
+puzzle makes it rare for two validator nodes to solve a block at the same time.
+However, it is sometimes possible to reach such a situation leading into
+several branches of the blockchain. In which case, the nodes simply build upon
+the block that they first received. This situation gets solved when the next
+block is solved and one of the branches becomes longer over another. In which
+case, everyone switches to the longest branch. Given the rarity of such a
+situation, the blockchain is assumed to be eventually stabilized. Examples
+include Bitcoin~\cite{Bitcoin_Satoshi}, Ethereum~\cite{buterin2013ethereum}.
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
+	\caption{Cryptographic Puzzle}
+	\label{fig:cryptographicPuzzle}
+	\end{center}
+\end{figure}
+\paragraph{Economy based systems:}Consensus mechanisms such as Proof-Of-Stake
+or delegated proof-of-stake can be seen as an economy based system. Unlike PoW,
+miners do not compete with each other to be the writer of the next block thus
+saving lots of computational resources. The general idea is that participants
+can put the respective platform based native token they own at stake to
+validate a block. Whoever has the higher value at stake gets to be the writer
+of the next block. Compared to PoW, it is computationally efficient as it does
+not need to invest substantial resources. However, this also leads to the
+problem of nothing at stake~\cite{houy2014will}, i.e., a node could vouch for
+two forks of the same blockchain. With this setup, a user could try to double
+spend the amount they have to two different accounts, and two different forks
+would be validating them both. Examples include
+Casperr~\cite{buterin2017casper}. Casper tries to solve this problem by
+penalizing the node (destroy the stake) that is detected to have validated two
+blocks at the same height.
+%The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
+%applied to the block header and nonce to produce a verifiable fingerprint of
+%data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
+%was originally used in 1997 by Adam Back as a anti-spam system for the then
+%proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
+%sender of message would have to compute some number of sha operations before
+%sending the message.  The generated fingerprint could be checked by anyone to
+%see if the sender has actually done the required number of computations. If a
+%legitimate user sending out one email had to spend 'x' seconds to do the sha
+%operations, a malicious user intending to send thousands of emails had to spend
+%1000x seconds. \\
+\subsection{Categories}
 Along the dimension of validation and access control~\cite{voronchenko2017you},
 Blockchain can be categorized as a public permissionless system, public
 permissioned, and private permissioned. 
@@ -478,84 +555,6 @@ permissioned, and private permissioned.
 		business use-cases where one business does not need to know about other
 		business policies or customer information etc. 
 \end{itemize}
-%~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
-%types and their uses.
-\subsection{Consensus Mechanisms}\label{subsec:consensus}
-As a distributed database with multiple writers, there has to be a way for
-everyone to reach a consensus on a shared global view of the network. Consensus
-mechanisms allow doing so. Based on consensus mechanisms, systems can be
-distinctly categorized into~\cite{HashgraphConsensusCategory}:
-\paragraph{Leader Based System:} In this case, there is a pre-selected leader
-that collects all the transactions and appends new records to the blockchain.
-Having a small group or consortium, it has low computational requirements. As a
-blockchain protocol, it offers an immutable audit of the records. However, just
-like any other centralized system, this system is susceptible to DDOS attacks
-and third-party (leader) interference as the address of leader is known to all
-the nodes of the network, and also to the attackers. Generally used in a
-private or permissioned blockchain setup, it offers higher throughput compared
-to public permissionless blockchains. Examples include Hyperledger Fabric~\cite{androulaki2018hyperledger}, R3 Corda~\cite{brown2016corda}. 
-\paragraph{Proof-Of-Work (PoW):}This is the most widely
-used consensus mechanism in a public permissionless setup. As the name
-suggests, a validator node needs to provide the proof to the network that it
-has done a significant amount of work. This work requires miners to invest a
-substantial amount of computational resources. The reason for this is that
-everyone (all miners) compete to be the writer of the next block for which they
-need to solve a cryptographic puzzle. Figure~\ref{fig:cryptographicPuzzle}
-shows the process of finding a valid hash value. The miners are supposed to
-find a specific nonce value which when concatenated with the transaction data
-should output a hash value that is less than the specific target value. The
-nonce keeps incrementing until the output hash satisfies the function
-requirement. Thus, they have to compute many hash operations before finding the
-valid hash. When a valid hash is found, then the miner gets to add the block to
-the existing chain of blocks. All the blocks in the blockchain are formed by
-the same process except for the genesis block. Genesis block is the first block
-in the blockchain and therefore has no pointer to the previous block. Examples
-include Bitcoin~\cite{Bitcoin_Satoshi}, Ethereum~\cite{buterin2013ethereum}. The selection of validator node is random in that
-anyone among the competing node could be the first to solve the cryptographic
-puzzle. There is no way to know a priori, which node gets to be the writer of
-the next block. Thus, this consensus mechanism makes the system DDOS resistant
-as there is no one known node to direct the attack. However, miners can still
-decide upon the order of transactions to include in the block although they
-cannot modify the transaction. One may have to wait for few blocks before
-having their transactions confirmed and placed into the blockchain. The
-ordering of transactions, therefore, is not in the order of which they were
-received but in the order that was agreed upon by all the nodes in the network.
-i.e., whenever a validator node solves the cryptographic puzzle and proposes
-the block to the network, they agree on that particular ordering of transaction
-and start working on next block that can be associated with this one. 
-\begin{figure}
-	\begin{center}
-	\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
-	\caption{Cryptographic Puzzle}
-	\label{fig:cryptographicPuzzle}
-	\end{center}
-\end{figure}
-\paragraph{Economy based systems:}Consensus mechanisms such as Proof-of-stake
-or delegated proof-of-stake can be seen as an economy based system. Unlike PoW,
-miners do not compete with each other to be the writer of the next block thus
-saving lots of computational resources. The general idea is that participants
-can put the respective platform based native token they own at stake to
-validate a block. Whoever has the highest value at stake gets to write the next
-block. Compared to PoW, it is computationally efficient as it doesn't need to
-invest substantial resources. However, this also leads to the problem of
-nothing at stake~\cite{houy2014will}. i.e., a node could vouch for two forks of
-the same blockchain. With this setup, a user could try to double spend the
-amount they have to two different accounts, and two different forks would be
-validating them both. Example of such system include
-Casper~\cite{buterin2017casper}. Casper tries to solve this problem by
-penalizing the node (destroy the stake) that is detected to have validated two
-blocks at the same height.
-%The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
-%applied to the block header and nonce to produce a verifiable fingerprint of
-%data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
-%was originally used in 1997 by Adam Back as a anti-spam system for the then
-%proposed Hashcash~\cite{back2002hashcash}. The general idea being that the
-%sender of message would have to compute some number of sha operations before
-%sending the message.  The generated fingerprint could be checked by anyone to
-%see if the sender has actually done the required number of computations. If a
-%legitimate user sending out one email had to spend 'x' seconds to do the sha
-%operations, a malicious user intending to send thousands of emails had to spend
-%1000x seconds. \\
 \subsection{Smart contracts}
 A contract in a classical sense is a set of rules with pre-defined obligations
 and permissions that participants are assumed to follow. It does not
@@ -602,33 +601,33 @@ dispute~\cite{szabo1997formalizing}. \par
 Ethereum being the first platform to offer programmable blockchains, introduced
 a virtual machine, EVM (Ethereum Virtual Machine), where the contract code can
 be executed that results in a deterministic output provided the same
-transaction context and blockchain state~\cite{MasteringEthereum}}.  EVM often
+transaction context and blockchain state~\cite{MasteringEthereum}}. EVM often
 referred to as a single world computer, runs on every ethereum node and given
 the same initial state produces the same final state. Several high level
 languages can be used to write smartcontracts for different blockchain
-platforms. Examples include solidity, serpent, LLL.  Contract's code resides in
-the blockchain as an immutable form.  They are not autonomous self-executing
-programs but rather needs to be called by a transaction or invoked by other
-contracts. Once the code is registered and deployed on the blockchain, its code
-cannot be altered by anyone, including the owner of the contract. However, a
-possibility to include a killable function by the owner exists which when
-called executes an EVM opcode called SELFDESTRUCT and logically deletes the
-contract from the blockchain. Doing so doesn't delete the history of
-transactions as the blockchain itself is immutable. As in any Turing-complete
-language, it is affected by the halting problem. i.e., there is no way of
-knowing if the program will terminate given an input. In the case of a
-non-terminating program, a transaction that is transmitted to the network might
-run forever, and the whole network can be rendered useless if transactions
-cannot be processed. To avoid this, ethereum introduces the concept of gas,
-which is an expendable resource on the network that acts as a fundamental
-network cost unit. To store any state, or execute any operation, gas needs to
-be supplied. Thus, a program that has a bug or a non-terminating intention will
-eventually run out of gas and stop~\cite{whataresmartcontracts}. 
+platforms. Examples include solidity~\cite{SolidityDocs}, LLL~\cite{LLL}.
+Contract's code resides in the blockchain as an immutable form.  They are not
+autonomous self-executing programs but rather needs to be called by a
+transaction or invoked by other contracts. Once the code is registered and
+deployed on the blockchain, its code cannot be altered by anyone, including the
+owner of the contract. However, a possibility to include a killable function by
+the owner exists which when called executes an EVM opcode called SELFDESTRUCT
+and logically deletes the contract from the blockchain. Doing so doesn't delete
+the history of transactions as the blockchain itself is immutable. As in any
+Turing-complete language, it is affected by the halting problem. i.e., there is
+no way of knowing if the program will terminate given an input. In the case of
+a non-terminating program, a transaction that is transmitted to the network
+might run forever, and the whole network can be rendered useless if
+transactions cannot be processed. To avoid this, ethereum introduces the
+concept of gas, which is an expendable resource on the network that acts as a
+fundamental network cost unit. To store any state, or execute any operation,
+gas needs to be supplied. Thus, a program that has a bug or a non-terminating
+intention will eventually run out of gas and stop~\cite{whataresmartcontracts}. 
 %To address this, Ethereum introduces the concept of
 %gas. To store any state, or execute any operation, gas needs to be supplied.
 %Thus, a program that has a bug or a non-terminating intention will eventually
 %run out of gas and stop~\cite{whataresmartcontracts}.
-\subsection{Ethereum}
+\subsection{Ethereum} \label{subsec:ethereum}
 
 \section{Threat scenarios in trust and reputation systems}
 A reputation system should provide correct and reliable information such that

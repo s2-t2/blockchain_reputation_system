@@ -147,8 +147,8 @@
          familyi={E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{E1}
-    \strng{fullhash}{E1}
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Aug 17, 2018, [Online]. Available:
@@ -632,6 +632,247 @@
     \field{title}{An Algebra for Assessing Trust in Certification Chains.}
     \field{volume}{99}
     \field{year}{1999}
+  \endentry
+
+  \entry{Bitcoin_Satoshi}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Satoshi},
+         familyi={S\bibinitperiod},
+         given={Nakamoto},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Bitcoin}%
+    }
+    \strng{namehash}{SN1}
+    \strng{fullhash}{SN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
+  \url{https://bitcoin.org/bitcoin.pdf/}}
+    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+    \field{year}{Oct 31, 2008}
+  \endentry
+
+  \entry{chaum1988untraceable}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=CD}{%
+         family={Chaum},
+         familyi={C\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Fiat},
+         familyi={F\bibinitperiod},
+         given={Amos},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Naor},
+         familyi={N\bibinitperiod},
+         given={Moni},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CD+1}
+    \strng{fullhash}{CDFANM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Conference on the Theory and Application of Cryptography}
+    \field{pages}{319\bibrangedash 327}
+    \field{title}{Untraceable electronic cash}
+    \field{year}{1988}
+  \endentry
+
+  \entry{lamport1982byzantine}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LL}{%
+         family={Lamport},
+         familyi={L\bibinitperiod},
+         given={Leslie},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Shostak},
+         familyi={S\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Pease},
+         familyi={P\bibinitperiod},
+         given={Marshall},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{LL+1}
+    \strng{fullhash}{LLSRPM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{3}
+    \field{pages}{382\bibrangedash 401}
+    \field{title}{The Byzantine generals problem}
+    \field{volume}{4}
+    \field{journaltitle}{ACM Transactions on Programming Languages and Systems
+  (TOPLAS)}
+    \field{year}{1982}
+  \endentry
+
+  \entry{miller2014anonymous}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MA}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LJJJ}{%
+         family={LaViola\bibnamedelima Jr},
+         familyi={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+         given={Joseph\bibnamedelima J},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MALJJJ1}
+    \strng{fullhash}{MALJJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Anonymous byzantine consensus from moderately-hard puzzles: A
+  model for bitcoin}
+    \field{journaltitle}{Available on line: http://nakamotoinstitute.
+  org/research/anonymous-byzantine-consensus}
+    \field{year}{2014}
+  \endentry
+
+  \entry{kalodner2015empirical}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=KHA}{%
+         family={Kalodner},
+         familyi={K\bibinitperiod},
+         given={Harry\bibnamedelima A},
+         giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Carlsten},
+         familyi={C\bibinitperiod},
+         given={Miles},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=EP}{%
+         family={Ellenbogen},
+         familyi={E\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Bonneau},
+         familyi={B\bibinitperiod},
+         given={Joseph},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=NA}{%
+         family={Narayanan},
+         familyi={N\bibinitperiod},
+         given={Arvind},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Citeseer}%
+    }
+    \strng{namehash}{KHA+1}
+    \strng{fullhash}{KHACMEPBJNA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{WEIS}
+    \field{title}{An Empirical Study of Namecoin and Lessons for Decentralized
+  Namespace Design.}
+    \field{year}{2015}
+  \endentry
+
+  \entry{cachin2016architecture}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=CC}{%
+         family={Cachin},
+         familyi={C\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CC1}
+    \strng{fullhash}{CC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Workshop on Distributed Cryptocurrencies and Consensus
+  Ledgers}
+    \field{title}{Architecture of the hyperledger blockchain fabric}
+    \field{volume}{310}
+    \field{year}{2016}
+  \endentry
+
+  \entry{lomas2015everledger}{article}{}
+    \name{author}{1}{}{%
+      {{hash=LN}{%
+         family={Lomas},
+         familyi={L\bibinitperiod},
+         given={Natasha},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LN1}
+    \strng{fullhash}{LN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Everledger is using blockchain to combat fraud, starting with
+  diamonds}
+    \field{journaltitle}{URL: https://techcrunch. com/2015/06/29/everledger}
+    \field{year}{2015}
+  \endentry
+
+  \entry{wood2014ethereum}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WG}{%
+         family={Wood},
+         familyi={W\bibinitperiod},
+         given={Gavin},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WG1}
+    \strng{fullhash}{WG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{pages}{1\bibrangedash 32}
+    \field{title}{Ethereum: A secure decentralised generalised transaction
+  ledger}
+    \field{volume}{151}
+    \field{journaltitle}{Ethereum project yellow paper}
+    \field{year}{2014}
+  \endentry
+
+  \entry{SolidityDocs}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 31, 2018, [Online]. Available:
+  \url{{https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html}}}
+    \field{title}{Introduction to Smart Contracts}
+    \field{year}{2016-2018}
+  \endentry
+
+  \entry{TendermintDocs}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 31, 2018, [Online]. Available:
+  \url{{https://github.com/tendermint/tendermint/blob/master/docs/introduction/introduction.md}}}
+    \field{title}{What is Tendermint?}
+    \field{year}{2018}
   \endentry
 
   \entry{kosba2016hawk}{inproceedings}{}
@@ -1202,6 +1443,28 @@
   Scripting}
   \endentry
 
+  \entry{enoughBitcoinForEthereum}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=MG}{%
+         family={Mike},
+         familyi={M\bibinitperiod},
+         given={Goldin},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Consensys}%
+    }
+    \strng{namehash}{MG1}
+    \strng{fullhash}{MG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
+  \url{https://media.consensys.net/time-sure-does-fly-ed4518792679/}}
+    \field{title}{Just Enough Bitcoin for Ethereum}
+    \field{year}{Oct 12, 2015}
+  \endentry
+
   \entry{ISOTC307}{inproceedings}{}
     \field{labeltitlesource}{title}
     \field{note}{ISO/TC 307}
@@ -1214,125 +1477,6 @@
     }
     \field{type}{Standard}
     \field{year}{2016}
-  \endentry
-
-  \entry{Bitcoin_Satoshi}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=SN}{%
-         family={Satoshi},
-         familyi={S\bibinitperiod},
-         given={Nakamoto},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Bitcoin}%
-    }
-    \strng{namehash}{SN1}
-    \strng{fullhash}{SN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
-  \url{https://bitcoin.org/bitcoin.pdf/}}
-    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
-    \field{year}{Oct 31, 2008}
-  \endentry
-
-  \entry{chaum1988untraceable}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=CD}{%
-         family={Chaum},
-         familyi={C\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=FA}{%
-         family={Fiat},
-         familyi={F\bibinitperiod},
-         given={Amos},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=NM}{%
-         family={Naor},
-         familyi={N\bibinitperiod},
-         given={Moni},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Springer}%
-    }
-    \strng{namehash}{CD+1}
-    \strng{fullhash}{CDFANM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{Conference on the Theory and Application of Cryptography}
-    \field{pages}{319\bibrangedash 327}
-    \field{title}{Untraceable electronic cash}
-    \field{year}{1988}
-  \endentry
-
-  \entry{lamport1982byzantine}{article}{}
-    \name{author}{3}{}{%
-      {{hash=LL}{%
-         family={Lamport},
-         familyi={L\bibinitperiod},
-         given={Leslie},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=SR}{%
-         family={Shostak},
-         familyi={S\bibinitperiod},
-         given={Robert},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=PM}{%
-         family={Pease},
-         familyi={P\bibinitperiod},
-         given={Marshall},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {ACM}%
-    }
-    \strng{namehash}{LL+1}
-    \strng{fullhash}{LLSRPM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{3}
-    \field{pages}{382\bibrangedash 401}
-    \field{title}{The Byzantine generals problem}
-    \field{volume}{4}
-    \field{journaltitle}{ACM Transactions on Programming Languages and Systems
-  (TOPLAS)}
-    \field{year}{1982}
-  \endentry
-
-  \entry{miller2014anonymous}{article}{}
-    \name{author}{2}{}{%
-      {{hash=MA}{%
-         family={Miller},
-         familyi={M\bibinitperiod},
-         given={Andrew},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=LJJJ}{%
-         family={LaViola\bibnamedelima Jr},
-         familyi={L\bibinitperiod\bibinitdelim J\bibinitperiod},
-         given={Joseph\bibnamedelima J},
-         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MALJJJ1}
-    \strng{fullhash}{MALJJJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Anonymous byzantine consensus from moderately-hard puzzles: A
-  model for bitcoin}
-    \field{journaltitle}{Available on line: http://nakamotoinstitute.
-  org/research/anonymous-byzantine-consensus}
-    \field{year}{2014}
   \endentry
 
   \entry{MasteringEthereum}{book}{}
@@ -1353,23 +1497,6 @@
     \field{labeltitlesource}{title}
     \field{subtitle}{Building Smart Contracts and Dapps}
     \field{title}{MASTERING ETHEREUM}
-    \field{year}{2017}
-  \endentry
-
-  \entry{voronchenko2017you}{article}{}
-    \name{author}{1}{}{%
-      {{hash=VK}{%
-         family={Voronchenko},
-         familyi={V\bibinitperiod},
-         given={Kyrylo},
-         giveni={K\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{VK1}
-    \strng{fullhash}{VK1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Do you need a Blockchain?}
     \field{year}{2017}
   \endentry
 
@@ -1495,6 +1622,44 @@
     \field{year}{2016}
   \endentry
 
+  \entry{hyperledgerfabric}{online}{}
+    \name{author}{1}{}{%
+      {{hash=FH}{%
+         family={Fabric},
+         familyi={F\bibinitperiod},
+         given={Hyperledger},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FH1}
+    \strng{fullhash}{FH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 31, 2018, [Online]. Available:
+  \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/gossip.html}}}
+    \field{title}{Gossip data dissemination protocol}
+    \field{year}{2017}
+  \endentry
+
+  \entry{hyperledgerfabric2}{online}{}
+    \name{author}{1}{}{%
+      {{hash=FH}{%
+         family={Fabric},
+         familyi={F\bibinitperiod},
+         given={Hyperledger},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FH1}
+    \strng{fullhash}{FH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 31, 2018, [Online]. Available:
+  \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/fabric_model.html}}}
+    \field{title}{HyperLedger Fabric Model}
+    \field{year}{2017}
+  \endentry
+
   \entry{buterin2013ethereum}{article}{}
     \true{moreauthor}
     \name{author}{1}{}{%
@@ -1556,6 +1721,23 @@
     \field{year}{2017}
   \endentry
 
+  \entry{voronchenko2017you}{article}{}
+    \name{author}{1}{}{%
+      {{hash=VK}{%
+         family={Voronchenko},
+         familyi={V\bibinitperiod},
+         given={Kyrylo},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VK1}
+    \strng{fullhash}{VK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Do you need a Blockchain?}
+    \field{year}{2017}
+  \endentry
+
   \entry{SzaboSmart1994}{misc}{}
     \name{author}{1}{}{%
       {{hash=SN}{%
@@ -1612,6 +1794,14 @@
     \field{year}{1997}
   \endentry
 
+  \entry{LLL}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Aug 31, 2018, [Online]. Available:
+  \url{{https://lll-docs.readthedocs.io/en/latest/lll_introduction.html}}}
+    \field{title}{LLL Introduction}
+    \field{year}{2017}
+  \endentry
+
   \entry{whataresmartcontracts}{misc}{}
     \list{organization}{1}{%
       {ChainFrog}%
@@ -1660,21 +1850,34 @@
   \endentry
 
   \entry{marmol2009security}{article}{}
-    \name{author}{1}{}{%
-      {{hash=BS}{%
-         family={Brown},
-         familyi={B\bibinitperiod},
-         given={Simon},
-         giveni={S\bibinitperiod},
+    \name{author}{2}{}{%
+      {{hash=MFG}{%
+         family={M{\'a}rmol},
+         familyi={M\bibinitperiod},
+         given={F{\'e}lix\bibnamedelima G{\'o}mez},
+         giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=PGM}{%
+         family={P{\'e}rez},
+         familyi={P\bibinitperiod},
+         given={Gregorio\bibnamedelima Mart{\'\i}nez},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BS1}
-    \strng{fullhash}{BS1}
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{MFGPGM1}
+    \strng{fullhash}{MFGPGM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Software Architecture for Developers}
-    \field{journaltitle}{Coding the Architecture}
-    \field{year}{2013}
+    \field{number}{7}
+    \field{pages}{545\bibrangedash 556}
+    \field{title}{Security threats scenarios in trust and reputation models for
+  distributed systems}
+    \field{volume}{28}
+    \field{journaltitle}{computers \& security}
+    \field{year}{2009}
   \endentry
 
   \entry{feldman2006free}{article}{}
@@ -1808,22 +2011,201 @@
     \field{year}{2014}
   \endentry
 
-  \entry{brown2013software}{article}{}
+  \entry{cohn2004user}{book}{}
     \name{author}{1}{}{%
-      {{hash=BS}{%
-         family={Brown},
+      {{hash=CM}{%
+         family={Cohn},
+         familyi={C\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Addison-Wesley Professional}%
+    }
+    \strng{namehash}{CM1}
+    \strng{fullhash}{CM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{User stories applied: For agile software development}
+    \field{year}{2004}
+  \endentry
+
+  \entry{agile1}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BM}{%
+         family={BERTEIG},
          familyi={B\bibinitperiod},
-         given={Simon},
+         given={MISHKIN},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM1}
+    \strng{fullhash}{BM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 03, 2018, [Online]. Available:
+  \url{{http://www.agileadvice.com/2014/03/06/referenceinformation/user-stories-and-story-splitting/}}}
+    \field{title}{USER STORIES AND STORY SPLITTING}
+    \field{year}{2014}
+  \endentry
+
+  \entry{soliditySecurity}{article}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Ethereum},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 03, 2018, [Online]. Available:
+  \url{https://solidity.readthedocs.io/en/v0.4.24/security-considerations.html}}
+    \field{title}{Security Considerations}
+  \endentry
+
+  \entry{solidityBugs}{article}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Ethereum},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 03, 2018, [Online]. Available:
+  \url{https://solidity.readthedocs.io/en/v0.4.24/bugs.html#known-bugs}}
+    \field{title}{List of Known Bugs}
+  \endentry
+
+  \entry{christianson1996isn}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CB}{%
+         family={Christianson},
+         familyi={C\bibinitperiod},
+         given={Bruce},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HWS}{%
+         family={Harbison},
+         familyi={H\bibinitperiod},
+         given={William\bibnamedelima S},
+         giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CBHWS1}
+    \strng{fullhash}{CBHWS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{International workshop on security protocols}
+    \field{pages}{171\bibrangedash 176}
+    \field{title}{Why isn't trust transitive?}
+    \field{year}{1996}
+  \endentry
+
+  \entry{myerson2013game}{book}{}
+    \name{author}{1}{}{%
+      {{hash=MRB}{%
+         family={Myerson},
+         familyi={M\bibinitperiod},
+         given={Roger\bibnamedelima B},
+         giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Harvard university press}%
+    }
+    \strng{namehash}{MRB1}
+    \strng{fullhash}{MRB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Game theory}
+    \field{year}{2013}
+  \endentry
+
+  \entry{hill2003social}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HRA}{%
+         family={Hill},
+         familyi={H\bibinitperiod},
+         given={Russell\bibnamedelima A},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=DRI}{%
+         family={Dunbar},
+         familyi={D\bibinitperiod},
+         given={Robin\bibnamedelima IM},
+         giveni={R\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{HRADRI1}
+    \strng{fullhash}{HRADRI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{53\bibrangedash 72}
+    \field{title}{Social network size in humans}
+    \field{volume}{14}
+    \field{journaltitle}{Human nature}
+    \field{year}{2003}
+  \endentry
+
+  \entry{dunbar2016online}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DRI}{%
+         family={Dunbar},
+         familyi={D\bibinitperiod},
+         given={Robin\bibnamedelima IM},
+         giveni={R\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The Royal Society}%
+    }
+    \strng{namehash}{DRI1}
+    \strng{fullhash}{DRI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{150292}
+    \field{title}{Do online social media cut through the constraints that limit
+  the size of offline social networks?}
+    \field{volume}{3}
+    \field{journaltitle}{Royal Society Open Science}
+    \field{year}{2016}
+  \endentry
+
+  \entry{johann2015software}{article}{}
+    \name{author}{1}{}{%
+      {{hash=JS}{%
+         family={Johann},
+         familyi={J\bibinitperiod},
+         given={Sven},
          giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BS1}
-    \strng{fullhash}{BS1}
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{JS1}
+    \strng{fullhash}{JS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Software Architecture for Developers}
-    \field{journaltitle}{Coding the Architecture}
-    \field{year}{2013}
+    \field{number}{5}
+    \field{pages}{93\bibrangedash 96}
+    \field{title}{Software architecture for developers}
+    \field{journaltitle}{IEEE Software}
+    \field{year}{2015}
   \endentry
 
   \entry{alharby2017blockchain}{article}{}

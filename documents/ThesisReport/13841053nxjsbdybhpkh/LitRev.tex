@@ -89,7 +89,7 @@ fuzzy value. Ratings can be specified by a range of values on a scale, such as
 trustworthy. Rankings are expressed in a relative way, such that a higher value
 means higher trustworthiness. The probability of a trust value represents the
 probability that an agent will behave as expected. Beliefs and fuzzy semantics
-are based on probability theory or belief theory.  Abdul-Rahman, Alfarez, and
+are based on probability theory or belief theory. Abdul-Rahman, Alfarez, and
 Stephen Hailes~\cite{abdul2000supporting} mentions in their research that trust
 is dynamic and non-monotonic, i.e., additional evidence or experience with an
 entity can either increase or decrease the degree of trust in another agent.
@@ -106,7 +106,7 @@ direct trust experience and recommender trust experience. PGP trust
 model~\cite{abdul1997pgp} employs a web of trust approach instead of a
 centralized trusted authority for deriving certainty of the owner of a public
 key. Users sign each other's key that they know is authentic and this process
-helps to build a web of trust in and across communities. The two areas where
+helps to build a web of trust. The two areas where
 trust is explicit in PGP are trustworthiness of public-key certificate and
 trustworthiness of introducer. Trustworthiness of introducer refers to the
 ability to trust the public key in being the signer of another public key. The
@@ -118,13 +118,64 @@ the introducer is given by \{full, marginal, untrustworthy\}. In this case, full
 refers to the user's full confidence in the key being able to introduce another
 public key, marginal refers to uncertainty if the public key is fully
 competent, and untrustworthy represents that the key cannot be trusted to
-introduce another public key.  Jøsang, Audun~\cite{josang1999algebra}, proposes
+introduce another public key. Jøsang, Audun~\cite{josang1999algebra}, proposes
 the trust model that uses subjective logic to bind keys and their owners in
 public key infrastructure. 
 
-
-
-
+\section{Blockchain applications}
+Section~\ref{sec:blockchain} provides the technical details and discussion on
+blockchain technology. This section aims to discuss the applications and use
+cases of the technology and explain its relevance to the project. \par
+The significant attributes that constitute the blockchain are distributed,
+decentralized and time-stamped transactions that are stored in a
+cryptographically secure manner such that they are immutable and verifiable.
+There are several use cases and applications that require these attributes to
+implement a secure system. Trust and reputation system is one example. As
+mentioned earlier, the formulation and storage of reputation information need
+to be secure enough so that participants can rely on it. Verifiable information
+aids in predicting the outcome of a transaction correctly. \par
+There are several blockchain platforms in operation today that allow for the
+creation of distributed and decentralized applications. Based on the use case,
+they vary in design goals and principles. Bitcoin~\cite{Bitcoin_Satoshi} is
+believed to be the first application that made use of blockchain technology.
+The purpose of bitcoin as the first application was to have a P2P electronic
+cash system in an open, public, distributed, decentralized and trustless
+(without the need to trust the participating nodes and without a trusted
+intermediary) environment. The idea of digital cash had been around since the
+1990's with cryptographer David Chaum discussing untraceable electronic
+cash~\cite{chaum1988untraceable}. However, bitcoin was able to solve the flaw
+of a digital cash scheme, namely double spending problem. i.e., if $A$ had $10$
+units of digital cash and sent it to $B$, then $A$ should have this amount
+deducted from his account such that he is not able to spend the same amount
+again. Bitcoin solved this problem without the use of trusted intermediaries
+and without requiring participating entities to trust each other. Similarly, it
+solved the Byzantine General's
+problem~\cite{lamport1982byzantine,miller2014anonymous} probabilistically by
+using Proof-Of-Work, which is a problem in distributed computing where several
+agents need to agree on a state over an unreliable network and without a
+trusted third party. Proof-of-work is discussed in more details by
+section~\ref{subsec:consensus}. Examples of other platforms that extends
+bitcoin are Namecoin~\cite{kalodner2015empirical}, which offers decentralized
+name resolution system, counterparty~\footnote{https://counterparty.io/docs/},
+which provides a platform for creating P2P financial applications. Hyperledger
+Fabric~\cite{cachin2016architecture} is an open source permissioned distributed
+ledger technology platform that allows the applications to have blockchain
+components as a plug-and-play.  Everledger~\cite{lomas2015everledger} is a
+blockchain platform that provides a digital, global ledger to track and protect
+valuable assets. Ethereum~\cite{wood2014ethereum} is a programmable blockchain
+platform that offers a Turing complete programming language and allows anyone
+to write smart contracts and execute code to change the blockchain state.
+Ethereum was considered to be suitable for this project for its open source
+ecosystem and the availability of several test networks and active community of
+developers with updated resources. Similarly, solidity~\cite{SolidityDocs} is a
+smart contract language employed by various blockchain platforms such as
+Ethereum~\cite{wood2014ethereum}, Tendermint~\cite{TendermintDocs},
+Counterparty. Therefore, this master's thesis project uses ethereum as a
+blockchain backend and solidity to write smart contracts and deploy the
+application. 
+%For the sake of relevance to this project, solidity as the smart
+%contract language, and ethereum as the blockchain is used as a point of view
+%henceforth. 
 %Another blockchain based appro
 %\cite{dennis2015rep} 
 
