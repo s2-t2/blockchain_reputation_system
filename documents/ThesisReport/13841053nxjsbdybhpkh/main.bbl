@@ -2185,27 +2185,40 @@
     \field{year}{2016}
   \endentry
 
-  \entry{johann2015software}{article}{}
+  \entry{zeppelin-solidity}{online}{}
     \name{author}{1}{}{%
-      {{hash=JS}{%
-         family={Johann},
-         familyi={J\bibinitperiod},
-         given={Sven},
-         giveni={S\bibinitperiod},
+      {{hash=SSC}{%
+         family={Solutions},
+         familyi={S\bibinitperiod},
+         given={Smart\bibnamedelima Contract},
+         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{JS1}
-    \strng{fullhash}{JS1}
+    \strng{namehash}{SSC1}
+    \strng{fullhash}{SSC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{number}{5}
-    \field{pages}{93\bibrangedash 96}
-    \field{title}{Software architecture for developers}
-    \field{journaltitle}{IEEE Software}
-    \field{year}{2015}
+    \field{note}{Accessed Sep 05, 2018, [Online]. Available:
+  \url{https://openzeppelin.org/api/docs/open-zeppelin.html/}}
+    \field{title}{zeppelin-solidity, Docs}
+    \field{year}{2016}
+  \endentry
+
+  \entry{web3}{online}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Ethereum},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 05, 2018, [Online]. Available:
+  \url{{https://web3js.readthedocs.io/en/1.0/}}}
+    \field{title}{web3.js - Ethereum JavaScript API}
+    \field{year}{2016}
   \endentry
 
   \entry{alharby2017blockchain}{article}{}

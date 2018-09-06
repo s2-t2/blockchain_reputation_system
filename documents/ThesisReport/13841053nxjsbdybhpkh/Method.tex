@@ -424,27 +424,105 @@ only receiving from their pseudo identity that does not have too many
 connections, then the impact is ignorant and thus not worth the effort.
 
 \section{Implementation}
-This section aims to present the implementation aspects of the endorsement
-system. The initiation of endorsement transactions by users through client
-application to the execution of contract code that changes blockchain state is
-presented. Several components make up the endorsement system, each of which is
-discussed in detail by the sections that follow. 
+There are several components that make up the endorsement system. The process
+of sending the endorsement transaction from the client's browser to executing
+the contract code that can change the blockchain state is discussed in this
+section. It concludes with the discussion on storage of data and variables,
+blockchain network and consensus mechanism.
 
-\subsection{System architecture} \label{subsec:architecture}
-To visualize the software system, architectural model by Shaw M, Garlan
-D~\cite{johann2015software} is used. It recommends the use of three layers to
-visualize a software architecture, i.e., the context layer, the container
-layer, and the component layer. The context layer shows the user interaction
-with the endorsement system. The container layer entails all the components
-that make up the endorsement system. The component layer individually discusses
-the components presented in the container layer. The
-Figure~\ref{fig:SystemContainer} in Section~\ref{subsec:architecture}
-illustrates the components that make up the endorsement system. 
+\subsection{Smart contracts} \label{subsec:smartcontracts}
+The process of starting up the node and deploying the contract to the
+blockchain network is given by Figure~\ref{fig:startup}. To compile the
+solidity code, solc~\cite{} compiler can be used. A successful compilation will
+give a binary representation of compiled EVM bytecodes and an ABI (Application
+Binary Interface). The binary output can be deployed to the blockchain network,
+after which the contract will get an address and the bytecode is stored on
+ethereum. ABI is a .json file that acts as a layer of translation for
+interacting with the deployed smart contracts and calling the functions. We can
+then start invoking contract's code using web3 API. For the compilation script
+and list of smart contracts, the reader is directed to
+Appendix~\ref{smartcontracts} and~\ref{ethapplication}. A single contract that
+includes all the functionalities of the endorsement system is written as an
+endorsement contract. Other contracts to set the owner of the contract and
+allow the possibility to kill it is based on recommendations from
+zeppelin-solidity~\cite{zeppelin-solidity} and its reusable code. \par
 \begin{figure}
-	\includegraphics[width=0.9\textwidth]{Images/2Container.eps}
-	\caption{Container Layer}
-	\label{fig:SystemContainer}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Images/DeployContract.eps}
+	\caption{Deploy solidity contract on the blockchain network}
+	\label{fig:startup}
 \end{figure}
+The list of contracts written for the endorsement system and its
+functionalities are: 
+\paragraph{Ownable:} tracks the owner of the contract by setting the address of
+owner.
+address.
+\paragraph{Killable:}inherits from Ownable and allows the owner of the contract
+to destroy the contract.
+\paragraph{Endorsement:}inherits from Ownable and killable. It specifies the
+core logic of the endorsement system. The method to join endorsement network,
+make endorsement interactions and request trust score of an entity are separate
+functionalities of this contract. Each of these methods is discussed below. 
+\paragraph{New participants:}sets participant and stores their information.
+It maintains the records of all the participants and an index to access/query
+their information. When a user invokes the code to join the endorsement
+network, it stores the address of the user account that initiated the call and
+sets it as the participant. An index to access each participant is maintained
+that can be used to query the state. 
+\paragraph{Endorsement:}allows participants to send endorsement transaction to
+the network. When the endorsed method is invoked by a user account, the state
+variables ~\ac{nEG} on the account that initiated the transaction gets
+incremented. Similarly, the ~\ac{nER} for the account specified by the
+transaction data. The list of endorsers and endorsees is updated for both the
+accounts. 
+\paragraph{ComputeImpact:} allows anyone to compute the total endorsement
+impact given the address of a participant. When this method is invoked, the
+\ac{TRP} for the given participant is calculated by accumulatively summing the
+\ac{CP} of the list of endorsers.  
+\subsection{Client Application} \label{clientapp}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{Images/ClientApplication.eps}
+	\caption{Client Application}
+	\label{fig:ClientApp}
+\end{figure}
+The interaction between the client application and ethereum nodes is given by
+Figure~\ref{fig:ClientApp} in Section~\ref{clientapp}.
+Reactjs~\footnote{https://reactjs.org/} was used for front-end development of
+endorsement application. The endorsement contract that performs the endorsement
+logic was deployed to Ethereum test network,
+Rinkeby~\footnote{https://www.rinkeby.io/#explorer} which can be accessed
+publicly and the deployment steps can be seen in Appendix~\ref{ethapplication}.
+The client application makes use of web3~\cite{web3}, which is a javascript API
+that allows clients to interact with a local or remote ethereum node. A user
+willing to interact with the endorsement system can submit the transaction via
+a client application. The client application retrieves the required detail of
+the user from the key store, and signs the message with users private key and
+submit the transactions over to the client node. The client node executes the
+contract code that corresponds with the transaction message. A successful
+execution of the contract method would change the relevant states. One of the
+miner nodes would pick this transaction, broadcast it over to the blockchain
+network, and the transaction thus stays as an immutable and publicly verifiable
+information in the blockchain. 
+
+
+
+%\begin{figure}
+%	\includegraphics[width=0.9\textwidth]{Images/2Container.eps}
+%	\caption{Container Layer}
+%	\label{fig:SystemContainer}
+%\end{figure}
+%\paragraph{Context Layer} \label{Contextlayer}
+%The users (endorsers or endorsees) can communicate with the endorsement system
+%via the client application that has web3 enabled. web3~\cite{web3} allows users
+%to interact with local or remote ethereum node, using HTTP or IPC connection.
+%Users can sign the transaction (e.g., send endorsement, remove endorsement)
+%using their private key and submit it via web3 to the endorsement system. The
+%endorsement system executes the specific contract code and changes the
+%blockchain state accordingly. The user interaction with the endorsement system
+%to show context layer is given by Figure~\ref{fig:context}. 
+%\paragraph{Container Layer} \label{Containerlayer}
+%\subsubsection{Components Layer} \label{Componentlayer}
 
 %\subsection{Formalization}
 %The endorsement network as a distributed system can be formally defined by : 
@@ -465,55 +543,27 @@ illustrates the components that make up the endorsement system.
 %	\caption{Activity diagram for removing endorsement}
 %	\label{fig:removeEds}
 %\end{figure}
-\subsection{SmartContract} 
-Smart contracts can be either deterministic which doesn't require any
-information from outside blockchain or non-deterministic which does need to get
-oracles from external sources\cite{alharby2017blockchain}. For this PoC,
-endorsement contract is deterministic and so all the data and variables
-required are stored and executed on the blockchain. \\
-Figure ~\ref{fig:smartcontracts}, represents the system of smart contracts as a
-way to visualize the component layer and is based on \cite{delmolino2016step}. 
-The main contracts written for this PoC are : 
-\begin{itemize}
-	\item Ownable: tracks the owner of the contract. i.e., the creator of
-		contract. 
-	\item killable: inherits from ownable and can be killed by owner only. 
-	\item Participants: set participant and store their information. An index
-		to access each participant. 
-	\item Endorsement: It inherits from participants and can be called by
-		participants only. Endorsement contract handles the core logic of
-		endorsement system, accesses/queries addresses from Participants and is
-		used for storage of data along with CRUD operations on them.  
-	\item Computation: inherits from Endorsement contract and allows anyone to
-		get the final score by accessing the current state from an Endorsement
-		contract.
-	\item Marketplace: stores the buyers, sellers information and allows them
-		to buy or sell the product. Also, allows buyer/seller to compute the
-		score of the involved entity before doing a transaction.  
-\end{itemize}
-'Marketplace' contract was written to test the endorsement network on a
-transactional network. However, when deploying endorsement system in the real
-world, other transactional network/online systems are assumed to have their
-reputation platform. The reputation platform should have assigned a score to
-the corresponding users based on the behavior on that network. The endorsement
-system can act as additional conformity for deciding on a transaction. Say,
-Alice is registered on Endorsement network and has made a decent score. If she
-wants to sell a product on Marketplace(or any other transactional network), she
-can claim about her score and anyone who wants to buy from Alice can verify the
-claim by checking the score that corresponds to her public address. If both
-Alice and buyer are registered on the endorsement network on the blockchain,
-they can send a pre-transaction message to each other to verify that Alice is
-who she claims to be and vice-versa. In case the buyer is not registered on the
-endorsement network then Alice can prove the claim by signing a cryptographic
-challenge with her private key. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
-	\caption{Smart contract system}
-	\label{fig:smartcontracts}
-\end{figure}
-
+%'Marketplace' contract was written to test the endorsement network on a
+%transactional network. However, when deploying endorsement system in the real
+%world, other transactional network/online systems are assumed to have their
+%reputation platform. The reputation platform should have assigned a score to
+%the corresponding users based on the behavior on that network. The endorsement
+%system can act as additional conformity for deciding on a transaction. Say,
+%Alice is registered on Endorsement network and has made a decent score. If she
+%wants to sell a product on Marketplace(or any other transactional network), she
+%can claim about her score and anyone who wants to buy from Alice can verify the
+%claim by checking the score that corresponds to her public address. If both
+%Alice and buyer are registered on the endorsement network on the blockchain,
+%they can send a pre-transaction message to each other to verify that Alice is
+%who she claims to be and vice-versa. In case the buyer is not registered on the
+%endorsement network then Alice can prove the claim by signing a cryptographic
+%challenge with her private key. 
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1.0\textwidth]{Images/SmartContractsEDSMarketPlace.eps}
+%	\caption{Smart contract system}
+%	\label{fig:smartcontracts}
+%\end{figure}
 
 \subsection{Data and variables on and off blockchain}
 For this PoC, the data required to identify the users are stored on the
@@ -522,7 +572,7 @@ section ~\ref{ch:UserStories}, as the only public information is the link
 between the public key hash and individual trust score. Even though the users
 are required to register with a pseudonym, it is not needed that the aliases be
 linked to real-world identity. A user might like to share more
-information(other online account ids, address, etc.).  As mentioned earlier in
+information (other online account ids, address, etc.). As mentioned earlier in
 the gas consumption section, every non-zero byte data or code of a transaction
 costs a certain amount of gas \cite{buterin2013ethereum}. Storing this data can
 become an expensive operation for real-world usage. The right approach can be
@@ -536,12 +586,6 @@ contracts registered on blockchain network.
 The proposed platform for this PoC is Ethereum, continually developing open
 source blockchain ecosystem. The process of starting up the nodes and deploying
 the contract on the network is shown in figure ~\ref{fig:startup}. 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.6\textwidth]{Images/ActivityDiagramStartUpBC.eps}
-	\caption{Startup activity for registering contract on the network}
-	\label{fig:startup}
-\end{figure}
 As a permissionless system, it allows any nodes to collect transactions and act
 as a writer. Consensus mechanism that is generally used in a permissionless
 setting is Proof-of-Work or Proof-of-Stake. As mentioned earlier, PoW is
