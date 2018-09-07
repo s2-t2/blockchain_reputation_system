@@ -422,6 +422,39 @@ impact on the network. This factor also discourages Sybil nodes because each
 identity needs to have an almost equal bi-directional connection. If one is
 only receiving from their pseudo identity that does not have too many
 connections, then the impact is ignorant and thus not worth the effort.
+\subsection{Rewards and Punishment}\label{rewardpunishment}
+The computation of a global score on the endorsement system is based on the
+subjective opinions of participants about each other. For the score to reflect
+accuracy in computing the probability of success for a real-world transaction,
+the score has to be updated based on some objective measure. As mentioned
+earlier, the endorsement system only considers the two steps of trust and
+reputation system. The complete steps can be seen in Figure~\ref{fig:truststep}
+in Section~\ref{sec:endorsementModel}. The reward and punishment relate to the
+fourth step which is based on a transactional outcome. Since the development
+and analysis of transactional network is not part of this thesis project,
+updating the trust score based on transactional feedback is not performed. A
+transactional network can retrieve the information on the endorsement system to
+provide additional conformity to its user about the reputation of an entity in
+question. Say, Alice is registered on Endorsement network and has made a decent
+score. If she wants to sell a product on a transaction network, she can claim
+the trust score she has on the endorsement system. Anyone can verify the claim
+by checking the score that corresponds to her public address. If both Alice and
+buyer are registered on the endorsement network, they can send a signed message
+to each other using their private key to prove the ownership of the address
+with a good score on the endorsement network. In case the buyer is not
+registered on the endorsement network, then Alice can prove the claim by
+signing a cryptographic challenge with her private key. \par 
+The notion of reward and punishment is an important one to reflect the current
+trust status of a peer. There are several ways one can reward or punish a node
+for its transactional behavior. For instance, a seller that failed to provide a
+good service for a certain amount of time (e.g., received five negative
+feedback continuously) could be punished. One simple method to punish the node
+would be by reducing the trust score made so far by 50\%. Additionally, the
+nodes that endorsed an untrustworthy node could also be punished by reducing
+its trust score by 25\%. Reducing the score made so far by a certain percentage
+will affect the users' reputation in the network. Anyone can see and verify
+this information. Similarly, punishing the endorser can encourage a user to be
+more careful about the trust decision they make.  
 
 \section{Implementation}
 There are several components that make up the endorsement system. The process
@@ -566,76 +599,95 @@ information in the blockchain.
 %\end{figure}
 
 \subsection{Data and variables on and off blockchain}
-For this PoC, the data required to identify the users are stored on the
-blockchain. But, it does preserve the anonymity requirement mentioned in
-section ~\ref{ch:UserStories}, as the only public information is the link
-between the public key hash and individual trust score. Even though the users
-are required to register with a pseudonym, it is not needed that the aliases be
-linked to real-world identity. A user might like to share more
-information (other online account ids, address, etc.). As mentioned earlier in
-the gas consumption section, every non-zero byte data or code of a transaction
-costs a certain amount of gas \cite{buterin2013ethereum}. Storing this data can
-become an expensive operation for real-world usage. The right approach can be
-to use an off-blockchain storage solution such as IPFS, swarm
-\cite{benet2014ipfs}. The hash that points to the file in IPFS can then be
-stored on the blockchain.  Generally, client-side assets (HTML, js) are stored
-on these distributed off-chain file system that can communicate to the
-contracts registered on blockchain network. 
+For the endorsement system, the data required to identify the users are stored
+on the blockchain. However, it preserves the anonymity requirement mentioned in
+Section~\ref{ch:UserStories}, as the publicly available information only links
+to the pseudonymous identity. The trust scores of an individual are just linked
+with the public key hash (account identifier). When sending a request to join
+the endorsement network, the user is asked to input a username. Unless a user
+explicitly wants to give out their real name, they are not required to be
+linked to real-world identity in any way. The current implementation of the
+endorsement system allows a user to only have a username as their profile
+information. Other variables related to trust scores are updated based on the
+endorsement interaction they make with others on the network. It is possible
+that storage requirements grow for reasons such as users willing to input more
+information about them (e.g., other online accounts, address) or the need to
+formulate complex trust metrics. As the data storage requirement increases, the
+amount of gas required for the transaction also increases. As such, we could
+use off-blockchain storage solution such as IPFS, Swarm~\cite{benet2014ipfs}.
+The data can be stored off blockchain, and only the hash that points to the
+specific file in IPFS can be stored on the blockchain. Also, client-side assets
+(HTML, js) can be stored using the similar approach on the distributed
+off-chain file system, storing only the hash of the file location on the
+blockchain. 
 
 \subsection{Blockchain and Consensus algorithms}\label{subsec:bcConsensus}
-The proposed platform for this PoC is Ethereum, continually developing open
-source blockchain ecosystem. The process of starting up the nodes and deploying
-the contract on the network is shown in figure ~\ref{fig:startup}. 
-As a permissionless system, it allows any nodes to collect transactions and act
-as a writer. Consensus mechanism that is generally used in a permissionless
-setting is Proof-of-Work or Proof-of-Stake. As mentioned earlier, PoW is
-computationally expensive and wasteful. Using other consensus mechanisms such
-as delegated proof of stake requires finding enough trustworthy validators that
-can act as a leader or a master node which can be given authority to vote on
-behalf of the community. In the endorsement network, an honest endorsement is
-supposed to be between known entities. However, all participating entities do
-not know each other, and no one node can be trusted to collect everyone's
-transaction and make a final commit. Gochain~\footnote{https://gochain.io/} has
-mentioned the use of PoR(Proof-of-reputation) as a consensus mechanism in its
-ethereum based blockchain platform. The basic idea here is to allow
-participants on the network that have a high reputation to sign the block. It
-builds on the theory that it is not worthwhile for a reputed node to tarnish
-the current reputation that took some time and effort to create. The
-endorsement system is designed to assign a global reputation score to each
-entity and could use PoR. Since reputation scores are significant to maintain,
-the nodes that have an impact score within some given range can be trusted to
-validate and sign the blocks of transactions. PoR on endorsement system can
-only be used if the endorsement that results in an impact value becomes a
-valuable asset over time through extensive use. It is not recommended to start
-with it. However, PoR can be used along with PoW from the beginning. As such,
-the recommended consensus mechanism for the current design is PoW despite its
-limitations. Various alternatives to PoW and consensus algorithms related
-research that can solve specific problems(e.g., transaction speed, transaction
-size, size of nodes, etc.) are under development. 
+The proposed blockchain platform for the endorsement system is Ethereum, a
+public, permissionless blockchain setup. As a public and permissionless
+network, it allows any nodes to collect transactions and act as a writer. The
+consensus mechanism that is generally used in a permissionless setting is
+Proof-Of-Work (PoW). As mentioned earlier, PoW is computationally expensive and
+wasteful. Using other consensus mechanisms such as delegated proof of stake
+requires finding enough trustworthy validators that can act as a leader or a
+master node which can be given authority to vote on behalf of the community.
+The endorsement system is meant to be a voluntary contribution network where
+anyone is free to join and endorse whoever they wish to. The participants do
+not necessarily know each other. Therefore, no "one" node can be trusted to
+collect everyone's transaction and make a final commit.
+Gochain~\footnote{https://gochain.io/} has mentioned the use of PoR
+(Proof-Of-Reputation) as a consensus mechanism in its ethereum based blockchain
+platform. The basic idea here is to allow participants on the network that have
+a high reputation to sign the block. It builds on the theory that it is not
+worthwhile for a reputed node to tarnish the current reputation that took some
+time and effort to create. The endorsement system is designed to assign a
+global reputation score to each entity and could use PoR. Since reputation
+scores are significant to maintain, the nodes that have an impact score within
+some given range could be trusted to validate and sign the blocks of
+transactions. PoR on endorsement system can only be used if the endorsement
+that results in an impact value becomes a valuable asset over time through
+extensive use to be used on a transaction network. However, starting the
+endorsement system with only PoR is not recommended as the behavior of
+participants cannot be anticipated from the beginning. Only after several
+endorsement interactions and analysis of the nodes on the network and updating
+the trust score constantly based on transaction feedback, the trust score can
+become more reliable. \par
+Therefore, the recommended consensus algorithm for the endorsement system is
+PoW despite its limitations. Various alternatives to PoW and consensus related
+researches focusing on current problems (e.g.,  transaction speed, transaction
+size, throughput) are under development. Hashgraph~\cite{baird2016hashgraph}
+proposes the recent advancement in consensus engine that claims to be fair (in
+the order of transactions), fast (transaction processing) and Byzantine fault
+tolerant. It is based on gossip protocol, where nodes gossip about transactions
+and gossips with each other, and the gossip eventually leads to all the nodes
+in the network having the same information. It offers mathematical proof of the
+total order of transactions with less communication overhead. However, the
+hashgraph conundrum is that their software is patented unlike other
+developments in the similar space. A developer must pay for making an API call
+using micropayment of the platform. Endorsement system can also be used on a
+permissioned setting, much like sovrin does~\cite{tobin2016inevitable}. Sovrin
+introduces a steward node who is trusted based on a signed agreement with
+sovrin~\footnote{https://sovrin.org/library/steward-agreement/} and has
+received approval as trusted institutions. The concept of steward nodes might
+be questionable regarding decentralization aspect of the network, but there are
+cases when this level of decentralization is enough for the security of an
+application. For instance, there can be a consortium of e-commerce platforms
+that could agree on a specific set of protocols. Validation of transactions
+could be based on a voting mechanism that requires the consent of 2/3 of
+trusted members. Doing so can significantly increase the transaction validation
+time compared PoW.
+
+
+
+
+
+
+
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagram.eps}
 %	\caption{Activity Diagram for sending an endorsement}
 %	\label{fig:activity}
 %\end{figure}
-Hashgraph \cite{baird2016hashgraph}  proposes the recent advancement in
-consensus engine that claims to be fair, fast and Byzantine fault tolerant. It
-is based on gossip protocol(nodes gossip about transactions and gossip) and
-offers mathematical proof on the total order of transactions with less
-communication overhead. However, the hashgraph conundrum is that their software
-is patented unlike other developments in the similar space. A developer must
-pay for making an API call using micropayment of the platform.  Endorsement
-system can also be used on a permissioned setting, much like sovrin
-\cite{tobin2016inevitable} does.  Sovrin introduces a steward node who is
-trusted based on a signed agreement with sovrin
-\footnote{https://sovrin.org/library/steward-agreement/} and has received
-approval as trusted institutions. The concept of steward nodes might be
-questionable regarding full decentralization, but there are cases when this
-level of decentralization is enough for the security of an application.   For
-instance, there can be a consortium of e-commerce organizations that could
-agree on a specific set of protocols. Validation of transactions can be based
-on a voting mechanism that requires the consent of 2/3 of the trusted members.
-Doing so can increase the transaction validation time compared to PoW.   
 
 %\subsection{Graph based algorithm for anomaly detection} %\section{Honest vs. Malicious Nodes} User profile : consistent
 % declining reputation
@@ -648,8 +700,6 @@ Doing so can increase the transaction validation time compared to PoW.
 % It can be analogous to a gameplay where a player is not restricted to 
 % drink a life potion when his lifebar is full but he will waste it if he does with 
 % no impact and when the time comes to use it, there won't be any more potion left. 
-
-
 % drinking potion when you have full life 
 
 %consensus algorithm - 

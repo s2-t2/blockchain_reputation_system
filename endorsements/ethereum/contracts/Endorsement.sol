@@ -189,6 +189,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	//remove endorsement as an endorser of an endorsee
 	function removeEndorsement(address _endorsee) public returns(uint) { 
 
+		require (joined[_endorsee]);
+
 		Endorser storage endorser = endorsers[msg.sender]; 
 		Endorsee storage endorsee = endorsees[_endorsee]; 
 		
@@ -209,6 +211,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	//computation of total received points of an endorsee 
 	function computeReceivedPoints(address _endorsee) public view returns(uint) { 
 
+		require(joined[_endorsee]);
+
 		//get list of endorsers addresses from whom _endorsee has received eds from
 		address [] memory receivedFrom = getReceivedFrom(_endorsee);
 
@@ -226,6 +230,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	//the degree of connection should be strictly greater than 1 to be considered for 
 	//impact computation, else, the impact by default should be ignorant, i.e., 0
 	function computeImpact(address _participant) public view returns (uint) { 
+
+		require (joined[_participant]);
 
 		uint nEG = endorsers[_participant].nEG;
 		uint nER = endorsees[_participant].nER;
@@ -308,6 +314,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		address [],
 		address []
 	){
+
+		require (joined[_participant]);
 
 		address [] inConns = endorsees[_participant].receivedFrom;
 		address [] outConns = endorsers[_participant].givenTo;
