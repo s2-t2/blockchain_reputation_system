@@ -1,14 +1,15 @@
 %%% Ch.3: Methodology %%%
 \chapter{Methodology and Implementation} \label{ch:method}
 The problem of measuring the trustworthiness of communicating entities is an
-essential aspect of any online system. This chapter follows on a discussion of
-a proposed endorsement system where physically or digitally acquainted entities
-can endorse each other or their presented information. The user types and their
-roles in the endorsement system along with the design considerations are
-discussed. A system of smart contracts is set up to specify the rules of
-interaction and method to aggregate and compute the final global score for
-individual entities. Deployment of the contract to the blockchain network and
-analysis of data storage both on and off-chain is discussed. 
+essential aspect of any online system. This chapter states the problem of the
+current system and follows on a discussion of a proposed endorsement system
+where physically or digitally acquainted entities can endorse each other or
+their presented information. The user types and their roles in the endorsement
+system along with the design considerations are discussed. A system of smart
+contracts is set up to specify the rules of interaction and method to aggregate
+and compute the final global score for individual entities. Deployment of the
+contract to the blockchain network and analysis of data storage both on and
+off-chain is discussed. 
 
 \section{Problem Statement}
 To be able to rely on the trustworthiness of an entity as presented by any
@@ -20,21 +21,23 @@ the propagation of reputation information vulnerable to external attacks as
 well as internal modifications. As such, it fails to provide the guarantee of
 reliable and immutable data. Additionally, the reputation systems do not take
 into account the anonymity of participants, which is an essential attribute for
-avoiding retaliation from providing honest negative feedback. This master's
+avoiding retaliation (e.g., a buyer may fear retaliation from a seller that
+provided bad service) from providing honest negative feedback. This master's
 thesis project proposes the use of blockchain technology for storage and
 governance of reputation data to ensure reliable and publicly verifiable
 information. By modeling trust among entities in a pseudonymous manner, the
-proposed system also considers the users' anonymity requirements.
+proposed system also considers the users' anonymity requirement. 
 
 \section{User stories \& System Requirements} \label{ch:UserStories}
 This master's thesis project proposes a decentralized endorsement system to
 model trust among participating entities. As the name suggests, the proposed
 system allows participants to endorse each other to reflect their subjective
 opinion about other participants. Thus, the two distinct roles of users in this
-system are endorser (who sends endorsement) and endorsee (who receives
+system are endorser (who sends an endorsement) and endorsee (who receives an
 endorsement). The relation between an endorser and an endorsee is an
 endorsement relationship. One might want to establish an endorsement relation
-with other entities in the network based on physical or digital acquaintance. \par
+with other entities in the network based on physical or digital acquaintance.
+\par
 The acquaintance could be of the following form: 
 \begin{itemize}
 	\item Alice and Bob go to the same school/workplace, have worked on
@@ -46,7 +49,7 @@ The acquaintance could be of the following form:
 		confident that Alice is a reliable buyer.
 	\item Alice follows Bob on some social media and knows that Bob's article
 		is good and sees lots of pre-research in his writing and is confident
-		that Bob doesn't engage in the false news. 
+		that Bob does not engage in spreading false news. 
 \end{itemize}
 %figure - System Context Diagram
 \begin{figure}
@@ -59,21 +62,22 @@ Based on Alice's previous experience with Bob, she is likely to endorse Bob on
 the endorsement system. Thus, the endorsement relationship aims to depict the
 direct, personal/interpersonal trust between entities. The endorsement system
 seeks to offer a simple computation model to aggregate the endorsement
-interactions and assign a meaningful value to infer one's trustworthiness. If a
-participant $'A'$ endorses a participant $'B'$, then it implies that $'A'$
-trusts $'B'$. As such, the domain of trust value in this system is binary. An
-entity $'A'$ is either endorsed or not endorsed by $'B'$ in the network. The
-Figure~\ref{fig:context} in Section~\ref{ch:UserStories} shows the endorsement
-interaction between users (endorser and endorsee) and the endorsement system.
-In software development paradigm, user stories~\cite{cohn2004user} provide an
-informal description of the feature that the system can have from an end users
-perspective. Sketching user stories for the endorsement system can help to
-define the roles and the associated specific features for a given user type.
+interactions and assign a reputation value to infer trustworthiness. If a
+participant $A$ endorses a participant $B$, then it implies that $A$ trusts
+$B$. As such, the domain of trust value in this system is binary. An entity $A$
+is either endorsed or not endorsed by $B$ in the network. The
+Figure~\ref{fig:context} shows the endorsement interaction between users
+(endorser and endorsee) and the endorsement system.  In software development
+paradigm, user stories~\cite{cohn2004user} provide an informal description of
+the feature that the system can have from an end user perspective. Sketching
+user stories for the endorsement system can help to define the roles and the
+associated specific features for a given user role.
 Table~\ref{table:userstories} presents the user stories for different user
 types of endorsement system and follows a role-feature-reason
 template~\cite{agile1}. The traceability column is used to trace back to that
 specific feature when checking the fulfillment of requirements in
-Section~\ref{fulfillment} in Chapter~\ref{ch:results}.
+Section~\ref{fulfillment}. 
+
 \begin{center} \label{table:userstories} 
 	\begin{table}
 	\begin{tabular} {| l | p{8cm} | l |}
@@ -105,6 +109,7 @@ Section~\ref{fulfillment} in Chapter~\ref{ch:results}.
 	\caption{User Stories and Requirements}
 \end{table}
 \end{center}
+\vspace{-15mm}
 The users should be able to interact in the system based on their roles and the
 features allowed by the role. The endorsement acts like a transaction message
 that originates from a user account and is destined to another user account. As
@@ -115,7 +120,8 @@ account addresses of all the participants that have endorsed the user. The
 second is the list of endorsees, that consists of the account addresses of all
 the participants that have been endorsed by the user. Account address acts like
 an identifier to the user. Based on this definition, we can lay out the system
-requirements and the rationale for user interaction. \par
+requirements. \par
+%and the rationale for user interaction. \par
 The functional requirements can be listed as: 
 \begin{enumerate}
 	\item It must be impossible to make an endorsement if the endorser and
@@ -136,12 +142,11 @@ The functional requirements can be listed as:
 		key address of an account) to their corresponding global score (the
 		final score used to infer the trustworthiness).
 	\item It must be possible for a participant to edit their personal
-		information such as their username. \newline
-		Since the endorsement system does not rely on the real-world identity
-		of the participants, they should be allowed to edit or update their
-		personal information to their will. The trust score is linked to a
-		unique identifier and cannot be actively updated by any participant.
-		Computation of trust scores is explained by
+		information such as their username. Since the endorsement system does
+		not rely on the real-world identity of the participants, they should be
+		allowed to edit or update their personal information at will. The trust
+		score is linked to a unique identifier and cannot be actively updated
+		by any participant.  Computation of trust scores is explained by
 		Section~\ref{sec:endorsementModel} which discusses the design of the
 		endorsement system in detail. 
 \end{enumerate}
@@ -153,11 +158,10 @@ can be listed as:
 		writing smart contract code. The smart contract code for endorsement
 		system should take into account minimal security considerations to
 		avoid the relevant possible bugs. 
-	\item Reliability: The data stored on the blockchain should be immutable
-		and publicly verifiable.
+	\item Reliability: The  trust and reputation information should be stored
+		in an immutable and publicly verifiable manner.
 	\item Trust metrics should correctly describe the actual trust score of the
-		nodes.  \newline
-		The definition of honest or malicious interaction based on the
+		nodes. The definition of honest or malicious interaction based on the
 		endorsement model should be reflected by the final score assigned to
 		the participant. As such, the nodes showing honest behavior should have
 		a better score than the malicious ones.   
@@ -171,19 +175,16 @@ can be listed as:
 %		\label{fig:truststep}
 %	\end{center}
 %\end{figure}
-Complete trust and reputation system should consist of four separate steps as
-shown by Figure~\ref{fig:truststep}. Among these steps, the endorsement system
-only concentrates on the first two steps, collection, and aggregation of
-information. The information in the endorsement system refers to the
-endorsement interactions between entities and values they represent. The last
-two steps, selecting and interacting with a peer for transaction based on which
-they get punished or rewarded is based on a transactional system. As
-implementing the transaction based system is the not the main task of this
-project, feedback based on success or failure of a transaction is based on the
-assumption about a transaction network that can be used by endorsement system.
-Thus, the system implementation is based on the smart contract logic for
-endorsement model. Updating a value based on transactional outcome is purely
-based on an assumption about the transaction network. \par
+The figure~\ref{fig:truststep} shows the steps required to have a complete
+"trust and reputation system" and is based on ~\cite{marmol2009security}. Among
+these steps, the endorsement system only concentrates on the first two steps,
+collection, and aggregation of information. The information in the endorsement
+system refers to the endorsement interactions between entities and values they
+represent. The last two steps of selecting a peer and getting punished or
+rewarded are based on a transactional system. As implementing the
+transaction-based system is not the main task of this project, feedback based
+on the success or failure of a transaction is purely based on an assumption
+about the transaction network. \par 
 %\begin{wrapfigure}{l}{0.6\textwidth}
 \begin{figure}
 	\begin{center}
@@ -197,14 +198,15 @@ based on an assumption about the transaction network. \par
 \subsection{Design of Endorsement System}
 The design of the endorsement system is based on the requirements mentioned in
 Section~\ref{ch:UserStories}. This section explains the design considerations
-that were taken into account for the endorsement system. The Figure~\ref{} in
-Section~\ref{} shows different components of the endorsement system and how the
-users interact with them. The endorsement system allows participants to endorse
-each other based on their trust opinion. Before discussing the endorsement
-relationship, it is essential to understand the characteristics of trust that
-is taken into account by the endorsement system. Abdul-Rahman A, Hailes
-S.~\cite{abdul1998distributed} have discussed these properties of trust in their
-study of a distributed trust model. \par
+that were taken into account for the endorsement system. The
+Figure~\ref{fig:components} shows different components of the endorsement
+system and how the users interact with them. Each of the components is
+described in Section~\ref{sec:implementation}. The endorsement system allows
+participants to endorse each other based on their trust opinion. Before
+discussing the endorsement relationship, it is essential to understand the
+characteristics of trust that is taken into account by the system. Abdul-Rahman
+A, Hailes S.~\cite{abdul1998distributed} have discussed these properties of
+trust in their study of a distributed trust model. \par
 %First, let us make the following definitions that will be used later:
 %\begin{itemize}
 %	\item A $\overset{endorses}{\implies}$ B, represents the relationship, $A$
@@ -234,12 +236,12 @@ to be bi-directional, i.e., $A$ trusts $B$ does not always imply that $B$
 trusts $A$ too. Therefore, the endorsement system does not enforce any
 restriction on the endorsement relation between two entities to be asymmetric.
 This attribute is demonstrated in the endorsement system by not requiring a
-participant to endorse back the endorser, i.e., If $A$ is endorsed by $B$, then
+participant to endorse back the endorser, i.e., if $A$ is endorsed by $B$, then
 it is entirely up to $B$ to either endorse back $A$ or not.
 \paragraph{Trust is not transitive:}The endorsement system does not consider
 the transitive trust path that can exist between endorser and endorsee. The
 only way an endorsement relation can be made between two entities is via direct
-endorsement. There exists trust metrics that are modeled based on the
+endorsement. There exist trust metrics that are modeled based on the
 transitive nature of trust. Depending on the context where the trust metrics is
 applied, this attribute can be meaningful, e.g., in
 eigentrust~\cite{kamvar2003eigentrust}, a peer $i$ is assumed to have a higher
@@ -277,13 +279,13 @@ endorsement impact.\newline
 \textbf{{\acrshort{nER$_A$:}}} \ac{nER} by a participant $A$. \newline
 \textbf{ratio$_A$:} represents the ratio of \acrshort{nEG$_A$} to
 \acrshort{nEG$_A$}. This value can be used to ensure that the sent and received
-endorsement are not far off from each other. ratio$_{A}$ is always assumed to
-be less than or equal to 1 and is given by:   
+endorsement are not far off from each other. ratio$_{A}$ is always less than or
+equal to 1 and is given by:   
 \begin{equation}
 	ratio_A = \frac{min(nEG_A, nER_A)}{max(nEG_A, nER_A)}
 \end{equation}
 \textbf{\acrshort{CP}$_A$:} represents the \ac{CP} of a participant $A$. Every
-node that joins the network receives an equal amount of consumable point from
+node that joins the network receives an equal amount of consumable points from
 the endorsement network. This value keeps depleting with each outgoing
 endorsement connection. 1 being the initial consumable points received by
 participant $A$, $CP_{A}$ is given by $\frac{1}{nEG_A}$.\newline
@@ -297,8 +299,14 @@ peer $A$ and the size of $E$ is $n$, then the $TRP_{A}$ is given by:
 \end{equation}
 Finally, the \ac{TEI} made by $A$ is given by: 
 \begin{equation}
-	TEI_A = ratio_A \times TRP_A
+	TEI_A = ratio_A \cdot TRP_A
 \end{equation}
+
+\begin{figure}
+	\includegraphics[width=0.9\textwidth]{Images/components.eps}
+	\caption{Components of Endorsement System}
+	\label{fig:components}
+\end{figure}
 \subsection{Design Considerations}
 The design of the endorsement system considers several possible behaviors that
 can result from the interaction between nodes, both honest and malicious. Any
@@ -306,7 +314,7 @@ node that tries to manipulate (to inflate or damage the reputation) the trust
 score assigned by the endorsement system is a malicious node. For instance, a
 node can create multiple accounts to send multiple endorsements to a specific
 account. To limit dishonest behaviors while encouraging honest interactions,
-some assumptions and definitions were made from a game-theoretic perspective of
+some assumptions and definitions were made from a game theoretic perspective of
 a behavioral outcome. Game theory~\cite{myerson2013game} is a study of
 mathematical models of conflict and cooperation between intelligent rational
 decision-makers. The game refers to any social situation that involves two or
@@ -321,8 +329,8 @@ network influencing factors. As such, these factors can encourage honest
 behavior while limiting malicious interactions in the endorsement system. 
 The network influencing factors based on these assumptions are:
 \paragraph{False endorsement with pseudonymous identities:} Availability and
-public verifiability of reputation information is one of the primary concern of
-endorsement system. As such, the system needs a public permissionless
+public verifiability of reputation information is one of the primary concerns
+of endorsement system. As such, the system needs a public permissionless
 blockchain network which allows anyone to join the network and start sending
 endorsements immediately to whoever they wish to. This creates the possibility
 for an entity to create multiple pseudonymous identities with an aim to inflate
@@ -330,55 +338,55 @@ their impact on the network by increasing the number of endorsements (given or
 received). There is no straightforward way to detect and stop such behavior.
 However, if doing so does not provide any significant advantage, then the
 assumption is that a rational decision would be not to do it. The endorsement
-network allocates an equal amount of consumable point each user that joins the
-endorsement network. This value keeps depleting with each outgoing endorsement
-connection made along the way. As can be seen in Figure~\ref{consumablePoint},
-the consumable points follow a convergent sequence that converges to the limit
-0 as the number of connection '$n$' increases. While there is no limit to the
-number of endorsements, a participant can give, as this number increases, the
-value of consumable point decreases. This value accumulatively results to the
-total received points for the respective endorsee. Consider a scenario where a
-participant $A$ receives endorsements from 3 endorsers, each having 2 outgoing
-connections. In this case, the value of $TRP_{A}$ is 1.5. If the endorsers of
-$A$ instead had 5 outgoing connections each, then the $TRP_{A}$ would be only
-0.6. \ac{TRP} is one among other factors that contribute to making a better
-impact score on the endorsement network. As a rational endorser, one would be
-willing to make fewer meaningful endorsement connections that can contribute a
-larger value than to make many connections with minimal value. As such, the
-convergent behavior of consumable points is assumed to stop a participant from
-making too many endorsements. 
+network allocates an equal amount of consumable points to each user that joins
+the endorsement network. This value keeps depleting with each outgoing
+endorsement connection made along the way. As can be seen in
+Figure~\ref{consumablePoint}, the consumable points follow a convergent
+sequence that converges to the limit 0 as the number of connection '$n$'
+increases. While there is no limit to the number of endorsements a participant
+can give, as this number increases, the value of consumable point decreases.
+This value accumulatively results to the total received points for the
+respective endorsee. Consider a scenario where a participant $A$ receives
+endorsements from 3 endorsers, each having 2 outgoing connections. In this
+case, the value of $TRP_{A}$ is 1.5. If the endorsers of $A$ instead had 5
+outgoing connections each, then the $TRP_{A}$ would be only 0.6. \ac{TRP} is
+one among other factors that contribute to making a better impact score on the
+endorsement network. As a rational endorser, one would be willing to make fewer
+meaningful endorsement connections that can contribute a larger value than to
+make many connections with minimal value. As such, the convergent behavior of
+consumable points is assumed to stop a participant from making too many
+endorsements. 
 \begin{figure}
-	%\centering
-	\includegraphics[width=1.2\textwidth]{Images/ConsumablePoints.eps}
+	\centering
+	\includegraphics[width=1.0\textwidth]{Images/consumedpoints.eps}
 	\caption{Convergent behaviour of consumable points as '$n$' increases.}
 	\label{consumablePoint}
 \end{figure}
-\paragraph{Transaction Cost:}Endorsement system makes use of ethereum as a
+\paragraph{Transaction Cost:}The endorsement system makes use of Ethereum as a
 blockchain infrastructure. As mentioned earlier, every operation executed on
-ethereum consumes a certain amount of gas, which is a scarce resource. The user
-account that makes a call to endorse function is responsible for paying all the
+ethereum consumes a certain amount of gas, which is a scarce resource. The account that makes a call to endorse function is responsible for paying all the
 required gas costs. The endorse transaction if executed successfully updates
 the state variables \ac{nEG} and \ac{nER} for the source and destination
 account addresses. While the gas cost may not seem too high for making one
 transaction, a malicious node with multiple pseudonymous accounts needs to pay
 the gas cost of all transactions initiated from all the pseudonymous accounts.
 For instance, given the interaction graph in Figure~\ref{fig:subgraphexample}, if
-Alice is an honest node, then she only needs to pay for the operation of one
+Alice is an honest node, then she only needs to pay for the operation of two 
 transaction. On the other hand, if both Bob and Charlie are the pseudonymous
 identities of Alice, she needs to pay for six transactions. As the number of
 pseudonymous accounts increases, the cost for maintaining the trust score on
-each (or one target account) account also increases. Therefore, it is possible
+each (or one target) account also increases. Therefore, it is possible
 that the pseudonymous accounts exchange ether with each other for having the
 balance required to pay the transactions cost. This information can be publicly
 verified by anyone on the blockchain network to view the chain of ownership. If
 some interactions in the endorsement network look unusual (e.g., if an account
-has received too many calls for removing endorsement), then one could look up
+has received too many calls for removing endorsements), then one could look up
 details as such. This kind of information acts as an additional factor that
 might be useful to look up before making a transaction decision. 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.6\textwidth ]{Images/subgraphexample.eps}
-	\caption{Interaction between participants}
+	\caption{Interaction between participants that endorses each other}
 	\label{fig:subgraphexample}
 \end{figure}
 A successfully executed endorsement transaction modifies the \ac{nEG} and
@@ -387,23 +395,24 @@ the source and destination account, the state of \ac{TRP} for all past
 endorsers of source account also needs to be modified. Therefore, a node needs
 to keep track of all its neighboring (endorsers) nodes as well for correctly
 computing the \ac{TEI} value. To get the total sum of \ac{CP}, it requires
-iterating through the list of endorsers account. The larger the size of this
-list, larger would be the cost of the computation. While it is possible to
+iterating through the list of endorsers' accounts. The larger the size of this
+list, the larger would be the cost of the computation. While it is possible to
 iterate through the list of items in an array, Solidity does not generally
 recommend doing so. The reason being that an unbounded loop can grow too large
 and exceed the block gas limit, thereby causing the contract to be stalled.
 Regardless of the amount of gas spent, the function call will not succeed. We
 could assume that the list may not grow too big because a rational agent would
-try to limit their endorsement connection for contributing a larger value to
+try to limit their endorsement connections to contribute a larger value to
 other nodes in the network. Another reason we can assume so is that there is a
 limit to the number of entities that one can make trust decisions about.
 Dunbar's number~\cite{hill2003social}~\footnote{Dunbar's number is a suggested
-cognitive limit to the number of people with whom one can maintain stable
-social relationships—relationships in which an individual knows who each person
-is and how each person relates to every other person.} says that there is a
-limit of 150-200 stable social relationships that humans can maintain. A study
-by Dunbar, R. I. (2016)~\cite{dunbar2016online} suggests that the growth of
-online media and interactions still do not overcome those limitations. \par 
+	cognitive limit to the number of people with whom one can maintain stable
+	social relationships—relationships in which an individual knows who each
+	person is and how each person relates to every other person.} says that
+	there is a limit of 150-200 stable social relationships that humans can
+	maintain. A study by Dunbar, R. I. (2016)~\cite{dunbar2016online} suggests
+	that the growth of online media and interactions still do not overcome
+	those limitations. \par 
 If we want to avoid relying on assumptions and expect the list to grow larger,
 there are a few ways to approach this issue. One way to address this is by
 setting an upper bound to the number of connections that a node can have.
@@ -411,8 +420,8 @@ Another way to approach this problem without setting a threshold value is to
 move the computation to a non-blockchain platform. All the variables necessary
 to compute the \ac{TRP} and \ac{TEI} can be stored and updated on blockchain as
 a publicly verifiable information. The computation can be done on the
-client-side using language such as javascript. The final score can be computed
-by the client.  
+client-side using language such as javascript and the client can compute the
+final score.  
 \paragraph{Free riders problem:} The endorsement system is supposed to be a
 voluntary contribution network where entities can endorse each other.
 Therefore, the goal is to maintain a balanced ratio of incoming and outgoing
@@ -456,7 +465,7 @@ will affect the users' reputation in the network. Anyone can see and verify
 this information. Similarly, punishing the endorser can encourage a user to be
 more careful about the trust decision they make.  
 
-\section{Implementation}
+\section{Implementation} \label{sec:implementation}
 There are several components that make up the endorsement system. The process
 of sending the endorsement transaction from the client's browser to executing
 the contract code that can change the blockchain state is discussed in this
@@ -537,14 +546,6 @@ execution of the contract method would change the relevant states. One of the
 miner nodes would pick this transaction, broadcast it over to the blockchain
 network, and the transaction thus stays as an immutable and publicly verifiable
 information in the blockchain. 
-
-
-
-%\begin{figure}
-%	\includegraphics[width=0.9\textwidth]{Images/2Container.eps}
-%	\caption{Container Layer}
-%	\label{fig:SystemContainer}
-%\end{figure}
 %\paragraph{Context Layer} \label{Contextlayer}
 %The users (endorsers or endorsees) can communicate with the endorsement system
 %via the client application that has web3 enabled. web3~\cite{web3} allows users
@@ -675,13 +676,6 @@ that could agree on a specific set of protocols. Validation of transactions
 could be based on a voting mechanism that requires the consent of 2/3 of
 trusted members. Doing so can significantly increase the transaction validation
 time compared PoW.
-
-
-
-
-
-
-
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagram.eps}

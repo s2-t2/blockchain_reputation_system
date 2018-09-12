@@ -33,54 +33,54 @@ Using the classification from McKnight et al., 1996~\cite{mcknight2001trust},
 trust can be either Personal/Interpersonal, Dispositional or
 Impersonal/Structural. Personal trust is when one person trusts another
 specific person, persons, or things in a particular situation. Interpersonal
-trust involves more than one trusting entities. i.e., two or more people (or
+trust involves more than one trusting entities, i.e., two or more people (or
 groups) trust each other. Dispositional trust refers to a more general trust
 that is based on the personality attribute of the trusting party. i.e., an
 entity is more likely to trust other entity based on their attitude and is
 cross-contextual. While the trust mentioned above are implicitly directed
 towards a person, impersonal/structural trust refers to the trust in
-institutional structure. i.e., it is based on belief in regulatory enforcement
+institutional structure, i.e., it is based on belief in regulatory enforcement
 such as by contract law, judiciary systems rather than belief in involved
 parties. \par
 
 Trust can be generally seen as an entity's reliance on another interacting
-entity to perform a specific set of the task given a specific situation.  As
+entity to perform a specific set of the task given a specific situation. As
 pointed out by Gambetta et al.~\cite{gambetta2000can} ``Trust is the subjective
 probability by which an agent assesses that other agent or group of agents will
-perform a particular action that is beneficial or at least not detrimental.
-"For an entity, $'A'$ to trust another entity ${'B'}$ or to evaluate $B's$
-trustworthiness, \textit{reputation} is the perception of an individuals
-character or standing. Like trust, reputation is context-dependent. e.g., Alice
-may be trusted to answer linux questions efficiently but not windows related
+perform a particular action that is beneficial or at least not detrimental. For
+an entity $A$ to trust another entity $B$ or to evaluate the trustworthiness of
+$B$, the reputation of $B$ plays a central role. \textit{reputation} is the
+perception of the character or standing of an individual. Like trust,
+reputation is context-dependent, e.g., Alice may be trusted to answer Linux
+questions efficiently but not Windows related
 questions~\cite{zacharia2000collaborative}. A significant difference between
 trust and reputation is that the former takes the subjective measure as input
-whereas the latter takes an objective standard (e.g., transaction history,
-ratings) as an input to yield a resulting score that can aid in detecting
+whereas the latter takes an objective standard (e.g., history of transactional
+outcome) as an input to yield a resulting score that can aid in detecting
 reliability/trustworthiness of an
-entity~\cite{Sabater2005,castelfranchi2000trust}.\par 
+entity~\cite{Sabater2005,castelfranchi2000trust}.\par
 
-Previous survey~\cite{ josang2007survey} has classified trust and reputation
-measures as either subjective or objective measure. This classification is
-further divided into specific or general. A subjective measure is based on an
-individual's perspective and has no formal metrics. Specific, subjective
-measures imply a subjective perception of an entity for a specific ability,
-such as package delivery time of a seller or average response time. One way of
-measuring this is via survey questionnaires that ask specific questions. On the
-other hand, a general, subjective measure, aggregates all the individual scores
-and provides an average standing of the user on the network. e.g., the
-difference between positive and negative ratings used by eBay to give an
-average rating. \par
+A study by Jøsang et al.~\cite{ josang2007survey} classifies trust and
+reputation measures as either subjective or objective. This classification is
+further divided into specific or general. A subjective measure is based on the
+perspective of an individual and has no formal (objective standard to measure
+the trust) metrics. Specific, subjective measures imply a subjective opinion of
+an entity for specific aspects (e.g., rating a merchant on a scale of 1-5 for
+response time) of trust. One way of measuring this is via survey questionnaires
+that ask specific questions. On the other hand, a general, subjective measure,
+aggregates all the individual scores and provides an average standing of the
+user on the network, e.g., the difference of accumulated positive and negative
+ratings used by eBay to give an aggregated score.  \par
 
 An objective measure is used for product tests that can have some formal
-criteria on which to rely on. e.g., hard disks can be measured based on
+criteria on which to rely on, e.g., hard disks can be measured based on
 performance metrics such as transfer rate, access time, CPU usage. A specific,
-objective measure takes an objective measure for a specific metric. i.e., how
-good is a transfer rate for a particular hard disk whereas, a general,
-objective measure accounts for all the relevant aspects and averages the
-performance to give an average rating/score on a specific scale. \par
-
-The table below shows the classification of trust and reputation measures as
-discussed above based on~\cite{ josang2007survey}: 
+objective measure takes an objective measure for a specific metric, i.e., how
+good is a transfer rate for a given hard disk whereas, a general, objective
+measure accounts for all the relevant aspects and averages the performance to
+give an average rating/score on a specific scale. The
+table~\ref{table:classificationTrust} shows the classification of trust and
+reputation measures as discussed above.  
 %The classification of trust and reputation measures based on previous survey   
  \begin{center}\label{table:classificationTrust}
 	\begin{tabularx}{\textwidth }{|X| X| X| }
@@ -91,87 +91,90 @@ discussed above based on~\cite{ josang2007survey}:
 		\hline
 		Objective & Product tests & Synthesised general score from product tests \\
 		\hline
-		\caption{Classification of trust and reputation measures.} 
+		\caption{Classification of trust and reputation measures based on ~\cite{josang2007survey}} 
 	\end{tabularx}
 \end{center}
 \vspace{-15mm}
 Individuals in online systems are identified by their online identities which
 can be anything and not necessarily linked to their real-world identities.
-Online identities play a crucial role in digital interaction and require
+Based on the online identity and the information associated with it, one has to
+decide (carry forward the transaction or not) on online interaction. Thus,
+online identities play a crucial role in digital interaction and require
 unknown entities to trust each other based on the reputation system of the
 platform in use. Trust and reputation can be seen as a soft security mechanism
 where it is up to the participants rather than the software/system to maintain
-security. By definition, a security mechanism~\cite{stallings2017cryptography}
-is a process (or a device incorporating such a process) that is designed to
-detect, prevent, or recover from a security attack. Unlike hard security
-mechanism such as access control, capabilities, authentication where a user can
-be allowed or rejected access to the resource, reputation system do not provide
-a method to block or detect a security attack directly. However, they define a
-process to identify malicious users and avoid them from harming other users in
-the system. Rasmusson, Lars and Jansson, Sverker~\cite{rasmusson1996simulated}
-first used this term, to describe the idea of identifying malicious users and
-preventing harm to other users in the context of secure open electronic
-commerce. Reputation system needs to continuously receive feedback about the
-user's behavior and maintain an updated record of users. It provides a way to
-calculate the probability of success or risk of failure of a transaction
-between interacting parties. 
+security, i.e., to prevent harm by malicious interactions. By definition, a
+security mechanism~\cite{stallings2017cryptography} is a process (or a device
+incorporating such a process) that is designed to detect, prevent, or recover
+from a security attack. Unlike hard security mechanism such as access control,
+capabilities, authentication where a user can be allowed or rejected access to
+the resource, reputation systems do not provide a method to block or detect a
+security attack directly. However, they define a process to identify malicious
+users and avoid them from harming other users in the system. Rasmusson, and
+Jansson~\cite{rasmusson1996simulated} first used the term "soft security" to
+describe the idea of identifying malicious users and preventing harm to other
+users in the context of secure open electronic commerce. Reputation systems
+need to continuously receive feedback about the user's behavior and maintain an
+updated record of user reputation. It provides a way to calculate the
+probability of success or risk of failure of a transaction between interacting
+parties.
 %gather statistics on attacks, fraud data. 
 %the trust value obtained in the endorsement network can be integrated with 
 %existing reputation model of other transaction network and both combined 
 %should give a higher accuracy for trustworthiness measure of entities(assumption)
 \section{Cryptography} \label{sec:cryptography}
-Cryptography offers algorithms to achieve confidentiality, integrity,
-authenticity, and non-repudiation. Confidentiality and integrity ensure that
-the information being communicated is not disclosed or has been modified to or
-by any unauthorized parties. The data is hidden/encrypted such that only the
-authorized parties can make sense out of it. i.e., decrypt using the previously
-agreed upon key. Authenticity relates to confirming the truth of an attribute
-claimed by an entity. Non-repudiation is associated with the property that any
-entity who has previously sent the message cannot deny their
-authorship~\cite{katz1996handbook}. \par 
+Cryptography~\cite{katz1996handbook} offers algorithms to achieve
+confidentiality, integrity, authenticity, and non-repudiation. Confidentiality
+refers to keeping the information secret from unauthorized parties. Integrity
+relates to ensuring that the information being communicated is not altered by
+unauthorized or unknown means. Authenticity relates to corroborating the source
+of information (data origin authentication). Non-repudiation is associated with
+the property that any entity who has previously sent the message cannot deny
+their authorship.  \par
 A cryptosystem can be defined as a five-tuple $(P, C, K, E, D)$ where: 
 \begin{itemize}
-	\item $P$, is a finite set of plain texts.
-	\item $C$, is a finite set of ciphertexts.
-	\item $E$, set of encryption rules such that $e_{k}:P \Rightarrow C$.
-	\item $D$, set of decryption rules such that $d_{k}:C \Rightarrow P$. 
+	\item $P$ is a finite set of plain texts.
+	\item $C$ is a finite set of ciphertexts.
+	\item $E$ is set of encryption rule such that $e_{k}:P \Rightarrow C$.
+	\item $D$ is a set of decryption rule such that $d_{k}:C \Rightarrow P$. 
 	\item For each $k \in K$, there is $e_k \in E$ and $d_k \in D$ such that
 		$d_k(e_k(m)) = m$ for every plaintext $m \in P$.
 \end{itemize}
 A cryptosystem can be either symmetric or asymmetric. Symmetric makes use of
-the same key for both encryption and decryption whereas asymmetric, also known
-as public-key cryptography makes use of key pairs, public and private keys. The
-public key can be publicly distributed, and an entity \textit{'A'} wishing to
-send a confidential message to other entity \textit{'B'} can encrypt the
-message using \textit{B's} public key $k_{p}$ to form ciphertext $c$. Upon
-receiving $c$, \textit{B} can decrypt it using the private key $k_{s}$ that is
-only known to \textit{B} and corresponds to the respective public key that was
-used to form $c$. The computation of $k_{s}$ given $k_{p}$ is computationally
-infeasible in a secure system. Besides public-key encryption, public-key
-cryptography also has use in digital signature as discussed in
-section~\ref{subsec:digitalsignature}. RSA~\cite{rivest1978method} is one example
-of a public-private cryptosystem.
+the same key for both encryption and decryption whereas asymmetric makes use of
+key pairs, public key, $k_{p}$ and private key, $k_{s}$. The public key can be
+publicly distributed, and an entity $A$ wishing to send a confidential message
+to other entity $B$ can encrypt the message using $B$'s public key $k_{p}$ to
+form ciphertext $c$. Upon receiving $c$, $B$ can decrypt it using the private
+key $k_{s}$ that is only known to $B$ and corresponds to the respective public
+key that was used to form $c$. The computation of $k_{s}$ given $k_{p}$ is
+computationally infeasible in a secure system. Besides public-key encryption,
+public-key cryptography also has use in the digital signature as discussed in
+section~\ref{subsec:digitalsignature}. RSA~\cite{rivest1978method} is one
+example of a public-private cryptosystem.
 
 \subsection{Hash functions}
 Cryptographic hash functions are one-way functions, also known as mathematical
-trapdoor function that transforms an input message into a fixed length binary
-output. It is one way because although converting a message input to a hash
+trapdoor functions that transform an input message into a fixed length binary
+output. It is one-way because although converting a message input to a hash
 value or a message digest can be done in constant time, reversing the operation
-is practically impossible to achieve as it is computationally inefficient. An
-important characteristics of hash function is its deterministic output. i.e.,
+is practically impossible to achieve as it is computationally infeasible. An
+important characteristic of hash functions is its deterministic output, i.e.,
 given an input, it will always produce the same output. This attribute
 contributes to data verifiability as anyone can always verify if the produced
 hash output for data matches by simply applying the data to the respective hash
 function. \par 
-Other significant properties of hash function that contributes to
-reliability in digital security are~\cite{mironov2005hash}: 
-\paragraph{One-way:} Given a key $k$, and an output $w$, it should be hard for
-an attacker to find $x$ such that the hash of $x$ applied with $k$, produces
-$w$.  ie., $H_k(x) = w$.
+Significant properties of hash function that contributes to reliability in
+digital security are~\cite{katz1996handbook}: 
+\paragraph{One-way:} Given a key $k$, and an output $w$, it should be
+computationally infeasible for an attacker to find $x$ such that the hash of
+$x$ applied with $k$, produces $w$, ie., $H_k(x) = w$.
 \paragraph{Second pre-image resistant:} Given a key $k$ and a string $x$, it
-should be hard for an attacker to find $y$ such that $H_k(x)$ = $H_k(y)$. 
-\paragraph{Collision-resistant:} Given a key $k$, it should be hard for an
-attacker to find $x$ and $y$ such that $H_k(x) = H_k(y)$. \par   
+should be computationally infeasible for an attacker to find $y$ such that
+$H_k(x)$ = $H_k(y)$. 
+\paragraph{Collision-resistant:} Given a key $k$, it should be computationally
+infeasible for an attacker to find $x$ and $y$ such that $H_k(x) = H_k(y)$.
+\par   
 %\begin{itemize}
 %	\item One-way: Given a key k, and an output w, it should be hard for an
 %		attacker to find x such that the hash of x applied with k, produces w.
@@ -181,30 +184,62 @@ attacker to find $x$ and $y$ such that $H_k(x) = H_k(y)$. \par
 %	\item Collision-resistant: Given a key k, it should be hard for an attacker
 %		to find x and y such that $H_k(x)$ = $H_k(y)$. \\
 %\end{itemize}
-Earlier hash functions include MD5 which produced an output of size 128 bits.
-Collision-resistant attack in MD5 is possible within seconds with a complexity
-of $2^{39}$~\cite{wang2005break} MD5 operations. NIST published secure hashing algorithm (SHA)
-in 1993 as the secure hash standard. Currently, SHA-3 is the latest in SHA
-family of standards that was released in 2015 with SHA-0, SHA-1 and SHA-2 as
-it's predecessor algorithms. Collision attack for SHA-1 was shown to be
-practically pssible~\cite{stevens2017first} by creating two colliding pdf files
-that produced same SHA-1 digest. It took equivalent processing power of 6,500
-years of single CPU computation time and 110 years of GPU computation time.
-Applications of hashing algorithms include digital signature, ISO checksums,
-fingerprinting data etc. \par
-These cryptographic hash functions are relevant in understanding blockchain
-data structure. Merkle Tree~\cite{becker2008merkle,Berkeley} is a hash tree that is used
-by blockchain to create a root hash of the list of transactions. Transactions
-are explained in detail by section~\ref{sec:blockchain}. For understanding the
-process of root hash creation, one can assume the list of transactions to be a
-list of items. Assuming a binary tree of height $n$ with $2^{n}$ leafs, the
-transactions are leaf nodes at height $0$. All the leaf nodes are paired and
-hashed together. These hashes are again hashed together repeatedly until the
-number of hash is only one. The final hash value is the hash of the root node
-at height $n$. Figure~\ref{fig:merkleTree} illustrates the process of Merkle
-root creation.
-This root hash value is included as a block header and is significant for two
-things in blockchain: 
+MD5 is a hash function that produces an output of size 128 bits. A
+collision-resistant attack in MD5 is possible within seconds with a complexity
+of $2^{39}$~\cite{wang2005break} MD5 operations. NIST published a secure
+hashing algorithm (SHA) in 1993 as the secure hash standard. Currently, SHA-3
+is the latest in SHA family of standards that was released in 2015 with SHA-0,
+SHA-1, and SHA-2 as its predecessor algorithms. Collision-attack for SHA-1 was
+shown to be practically possible~\cite{stevens2017first} by creating two
+colliding pdf files (two distinct pdf files that produces same hash value) that
+produced the same SHA-1 digest. It took equivalent processing power of
+approximately 6,500 years of single CPU computation time and 110 years of GPU
+computation time. In real time doing parallel computation on a high-performance
+machine such as as~\cite{oakridge,top500} with 4,608 nodes each having 3 GPU
+V100, the collision can be found in approximately 12.29 hours. This calculation
+is based on the study by~\cite{stevens2017first} which states that the time
+needed for the homogeneous cluster to produce collision is 95 k40-years. Given
+that a K40~\cite{k40} has a compute performance of 1.43 TFLOP and
+V100~\cite{v100} has 7 TFLOP, the time would be reduced to approximately 12.297
+hours.\par
+
+Applications of hashing algorithms include a digital signature, creating a
+fingerprint of data to identify it uniquely, e.g., given an input data of
+arbitrary length, its fingerprint can be generated by applying a hash function
+that can uniquely identify it. Creating a fingerprint of data is particularly
+useful when transmitting large files over the internet to save bandwidth and
+space as the fingerprint represents a shorter bit string of the original data
+and allows to identify it uniquely. Other applications include file checksums,
+i.e., generate a checksum value for a given file and check against the value
+that was originally distributed by the developer/creator of the file. If the
+checksum matches then it ensures that the integrity of data is preserved. \par
+
+Merkle tree~\cite{becker2008merkle} is a hash tree that is used by blockchain
+to verify the integrity and inclusion of data in a block. The
+Figure~\ref{fig:merkleTree} shows a binary hash tree where the leaf nodes at
+height 0 ($H_{A}, H_{B}, ......., H_{P}$) represents the data block. These
+nodes are paired and hashed together. As we can see in the figure, $H_A$ and
+$H_{B}$ are paired and hashed together to form $H_{AB}$. This process of
+pairing and hashing continues until there is only one hash value left. This
+final hash value which is the root node of the tree is also known as a root
+hash.  This root hash value is created by hashing the list of transactions in
+the blockchain and is included in a block header. The second
+preimage-resistance attribute of hash functions ensures that the Merkle proof
+(root hash) is not fake. This value is significant for two things as mentioned
+below:  
+%These cryptographic hash functions are relevant in understanding blockchain
+%data structure. Merkle Tree~\cite{becker2008merkle,Berkeley} is a hash tree that is used
+%by blockchain to create a root hash of the list of transactions. Transactions
+%are explained in detail by section~\ref{sec:blockchain}. For understanding the
+%process of root hash creation, one can assume the list of transactions to be a
+%list of items. Assuming a binary tree of height $n$ with $2^{n}$ leafs, the
+%transactions are leaf nodes at height $0$. All the leaf nodes are paired and
+%hashed together. These hashes are again hashed together repeatedly until the
+%number of hash is only one. The final hash value is the hash of the root node
+%at height $n$. Figure~\ref{fig:merkleTree} illustrates the process of Merkle
+%root creation.
+%This root hash value is included as a block header and is significant for two
+%things in blockchain: 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Images/MerkleeTree.eps}
@@ -215,13 +250,12 @@ things in blockchain:
 \begin{enumerate}
 	\item Data integrity verification: An attempt to change any transaction data
 		would completely change the root hash of the block.  
-	\item Data inclusion verification: It is easy to verify the inclusion of a
-		transaction in a block without requiring to include all the
-		transactions. As shown in figure~\ref{fig:merkleTree}, the nodes
-		labeled in blue are enough to verify the inclusion of transaction
+	\item Data inclusion verification:  It is not necessary to include all the
+		transactions in a block in order to verify the inclusion of a
+		transaction in a block. As shown in figure~\ref{fig:merkleTree}, the
+		nodes labeled in blue are enough to verify the inclusion of transaction
 		$H_{K}$. By looking at the root hash and the intermediate hashes, one
-		can verify the inclusion of a specific data. The second
-		preimage-resistance attribute ensures that the proof is not fake. 
+		can verify the inclusion of a specific data.
 \end{enumerate}
 
 \subsection{Digital Signature} \label{subsec:digitalsignature}
@@ -258,27 +292,23 @@ false, then that would imply that the signature is invalid. \par
 
 In the context of the blockchain, if Alice wanted to send a value (transaction)
 to Bob, the following steps would have to take place. Alice has to create a
-transaction data structure with values for the required fields. Transaction
-data and necessary fields are explained in detail by
-section~\ref{sec:blockchain}. For this example, data can be Bob's address and
-value that Alice wants to send to Bob. The data is serialized using the
-underlying serialization algorithm. A hash function is then applied to this
-serialized message. The signature on this hash value is created by using the
-signature algorithm of the blockchain. In case of
-ethereum~\footnote{https://www.ethereum.org/}, Alice would compute the ECDSA
-signature. This signature (components) is appended to the transaction and Alice
-can then submit this transaction over to the blockchain network. When the
-transaction gets broadcasted, there are some special nodes (miner/validator)
-that are supposed to pick this transaction and put it in a block. After this
-happens, the transaction can be seen and verified by anyone on the public
-blockchain network. If Bob or anyone wants to verify the signature, they need
-to provide the signature, serialized transaction, and the public key of Alice
-to the signature verification function. The public key of Alice can be derived
-from the ECDSA signature she created. Alice can always prove that she owns the
+transaction data structure with values for the required fields.  The data is
+serialized using the underlying serialization algorithm. A hash function is
+then applied to this serialized message. The signature on this hash value is
+created by using the signature algorithm of the blockchain. In the case of
+Ethereum~\footnote{https://www.ethereum.org/}, Alice would compute the ECDSA
+signature. This signature is appended to the transaction and Alice can then
+submit this transaction over to the blockchain network. When the transaction
+gets broadcasted, there are some special nodes (miner/validator) that are
+supposed to pick this transaction and put it in a block. After this happens,
+the transaction can be seen and verified by anyone on the public blockchain
+network. If Bob or anyone wants to verify the signature, they need to provide
+the signature, serialized transaction, and the public key of Alice to the
+signature verification function. The public key of Alice can be derived from
+the ECDSA signature she created. Alice can always prove that she owns the
 public key because she owns the corresponding private key that generated the
 signature. The transaction message is unalterable since any modification to the
-message would refute the signature. Data serialization and transaction
-validation are discussed in detail by section~\ref{subsec:consensus}.
+message would refute the signature.  
 %A digital signature acts as an intermediary to prove that an entity A, has the
 %password without ever requiring A to reveal it. As discussed earlier,
 %public-key cryptography uses key-pairs that correspond with each other. In
@@ -333,13 +363,6 @@ validation are discussed in detail by section~\ref{subsec:consensus}.
 %characteristics~\cite{swan2015blockchain}. 
 % ~\cite{enoughBitcoinForEthereum}
 \section{Blockchain Technology} \label{sec:blockchain}
-Blockchain technology can be defined as a distributed record of transactions
-that lets anyone on the network to audit state changes and prove with
-mathematical certainty that the transactions transpired according to the
-blockchain protocol~\cite{enoughBitcoinForEthereum}. There are several ways to
-define blockchain, and every definition is relevant to its specific use cases.
-A formal standard definition of blockchain is under development as ISO/TC
-307~\cite{ISOTC307}. 
 %Blockchain technology can be defined as a distributed record of transactions
 %that lets anyone on the network to audit state changes and prove with
 %mathematical certainty that the transactions transpired according to the
@@ -355,7 +378,13 @@ A formal standard definition of blockchain is under development as ISO/TC
 %blockchain platform has a consensus algorithm to allow all participating nodes
 %to come into an agreement about a single source of truth about the data,
 %thereby ensuring data consistency.  \par
-As pointed out by Antonopoulos, Andreas M., and Wood,
+Blockchain technology can be defined as a distributed record of transactions
+that lets anyone on the network to audit state changes and prove with
+mathematical certainty that the transactions transpired according to the
+blockchain protocol~\cite{enoughBitcoinForEthereum}. There are several ways to
+define blockchain, and every definition is relevant to its specific use cases.
+A formal standard definition of blockchain is under development as ISO/TC
+307~\cite{ISOTC307}. As pointed out by Antonopoulos, Andreas M., and Wood,
 Gavin~\cite{MasteringEthereum}, the components that make up an open, public,
 blockchain are (usually):
 \begin{itemize}
@@ -401,11 +430,12 @@ transactions are ordered and added to the blockchain, their immutability is
 guaranteed by the blockchain protocol. The illustration of a blockchain
 structure is given by Figure~\ref{BlockchainStructure}. As we can see that
 Block 10, Block 11 and Block 12 are chained together by a cryptographic hash
-and shows the chronological ordering of blocks. A malicious node attempting to
-change the transaction data in Block 11 will need to find a hash value
-equivalent to the associated transaction root with a modified transaction data.
-The second pre-image resistant property of a hash function ensures that finding
-such a value is computationally infeasible.  
+and shows the chronological ordering of blocks.
+%A malicious node attempting to
+%change the transaction data in Block 11 will need to find a hash value
+%equivalent to the associated transaction root with a modified transaction data.
+%The second pre-image resistant property of a hash function ensures that finding
+%such a value is computationally infeasible.  
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{Images/BlockchainStructure.eps}
@@ -464,20 +494,19 @@ is considered to be part of the consensus
 algorithm~\cite{hyperledgerfabric,hyperledgerfabric2}, unlike in other systems
 where consensus relates to the ordering of transactions. However, it makes use
 of a leader election mechanism to elect a leader that is responsible for
-ordering transactions.
-\paragraph{Proof-Of-Work (PoW):}This is the most widely used consensus
-mechanism in a public permissionless setup. As the name suggests, a validator
-node (miners) needs to provide the proof to the network that it has done a
-significant amount of work. This work requires them to invest a substantial
-amount of computational resources. The reason for this is that all the
-validator nodes compete to be the writer of the next block for which they need
-to solve a cryptographic puzzle. The puzzle requires the miner to find a
-specific nonce value that is less than a target value. This target value is
-also known as difficulty target because it is responsible for setting the
-difficulty level of the block. Lower the difficulty target, higher is the
-difficulty of the puzzle. The difficulty level is adjusted based on the average
-block time between two blocks. As can be seen in
-Figure~\ref{fig:cryptographicPuzzle}, the hash function applied to the
+ordering transactions. 
+\paragraph{\ac{PoW}:}This is the most widely used consensus mechanism in public
+permissionless setup. As the name suggests, a validator node (miners) needs to
+provide the proof to the network that it has done a significant amount of work.
+This work requires them to invest a substantial amount of computational
+resources. The reason for this is that all the validator nodes compete to be
+the writer of the next block for which they need to solve a cryptographic
+puzzle. The puzzle requires the miner to find a specific nonce value that is
+less than a target value. This target value is also known as difficulty target
+because it is responsible for setting the difficulty level of the block. Lower
+the difficulty target; higher is the difficulty of the puzzle. The difficulty
+level is adjusted based on the average block time between two blocks. As can be
+seen in Figure~\ref{fig:cryptographicPuzzle}, the hash function applied to the
 concatenation of transaction data and the nonce should be less than the
 specified difficulty target. An important attribute of a hash function is that
 a change in even a single bit of input data will completely change the output
@@ -490,29 +519,28 @@ blockchain. In such a system, the selection of the validator node is random in
 that anyone among the competing node could be the first to solve the
 cryptographic puzzle. There is no way to know a priori, which node is going to
 be the writer of the next block. As such, this consensus mechanism makes the
-system DDOS resistant. However, miners in a PoW setup can decide upon the order
-of transactions to include in the block although they cannot modify the
+system DDOS resistant. However, miners in a \ac{PoW} setup can decide upon the
+order of transactions to include in the block although they cannot modify the
 transaction data. As such, one may have to wait for few blocks before having
 their transactions confirmed and placed into the blockchain. The transaction
 order is agreed upon by the network when the proposed block by validator node
 is broadcasted and accepted by the network. The randomness in the cryptographic
 puzzle makes it rare for two validator nodes to solve a block at the same time.
 However, it is sometimes possible to reach such a situation leading into
-several branches of the blockchain. In which case, the nodes simply build upon
-the block that they first received. This situation gets solved when the next
-block is solved and one of the branches becomes longer over another. In which
-case, everyone switches to the longest branch. Given the rarity of such a
-situation, the blockchain is assumed to be eventually stabilized. Examples
-include Bitcoin~\cite{Bitcoin_Satoshi}, Ethereum~\cite{buterin2013ethereum}.
+several branches of the blockchain. In which case, the nodes build upon the
+block that they first received. This situation gets solved when the next block
+is solved, and one of the branches becomes longer over another. In which case,
+everyone switches to the longest branch. Given the rarity of such a situation,
+the blockchain is assumed to be eventually stabilized. Examples include
+Bitcoin~\cite{Bitcoin_Satoshi}, Ethereum~\cite{buterin2013ethereum}. 
 \begin{figure}
 	\begin{center}
 	\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
 	\caption{Cryptographic Puzzle}
 	\label{fig:cryptographicPuzzle}
 	\end{center}
-\end{figure}
-\paragraph{Economy based systems:}Consensus mechanisms such as Proof-Of-Stake
-or delegated proof-of-stake can be seen as an economy based system. Unlike PoW,
+\end{figure} \paragraph{Economy based systems:}Consensus mechanisms such as
+\ac{PoS} or \ac{DPoS} can be seen as an economy based system. Unlike \ac{PoW},
 miners do not compete with each other to be the writer of the next block thus
 saving lots of computational resources. The general idea is that participants
 can put the respective platform based native token they own at stake to
@@ -550,7 +578,7 @@ permissioned, and private permissioned.
 		of the block is known but not necessarily a trusted entity. The records
 		are publicly verifiable. 
 	\item Private Permissioned: This is similar to the Public permissioned
-		setting, but the records are not made public and therefore doesn't
+		setting, but the records are not made public and therefore does not
 		offer public verifiability. This kind of setup is more specific to
 		business use-cases where one business does not need to know about other
 		business policies or customer information etc. 
@@ -599,30 +627,30 @@ dispute~\cite{szabo1997formalizing}. \par
 %Following the invention of Bitcoin and several decentralized blockchains, the
 %definition of smart contracts have evolved. 
 Ethereum being the first platform to offer programmable blockchains, introduced
-a virtual machine, EVM (Ethereum Virtual Machine), where the contract code can
-be executed that results in a deterministic output provided the same
-transaction context and blockchain state~\cite{MasteringEthereum}}. EVM often
-referred to as a single world computer, runs on every ethereum node and given
-the same initial state produces the same final state. Several high level
-languages can be used to write smartcontracts for different blockchain
-platforms. Examples include solidity~\cite{SolidityDocs}, LLL~\cite{LLL}.
-Contract's code resides in the blockchain as an immutable form.  They are not
-autonomous self-executing programs but rather needs to be called by a
-transaction or invoked by other contracts. Once the code is registered and
-deployed on the blockchain, its code cannot be altered by anyone, including the
-owner of the contract. However, a possibility to include a killable function by
-the owner exists which when called executes an EVM opcode called SELFDESTRUCT
-and logically deletes the contract from the blockchain. Doing so doesn't delete
-the history of transactions as the blockchain itself is immutable. As in any
-Turing-complete language, it is affected by the halting problem. i.e., there is
-no way of knowing if the program will terminate given an input. In the case of
-a non-terminating program, a transaction that is transmitted to the network
-might run forever, and the whole network can be rendered useless if
-transactions cannot be processed. To avoid this, ethereum introduces the
-concept of gas, which is an expendable resource on the network that acts as a
-fundamental network cost unit. To store any state, or execute any operation,
-gas needs to be supplied. Thus, a program that has a bug or a non-terminating
-intention will eventually run out of gas and stop~\cite{whataresmartcontracts}. 
+a virtual machine, \ac{EVM}, where the contract code can be executed that
+results in a deterministic output provided the same transaction context and
+blockchain state~\cite{MasteringEthereum}}. \ac{EVM} often referred to as a
+single world computer, runs on every ethereum node and given the same initial
+state produces the same final state. Several high level languages can be used
+to write smartcontracts for different blockchain platforms. Examples include
+solidity~\cite{SolidityDocs}, LLL~\cite{LLL}.  The contract code resides in the
+blockchain as an immutable form.  They are not autonomous self-executing
+programs but rather needs to be called by a transaction or invoked by other
+contracts. Once the code is registered and deployed on the blockchain, its code
+cannot be altered by anyone, including the owner of the contract. However, a
+possibility to include a killable function by the owner exists which when
+called executes an EVM opcode called SELFDESTRUCT and logically deletes the
+contract from the blockchain. Doing so does not delete the history of
+transactions as the blockchain itself is immutable. As in any Turing-complete
+language, it is affected by the halting problem, i.e., there is no way of
+knowing if the program will terminate given an input. In the case of a
+non-terminating program, a transaction that is transmitted to the network might
+run forever, and the whole network can be rendered useless if transactions
+cannot be processed. To avoid this, ethereum introduces the concept of gas,
+which is an expendable resource on the network that acts as a fundamental
+network cost unit. To store any state, or execute any operation, gas needs to
+be supplied. Thus, a program that has a bug or a non-terminating intention will
+eventually run out of gas and stop~\cite{whataresmartcontracts}. 
 %To address this, Ethereum introduces the concept of
 %gas. To store any state, or execute any operation, gas needs to be supplied.
 %Thus, a program that has a bug or a non-terminating intention will eventually
@@ -642,7 +670,7 @@ in systems that do not have a mechanism for data integrity verification or data
 authentication. An attacker could attempt to exploit a weakness in the
 calculation of reputation metric or during the dissemination of information.
 This attack can be performed by an individual or by forming a malicious
-collective where groups collude to increase an identity's reputation score
+collective where groups collude to increase the reputation score of an identity
 falsely. Even if the systems do provide cryptographic mechanisms for source
 data authentication, the self-promoting attack is possible by creating multiple
 Sybil identities. This form of attack is also known as Sybil attack. An
@@ -653,7 +681,7 @@ of successful transactions, and the ability to limit or prevent an attacker
 from obtaining multiple identities. 
 \paragraph{Whitewashing:} Whitewashing is the process of exiting a system with
 an account with a bad reputation and entering afresh with a neutral or
-nonnegative account. This attack exploits the system's formulation of
+non-negative account. This attack exploits the system's formulation of
 reputation score. For instance, eBay's rating system uses a range of values
 \{1, 0, -1\} for representing positive, neutral and negative rating
 respectively. The formulation of the final score is done by calculating the
@@ -688,7 +716,7 @@ roles where one team performs a slandering attack on benign users, and the
 other team makes the self-promoting attack to inflate their reputation. Another
 example is when one team acts honestly for a specific amount of time by serving
 good content or by giving negative feedback to the dishonest nodes of the
-network. The other team acts dishonest and gains the benefit of until the
+network. The other team acts dishonest and gains the benefit from it until the
 reputation is too low to allow them to do so. At this point, the teams can
 switch roles, and the honest team starts acting dishonest and gain benefit.
 This form of attack is difficult to detect as there is no pattern to detect an
@@ -760,7 +788,7 @@ by prioritizing resource allocation to peers with higher reputation.
 %those files. In light of this, researches and proposals on decentralized
 %reputation methods have been performed, few of which are discussed below.\\ 
 
-\subsection{Graph properties}
+\section{Graph properties}
 A graph, as the name suggests can be used to represent objects and their
 relationships graphically. \par
 Formally, a graph~\cite{bondy1976graph}, $G$, is an ordered triple $(V,E,\phi,

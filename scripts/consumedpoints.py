@@ -23,6 +23,6 @@ for j in range(1,51):
 plt.plot([xAxis], [yAxis], 'bo', linewidth=0.5 )
 plt.ylabel('ConsumedPoints', font);
 plt.xlabel('Number of connections',font);
-plt.title('Depletion of consumable points',titleFont );
+plt.title('Score per Endorsee',titleFont );
 plt.show()
 

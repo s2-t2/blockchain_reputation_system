@@ -1,60 +1,60 @@
 %%% Ch.6: Conclusion %%%
-\chapter{Conclusion} \label{ch:conclusion}
-Trust system running on an interaction network can aid in a successful
-interaction by pre-evaluation(i.e., evaluate the outcome of the transaction
-beforehand) before actually engaging in a transaction. Collection and
-aggregation of information to infer the trustworthiness of online entities are
-vital for any online system. Having a reliable and trustworthy reputation
-system that models users interaction helps both the reputation of the platform
-in use and the honest users. The PoC designed for this project followed the
-definition of a trust and reputation system closely during the implementation
-phase. Specifically, encouraging honest behavior while making it difficult to
-maintain a good trust score with malicious behavior. Various threat models that
-concern the reputation model was addressed by game-theoretic assumptions as
-well as codified restrictions. The endorsement model described in this project
-can be used by any interaction model with certain modifications to meet the
-requirement of the specific transaction network.\\
-
-While the designed PoC provided a way to measure the trustworthiness of an
-entity, there is no way to measure the actual trust value. The accuracy is
-based on the constant feedback from the peer's interacting with an actual
-transactional network. Trustworthiness is not a boolean factor that can just be
-solved by a 1 or 0 for an honest or malicious peer. The task of assigning a
-reputation score and inferring trustworthiness is a vague problem. The PoC,
-therefore, provided a value based on several transparent factors that a user
-can see for themselves and verify. Based on the evaluation of results, trust
-metrics have been able to successfully represent the actual trust score of the
-entity in question. From the evaluation criteria mentioned, this project has
-fulfilled the goal and answered the research questions as per plan.
-
-\section{Future Works}
-Given the time constraints, the project was not able to cover all the aspects
-and contexts of a reputation system. Further improvements can be made by
-including the logic to directly retrieve the information from a transaction
-network that can act as a feedback loop for the endorsement system. Use of
-complex graph algorithms can be further implemented and evaluated to analyze
-the transaction behavior on several levels.  For instance, using a
-Ford-Fulkerson algorithm to compute the maximum flow on a network can be used.
-Doing so can set a bound on the number of edges that an honest cluster can make
-with the malicious one. Thus, detecting a malignant node to further improve on
-the punishment aspects can help in the measure of more precise scores. Since
-the trust and reputation are dynamic by nature, it needs to receive feedback
-and update the state continually. However, use of a sophisticated algorithm
-also implies a higher computation overhead.  Besides the implementation, the
-project could also use more evaluation from blockchain aspects. The PoC was
-deployed on Ethereum network, and transactions were mostly tested out using
-ganache, which creates an in-memory nodes for generating transaction receipts
-and blocks. Therefore, the speed and size of transactions, cost of
-computations, etc. were taken for granted from Ethereum network. Future works
-could perform a more general evaluation for the transactions and speed of the
-network. \\
-The primary limitation of blockchain at the current stage is its scalability
-problem. Being able to handle request from a large number of users without
-confirmation delays for simple transactions can help to create more adaptable
-use cases in Blockchain space. It is a continually developing domain, and
-research on consensus mechanisms, latency, scalability aspects of the
-technology is being carried out by various sectors.
-
+\chapter{Conclusion \& Future works} \label{ch:conclusion}
+%Trust system running on an interaction network can aid in a successful
+%interaction by pre-evaluation(i.e., evaluate the outcome of the transaction
+%beforehand) before actually engaging in a transaction. Collection and
+%aggregation of information to infer the trustworthiness of online entities are
+%vital for any online system. Having a reliable and trustworthy reputation
+%system that models users interaction helps both the reputation of the platform
+%in use and the honest users. The PoC designed for this project followed the
+%definition of a trust and reputation system closely during the implementation
+%phase. Specifically, encouraging honest behavior while making it difficult to
+%maintain a good trust score with malicious behavior. Various threat models that
+%concern the reputation model was addressed by game-theoretic assumptions as
+%well as codified restrictions. The endorsement model described in this project
+%can be used by any interaction model with certain modifications to meet the
+%requirement of the specific transaction network.\\
+%
+%While the designed PoC provided a way to measure the trustworthiness of an
+%entity, there is no way to measure the actual trust value. The accuracy is
+%based on the constant feedback from the peer's interacting with an actual
+%transactional network. Trustworthiness is not a boolean factor that can just be
+%solved by a 1 or 0 for an honest or malicious peer. The task of assigning a
+%reputation score and inferring trustworthiness is a vague problem. The PoC,
+%therefore, provided a value based on several transparent factors that a user
+%can see for themselves and verify. Based on the evaluation of results, trust
+%metrics have been able to successfully represent the actual trust score of the
+%entity in question. From the evaluation criteria mentioned, this project has
+%fulfilled the goal and answered the research questions as per plan.
+%
+%\section{Future Works}
+%Given the time constraints, the project was not able to cover all the aspects
+%and contexts of a reputation system. Further improvements can be made by
+%including the logic to directly retrieve the information from a transaction
+%network that can act as a feedback loop for the endorsement system. Use of
+%complex graph algorithms can be further implemented and evaluated to analyze
+%the transaction behavior on several levels.  For instance, using a
+%Ford-Fulkerson algorithm to compute the maximum flow on a network can be used.
+%Doing so can set a bound on the number of edges that an honest cluster can make
+%with the malicious one. Thus, detecting a malignant node to further improve on
+%the punishment aspects can help in the measure of more precise scores. Since
+%the trust and reputation are dynamic by nature, it needs to receive feedback
+%and update the state continually. However, use of a sophisticated algorithm
+%also implies a higher computation overhead.  Besides the implementation, the
+%project could also use more evaluation from blockchain aspects. The PoC was
+%deployed on Ethereum network, and transactions were mostly tested out using
+%ganache, which creates an in-memory nodes for generating transaction receipts
+%and blocks. Therefore, the speed and size of transactions, cost of
+%computations, etc. were taken for granted from Ethereum network. Future works
+%could perform a more general evaluation for the transactions and speed of the
+%network. \\
+%The primary limitation of blockchain at the current stage is its scalability
+%problem. Being able to handle request from a large number of users without
+%confirmation delays for simple transactions can help to create more adaptable
+%use cases in Blockchain space. It is a continually developing domain, and
+%research on consensus mechanisms, latency, scalability aspects of the
+%technology is being carried out by various sectors.
+%
 
 
 

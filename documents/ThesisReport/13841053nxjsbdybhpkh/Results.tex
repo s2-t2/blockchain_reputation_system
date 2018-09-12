@@ -333,10 +333,54 @@ added to the blockchain, the blockchain protocol provides the guarantee of the
 immutability of data and offers public verifiability of data. Another reason
 this attack is possible is by creating multiple Sybil identities. The Sybil
 attack has been discussed earlier. 
-\paragraph{Malicious collective}
+\paragraph{Malicious collective:}Malicious nodes can form a collective group
+and endorse each other until they all have a high \ac{TEI} value to be
+considered trustworthy in the endorsement network. The endorsement system
+metrics allow the possibility for malicious collectives to be seen as more
+trustworthy. The current implementation of the endorsement system does not
+address this issue. However, the information available about an entity can be
+used, if needed to find out malicious nodes that explicitly interact within
+their group. \par
+Consider a malicious collective of four nodes, $M = \{A,B,C,D\}$ that endorses
+each other. The endorsement system maintains two sets of data for each
+participant, one that contains the list of endorsers, and other that contains
+the list of endorsees. \par
+If $A$ represents the list of endorsers and $A'$ represents the list of
+endorsees for the entity $A$, then, we can find the intersection of the sets
+$A$ and $A'$ to find out the list of common entities in these two sets. The
+elements of this intersection set should represent the entities with whom $A$
+has the symmetric trust relation with.  
+\begin{equation}
+	\begin{split}
+	A= \{B,C,D\} \\
+	A' = \{B,C,D\} \\
+	A \cap A' = \{B,C,D\}
+\end{split}
+\end{equation}
+As we can see that the intersection set includes the same list as the list of
+endorsers and endorsees, it is most likely that these entities are forming a
+malicious collective to inflate each other's trust scores. However, this does
+not provide enough information to infer that a node is malicious with
+certainty. We cannot ignore the possibility that they know each other and the
+endorsement interaction is an honest one. The characteristic of trust as being
+asymmetric does not invalidate the existence of the symmetric trust, i.e., $A$
+trusts $B$ does not imply $B$ has to trust $A$ but it is entirely up to $B$ if
+he trusts $A$, and only $B$ knows if the trust relationship is an honest or
+malicious one. \par
+Hoffman K, Zage D, Nita-Rotaru C~\cite{hoffman2009survey} relates the process
+of finding the colluding nodes as such to finding a clique~\footnote{A
+clique~\cite{cormen2009introduction} in an undirected graph $G = ( V,E)$ is a
+subset $V' \subseteq V$ of vertices, each pair of which is connected by an
+edge in $E$.} of a certain size in a graph, which has been known to be
+NP-complete and only has heuristic based solutions.  An important consideration
+to be taken if one wants to find the intersection of sets of endorsers and
+endorsees is that as the size of the sets grows, so does the computational
+complexity. Given, the amount of gas that each operation costs, it does not
+seem to be a feasible solution for doing this form of computation on ethereum
+blockchain. As such, it is recommended to implement it on a client-side and
+only make the computation if invoked by the client.
 
-
-\section{Summary of Results}
+%\section{Summary of Results}
 
 %\section{Blockchain: Gas Consumption, Block size, Transactions}
 %Ethereum  specific concepts:
