@@ -627,14 +627,14 @@ The proposed blockchain platform for the endorsement system is Ethereum, a
 public, permissionless blockchain setup. As a public and permissionless
 network, it allows any nodes to collect transactions and act as a writer. The
 consensus mechanism that is generally used in a permissionless setting is
-Proof-Of-Work (PoW). As mentioned earlier, PoW is computationally expensive and
-wasteful. Using other consensus mechanisms such as delegated proof of stake
-requires finding enough trustworthy validators that can act as a leader or a
-master node which can be given authority to vote on behalf of the community.
-The endorsement system is meant to be a voluntary contribution network where
-anyone is free to join and endorse whoever they wish to. The participants do
-not necessarily know each other. Therefore, no "one" node can be trusted to
-collect everyone's transaction and make a final commit.
+\ac{PoW}. As mentioned earlier, \ac{PoW} is computationally expensive and wasteful.
+Using other consensus mechanisms such as delegated proof of stake requires
+finding enough trustworthy validators that can act as a leader or a master node
+which can be given authority to vote on behalf of the community.  The
+endorsement system is meant to be a voluntary contribution network where anyone
+is free to join and endorse whoever they wish to. The participants do not
+necessarily know each other. Therefore, no "one" node can be trusted to collect
+everyone's transaction and make a final commit.
 Gochain~\footnote{https://gochain.io/} has mentioned the use of PoR
 (Proof-Of-Reputation) as a consensus mechanism in its ethereum based blockchain
 platform. The basic idea here is to allow participants on the network that have
@@ -653,29 +653,30 @@ endorsement interactions and analysis of the nodes on the network and updating
 the trust score constantly based on transaction feedback, the trust score can
 become more reliable. \par
 Therefore, the recommended consensus algorithm for the endorsement system is
-PoW despite its limitations. Various alternatives to PoW and consensus related
-researches focusing on current problems (e.g.,  transaction speed, transaction
-size, throughput) are under development. Hashgraph~\cite{baird2016hashgraph}
-proposes the recent advancement in consensus engine that claims to be fair (in
-the order of transactions), fast (transaction processing) and Byzantine fault
-tolerant. It is based on gossip protocol, where nodes gossip about transactions
-and gossips with each other, and the gossip eventually leads to all the nodes
-in the network having the same information. It offers mathematical proof of the
-total order of transactions with less communication overhead. However, the
-hashgraph conundrum is that their software is patented unlike other
-developments in the similar space. A developer must pay for making an API call
-using micropayment of the platform. Endorsement system can also be used on a
-permissioned setting, much like sovrin does~\cite{tobin2016inevitable}. Sovrin
-introduces a steward node who is trusted based on a signed agreement with
+\ac{PoW} despite its limitations. Various alternatives to \ac{PoW} and
+consensus related researches focusing on current problems (e.g.,  transaction
+speed, transaction size, throughput) are under development.
+Hashgraph~\cite{baird2016hashgraph} proposes the recent advancement in
+consensus engine that claims to be fair (in the order of transactions), fast
+(transaction processing) and Byzantine fault tolerant. It is based on gossip
+protocol, where nodes gossip about transactions and gossips with each other,
+and the gossip eventually leads to all the nodes in the network having the same
+information. It offers mathematical proof of the total order of transactions
+with less communication overhead. However, the hashgraph conundrum is that
+their software is patented unlike other developments in the similar space. A
+developer must pay for making an API call using micropayment of the platform.
+Endorsement system can also be used on a permissioned setting, much like sovrin
+does~\cite{tobin2016inevitable}. Sovrin introduces a steward node who is
+trusted based on a signed agreement with
 sovrin~\footnote{https://sovrin.org/library/steward-agreement/} and has
 received approval as trusted institutions. The concept of steward nodes might
 be questionable regarding decentralization aspect of the network, but there are
 cases when this level of decentralization is enough for the security of an
 application. For instance, there can be a consortium of e-commerce platforms
-that could agree on a specific set of protocols. Validation of transactions
+that could agree on a specific set of protocols.  Validation of transactions
 could be based on a voting mechanism that requires the consent of 2/3 of
 trusted members. Doing so can significantly increase the transaction validation
-time compared PoW.
+time compared to \ac{PoW}.
 %\begin{figure}[h]
 %	\centering
 %	\includegraphics[width=0.5\textwidth]{Images/ActivityDiagram.eps}

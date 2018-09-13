@@ -98,24 +98,27 @@ such bugs.
 %        participantIndex[msg.sender] = numberOfParticipants-1;
 %    }
 %\end{lstlisting}
+\vspace{-15mm}
 \paragraph{Reliability:}This requirement relates to the immutability of data
-stored on the blockchain network which is ensured by PoW consensus algorithm.
-The data is stored on a public, permissionless blockchain network which allows
-any node to commit a block of transactions to the blockchain. A validator node
-collates the list of transactions into a block. A malicious node that intends
-to double spend a transaction can do so by solving the cryptographic puzzle in
-parallel with the rest of the network. But, he does not broadcast the blocks he
-solved to the network and instead keeps solving the puzzle in isolation with
-the network. The transactions that he spent can be included in the blockchain
-that the network is in agreement with currently. After a certain length of
-blocks has been solved, the malicious node can then decide to broadcast his
-version of blockchain to the network. Blockchain protocol ensures that the
-network switches to the longest chain in the event of a fork. Since the
-malicious node is in a race with the rest of the network, this form of attack
-is only possible if he owns more than 51\% of the hashing power compared to the
-rest of the network. Therefore, this attack is called 51\% attack. As long as
-honest nodes control half of the network, the PoW mechanism ensures an
-immutable record of transactions to be stored in the blockchain.   
+stored on the blockchain network which is ensured by \ac{PoW} consensus
+algorithm. The data is stored on a public, permission less blockchain network
+which allows any node to commit a block of transactions to the blockchain. A
+validator node collates the list of transactions into a block. A malicious node
+that intends to double spend a transaction can do so by solving the
+cryptographic puzzle in parallel with the rest of the network. If the malicious
+does not broadcast the solved blocks to the network and instead keeps solving
+the puzzle in isolation with the network. The transactions that the malicious
+node spent can be included in the blockchain that the network is in agreement
+with currently. After a certain length of blocks has been solved, the malicious
+node can then decide to broadcast his version of blockchain to the network.
+Blockchain protocol ensures that the network switches to the longest chain in
+the event of a fork. Since the malicious node is in a race with the rest of the
+network, this form of attack is only possible if the malicious node owns more
+than 51\% of the hashing power compared to the rest of the network. Therefore,
+this attack is called 51\% attack. As long as honest nodes control half of the
+network, the \ac{PoW} mechanism ensures an immutable record of transactions to
+be stored in the blockchain.
+
 \paragraph{Trust metrics correctly describe the actual trust of the nodes:}The
 fulfillment of this requirement is assessed by simulating an interaction graph
 and analyzing different scenarios in the network. The
@@ -186,6 +189,25 @@ is not directly associated with ~\ac{TEI} of the endorser but the value of
 \ac{CP} of the endorsers for these nodes can be seen in
 Figure~\ref{fig:zeroimpact}. The table~\ref{table:receivedpoints} shows the
 value for each relevant variables required to compute ~\ac{TEI} for the nodes.
+\begin{center} \label{table:receivedpoints}
+\begin{tabularx}{\textwidth}{| X | X | X | X | X | X |} 
+  \hline
+  \textbf{Node label} & \textbf{nEG} & \textbf{nER} & \textbf{ratio} & \textbf{TRP} & \textbf{TEI} \\
+  \hline 
+  430  & 5 & 3 & 0.6 & 0 & 0  \\
+  \hline
+   761 & 2 & 2 & 1 & 0 & 0 \\
+  \hline
+  448 & 3 & 3 & 1 & 0 & 0 \\
+  \hline
+  676 & 2 & 2 & 1 & 0 & 0 \\
+  \hline
+  936 & 2 & 2 & 1 & 0 & 0 \\
+  \hline
+  \caption{Nodes with zero impact and maximum ratio}
+ % \label{table:receivedpoints}
+\end{tabularx}
+\end{center}
 %\begin{figure}
 %	\includegraphics[width=1.0\textwidth]{Images/TRPVsTEIFontSize.eps}
 %	\caption{TRP vs. Total EDS Point}
@@ -197,6 +219,7 @@ value for each relevant variables required to compute ~\ac{TEI} for the nodes.
 %	\caption{Received Points Vs. Total Endorsement Impact}
 %	\label{fig:receivedpointvsimpact}
 %\end{figure}
+\vspace{-15mm}
 \paragraph{Ratio:} The information presented by
 table~\ref{table:receivedpoints} shows nodes that have the maximum possible
 value for ratio which is 1 and still have the lowest \ac{TEI} score. It shows
