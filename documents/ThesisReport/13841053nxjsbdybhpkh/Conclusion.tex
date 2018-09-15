@@ -1,5 +1,36 @@
 %%% Ch.6: Conclusion %%%
 \chapter{Conclusion \& Future works} \label{ch:conclusion}
+Having a trust system for an online interaction system can aid in
+pre-evaluating the outcome of a transaction and help to increase the number of
+successful transactions. It is crucial to have a reliable and trustworthy
+reputation score that is resilient to both external attacks or internal
+modifications. This master's thesis project studied the existing trust and
+reputation models and proposed an endorsement model that allowed entities to
+endorse each other and provided a method to aggregate those endorsements to
+associate a reputation score to the participants. The proposed model does not
+seek to challenge the existing trust or reputation models. It only aims to
+offer a method for inferring the trustworthiness of entities based on simple
+computation and direct interactions, based on the perception of entities about
+one another. Additionally, the goal of the project was to study the advantages
+of using a distributed and decentralized network to store reputation
+information.  \par
+The limited time frame of this project did not allow to explore all the literature available about the trust and reputation models or to implement a complete reputation system that considers all the aspects. As such, many things were not covered by this project. The list of suggestions for future research or to further extend the current implementation are presented below: 
+\begin{itemize}
+	\item A method of communication between the endorsement system and
+	transaction system so that the reputation scores assigned by endorsement
+	system can be further updated to reflect the current state of entities. 
+	\item Use of existing trust and reputation models such as EigenTrust or
+	PowerTrust on Blockchain network to evaluate its performance based on
+	accuracy and usability.
+	\item Use of anomaly detection algorithms to detect the malicious behavior
+	of participating nodes and limit their interactions by penalizing them. 
+	\item Extend the ability of an endorsement system to include more
+	information by entities (other online accounts, email address, etc.) and to
+	endorse each information separately. 
+	\item Extensive research and implementation on the use of distributed file
+	systems such as IPFS for a blockchain based reputation system. This can
+	help to store more information and perform large computation (if needed). 
+\end{itemize}
 %Trust system running on an interaction network can aid in a successful
 %interaction by pre-evaluation(i.e., evaluate the outcome of the transaction
 %beforehand) before actually engaging in a transaction. Collection and

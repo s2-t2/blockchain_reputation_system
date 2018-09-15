@@ -267,7 +267,7 @@ of trust in their study.
 %converges to the limit zero as the number of connection `n' increases. As such,
 %increasing the number of connections alone will not be enough to achieve a
 %higher impact on the network.
-\subsection{Computation of Total Endorsement Impact (TEI)} 
+\subsection{Computation of Total Endorsement Impact (TEI)} \label{computetei}
 The endorsement system records all the endorsement interactions between
 endorsers and endorsees. This information is aggregated for individual entities
 in the system to assign a global trust score. We call this score a total
@@ -307,7 +307,7 @@ Finally, the \ac{TEI} made by $A$ is given by:
 	\caption{Components of Endorsement System}
 	\label{fig:components}
 \end{figure}
-\subsection{Design Considerations}
+\subsection{Design Considerations} \label{subsec:designconsiderations}
 The design of the endorsement system considers several possible behaviors that
 can result from the interaction between nodes, both honest and malicious. Any
 node that tries to manipulate (to inflate or damage the reputation) the trust
@@ -599,7 +599,7 @@ information in the blockchain.
 %	\label{fig:smartcontracts}
 %\end{figure}
 
-\subsection{Data and variables on and off blockchain}
+\subsection{Data and variables on and off blockchain} \label{subsec:datablockchain}
 For the endorsement system, the data required to identify the users are stored
 on the blockchain. However, it preserves the anonymity requirement mentioned in
 Section~\ref{ch:UserStories}, as the publicly available information only links
