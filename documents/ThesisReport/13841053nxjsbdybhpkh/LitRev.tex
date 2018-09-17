@@ -175,17 +175,19 @@ key. Users sign each other's key that they know is authentic, and this process
 helps to build a web of trust. The two areas where trust is explicit in PGP are
 trustworthiness of public-key certificate and trustworthiness of introducer.
 Trustworthiness of introducer refers to the ability to trust the public key in
-being the signer of another public key. The degree of confidence in the
-trustworthiness of public-key uses a discrete labeled value as \{undefined,
-marginal, complete\}. Undefined refers to uncertainty, and marginal refers to
-maybe the key is valid whereas complete refers to full confidence in that the
-key is valid. Similarly, the trustworthiness of the introducer is given by
-\{full, marginal, untrustworthy\}. In this case, full refers to the user's full
-confidence in the key being able to introduce another public key, marginal
-refers to uncertainty if the public key is fully competent, and untrustworthy
-represents that the key cannot be trusted to introduce another public key.
-Jøsang, Audun~\cite{josang1999algebra} proposes the trust model that uses
-subjective logic to bind keys and their owners in public key infrastructure.  
+being the signer of another public key.  In the PGP web of trust, the discrete
+labeled values \{undefined, marginal, complete\} are used to represent the
+degree of confidence in the trustworthiness of a public-key. Undefined
+represents the statement "we cannot say if this key is valid or not", marginal
+represents, "maybe the key is valid", and complete represents the full
+confidence in that the key is valid.  Similarly, to specify the trustworthiness
+of the introducer, it uses \{full, marginal, untrustworthy\}. Full refers to
+the full confidence in the key being able to introduce another key, marginal
+refers to it may be trusted to introduce another key but is uncertain if it can
+be fully trusted, and untrustworthy represents that the key cannot be trusted
+to introduce another public key. Jøsang, Audun~\cite{josang1999algebra}
+proposes a trust model that uses subjective logic to bind keys and their owners
+in public key infrastructure.  
 
 \section{Blockchain applications}
 The significant attributes that constitute the blockchain are distributed,
@@ -216,7 +218,7 @@ solved the Byzantine General's
 problem~\cite{lamport1982byzantine,miller2014anonymous} probabilistically by
 using Proof-Of-Work, which is a problem in distributed computing where several
 agents need to agree on a state over an unreliable network and without a
-trusted third party. Proof-of-work is discussed in more details by
+trusted intermediary. Proof-of-work is discussed in more details by
 section~\ref{subsec:consensus}. Examples of other platforms that extends
 bitcoin are Namecoin~\cite{kalodner2015empirical}, which offers decentralized
 name resolution system, counterparty~\footnote{https://counterparty.io/docs/},

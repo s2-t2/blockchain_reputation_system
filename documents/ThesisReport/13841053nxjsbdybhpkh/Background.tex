@@ -35,7 +35,7 @@ Impersonal/Structural. Personal trust is when one person trusts another
 specific person, persons, or things in a particular situation. Interpersonal
 trust involves more than one trusting entities, i.e., two or more people (or
 groups) trust each other. Dispositional trust refers to a more general trust
-that is based on the personality attribute of the trusting party. i.e., an
+that is based on the personality attribute of the trusting party, i.e., an
 entity is more likely to trust other entity based on their attitude and is
 cross-contextual. While the trust mentioned above are implicitly directed
 towards a person, impersonal/structural trust refers to the trust in
@@ -49,15 +49,14 @@ pointed out by Gambetta et al.~\cite{gambetta2000can} ``Trust is the subjective
 probability by which an agent assesses that other agent or group of agents will
 perform a particular action that is beneficial or at least not detrimental. For
 an entity $A$ to trust another entity $B$ or to evaluate the trustworthiness of
-$B$, the reputation of $B$ plays a central role. \textit{reputation} is the
-perception of the character or standing of an individual. Like trust,
-reputation is context-dependent, e.g., Alice may be trusted to answer Linux
-questions efficiently but not Windows related
-questions~\cite{zacharia2000collaborative}. A significant difference between
-trust and reputation is that the former takes the subjective measure as input
-whereas the latter takes an objective standard (e.g., history of transactional
-outcome) as an input to yield a resulting score that can aid in detecting
-reliability/trustworthiness of an
+$B$, the reputation of $B$ plays a central role. Reputation is the perception
+of the character or standing of an individual. Like trust, reputation is
+context-dependent, e.g., Alice may be trusted to answer Linux questions
+efficiently but not Windows related questions~\cite{zacharia2000collaborative}.
+A significant difference between trust and reputation is that the former takes
+the subjective measure as input whereas the latter takes an objective standard
+(e.g., history of transactional outcome) as an input to yield a resulting score
+that can aid in detecting reliability/trustworthiness of an
 entity~\cite{Sabater2005,castelfranchi2000trust}.\par
 
 A study by Jøsang et al.~\cite{ josang2007survey} classifies trust and
@@ -362,6 +361,17 @@ message would refute the signature.
 %tamper-resistant, fault-tolerance, zero-downtime
 %characteristics~\cite{swan2015blockchain}. 
 % ~\cite{enoughBitcoinForEthereum}
+\section{Distributed Hash Table} \label{DHT}
+%In a \ac{DHT}~\cite{balakrishnan2003looking,tanenbaum2007distributed} based
+%system, the data items are assigned a random key from a large identifier space,
+%such as 128-bit or 160-bit identifier. Similarly, nodes in the system are also
+%assigned a random number from the same identifier space. The \ac{DHT} then
+%should provide a lookup service in a distributed system, i.e., Given a data
+%item $X$ stored at some dynamic set of nodes in the system, find it. The crux
+%of every DHT-based system is then to implement an efficient and deterministic
+%scheme that uniquely maps the key of a data item to the identifier of a node
+%based on some distance metric~\cite{tanenbaum2007distributed}. \par 
+
 \section{Blockchain Technology} \label{sec:blockchain}
 %Blockchain technology can be defined as a distributed record of transactions
 %that lets anyone on the network to audit state changes and prove with
@@ -551,7 +561,7 @@ problem of nothing at stake~\cite{houy2014will}, i.e., a node could vouch for
 two forks of the same blockchain. With this setup, a user could try to double
 spend the amount they have to two different accounts, and two different forks
 would be validating them both. Examples include
-Casperr~\cite{buterin2017casper}. Casper tries to solve this problem by
+Casper~\cite{buterin2017casper}. Casper tries to solve this problem by
 penalizing the node (destroy the stake) that is detected to have validated two
 blocks at the same height.
 %The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
@@ -633,22 +643,28 @@ blockchain state~\cite{MasteringEthereum}}. \ac{EVM} often referred to as a
 single world computer, runs on every ethereum node and given the same initial
 state produces the same final state. Several high level languages can be used
 to write smartcontracts for different blockchain platforms. Examples include
-solidity~\cite{SolidityDocs}, LLL~\cite{LLL}.  The contract code resides in the
-blockchain as an immutable form.  They are not autonomous self-executing
+solidity~\cite{SolidityDocs}, LLL~\cite{LLL}. The contract code resides in the
+blockchain as an immutable form. They are not autonomous self-executing
 programs but rather needs to be called by a transaction or invoked by other
 contracts. Once the code is registered and deployed on the blockchain, its code
 cannot be altered by anyone, including the owner of the contract. However, a
 possibility to include a killable function by the owner exists which when
 called executes an EVM opcode called SELFDESTRUCT and logically deletes the
-contract from the blockchain. Doing so does not delete the history of
-transactions as the blockchain itself is immutable. As in any Turing-complete
-language, it is affected by the halting problem, i.e., there is no way of
-knowing if the program will terminate given an input. In the case of a
-non-terminating program, a transaction that is transmitted to the network might
-run forever, and the whole network can be rendered useless if transactions
-cannot be processed. To avoid this, ethereum introduces the concept of gas,
-which is an expendable resource on the network that acts as a fundamental
-network cost unit. To store any state, or execute any operation, gas needs to
+contract from the blockchain, i.e., it removes the code and the internal state
+from the address of contract. After the deletion of this contract, sending any
+transaction to its address will not execute any code. Doing so does not delete
+the history of transactions as the blockchain itself is immutable.  As in any
+Turing-complete language, it is affected by the halting problem, i.e., there is
+no way of knowing if the program will terminate given an input.  In the case of
+a non-terminating program, a transaction that is transmitted to the network
+might run forever, and the whole network can be rendered useless if
+transactions cannot be processed. To avoid this, ethereum introduces the
+concept of gas, which is an expendable resource on the network that acts as a
+fundamental network cost unit. Gas~\cite{ethereumbiegepaper} is used as a means
+to mitigate the possibility of abusing the network with excessive computational
+expenditures and is paid for exclusively in ether, which is the unit of
+currency in Ethereum. The smallest unit of currency in Ethereum is Wei ($1 Wei
+= 10^{-18}$ ether). To store any state, or execute any operation, gas needs to
 be supplied. Thus, a program that has a bug or a non-terminating intention will
 eventually run out of gas and stop~\cite{whataresmartcontracts}. 
 %To address this, Ethereum introduces the concept of
@@ -656,6 +672,73 @@ eventually run out of gas and stop~\cite{whataresmartcontracts}.
 %Thus, a program that has a bug or a non-terminating intention will eventually
 %run out of gas and stop~\cite{whataresmartcontracts}.
 \subsection{Ethereum} \label{subsec:ethereum}
+The Ethereum Protocol~\cite{ethereumbiegepaper} is a deterministic but
+practically unbounded state machine~\footnote{A state machine reads a series of
+inputs and when it reads an input, switches to a different state} with two
+basic functions; the first being a globally accessible singleton state, and the
+second being a virtual machine that applies changes to that state. The globally
+accessible singleton refers to the single global truth of the machine for all
+the transactions created in the system. Ethereum offers a general purpose
+programmable blockchain with a virtual machine that can execute code of
+arbitrary and unbounded complexity. As a distributed state machine, it tracks
+state transitions of a general-purpose data store, where "general purpose data
+store" represents a store that can hold any data expressible as a key-value
+tuple~\cite{MasteringEthereum}. Some of the key components of Ethereum are
+presented below:  
+\paragraph{Accounts:}Accounts in Ethereum can be either \ac{EOA} (user account)
+which is controlled by the private key of the user or contract account, which
+is controlled by code. Every account is associated with a unique identifier
+(20-byte hexadecimal number) and has a state. The address of \ac{EOA} is
+derived from the last 20 bytes of the keccak-256 hash of the public key. The
+contract account, however, is not associated with the public-private key pairs.
+There is no private key that owns the contract account. After the contract is
+written using a high-level language such as solidity, it can be compiled down
+to EVM bytecode, which can then be deployed to Ethereum. The deployment is done
+by executing a special transaction namely, CONTRACT CREATION which is sent to a
+special address, 0x0. The address of the contract is then derived from the
+contract creation transaction as a function of the originating account and
+nonce. The nonce is one of four variables that make up the account state each
+of which is discussed below: 
+\begin{itemize}
+	\item{nonce:} The number of transactions sent from this address, or the
+		number of contract creations made by the account associated with this
+		address. 
+	\item{balance:} The amount of Wei owned by this account and is stored as a
+		key/value pair inside the state database~\footnote{A database stored
+		off-chain, i.e., on the computer of some user running an Ethereum
+		client which contains a radix tree mapping byte arrays to byte arrays}.
+	\item{code hash:} The hash of the EVM code of this accounts contract. Code
+		hashes are stored in the state database. Code hashes are permanent, and
+		they are executed when the address belonging to that account receives a
+		message call.  
+	\item{Storage trie root:} A 256-bit (32 bytes) hash of the root node of a
+		Merkle Patricia tree that encodes the storage contents of the account.  
+\end{itemize}
+\paragraph{Transactions:}Transactions are signed messages originated by
+~\ac{EOA}, transmitted by Ethereum network, and recorded on the Ethereum
+blockchain. Transactions can change the state of Ethereum state machine or
+cause a contract to execute in the ~\ac{EVM}. Every transaction has the
+following data field:   
+\begin{itemize}
+	\item gas price: The price of gas (in Wei) to pay the network for a unit of
+		gas. 
+	\item gas limit: The maximum amount of gas to be used while executing a
+		transaction.
+	\item to: The Ethereum address of destination account. In the case of
+		contract creation, this is 0x0. 
+	\item value: The value of Wei to be transferred to the recipient of a
+		message call.
+	\item data: Variable-length binary data payload which can be set by the
+		sender of the transaction. It involves an array of bytes with no limit
+		on length, but more data implies more gas fees. 
+	\item v,r,s: The three components of the ECDSA signature of the originating
+		\ac{EOA}. Using these components, one can derive the public key of
+		\ac{EOA} that signed the transaction message.  
+\end{itemize}
+The global state of Ethereum is a mapping from account addresses to the account
+states which is stored in ~\ac{MPT}.
+
+
 
 \section{Threat scenarios in trust and reputation systems}
 A reputation system should provide correct and reliable information such that
@@ -686,7 +769,7 @@ reputation score. For instance, eBay's rating system uses a range of values
 \{1, 0, -1\} for representing positive, neutral and negative rating
 respectively. The formulation of the final score is done by calculating the
 difference between the number of positive and negative scores. In this case, it
-makes more sense for an identity with 100 negatives and 5 positive scores to
+makes more sense for an identity with 100 negative and 5 positive scores to
 create a new account that gives a neutral score and start afresh. Another
 problem that can be observed in this formulation is that a user with 50
 positive and 10 negative is the same as the user with 40 positive and no
@@ -815,32 +898,33 @@ its neighbors, and interactions, one can derive useful information about a
 node. Similarly, the node’s relative position in a given graph can help to
 determine its centrality and connectivity. An overall structure of the network
 (graph topology) can help to study the global properties of the graph. \par
-Network metrics that are helpful in analyzing the complexity of interactions at
-different levels~\cite{gkorou2014exploiting} and used for evaluation of results
-in this project are:
-\paragraph{Degree Connectivity:} The number of connections a node has is the
-degree of its connec- tivity. The number of inflow is referred to as indegree
-whereas the number of outflows is the outdegree of a node. Usually, a higher
-degree of connectivity implies a higher likelihood for information (relevant
-data to the network) to pass through that node.  
-\paragraph{Network Centrality:} Centrality refers to the significance of a node
-in the network. i.e., how important the node is in the overall network. The
-degree of connectivity is one way to measure centrality of a node. Similarly,
-there are other centrality measures which includes: Closeness centrality,
-Betweenness centrality, Prestige centrality.
-\paragraph{Closeness Centrality:} refers to how close a node is to other nodes
-in the network.
-\paragraph{Betweenness Centrality:} refers to the number of nodes to which the
-given node acts as a connector. i.e., how many nodes passes through this node.
-\paragraph{Prestige Centrality:} refers to the significance of the node based
-on the significance of the adjacent nodes(nodes one is connected to). To
-observe and analyze the behavior at the macro-level, one needs to look at the
-overall structure of the graph. i.e., Network topology that shows how
-constituent parts are interconnected to form the graph as a whole. They can
-form ring, star, tree, or mesh structure or be a fully connected graph where
-each node are connected to each other.
-%\subsection{Ethereum specific concepts}
 
-
-
-
+%Network metrics that are helpful in analyzing the complexity of interactions at
+%different levels~\cite{gkorou2014exploiting} and used for evaluation of results
+%in this project are:
+%\paragraph{Degree Connectivity:} The number of connections a node has is the
+%degree of its connec- tivity. The number of inflow is referred to as indegree
+%whereas the number of outflows is the outdegree of a node. Usually, a higher
+%degree of connectivity implies a higher likelihood for information (relevant
+%data to the network) to pass through that node.  
+%\paragraph{Network Centrality:} Centrality refers to the significance of a node
+%in the network. i.e., how important the node is in the overall network. The
+%degree of connectivity is one way to measure centrality of a node. Similarly,
+%there are other centrality measures which includes: Closeness centrality,
+%Betweenness centrality, Prestige centrality.
+%\paragraph{Closeness Centrality:} refers to how close a node is to other nodes
+%in the network.
+%\paragraph{Betweenness Centrality:} refers to the number of nodes to which the
+%given node acts as a connector. i.e., how many nodes passes through this node.
+%\paragraph{Prestige Centrality:} refers to the significance of the node based
+%on the significance of the adjacent nodes(nodes one is connected to). To
+%observe and analyze the behavior at the macro-level, one needs to look at the
+%overall structure of the graph. i.e., Network topology that shows how
+%constituent parts are interconnected to form the graph as a whole. They can
+%form ring, star, tree, or mesh structure or be a fully connected graph where
+%each node are connected to each other.
+%%\subsection{Ethereum specific concepts}
+%
+%
+%
+%

@@ -1149,6 +1149,14 @@
     \field{year}{2017}
   \endentry
 
+  \entry{ethereumbiegepaper}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 07, 2018, [Online]. Available:
+  \url{https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf}}
+    \field{title}{Beigepaper: An Ethereum Technical Specification}
+    \field{year}{2018}
+  \endentry
+
   \entry{hoffman2009survey}{article}{}
     \name{author}{3}{}{%
       {{hash=HK}{%

@@ -10,7 +10,7 @@ design evaluation method by Hevner A, Chatterjee S.~\cite{hevner2010design} is
 used when necessary. The system is not only reliant on the smart contract code
 and its execution but also on the interaction theory discussed. For this, the
 endorsement interaction is simulated using the graph simulation tool
-ne04j~\footnote{https://neo4j.com/}. The dataset used to simulate the
+neo4j~\footnote{https://neo4j.com/}. The dataset used to simulate the
 interaction is taken from SNAP~\cite{snapnets}. The details on the dataset are
 presented in Section~\ref{sec:interaction}. Given the time constraints, no form of
 structural/unit testing was performed. The purpose of this project was a PoC
@@ -145,14 +145,14 @@ The direction of endorsement is based on the source and target information.
 The timestamp information can help to decide on the order of transaction
 occurrence in the network. This information is particularly interesting for
 anomaly detection algorithm such as Net flow rate convergence as discussed in
-\cite{buechler2015decentralized}.  Unlike the Bitcoin Alpha network that let
+\cite{buechler2015decentralized}. Unlike the Bitcoin Alpha network that let
 users rate on a scale of -10 to +10 to demonstrate the strength of their trust
 towards other users. The endorsement is more of a boolean decision problem,
 i.e., a user either endorses a specific claim made by the entity or does not
 endorse. There is no range of values to depict the strength or weakness. For
-making it a bit more relevant to endorsement interaction, the existing dataset
-was filtered only to have edges with a rating above +2. No negative edges were
-considered for the endorsement simulation.  As a result, the total number of
+making it more relevant to endorsement interaction, the existing dataset was
+filtered only to have edges with a rating above +2. No negative edges were
+considered for the endorsement simulation. As a result, the total number of
 nodes was reduced to 1677 with 4776 edges. Endorsement model was then applied
 to these nodes, and their total endorsement impact was computed based on their
 incoming and outgoing connections. 
@@ -232,11 +232,18 @@ ratio does not mean a higher impact but a higher impact should have a higher
 maintain a significant score in the long run. \par
 There Figure~\ref{table:totalimpact} shows the number of nodes and the range of
 \ac{TEI} values distributed across the nodes in the network. There are very few
-nodes with a higher impact value. The ranking of nodes based on the impact
-value can be made. Higher the value of \ac{TEI} that a node has, higher is its
-trustworthiness. There are very few nodes which have managed to make a
-significant impact on the network. The Figure~\ref{fig:highImpactNode} shows
-the interaction graph structure of impactful node for the given nodes. 
+nodes with a higher impact value. As such, these few nodes that have~\ac{TEI}
+in the range of 85-90 could be used as trustworthy nodes (dynamic pre-trusted
+peers) if required by the formulation of reputation score. As discussed in
+Section~\ref{subsec:bcConsensus}, they can be termed as a group of reputable
+nodes to sign and commit the block of transactions or to use as some set of
+pre-trusted nodes that can dynamically change based on more interactions. The
+ranking of nodes based on the impact value can be made. Higher the value of
+\ac{TEI} that a node has, higher is its trustworthiness. The
+Figure~\ref{fig:highImpactNode} shows the interaction graph structure of
+impactful node for the given nodes. As shown by the Figure, the high impact
+node has a significant amount of connections (incoming and outgoing) to have
+both the ratio and \ac{TRP} factor balanced.
 %\includegraphics[width=0.95\textwidth]{Images/ratio_impact_impactAboveZero.eps}
 \begin{figure}
 	\includegraphics[width=0.95\textwidth]{Images/RatioVsTEIFontsize.eps}
@@ -294,14 +301,14 @@ the interaction graph structure of impactful node for the given nodes.
 %\end{tabularx}
 \section{Total impact across several factors with different
 scenarios}\label{Allcases}
-This section considers different scenarios to analyze how several factors
-such as \ac{nEG}, \ac{nER}, ratio, \ac{TRP} is distributed and what
-contributes to having a higher or a lower \ac{TEI} value.  First two cases look
-at the nodes with maximum impact value. As mentioned earlier, a node that does
-not have a maintained ratio cannot have a higher impact value. As such, it is
-interesting to see the minimum ratio that a maximum impact node has. Case1 and
-Case 2 shows this behavior. Similarly, the third and fourth case also makes the
-same analysis but with nodes having minimum impact value. The
+This section considers different scenarios to analyze how several factors such
+as~\ac{nEG},~\ac{nER}, ratio,~\ac{TRP} is distributed and what contributes to
+having a higher or a lower~\ac{TEI} value. The first two case looks at the
+nodes that have maximum impact value on the network. As mentioned earlier, a
+node that does not have a maintained ratio (close to 1) cannot have a higher
+impact value. As such, it is interesting to see the minimum ratio that a high
+impact node can have. Case 1 and Case 2 does the same analysis to see the
+distribution of values across all the factors for a low impact node. The
 Figure~\ref{fig:allCases} shows the distribution across several factors for all
 four cases mentioned. 
 \begin{figure}[h]

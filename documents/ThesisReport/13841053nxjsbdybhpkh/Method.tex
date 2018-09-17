@@ -150,7 +150,7 @@ The functional requirements can be listed as:
 		Section~\ref{sec:endorsementModel} which discusses the design of the
 		endorsement system in detail. 
 \end{enumerate}
-The non-functional system requirements relate to the system's architecture and
+The non-functional system requirements relate to the system architecture and
 can be listed as:
 \begin{enumerate}
 	\item Security: Solidity has a list of known bugs~\cite{soliditySecurity}
@@ -278,7 +278,7 @@ endorsement impact.\newline
 \textbf{{\acrshort{nEG$_A$:}}} \ac{nEG} by a participant $A$. \newline
 \textbf{{\acrshort{nER$_A$:}}} \ac{nER} by a participant $A$. \newline
 \textbf{ratio$_A$:} represents the ratio of \acrshort{nEG$_A$} to
-\acrshort{nEG$_A$}. This value can be used to ensure that the sent and received
+\acrshort{nER$_A$}. This value can be used to ensure that the sent and received
 endorsement are not far off from each other. ratio$_{A}$ is always less than or
 equal to 1 and is given by:   
 \begin{equation}
@@ -498,9 +498,8 @@ The list of contracts written for the endorsement system and its
 functionalities are: 
 \paragraph{Ownable:} tracks the owner of the contract by setting the address of
 owner.
-address.
-\paragraph{Killable:}inherits from Ownable and allows the owner of the contract
-to destroy the contract.
+\paragraph{Killable:}inherits from Ownable and allows the owner to destroy the
+contract.
 \paragraph{Endorsement:}inherits from Ownable and killable. It specifies the
 core logic of the endorsement system. The method to join endorsement network,
 make endorsement interactions and request trust score of an entity are separate
@@ -512,11 +511,10 @@ network, it stores the address of the user account that initiated the call and
 sets it as the participant. An index to access each participant is maintained
 that can be used to query the state. 
 \paragraph{Endorsement:}allows participants to send endorsement transaction to
-the network. When the endorsed method is invoked by a user account, the state
-variables ~\ac{nEG} on the account that initiated the transaction gets
-incremented. Similarly, the ~\ac{nER} for the account specified by the
-transaction data. The list of endorsers and endorsees is updated for both the
-accounts. 
+the network. When the "endorse" method is invoked by the participant, the state
+variables ~\ac{nEG} of the account that initiated the transaction and ~\ac{nER}
+of the destination account gets incremented. The list of endorsers and
+endorsees is updated for both the accounts.
 \paragraph{ComputeImpact:} allows anyone to compute the total endorsement
 impact given the address of a participant. When this method is invoked, the
 \ac{TRP} for the given participant is calculated by accumulatively summing the
@@ -627,24 +625,23 @@ The proposed blockchain platform for the endorsement system is Ethereum, a
 public, permissionless blockchain setup. As a public and permissionless
 network, it allows any nodes to collect transactions and act as a writer. The
 consensus mechanism that is generally used in a permissionless setting is
-\ac{PoW}. As mentioned earlier, \ac{PoW} is computationally expensive and wasteful.
-Using other consensus mechanisms such as delegated proof of stake requires
-finding enough trustworthy validators that can act as a leader or a master node
-which can be given authority to vote on behalf of the community.  The
-endorsement system is meant to be a voluntary contribution network where anyone
-is free to join and endorse whoever they wish to. The participants do not
-necessarily know each other. Therefore, no "one" node can be trusted to collect
-everyone's transaction and make a final commit.
-Gochain~\footnote{https://gochain.io/} has mentioned the use of PoR
-(Proof-Of-Reputation) as a consensus mechanism in its ethereum based blockchain
-platform. The basic idea here is to allow participants on the network that have
-a high reputation to sign the block. It builds on the theory that it is not
-worthwhile for a reputed node to tarnish the current reputation that took some
-time and effort to create. The endorsement system is designed to assign a
-global reputation score to each entity and could use PoR. Since reputation
-scores are significant to maintain, the nodes that have an impact score within
-some given range could be trusted to validate and sign the blocks of
-transactions. PoR on endorsement system can only be used if the endorsement
+\ac{PoW}. As mentioned earlier,~\ac{PoW} is computationally expensive and
+wasteful. Using other consensus mechanisms such as~\ac{DPoS} requires finding
+enough trustworthy validators that can act as a leader or a master node which
+can be given authority to vote on behalf of the community. The endorsement
+system is meant to be a voluntary contribution network where anyone is free to
+join and endorse whoever they wish to. The participants do not necessarily know
+each other. Therefore, no "one" node can be trusted to collect transactions of
+everyone and make a final commit. Gochain~\footnote{https://gochain.io/} has
+mentioned the use of ~\ac{PoR} as a consensus mechanism in its ethereum based
+blockchain platform. The basic idea here is to allow participants on the
+network that have a high reputation to sign the block. It builds on the theory
+that it is not worthwhile for a reputed node to tarnish the current reputation
+that took some time and effort to create. The endorsement system is designed to
+assign a global reputation score to each entity and could use PoR. Since
+reputation scores are significant to maintain, the nodes that have an impact
+score within some given range could be trusted to validate and sign the blocks
+of transactions. PoR on endorsement system can only be used if the endorsement
 that results in an impact value becomes a valuable asset over time through
 extensive use to be used on a transaction network. However, starting the
 endorsement system with only PoR is not recommended as the behavior of

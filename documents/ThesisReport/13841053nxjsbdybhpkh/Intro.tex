@@ -99,10 +99,10 @@ to overcome this vulnerability. Example include
 BitTorrent~\cite{cohen2003incentives,cohen2008bittorrent}, which allowed the
 participating nodes to track the location of a file (to discover peer) without
 the use of a central server. Blockchain technology~\cite{atzori2015blockchain}
-makes use of a P2P network although its design goal was not that of a
+makes use of a P2P network although its main design goal was not that of a
 file-sharing service but instead started as a way to store and distribute data
 over the network in an immutable fashion. It allows the nodes to store blocks
-of data chained together in a cryptographically secure method such that
+of data chained together in a cryptographically secure method such that the
 modification of stored data is computationally infeasible. These models can be
 seen in Figure~\ref{fig:WhyBlockchain} in Section~\ref{ch:intro}.  \par
 \begin{figure}[H]
@@ -134,10 +134,10 @@ addresses them is presented. The Figure~\ref{fig:thesisSteps} in
 Section~\ref{ch:intro} gives the workflow of this master’s thesis project. \par
 The major contribution of this master's thesis project is:
 \begin{itemize}
-	\item Design of an endorsement model where entities can endorse each
-		other's information and a method to aggregate this information such
-		that a global value can be assigned to individual entities to infer
-		their trustworthiness. 
+	\item Design of an endorsement model where entities can endorse information
+		about each other and a method to aggregate this information such that a
+		global value can be assigned to individual entities to infer their
+		trustworthiness.
 	\item Deployment of the endorsement system on blockchain network that
 		updates and computes the trust scores of entities by executing the
 		smart contract code based on users' interaction ensuring reliable and
@@ -173,7 +173,17 @@ transparent.
 history of transactions, ratings provided by previous buyers that have dealt
 with him, the reputation system of the platform in use and the integrity of all
 these relevant data.  
-\paragraph{Reputation of the platform:} This factor can also be inferred similarly based on the history of services the platform has been able to provide or a general perception in the community. Here, the platform in use acts as the trusted third party that Alice must trust to present correctly computed, untampered data about Bob and the ad posted by him. The entity claiming to be Bob could be Eve, who found a way to bypass the platform's security and inflate her reputation. Eve could delete the ad and associated account when the payment is complete, or she could gather Alice's details to misuse it later.  Any malformed decision on the trustworthiness of an entity could be expensive and deal severe damage to the user. \par
+\paragraph{Reputation of the platform:} This factor can also be inferred
+similarly based on the history of services the platform has been able to
+provide or a general perception in the community. Here, the platform in use
+acts as the trusted third party that Alice must trust to present correctly
+computed, untampered data about Bob or the ad posted by him. The entity
+claiming to be Bob could be Eve, who found a way to bypass the security of the
+platform in use to inflate her reputation. Eve could delete the ad and
+associated account when the payment is complete, or she could gather details
+about Alice to misuse it later. Any malformed decision on the trustworthiness
+of an entity could be expensive and deal severe damage to the user. \par
+
 Statistics suggest that online shopping is the most adapted online
 activity~\cite{experian}. Reports by Experia~\cite{experian} and
 Javelin~\cite{javelin} indicate that E-commerce fraud has increased by 30\% in
@@ -184,14 +194,15 @@ details such as their name, credit card number, expiry date. While there are
 several security reasons that have led to attack at such scale, one reason is
 the client-server architecture where everything is stored on centralized server
 and data flows in and out from the same source. On the other hand, distributing
-information over a decentralized network would require simultaneous to achieve
-the same effect, thereby increasing the difficulty level of attack. Similarly,
-Reputation models can help in measuring the reliability of interacting entities
-so that users can make an informed decision before participating in any
-transaction. Thus, a reputation system should be secure, robust, always
-available and aim for higher accuracy. The use of right reputation algorithms
-with Blockchain technology could help to ensure the trustworthiness of online
-entities with the correctness of data and a high degree of accuracy. 
+information over a decentralized network would require simultaneous attack to
+achieve the same effect, thereby increasing the difficulty level of attack.
+Similarly, Reputation models can help in measuring the reliability of
+interacting entities so that users can make an informed decision before
+participating in any transaction. Thus, a reputation system should be secure,
+robust, always available and aim for higher accuracy. The use of right
+reputation algorithms with Blockchain technology could help to ensure the
+trustworthiness of online entities with the correctness of data and a high
+degree of accuracy. 
 %Additionally, reports on fake news
 %\footnote{\url{https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research}}$^{,}$\footnote{\url{https://www.prnewswire.com/news-releases/84-percent-of-businesses-could-reduce-fraud-risk-if-certain-about-customers-identity-300587192.html}}
 %that leads to spread of misinformation from malicious users or portals, attack
@@ -208,7 +219,7 @@ entities with the correctness of data and a high degree of accuracy.
 %Goal of thesis
 %Research questions and approach that will be taken to answer 
 %them in brief.
-The primary goal of this master's thesis project is to use the blockchain
+The primary goal of this master's thesis project is to use blockchain
 technology and smart contracts to model an interaction system where entities
 can endorse each other. It aims to specify the rules of interaction and provide
 a method to aggregate these interactions to generate a trust score for the
