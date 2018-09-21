@@ -230,7 +230,7 @@
     \list{organization}{1}{%
       {IEEE}%
     }
-    \strng{namehash}{KA+1}
+    \strng{namehash}{KA+2}
     \strng{fullhash}{KAMASEWZPC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
@@ -549,6 +549,187 @@
     \field{year}{1996}
   \endentry
 
+  \entry{hoffman2009survey}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HK}{%
+         family={Hoffman},
+         familyi={H\bibinitperiod},
+         given={Kevin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=ZD}{%
+         family={Zage},
+         familyi={Z\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=NRC}{%
+         family={Nita-Rotaru},
+         familyi={N\bibinitperiod-R\bibinitperiod},
+         given={Cristina},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{HK+1}
+    \strng{fullhash}{HKZDNRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{1}
+    \field{pages}{1}
+    \field{title}{A survey of attack and defense techniques for reputation
+  systems}
+    \field{volume}{42}
+    \field{journaltitle}{ACM Computing Surveys (CSUR)}
+    \field{year}{2009}
+  \endentry
+
+  \entry{marmol2009security}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MFG}{%
+         family={M{\'a}rmol},
+         familyi={M\bibinitperiod},
+         given={F{\'e}lix\bibnamedelima G{\'o}mez},
+         giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=PGM}{%
+         family={P{\'e}rez},
+         familyi={P\bibinitperiod},
+         given={Gregorio\bibnamedelima Mart{\'\i}nez},
+         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{MFGPGM1}
+    \strng{fullhash}{MFGPGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{7}
+    \field{pages}{545\bibrangedash 556}
+    \field{title}{Security threats scenarios in trust and reputation models for
+  distributed systems}
+    \field{volume}{28}
+    \field{journaltitle}{computers \& security}
+    \field{year}{2009}
+  \endentry
+
+  \entry{feldman2006free}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FM}{%
+         family={Feldman},
+         familyi={F\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Papadimitriou},
+         familyi={P\bibinitperiod},
+         given={Christos},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Chuang},
+         familyi={C\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SI}{%
+         family={Stoica},
+         familyi={S\bibinitperiod},
+         given={Ion},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{FM+1}
+    \strng{fullhash}{FMPCCJSI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{5}
+    \field{pages}{1010\bibrangedash 1019}
+    \field{title}{Free-riding and whitewashing in peer-to-peer systems}
+    \field{volume}{24}
+    \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
+    \field{year}{2006}
+  \endentry
+
+  \entry{andrade2004can}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=AN}{%
+         family={Andrade},
+         familyi={A\bibinitperiod},
+         given={Nazareno},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Mowbray},
+         familyi={M\bibinitperiod},
+         given={Miranda},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CW}{%
+         family={Cirne},
+         familyi={C\bibinitperiod},
+         given={Walfredo},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Brasileiro},
+         familyi={B\bibinitperiod},
+         given={Francisco},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{AN+1}
+    \strng{fullhash}{ANMMCWBF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Cluster Computing and the Grid, 2004. CCGrid 2004. IEEE
+  International Symposium on}
+    \field{pages}{440\bibrangedash 448}
+    \field{title}{When can an autonomous reputation scheme discourage
+  free-riding in a peer-to-peer system?}
+    \field{year}{2004}
+  \endentry
+
+  \entry{bondy1976graph}{book}{}
+    \true{moreauthor}
+    \name{author}{2}{}{%
+      {{hash=BJA}{%
+         family={Bondy},
+         familyi={B\bibinitperiod},
+         given={John\bibnamedelima Adrian},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=MUSR}{%
+         family={Murty},
+         familyi={M\bibinitperiod},
+         given={Uppaluri Siva\bibnamedelima Ramachandra},
+         giveni={U\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Citeseer}%
+    }
+    \strng{namehash}{BJAMUSR+1}
+    \strng{fullhash}{BJAMUSR+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Graph theory with applications}
+    \field{volume}{290}
+    \field{year}{1976}
+  \endentry
+
   \entry{katz1996handbook}{book}{}
     \name{author}{4}{}{%
       {{hash=KJ}{%
@@ -750,6 +931,129 @@
     \field{year}{2008}
   \endentry
 
+  \entry{balakrishnan2003looking}{article}{}
+    \name{author}{5}{}{%
+      {{hash=BH}{%
+         family={Balakrishnan},
+         familyi={B\bibinitperiod},
+         given={Hari},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=KMF}{%
+         family={Kaashoek},
+         familyi={K\bibinitperiod},
+         given={M\bibnamedelima Frans},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Karger},
+         familyi={K\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Morris},
+         familyi={M\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SI}{%
+         family={Stoica},
+         familyi={S\bibinitperiod},
+         given={Ion},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{BH+1}
+    \strng{fullhash}{BHKMFKDMRSI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{2}
+    \field{pages}{43\bibrangedash 48}
+    \field{title}{Looking up data in P2P systems}
+    \field{volume}{46}
+    \field{journaltitle}{Communications of the ACM}
+    \field{year}{2003}
+  \endentry
+
+  \entry{tanenbaum2007distributed}{book}{}
+    \name{author}{2}{}{%
+      {{hash=TAS}{%
+         family={Tanenbaum},
+         familyi={T\bibinitperiod},
+         given={Andrew\bibnamedelima S},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=VSM}{%
+         family={Van\bibnamedelima Steen},
+         familyi={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={Maarten},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Prentice-Hall}%
+    }
+    \strng{namehash}{TASVSM1}
+    \strng{fullhash}{TASVSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Distributed systems: principles and paradigms}
+    \field{year}{2007}
+  \endentry
+
+  \entry{stoica2001chord}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SI}{%
+         family={Stoica},
+         familyi={S\bibinitperiod},
+         given={Ion},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Morris},
+         familyi={M\bibinitperiod},
+         given={Robert},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Karger},
+         familyi={K\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KMF}{%
+         family={Kaashoek},
+         familyi={K\bibinitperiod},
+         given={M\bibnamedelima Frans},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=BH}{%
+         family={Balakrishnan},
+         familyi={B\bibinitperiod},
+         given={Hari},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM}%
+    }
+    \strng{namehash}{SI+1}
+    \strng{fullhash}{SIMRKDKMFBH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{4}
+    \field{pages}{149\bibrangedash 160}
+    \field{title}{Chord: A scalable peer-to-peer lookup service for internet
+  applications}
+    \field{volume}{31}
+    \field{journaltitle}{ACM SIGCOMM Computer Communication Review}
+    \field{year}{2001}
+  \endentry
+
   \entry{enoughBitcoinForEthereum}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=MG}{%
@@ -807,12 +1111,175 @@
     \field{year}{2017}
   \endentry
 
-  \entry{HashgraphConsensusCategory}{online}{}
+  \entry{mingxiao2017review}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=MD}{%
+         family={Mingxiao},
+         familyi={M\bibinitperiod},
+         given={Du},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=XM}{%
+         family={Xiaofeng},
+         familyi={X\bibinitperiod},
+         given={Ma},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhe},
+         familyi={Z\bibinitperiod},
+         given={Zhang},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xiangwei},
+         familyi={X\bibinitperiod},
+         given={Wang},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=QC}{%
+         family={Qijun},
+         familyi={Q\bibinitperiod},
+         given={Chen},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{MD+1}
+    \strng{fullhash}{MDXMZZXWQC1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{Accessed Aug 22, 2018, [Online]. Available:
-  \url{{https://www.foundery.co.za/blog/hashgraph-consensus-in-blockchain/}}}
-    \field{title}{Hashgraph: Consensus in Blockchain}
-    \field{year}{2018}
+    \field{booktitle}{Systems, Man, and Cybernetics (SMC), 2017 IEEE
+  International Conference on}
+    \field{pages}{2567\bibrangedash 2572}
+    \field{title}{A review on consensus algorithm of blockchain}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Bitcoin_Satoshi}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Satoshi},
+         familyi={S\bibinitperiod},
+         given={Nakamoto},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Bitcoin}%
+    }
+    \strng{namehash}{SN1}
+    \strng{fullhash}{SN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
+  \url{https://bitcoin.org/bitcoin.pdf/}}
+    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+    \field{year}{Oct 31, 2008}
+  \endentry
+
+  \entry{buterin2013ethereum}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=BV}{%
+         family={Buterin},
+         familyi={B\bibinitperiod},
+         given={Vitalik},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BV+1}
+    \strng{fullhash}{BV+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Ethereum white paper}
+    \field{journaltitle}{GitHub repository}
+    \field{year}{2013}
+  \endentry
+
+  \entry{houy2014will}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HN}{%
+         family={Houy},
+         familyi={H\bibinitperiod},
+         given={Nicolas},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HN1}
+    \strng{fullhash}{HN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{It Will Cost You Nothing to'Kill'a Proof-of-Stake
+  Crypto-Currency}
+    \field{year}{2014}
+  \endentry
+
+  \entry{buterin2017casper}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BV}{%
+         family={Buterin},
+         familyi={B\bibinitperiod},
+         given={Vitalik},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=GV}{%
+         family={Griffith},
+         familyi={G\bibinitperiod},
+         given={Virgil},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BVGV1}
+    \strng{fullhash}{BVGV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Casper the friendly finality gadget}
+    \field{journaltitle}{arXiv preprint arXiv:1710.09437}
+    \field{year}{2017}
+  \endentry
+
+  \entry{kiayias2017ouroboros}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=KA}{%
+         family={Kiayias},
+         familyi={K\bibinitperiod},
+         given={Aggelos},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Russell},
+         familyi={R\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={David},
+         familyi={D\bibinitperiod},
+         given={Bernardo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=OR}{%
+         family={Oliynykov},
+         familyi={O\bibinitperiod},
+         given={Roman},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{KA+1}
+    \strng{fullhash}{KARADBOR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Annual International Cryptology Conference}
+    \field{pages}{357\bibrangedash 388}
+    \field{title}{Ouroboros: A provably secure proof-of-stake blockchain
+  protocol}
+    \field{year}{2017}
   \endentry
 
   \entry{androulaki2018hyperledger}{inproceedings}{}
@@ -967,87 +1434,56 @@
     \field{year}{2017}
   \endentry
 
-  \entry{Bitcoin_Satoshi}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=SN}{%
-         family={Satoshi},
-         familyi={S\bibinitperiod},
-         given={Nakamoto},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Bitcoin}%
-    }
-    \strng{namehash}{SN1}
-    \strng{fullhash}{SN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
-  \url{https://bitcoin.org/bitcoin.pdf/}}
-    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
-    \field{year}{Oct 31, 2008}
-  \endentry
-
-  \entry{buterin2013ethereum}{article}{}
+  \entry{castro1999practical}{inproceedings}{}
     \true{moreauthor}
-    \name{author}{1}{}{%
-      {{hash=BV}{%
-         family={Buterin},
-         familyi={B\bibinitperiod},
-         given={Vitalik},
-         giveni={V\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BV+1}
-    \strng{fullhash}{BV+1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Ethereum white paper}
-    \field{journaltitle}{GitHub repository}
-    \field{year}{2013}
-  \endentry
-
-  \entry{houy2014will}{article}{}
-    \name{author}{1}{}{%
-      {{hash=HN}{%
-         family={Houy},
-         familyi={H\bibinitperiod},
-         given={Nicolas},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{HN1}
-    \strng{fullhash}{HN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{It Will Cost You Nothing to'Kill'a Proof-of-Stake
-  Crypto-Currency}
-    \field{year}{2014}
-  \endentry
-
-  \entry{buterin2017casper}{article}{}
     \name{author}{2}{}{%
-      {{hash=BV}{%
-         family={Buterin},
-         familyi={B\bibinitperiod},
-         given={Vitalik},
-         giveni={V\bibinitperiod},
+      {{hash=CM}{%
+         family={Castro},
+         familyi={C\bibinitperiod},
+         given={Miguel},
+         giveni={M\bibinitperiod},
       }}%
-      {{hash=GV}{%
-         family={Griffith},
-         familyi={G\bibinitperiod},
-         given={Virgil},
-         giveni={V\bibinitperiod},
+      {{hash=LB}{%
+         family={Liskov},
+         familyi={L\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
       }}%
     }
-    \strng{namehash}{BVGV1}
-    \strng{fullhash}{BVGV1}
+    \strng{namehash}{CMLB+1}
+    \strng{fullhash}{CMLB+1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Casper the friendly finality gadget}
-    \field{journaltitle}{arXiv preprint arXiv:1710.09437}
-    \field{year}{2017}
+    \field{booktitle}{OSDI}
+    \field{pages}{173\bibrangedash 186}
+    \field{title}{Practical Byzantine fault tolerance}
+    \field{volume}{99}
+    \field{year}{1999}
+  \endentry
+
+  \entry{ongaro2014search}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=OD}{%
+         family={Ongaro},
+         familyi={O\bibinitperiod},
+         given={Diego},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=OJK}{%
+         family={Ousterhout},
+         familyi={O\bibinitperiod},
+         given={John\bibnamedelima K},
+         giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ODOJK1}
+    \strng{fullhash}{ODOJK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{USENIX Annual Technical Conference}
+    \field{pages}{305\bibrangedash 319}
+    \field{title}{In search of an understandable consensus algorithm.}
+    \field{year}{2014}
   \endentry
 
   \entry{voronchenko2017you}{article}{}
@@ -1139,16 +1575,6 @@
     \field{year}{2017}
   \endentry
 
-  \entry{whataresmartcontracts}{misc}{}
-    \list{organization}{1}{%
-      {ChainFrog}%
-    }
-    \field{labeltitlesource}{title}
-    \field{title}{What are Smart Contracts,
-  \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf/}}
-    \field{year}{2017}
-  \endentry
-
   \entry{ethereumbiegepaper}{online}{}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Sep 07, 2018, [Online]. Available:
@@ -1157,203 +1583,14 @@
     \field{year}{2018}
   \endentry
 
-  \entry{hoffman2009survey}{article}{}
-    \name{author}{3}{}{%
-      {{hash=HK}{%
-         family={Hoffman},
-         familyi={H\bibinitperiod},
-         given={Kevin},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=ZD}{%
-         family={Zage},
-         familyi={Z\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=NRC}{%
-         family={Nita-Rotaru},
-         familyi={N\bibinitperiod-R\bibinitperiod},
-         given={Cristina},
-         giveni={C\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {ACM}%
-    }
-    \strng{namehash}{HK+1}
-    \strng{fullhash}{HKZDNRC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{1}
-    \field{pages}{1}
-    \field{title}{A survey of attack and defense techniques for reputation
-  systems}
-    \field{volume}{42}
-    \field{journaltitle}{ACM Computing Surveys (CSUR)}
-    \field{year}{2009}
-  \endentry
-
-  \entry{marmol2009security}{article}{}
-    \name{author}{2}{}{%
-      {{hash=MFG}{%
-         family={M{\'a}rmol},
-         familyi={M\bibinitperiod},
-         given={F{\'e}lix\bibnamedelima G{\'o}mez},
-         giveni={F\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-      {{hash=PGM}{%
-         family={P{\'e}rez},
-         familyi={P\bibinitperiod},
-         given={Gregorio\bibnamedelima Mart{\'\i}nez},
-         giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Elsevier}%
-    }
-    \strng{namehash}{MFGPGM1}
-    \strng{fullhash}{MFGPGM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{7}
-    \field{pages}{545\bibrangedash 556}
-    \field{title}{Security threats scenarios in trust and reputation models for
-  distributed systems}
-    \field{volume}{28}
-    \field{journaltitle}{computers \& security}
-    \field{year}{2009}
-  \endentry
-
-  \entry{feldman2006free}{article}{}
-    \name{author}{4}{}{%
-      {{hash=FM}{%
-         family={Feldman},
-         familyi={F\bibinitperiod},
-         given={Michal},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=PC}{%
-         family={Papadimitriou},
-         familyi={P\bibinitperiod},
-         given={Christos},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=CJ}{%
-         family={Chuang},
-         familyi={C\bibinitperiod},
-         given={John},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=SI}{%
-         family={Stoica},
-         familyi={S\bibinitperiod},
-         given={Ion},
-         giveni={I\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{FM+1}
-    \strng{fullhash}{FMPCCJSI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{5}
-    \field{pages}{1010\bibrangedash 1019}
-    \field{title}{Free-riding and whitewashing in peer-to-peer systems}
-    \field{volume}{24}
-    \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
-    \field{year}{2006}
-  \endentry
-
-  \entry{andrade2004can}{inproceedings}{}
-    \name{author}{4}{}{%
-      {{hash=AN}{%
-         family={Andrade},
-         familyi={A\bibinitperiod},
-         given={Nazareno},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=MM}{%
-         family={Mowbray},
-         familyi={M\bibinitperiod},
-         given={Miranda},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=CW}{%
-         family={Cirne},
-         familyi={C\bibinitperiod},
-         given={Walfredo},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=BF}{%
-         family={Brasileiro},
-         familyi={B\bibinitperiod},
-         given={Francisco},
-         giveni={F\bibinitperiod},
-      }}%
-    }
+  \entry{whataresmartcontracts}{misc}{}
     \list{organization}{1}{%
-      {IEEE}%
+      {ChainFrog}%
     }
-    \strng{namehash}{AN+1}
-    \strng{fullhash}{ANMMCWBF1}
-    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Cluster Computing and the Grid, 2004. CCGrid 2004. IEEE
-  International Symposium on}
-    \field{pages}{440\bibrangedash 448}
-    \field{title}{When can an autonomous reputation scheme discourage
-  free-riding in a peer-to-peer system?}
-    \field{year}{2004}
-  \endentry
-
-  \entry{bondy1976graph}{book}{}
-    \true{moreauthor}
-    \name{author}{2}{}{%
-      {{hash=BJA}{%
-         family={Bondy},
-         familyi={B\bibinitperiod},
-         given={John\bibnamedelima Adrian},
-         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=MUSR}{%
-         family={Murty},
-         familyi={M\bibinitperiod},
-         given={Uppaluri Siva\bibnamedelima Ramachandra},
-         giveni={U\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
-  R\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Citeseer}%
-    }
-    \strng{namehash}{BJAMUSR+1}
-    \strng{fullhash}{BJAMUSR+1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Graph theory with applications}
-    \field{volume}{290}
-    \field{year}{1976}
-  \endentry
-
-  \entry{gkorou2014exploiting}{article}{}
-    \name{author}{1}{}{%
-      {{hash=GD}{%
-         family={Gkorou},
-         familyi={G\bibinitperiod},
-         given={Dimitra},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GD1}
-    \strng{fullhash}{GD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Exploiting Graph Properties for Decentralized Reputation
-  Systems}
-    \field{year}{2014}
+    \field{title}{What are Smart Contracts,
+  \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf/}}
+    \field{year}{2017}
   \endentry
 
   \entry{resnick2000reputation}{article}{}
@@ -2429,6 +2666,46 @@
     \field{year}{2016}
   \endentry
 
+  \entry{cormen2009introduction}{book}{}
+    \name{author}{4}{}{%
+      {{hash=CTH}{%
+         family={Cormen},
+         familyi={C\bibinitperiod},
+         given={Thomas\bibnamedelima H},
+         giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=LCE}{%
+         family={Leiserson},
+         familyi={L\bibinitperiod},
+         given={Charles\bibnamedelima E},
+         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=RRL}{%
+         family={Rivest},
+         familyi={R\bibinitperiod},
+         given={Ronald\bibnamedelima L},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Stein},
+         familyi={S\bibinitperiod},
+         given={Clifford},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT press}%
+    }
+    \strng{namehash}{CTH+1}
+    \strng{fullhash}{CTHLCERRLSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 04, 2018, [Online]. Available:
+  \url{{http://thuvien.thanglong.edu.vn:8081/dspace/bitstream/DHTL_123456789/3760/2/introduction-to-algorithms-3rd-edition.pdf}}}
+    \field{title}{Introduction to algorithms}
+    \field{year}{2009}
+  \endentry
+
   \entry{hevner2010design}{incollection}{}
     \name{author}{2}{}{%
       {{hash=HA}{%
@@ -2560,46 +2837,6 @@
     }
     \field{type}{techreport}
     \field{year}{2015}
-  \endentry
-
-  \entry{cormen2009introduction}{book}{}
-    \name{author}{4}{}{%
-      {{hash=CTH}{%
-         family={Cormen},
-         familyi={C\bibinitperiod},
-         given={Thomas\bibnamedelima H},
-         giveni={T\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-      {{hash=LCE}{%
-         family={Leiserson},
-         familyi={L\bibinitperiod},
-         given={Charles\bibnamedelima E},
-         giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
-      }}%
-      {{hash=RRL}{%
-         family={Rivest},
-         familyi={R\bibinitperiod},
-         given={Ronald\bibnamedelima L},
-         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-      }}%
-      {{hash=SC}{%
-         family={Stein},
-         familyi={S\bibinitperiod},
-         given={Clifford},
-         giveni={C\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {MIT press}%
-    }
-    \strng{namehash}{CTH+1}
-    \strng{fullhash}{CTHLCERRLSC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed Sep 04, 2018, [Online]. Available:
-  \url{{http://thuvien.thanglong.edu.vn:8081/dspace/bitstream/DHTL_123456789/3760/2/introduction-to-algorithms-3rd-edition.pdf}}}
-    \field{title}{Introduction to algorithms}
-    \field{year}{2009}
   \endentry
 \enddatalist
 \endinput

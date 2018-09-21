@@ -6,11 +6,11 @@ from DataProcessing import nodes, nEG, nER
 
 font = {'family' : 'monospace',
         #'weight' : 'bold',
-        'size'   : 18}
+        'size'   : 20}
 
 titleFont = {'family' : 'monospace',
         #'weight' : 'bold',
-        'size'   : 20}
+        'size'   : 24}
 
 inDegree = []
 outDegree = []
@@ -54,7 +54,7 @@ for i in nodes:
 #plt.ylabel('Total endorsement impact',font )
 #plt.show()
 
-plt.title('Relation between Ratio and Total EDS Impact',titleFont)
+plt.title('Relation between Ratio and Total Endorsement Impact',titleFont)
 plt.plot(node_ratio, node_impact, 'bs')
 plt.xlabel('Ratio',font )
 plt.ylabel('Total Endorsement Impact',font )

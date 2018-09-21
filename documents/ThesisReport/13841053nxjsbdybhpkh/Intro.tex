@@ -143,7 +143,7 @@ The major contribution of this master's thesis project is:
 		smart contract code based on users' interaction ensuring reliable and
 		verifiable information. 
 	\item Evaluation of the endorsement model by applying it to an existing
-		data set and discussion of relevant threat model.
+		data set and discussion of relevant threat models.
 \end{itemize}
 
 %and therefore can be stated as a soft
@@ -189,19 +189,19 @@ activity~\cite{experian}. Reports by Experia~\cite{experian} and
 Javelin~\cite{javelin} indicate that E-commerce fraud has increased by 30\% in
 2017 over 2016 while identity fraud victims have risen by 8\% in 2017 (16.7
 million U.S. victims). A recent report of the data breach~\cite{macy} on an
-online shopping website, Macy~\footnote{https://www.macys.com/}, exposed users’
-details such as their name, credit card number, expiry date. While there are
-several security reasons that have led to attack at such scale, one reason is
-the client-server architecture where everything is stored on centralized server
-and data flows in and out from the same source. On the other hand, distributing
-information over a decentralized network would require simultaneous attack to
-achieve the same effect, thereby increasing the difficulty level of attack.
-Similarly, Reputation models can help in measuring the reliability of
-interacting entities so that users can make an informed decision before
-participating in any transaction. Thus, a reputation system should be secure,
-robust, always available and aim for higher accuracy. The use of right
-reputation algorithms with Blockchain technology could help to ensure the
-trustworthiness of online entities with the correctness of data and a high
+online shopping website, Macy~\footnote{https://www.macys.com/}, exposed
+details of its users such as their name, credit card number, expiry date. While
+there are several security reasons that have led to attack at such scale, one
+reason is the client-server architecture where everything is stored on
+centralized server and data flows in and out from the same source. On the other
+hand, distributing information over a decentralized network would require
+simultaneous attack to achieve the same effect, thereby increasing the
+difficulty level of attack.  Similarly, Reputation models can help in measuring
+the reliability of interacting entities so that users can make an informed
+decision before participating in any transaction. Thus, a reputation system
+should be secure, robust, always available and aim for higher accuracy. The use
+of right reputation algorithms with blockchain technology could help to ensure
+the trustworthiness of online entities with the correctness of data and a high
 degree of accuracy. 
 %Additionally, reports on fake news
 %\footnote{\url{https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research}}$^{,}$\footnote{\url{https://www.prnewswire.com/news-releases/84-percent-of-businesses-could-reduce-fraud-risk-if-certain-about-customers-identity-300587192.html}}
@@ -234,17 +234,16 @@ are:
 %participation.  Generalization of this endorsement network to serve other use
 %cases shall be discussed as well. \par
 \begin{itemize}
-		\item How can graph theories and relevant reputation algorithms be used
-			to model the interaction between entities and identify honest and
-			malicious nodes in the network? \label{question1}
+%		\item How can graph theories and relevant reputation algorithms be used
+%			to model the interaction between entities and identify honest and
+%			malicious nodes in the network? \label{question1}
 		\item What are the requirements for storing trust values and linking
 			them to associated identities stored on or off a blockchain
 			network? How can a blockchain application be built to define a
 			general trust framework and how would the overall system
 			architecture look like?\label{question2} 
-		\item How can the decentralized endorsement system help to infer the
-			trustworthiness of interacting entities while preserving users'
-			anonymity?  \label{question3} 
+		\item How can the proposed model help to infer the trustworthiness of
+			interacting entities while preserving the anonymity of its users? 
 \end{itemize}
 \section{Scope} 
 %Identify goal, objective, timeplan, deliverables, 
@@ -252,19 +251,20 @@ are:
 %the objective
 This master's thesis project attempts to answer all the research questions
 mentioned in section~\ref{ResearchQuestions}.  
-\paragraph{Research Question 1}
-To answer research question 1, a literature survey is performed on various
-reputation algorithms and trust models. This survey follows with the discussion
-on various analysis metrics and threat models that eventually leads to graph
-simulation of an endorsement network.
+%\paragraph{Research Question 1}
+%To answer research question 1, a literature survey is performed on various
+%reputation algorithms and trust models. This survey follows with the discussion
+%on various analysis metrics and threat models that eventually leads to graph
+%simulation of an endorsement network.
 
-\paragraph{Research Question 2 } 
+\paragraph{Research Question 1 } 
 An interpretation of connections between nodes and quantification of a score
 that can represent trustworthiness of an entity is presented. Overall system
 design and architecture to implement the application on blockchain network is
-presented along with a comparative analysis of on-chain vs. off-chain storage.  
+presented along with a comparative analysis of an on-chain vs. off-chain
+storage.
 
-\paragraph{Research Question 3} 
+\paragraph{Research Question 2} 
 The study of threat models relevant to trust and reputation systems is
 presented along with a discussion on how the proposed system addresses them. 
 %For research question\ref{question2}, interpretation and quantification of reputation
@@ -280,12 +280,14 @@ presented along with a discussion on how the proposed system addresses them.
 %see how well it behaves in a dynamic environment. \\
 
 \section{Structure of Report}
-This paper is structured as follows. Chapter~\ref{ch:litrev} presents a
-literature survey on the existing algorithms and their implementations.
-Chapter~\ref{ch:background} provides a background overview of relevant concepts
-necessary to understand the following sections. In Chapter~\ref{ch:method},
-system requirements and the approach taken for the model design are shown. It
-shows the overall system design and architecture. Chapter~\ref{ch:results}
-follows on with the discussion of evaluation metrics and test methods and
-present results representative of the designed model. Finally, conclusion and
-future works are presented in Chapter~\ref{ch:conclusion}. 
+This report is structured as follows. Chapter~\ref{ch:background} provides a
+background overview of relevant concepts necessary to understand the following
+sections. Chapter~\ref{ch:litrev} presents a literature survey on the existing
+algorithms and their implementations. In Chapter~\ref{ch:method}, system
+requirements and the approach taken for the model design are shown. It presents
+the overall design and architecture of the proposed system.
+Chapter~\ref{ch:results} presents the results and evaluation of the system
+requirements. In Chapter~\ref{ch:discussion}, the discussion, and analysis of
+the overall project along with the limitations of the proposed system are
+presented. Finally, conclusion and future works are presented in
+Chapter~\ref{ch:conclusion}.

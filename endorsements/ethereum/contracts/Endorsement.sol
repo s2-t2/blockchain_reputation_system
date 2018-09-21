@@ -26,7 +26,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		uint index;
 		address receiver;
 		uint nER;
-		//uint receivedPoints;
+	//	uint receivedPoints;
 		address[] receivedFrom;
 		mapping(address => bool) hasReceivedFrom;
 	}
@@ -41,7 +41,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 	address[] public endorseeAccts;
 
 
-	//mapping (address => uint) public receivedPoints;
+	mapping (address => uint) public prevLength;
+	mapping (address => uint) public receivedPoints;
     
 	// modifiers
 	// set owner of contract - replace eventually with Ownable contract
@@ -180,6 +181,7 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		endorsee.receiver = _receiver;
 		endorsee.index++;
 		endorsee.nER++;
+	//	endorsee.receivedPoints = computeReceivedPoints(_receiver);
 		endorsee.receivedFrom.push(_sender);
 		endorsee.hasReceivedFrom[_sender] = true;
 
@@ -216,14 +218,25 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 		//get list of endorsers addresses from whom _endorsee has received eds from
 		address [] memory receivedFrom = getReceivedFrom(_endorsee);
 
-		//aggregate total received points from  the accumulated receivedFrom list
-		uint receivedPoints;
+		uint TRP = receivedPoints[_endorsee];
+		uint len = prevLength[_endorsee]; 
 
-		for (uint i=0; i<receivedFrom.length; i++) { 
-			receivedPoints = receivedPoints + endorsers[receivedFrom[i]].usedPower;
+		for (uint i=len; i< receivedFrom.length; i++){
+			TRP = TRP + endorsers[receivedFrom[i]].usedPower;
 		}
+		receivedPoints[_endorsee] = TRP;
+		prevLength[_endorsee] = receivedFrom.length;
+		return TRP;
 
-		return receivedPoints;
+
+		//aggregate total received points from  the accumulated receivedFrom list
+//		uint receivedPoints;
+//
+//		for (uint i=0; i<receivedFrom.length; i++) { 
+//			receivedPoints = receivedPoints + endorsers[receivedFrom[i]].usedPower;
+//		}
+//
+//		return receivedPoints;
 	}
 
 	//computation of total endorsement impact of a participant
@@ -256,6 +269,8 @@ contract Endorsement is Ownable, Killable, MarketPlace {
 
 			impact = ratio * RE;
 		}
+		
+
 
 		// call feedback function here
 		totalImpact = transactionFeedBack(_participant, impact);

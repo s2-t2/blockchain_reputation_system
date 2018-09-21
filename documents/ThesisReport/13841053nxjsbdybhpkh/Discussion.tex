@@ -9,8 +9,8 @@ along with how the endorsement model addresses them is presented by
 Chapter~\ref{ch:results}. The issues that a reputation system should address
 based on principles defined by EigenTrust~\cite{kamvar2003eigentrust} and
 Resnick et. al~\cite{resnick2000reputation} are discussed by the design
-considerations~\ref{subsec:designconsiderations} taken into account by the
-endorsement model. To briefly summarize each of them:  
+considerations in Section~\ref{subsec:designconsiderations} and taken into
+account by the endorsement model. To briefly summarize each of them:  
 
 \paragraph{Self-policing:}By deploying a decentralized endorsement system on a
 public permission-less blockchain network and allowing anyone to execute the
@@ -42,28 +42,24 @@ endorsement contract on the blockchain. There is no limit to the length of data
 a transaction message (e.g., computation of \ac{TEI}) can hold but more data
 implies more gas fee since the amount of storage that every node (full nodes)
 have to store increases. The cost of transaction fee is paid by the account
-that initiates the transaction. Sending an endorsement to another account
-updates the state for both the sender (\ac{nEG}) and receiver account
-(\ac{nER}). The state of these variables determines the \ac{TEI} value for each
-node. The computation of total endorsement impact for a node $A$ can be
-initiated by any node. This computation step depends on the size of the
-endorsee array of $A$. As discussed in Section~\ref{subsec:datablockchain}, it
-is recommended to do this computation on the client-side by retrieving the
-variables stored on the blockchain network. The time it takes to have a
-transaction confirmed is dependent on the consensus mechanism and the number of
-validator nodes along with the number of transactions. The details on these
-factors for Ethereum is given by Section~\ref{subsec:ethereum}. With a gas
-limit of 395715 and gas price of 1 Gwei, the transaction cost for sending an
-endorsement from one account to another is 0.000026381 Ether (~0.06 USD) which
-consumes 263810 units of gas. The recipient account will have their state
-(\ac{nER}) changed if the transaction executes successfully and the contract
-code is executed. More details on transaction costs and gas fees are given by
-Section~\ref{subsec:ethereum}. 
-\paragraph{Robust to malicious collectives of peers:}This factor is rather
-complex, and the current implementation of the endorsement system does not
-enforce any behavior to avoid it. It is as likely for an honest group of nodes
-to endorse each other as it is for malicious nodes. The discussion on methods
-to address this issue is given by Section~\ref{sec:threatModel}. 
+that initiates the transaction. The transaction fee for the endorsement is
+associated with the update and storage operation. Sending an endorsement to
+another account updates the state variables \ac{nEG} and \ac{nER} and stores
+the new endorser and endorsee address for the respective accounts. The
+computation of total endorsement impact for a given entity $A$ can be initiated
+by any node (not just the account owner). This computation step depends on the
+size of the endorsee array of $A$. As discussed in
+Section~\ref{subsec:datablockchain}, it is recommended to do this computation
+on a non-blockchain platform while retrieving the variables stored on the
+blockchain network. The time it takes to have a transaction confirmed is
+dependent on the consensus mechanism and ~\ac{PoW} being the recommended
+consensus mechanism, the network throughput should be less than 100
+transactions per second.  \paragraph{Robust to malicious collectives of
+peers:}This factor is rather complex, and the current implementation of the
+endorsement system does not enforce any behavior to avoid it. It is as likely
+for an honest group of nodes to endorse each other as it is for malicious
+nodes. The discussion on methods to address this issue is given by
+Section~\ref{sec:threatModel}. 
 
 The attributes of a reputation system as pointed out by Resnick et
 al.~\cite{resnick2000reputation} to be able to provide enough information to
@@ -122,37 +118,42 @@ project does not perform the evaluation or analysis of using such a setup. \par
 
 The research questions posed at the beginning of this projects and the sections
 that answer them are presented below:  
-\paragraph{Research Question 1:}How can graph theories and relevant reputation
-algorithms be used to model the interaction between entities and
-detect/identify honest and malicious nodes in the network? How can the
-interaction graph be modeled? \par
+%\paragraph{Research Question 1:}How can graph theories and relevant reputation
+%algorithms be used to model the interaction between entities and
+%detect/identify honest and malicious nodes in the network? How can the
+%interaction graph be modeled? \par
 
-While specific graph-based algorithms for reputation management systems were
-not discussed in detail by the project, the possibility of use for anomaly
-detection by Section~\ref{sec:interaction} and the reputation model that uses
-them is presented by literature review phase of this project and is given by
-Section~\ref{litrev:reptationalgorithms}. 
+%While specific graph-based algorithms for reputation management systems were
+%not discussed in detail by the project, the possibility of use for anomaly
+%detection by Section~\ref{sec:interaction} and the reputation model that uses
+%them is presented by literature review phase of this project and is given by
+%Section~\ref{litrev:reptationalgorithms}. 
 
-\paragraph{Research Question 2:}What are the requirements for storing trust
+\paragraph{Research Question 1:}What are the requirements for storing trust
 values and linking them to associated identities stored off a blockchain
 network? How can a blockchain application be built to define a general trust
 framework for a transactional network? How could the overall system
 architecture look like? \par
+The storage of data and variables along with the computation of trust scores is
+made on the blockchain network for the current implementation of the
+endorsement system. As the storage and computation requirement grows, a
+distributed P2P file system is recommended as an off-chain storage solution.
+The components of the endorsement system along with the overall flow from
+design to deployment is given by
+Section~\ref{sec:endorsementModel},~\ref{subsec:designconsiderations},~\ref{computetei},~\ref{subsec:datablockchain}.
 
-This research question is answered by Chapter~\ref{ch:method} and specifically
-by Section~\ref{sec:endorsementModel},
-Section~\ref{subsec:designconsiderations}, Section~\ref{computetei} and
-Section~\ref{subsec:datablockchain}.
-
-\paragraph{Research Question 3:}How can the discussed endorsement network
+\paragraph{Research Question 2:}How can the discussed endorsement network
 ensure trustworthiness while also preserving user anonymity and how can it be
 generalized to other transactional network or added on top of it to serve other
 use cases such as content filtering, E-Commerce, etc.? \par
-
-This research question is answered by
-Section~\ref{subsec:designconsiderations},
-Section~\ref{subsec:designconsiderations}, Section~\ref{fulfillment} and
-Section~\ref{generalization}.
+The endorsement system is designed as a general model where entities can
+endorse each other. The collection and aggregation of these endorsement
+interactions result in a final trust score to represent the trustworthiness of
+the respective entity. These aspects is discussed by
+Section~\ref{subsec:designconsiderations},~\ref{fulfillment}. Being a general
+model that collects the opinion of entities about each other, this system can
+be generalized and used by other online interaction systems for different use
+case which is discussed by Section~\ref{generalization}.
 
 \section{Limitations}
 As mentioned earlier in Section~\ref{sec:endorsementModel}, among the four

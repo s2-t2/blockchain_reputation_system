@@ -28,7 +28,7 @@ governance of reputation data to ensure reliable and publicly verifiable
 information. By modeling trust among entities in a pseudonymous manner, the
 proposed system also considers the users' anonymity requirement. 
 
-\section{User stories \& System Requirements} \label{ch:UserStories}
+\section{User stories and System Requirements} \label{ch:UserStories}
 This master's thesis project proposes a decentralized endorsement system to
 model trust among participating entities. As the name suggests, the proposed
 system allows participants to endorse each other to reflect their subjective
@@ -82,7 +82,7 @@ Section~\ref{fulfillment}.
 	\begin{table}
 	\begin{tabular} {| l | p{8cm} | l |}
 		\hline
-		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Traceability} \\
+		\textbf{As an}  & \textbf{I need to be able to..}   & \textbf{Requirement Id} \\
 		\hline
 		\multirow{2}{*}{Endorser} & send an endorsement so that the endorsement
 		is received by the endorsee.& R1
@@ -153,18 +153,17 @@ The functional requirements can be listed as:
 The non-functional system requirements relate to the system architecture and
 can be listed as:
 \begin{enumerate}
-	\item Security: Solidity has a list of known bugs~\cite{soliditySecurity}
-		and recommendations on security considerations~\cite{solidityBugs} for
-		writing smart contract code. The smart contract code for endorsement
-		system should take into account minimal security considerations to
-		avoid the relevant possible bugs. 
+	\item Security: The contract code for the endorsement system should take
+		into account relevant security considerations as recommended by
+		Solidity~\cite{soliditySecurity} to avoid known
+		flaws~\cite{solidityBugs} and minimize attack surface.
 	\item Reliability: The  trust and reputation information should be stored
 		in an immutable and publicly verifiable manner.
-	\item Trust metrics should correctly describe the actual trust score of the
-		nodes. The definition of honest or malicious interaction based on the
+	\item Trust metrics should describe the actual trust score of the nodes:
+		The definition of honest or malicious interactions based on the
 		endorsement model should be reflected by the final score assigned to
 		the participant. As such, the nodes showing honest behavior should have
-		a better score than the malicious ones.   
+		a higher rank than the malicious ones in the endorsement system.  
 \end{enumerate}
 
 \section{The Model - Endorsement Network}\label{sec:endorsementModel}
@@ -277,6 +276,9 @@ the endorsement system and present the method to compute the value for total
 endorsement impact.\newline 
 \textbf{{\acrshort{nEG$_A$:}}} \ac{nEG} by a participant $A$. \newline
 \textbf{{\acrshort{nER$_A$:}}} \ac{nER} by a participant $A$. \newline
+The participants must have a \ac{nEG} and \ac{nER} value equal to 1 to be
+considered a starting node and a value above 1 to be considered for making an
+impact in the endorsement system. \newline
 \textbf{ratio$_A$:} represents the ratio of \acrshort{nEG$_A$} to
 \acrshort{nER$_A$}. This value can be used to ensure that the sent and received
 endorsement are not far off from each other. ratio$_{A}$ is always less than or
@@ -292,8 +294,9 @@ participant $A$, $CP_{A}$ is given by $\frac{1}{nEG_A}$.\newline
 \textbf{\acrshort{TRP$_A$}:} This corresponds to \ac{TRP}, which is the
 accumulated sum of consumable points received by $A$ from his/her endorsers.
 \newline
-If $E = \{e_{1}, e_{2}, e_{3}, ......., e_{n}\}$ is a set of endorsers for a
-peer $A$ and the size of $E$ is $n$, then the $TRP_{A}$ is given by:
+If $E = \{e_{1}, e_{2}, e_{3}, ......., e_{n}\}$ represents the set of
+endorsers for a peer $A$ and the size of $E$ is $n$, then the $TRP_{A}$ is
+given by:
 \begin{equation}
 	TRP_A = \sum_{i=1}^{n}CP_{e_{i}}
 \end{equation}

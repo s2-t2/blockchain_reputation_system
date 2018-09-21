@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 
 font = {'family' : 'monospace',
         #'weight' : 'bold',
-        'size'   : 18}
+        'size'   : 20}
 
 
 titleFont = {'family' : 'monospace',
         'weight' : 'bold',
-        'size'   : 23}
+        'size'   : 24}
 
 
 nodes = [419,51,5,10,2,1,1,0,1,0,2,0,1,3,0,1 ] 
