@@ -83,11 +83,11 @@ of a client-server architecture to serve and govern the data usage. As such,
 the system is centralized and prone to both external attacks and internal
 modifications. If the server nodes fails, then the whole network fails since
 none of the clients can access the data anymore. An alternative architecture
-that is primarily utilized by file sharing systems is a Peer-to-Peer (P2P)
-network, and reputation-based trust management system for them exists as
-well~\cite{selcuk2004reputation}. In a P2P network, all nodes (peers) can act
-as both client and server, i.e., a peer can both request and serve data.  Thus,
-if one node fails, clients can still request data from other nodes in the
+that is primarily utilized by file sharing systems is a ~\ac{P2P} network, and
+reputation-based trust management system for them exists as
+well~\cite{selcuk2004reputation}. In a ~\ac{P2P} network, all nodes (peers) can
+act as both client and server, i.e., a peer can both request and serve data.
+Thus, if one node fails, clients can still request data from other nodes in the
 network. Earlier P2P file-sharing services such as
 Napster~\cite{stern2000napster} offered P2P data distribution such that clients
 could request data from any nodes connected to its network. However, the
@@ -98,7 +98,7 @@ services that followed employed a decentralized and distributed indexing method
 to overcome this vulnerability. Example include
 BitTorrent~\cite{cohen2003incentives,cohen2008bittorrent}, which allowed the
 participating nodes to track the location of a file (to discover peer) without
-the use of a central server. Blockchain technology~\cite{atzori2015blockchain}
+the use of a central server. Blockchain technology~\cite{pilkington201611}
 makes use of a P2P network although its main design goal was not that of a
 file-sharing service but instead started as a way to store and distribute data
 over the network in an immutable fashion. It allows the nodes to store blocks
@@ -130,8 +130,8 @@ applied to an existing real dataset. Computation of trust scores for each
 participant based on the defined trust metrics is presented. The simulated
 graph and computed trust scores do support the defined metrics. A discussion of
 relevant threat models on reputation systems and how the proposed model
-addresses them is presented. The Figure~\ref{fig:thesisSteps} in
-Section~\ref{ch:intro} gives the workflow of this master’s thesis project. \par
+addresses them is presented. Different phases of this master's thesis project
+are given by Figure~\ref{fig:thesisSteps}.\par
 The major contribution of this master's thesis project is:
 \begin{itemize}
 	\item Design of an endorsement model where entities can endorse information
@@ -183,26 +183,26 @@ platform in use to inflate her reputation. Eve could delete the ad and
 associated account when the payment is complete, or she could gather details
 about Alice to misuse it later. Any malformed decision on the trustworthiness
 of an entity could be expensive and deal severe damage to the user. \par
-
 Statistics suggest that online shopping is the most adapted online
 activity~\cite{experian}. Reports by Experia~\cite{experian} and
 Javelin~\cite{javelin} indicate that E-commerce fraud has increased by 30\% in
 2017 over 2016 while identity fraud victims have risen by 8\% in 2017 (16.7
 million U.S. victims). A recent report of the data breach~\cite{macy} on an
-online shopping website, Macy~\footnote{https://www.macys.com/}, exposed
-details of its users such as their name, credit card number, expiry date. While
+online shopping website, Macy~\footnote{https://www.macys.com/}, exposed its
+users' information such as their name, credit card number, expiry date. While
 there are several security reasons that have led to attack at such scale, one
 reason is the client-server architecture where everything is stored on
 centralized server and data flows in and out from the same source. On the other
 hand, distributing information over a decentralized network would require
 simultaneous attack to achieve the same effect, thereby increasing the
-difficulty level of attack.  Similarly, Reputation models can help in measuring
+difficulty level of attack. Similarly, Reputation models can help in measuring
 the reliability of interacting entities so that users can make an informed
 decision before participating in any transaction. Thus, a reputation system
 should be secure, robust, always available and aim for higher accuracy. The use
 of right reputation algorithms with blockchain technology could help to ensure
 the trustworthiness of online entities with the correctness of data and a high
-degree of accuracy. 
+degree of accuracy.  
+ 
 %Additionally, reports on fake news
 %\footnote{\url{https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research}}$^{,}$\footnote{\url{https://www.prnewswire.com/news-releases/84-percent-of-businesses-could-reduce-fraud-risk-if-certain-about-customers-identity-300587192.html}}
 %that leads to spread of misinformation from malicious users or portals, attack
@@ -250,7 +250,7 @@ are:
 %what the project is supposed to do and the work required to meet 
 %the objective
 This master's thesis project attempts to answer all the research questions
-mentioned in section~\ref{ResearchQuestions}.  
+mentioned in Section~\ref{ResearchQuestions}.  
 %\paragraph{Research Question 1}
 %To answer research question 1, a literature survey is performed on various
 %reputation algorithms and trust models. This survey follows with the discussion
@@ -287,7 +287,7 @@ algorithms and their implementations. In Chapter~\ref{ch:method}, system
 requirements and the approach taken for the model design are shown. It presents
 the overall design and architecture of the proposed system.
 Chapter~\ref{ch:results} presents the results and evaluation of the system
-requirements. In Chapter~\ref{ch:discussion}, the discussion, and analysis of
+requirements. In Chapter~\ref{ch:discussion}, the discussion and analysis of
 the overall project along with the limitations of the proposed system are
 presented. Finally, conclusion and future works are presented in
 Chapter~\ref{ch:conclusion}.

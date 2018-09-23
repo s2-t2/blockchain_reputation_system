@@ -111,7 +111,7 @@
     \field{year}{2003}
   \endentry
 
-  \entry{cohen2008bittorrent}{misc}{}
+  \entry{cohen2008bittorrent}{online}{}
     \name{author}{1}{}{%
       {{hash=CB}{%
          family={Cohen},
@@ -127,41 +127,38 @@
     \strng{fullhash}{CB1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 22, 2018, [Online]. Available:
+  \url{{http://www.bittorrent.org/beps/bep_0003.html}}}
     \field{title}{The BitTorrent protocol specification}
     \field{year}{2008}
   \endentry
 
-  \entry{atzori2015blockchain}{article}{}
+  \entry{pilkington201611}{article}{}
     \name{author}{1}{}{%
-      {{hash=AM}{%
-         family={Atzori},
-         familyi={A\bibinitperiod},
-         given={Marcella},
+      {{hash=PM}{%
+         family={Pilkington},
+         familyi={P\bibinitperiod},
+         given={Marc},
          giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{AM1}
-    \strng{fullhash}{AM1}
+    \list{publisher}{1}{%
+      {Edward Elgar Publishing}%
+    }
+    \strng{namehash}{PM1}
+    \strng{fullhash}{PM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Blockchain technology and decentralized governance: Is the
-  state still necessary?}
-    \field{year}{2015}
+    \field{pages}{225}
+    \field{title}{Blockchain technology: principles and applications}
+    \field{journaltitle}{Research handbook on digital transformations}
+    \field{year}{2016}
   \endentry
 
   \entry{experian}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={Experian},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
-    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Aug 17, 2018, [Online]. Available:
-  \url{https://www.experian.com/assets/decision-analytics/reports/global-fraud-report-2018.pdf/}}
+  \url{{https://www.experian.com/assets/decision-analytics/reports/global-fraud-report-2018.pdf}}}
     \field{title}{The 2018 Global Fraud and Identity Report}
     \field{year}{2018}
   \endentry
@@ -271,7 +268,7 @@
     \field{year}{2015}
   \endentry
 
-  \entry{mcknight1996meanings}{article}{}
+  \entry{mcknight1996meanings}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=MDH}{%
          family={McKnight},
@@ -886,6 +883,7 @@
   \url{https://www.olcf.ornl.gov/olcf-resources/compute-systems/summit/}}
     \field{title}{Oak Ridge National Laboratory's next High Performance
   Supercomputer}
+    \field{year}{2018}
   \endentry
 
   \entry{top500}{online}{}
@@ -893,6 +891,7 @@
     \field{note}{Accessed Sep 05, 2018, [Online]. Available:
   \url{https://www.top500.org/list/2018/06/}}
     \field{title}{Top500 List - June 2018}
+    \field{year}{2018}
   \endentry
 
   \entry{k40}{online}{}
@@ -900,6 +899,7 @@
     \field{note}{Accessed Sep 05, 2018, [Online].
   Available:\url{https://www.nvidia.com/content/tesla/pdf/NVIDIA-Tesla-Kepler-Family-Datasheet.pdf}}
     \field{title}{NVIDIA TESLA GPU ACCELERATORS}
+    \field{year}{2018}
   \endentry
 
   \entry{v100}{online}{}
@@ -907,6 +907,7 @@
     \field{note}{Accessed Sep 05, 2018, [Online].
   Available:\url{http://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf}}
     \field{title}{NVIDIA TESLA V100 GPU ARCHITECTURE}
+    \field{year}{2018}
   \endentry
 
   \entry{becker2008merkle}{article}{}
@@ -929,6 +930,27 @@
   cryptanalysis}
     \field{journaltitle}{Ruhr-University Bochum, Tech. Rep}
     \field{year}{2008}
+  \endentry
+
+  \entry{merklepath}{online}{}
+    \name{author}{1}{}{%
+      {{hash=AAM}{%
+         family={Antonopoulos},
+         familyi={A\bibinitperiod},
+         given={Andreas\bibnamedelima M.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AAM1}
+    \strng{fullhash}{AAM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Bitcoinbook}
+    \field{note}{Accessed Sep 05, 2018, [Online]. Available:
+  \url{{https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch09.asciidoc}}}
+    \field{title}{Mastering Bitcoin}
+    \field{journaltitle}{O' Reilly Media}
+    \field{year}{2014}
   \endentry
 
   \entry{balakrishnan2003looking}{article}{}
@@ -1054,28 +1076,6 @@
     \field{year}{2001}
   \endentry
 
-  \entry{enoughBitcoinForEthereum}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=MG}{%
-         family={Mike},
-         familyi={M\bibinitperiod},
-         given={Goldin},
-         giveni={G\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Consensys}%
-    }
-    \strng{namehash}{MG1}
-    \strng{fullhash}{MG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
-  \url{https://media.consensys.net/time-sure-does-fly-ed4518792679/}}
-    \field{title}{Just Enough Bitcoin for Ethereum}
-    \field{year}{Oct 12, 2015}
-  \endentry
-
   \entry{ISOTC307}{inproceedings}{}
     \field{labeltitlesource}{title}
     \field{note}{ISO/TC 307}
@@ -1091,24 +1091,52 @@
   \endentry
 
   \entry{MasteringEthereum}{book}{}
-    \name{author}{1}{}{%
+    \name{author}{2}{}{%
       {{hash=AAM}{%
-         family={ANTONOPOULOS},
+         family={Antonopoulos},
          familyi={A\bibinitperiod},
-         given={ANDREAS\bibnamedelima M},
+         given={Andreas\bibnamedelima M.},
          giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=WG}{%
+         family={Wood},
+         familyi={W\bibinitperiod},
+         given={Gavin},
+         giveni={G\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {O'REILLY MEDIA}%
+      {O'Reilly Media}%
     }
-    \strng{namehash}{AAM1}
-    \strng{fullhash}{AAM1}
+    \strng{namehash}{AAMWG1}
+    \strng{fullhash}{AAMWG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{subtitle}{Building Smart Contracts and Dapps}
-    \field{title}{MASTERING ETHEREUM}
+    \field{title}{Mastering Ethereum}
     \field{year}{2017}
+  \endentry
+
+  \entry{Bitcoin_Satoshi}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SN}{%
+         family={Satoshi},
+         familyi={S\bibinitperiod},
+         given={Nakamoto},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Bitcoin}%
+    }
+    \strng{namehash}{SN1}
+    \strng{fullhash}{SN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
+  \url{https://bitcoin.org/bitcoin.pdf/}}
+    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+    \field{year}{Oct 31, 2008}
   \endentry
 
   \entry{mingxiao2017review}{inproceedings}{}
@@ -1158,28 +1186,6 @@
     \field{year}{2017}
   \endentry
 
-  \entry{Bitcoin_Satoshi}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=SN}{%
-         family={Satoshi},
-         familyi={S\bibinitperiod},
-         given={Nakamoto},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Bitcoin}%
-    }
-    \strng{namehash}{SN1}
-    \strng{fullhash}{SN1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed 23 Dec 2017, [Online]. Available:
-  \url{https://bitcoin.org/bitcoin.pdf/}}
-    \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
-    \field{year}{Oct 31, 2008}
-  \endentry
-
   \entry{buterin2013ethereum}{article}{}
     \true{moreauthor}
     \name{author}{1}{}{%
@@ -1194,6 +1200,8 @@
     \strng{fullhash}{BV+1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 22, 2018, [Online]. Available:
+  \url{{https://github.com/ethereum/wiki/wiki/White-Paper}}}
     \field{title}{Ethereum white paper}
     \field{journaltitle}{GitHub repository}
     \field{year}{2013}
@@ -1212,8 +1220,9 @@
     \strng{fullhash}{HN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{It Will Cost You Nothing to'Kill'a Proof-of-Stake
-  Crypto-Currency}
+    \field{title}{It will cost you nothing to” kill” a proof-of-stake
+  crypto-currency,” 2014}
+    \field{journaltitle}{Lyon University, France}
     \field{year}{2014}
   \endentry
 
@@ -1397,17 +1406,6 @@
   \endentry
 
   \entry{hyperledgerfabric}{online}{}
-    \name{author}{1}{}{%
-      {{hash=FH}{%
-         family={Fabric},
-         familyi={F\bibinitperiod},
-         given={Hyperledger},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FH1}
-    \strng{fullhash}{FH1}
-    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Aug 31, 2018, [Online]. Available:
   \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/gossip.html}}}
@@ -1416,17 +1414,6 @@
   \endentry
 
   \entry{hyperledgerfabric2}{online}{}
-    \name{author}{1}{}{%
-      {{hash=FH}{%
-         family={Fabric},
-         familyi={F\bibinitperiod},
-         given={Hyperledger},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FH1}
-    \strng{fullhash}{FH1}
-    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Aug 31, 2018, [Online]. Available:
   \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/fabric_model.html}}}
@@ -1486,24 +1473,33 @@
     \field{year}{2014}
   \endentry
 
-  \entry{voronchenko2017you}{article}{}
-    \name{author}{1}{}{%
-      {{hash=VK}{%
-         family={Voronchenko},
-         familyi={V\bibinitperiod},
-         given={Kyrylo},
+  \entry{wust2017you}{article}{}
+    \name{author}{2}{}{%
+      {{hash=WK}{%
+         family={W{\"u}st},
+         familyi={W\bibinitperiod},
+         given={Karl},
          giveni={K\bibinitperiod},
       }}%
+      {{hash=GA}{%
+         family={Gervais},
+         familyi={G\bibinitperiod},
+         given={Arthur},
+         giveni={A\bibinitperiod},
+      }}%
     }
-    \strng{namehash}{VK1}
-    \strng{fullhash}{VK1}
+    \strng{namehash}{WKGA1}
+    \strng{fullhash}{WKGA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{pages}{375}
     \field{title}{Do you need a Blockchain?}
+    \field{volume}{2017}
+    \field{journaltitle}{IACR Cryptology ePrint Archive}
     \field{year}{2017}
   \endentry
 
-  \entry{SzaboSmart1994}{misc}{}
+  \entry{Szabo1996smart}{article}{}
     \name{author}{1}{}{%
       {{hash=SN}{%
          family={Szabo},
@@ -1516,24 +1512,8 @@
     \strng{fullhash}{SN2}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Smart Contracts
-  \url{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html/}}
-    \field{year}{1994}
-  \endentry
-
-  \entry{szabo1996smart}{article}{}
-    \name{author}{1}{}{%
-      {{hash=SN}{%
-         family={Szabo},
-         familyi={S\bibinitperiod},
-         given={Nick},
-         giveni={N\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SN2}
-    \strng{fullhash}{SN2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 20, 2018, [Online]. Available:
+  \url{{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html}}}
     \field{title}{Smart contracts: building blocks for digital markets}
     \field{journaltitle}{EXTROPY: The Journal of Transhumanist Thought,(16)}
     \field{year}{1996}
@@ -1564,7 +1544,7 @@
     \field{note}{Accessed Aug 31, 2018, [Online]. Available:
   \url{{https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html}}}
     \field{title}{Introduction to Smart Contracts}
-    \field{year}{2016-2018}
+    \field{year}{2018}
   \endentry
 
   \entry{LLL}{online}{}
@@ -1581,16 +1561,6 @@
   \url{https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf}}
     \field{title}{Beigepaper: An Ethereum Technical Specification}
     \field{year}{2018}
-  \endentry
-
-  \entry{whataresmartcontracts}{misc}{}
-    \list{organization}{1}{%
-      {ChainFrog}%
-    }
-    \field{labeltitlesource}{title}
-    \field{title}{What are Smart Contracts,
-  \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf/}}
-    \field{year}{2017}
   \endentry
 
   \entry{resnick2000reputation}{article}{}
@@ -1812,8 +1782,6 @@
     \field{labeltitlesource}{title}
     \field{booktitle}{Advanced Information Networking and Applications (AINA),
   2012 IEEE 26th International Conference on}
-    \field{note}{Accessed Sep 05, 2018, [Online] Available:\url{
-  https://www.researchgate.net/profile/Dimitra_Gkorou/publication/229059481_Personalizing_EigenTrust_in_the_Face_of_Communities_and_Centrality_Attack/links/551afadd0cf2bb75407877f8.pdf}}
     \field{pages}{503\bibrangedash 510}
     \field{title}{Personalizing eigentrust in the face of communities and
   centrality attack}
@@ -2272,10 +2240,10 @@
     \strng{fullhash}{MALJJJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 20, 2018, [Online]. Available:
+  \url{{https://nakamotoinstitute.org/static/docs/anonymous-byzantine-consensus.pdf}}}
     \field{title}{Anonymous byzantine consensus from moderately-hard puzzles: A
   model for bitcoin}
-    \field{journaltitle}{Available on line: http://nakamotoinstitute.
-  org/research/anonymous-byzantine-consensus}
     \field{year}{2014}
   \endentry
 
@@ -2358,9 +2326,10 @@
     \strng{fullhash}{LN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{[Online]. Available:
+  \url{{https://techcrunch.com/2015/06/29/everledger}}}
     \field{title}{Everledger is using blockchain to combat fraud, starting with
   diamonds}
-    \field{journaltitle}{URL: https://techcrunch. com/2015/06/29/everledger}
     \field{year}{2015}
   \endentry
 
@@ -2413,25 +2382,6 @@
     \field{year}{2004}
   \endentry
 
-  \entry{agile1}{online}{}
-    \name{author}{1}{}{%
-      {{hash=BM}{%
-         family={BERTEIG},
-         familyi={B\bibinitperiod},
-         given={MISHKIN},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{BM1}
-    \strng{fullhash}{BM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed Sep 03, 2018, [Online]. Available:
-  \url{{http://www.agileadvice.com/2014/03/06/referenceinformation/user-stories-and-story-splitting/}}}
-    \field{title}{USER STORIES AND STORY SPLITTING}
-    \field{year}{2014}
-  \endentry
-
   \entry{soliditySecurity}{article}{}
     \name{author}{1}{}{%
       {{hash=E}{%
@@ -2446,22 +2396,6 @@
     \field{note}{Accessed Sep 03, 2018, [Online]. Available:
   \url{https://solidity.readthedocs.io/en/v0.4.24/security-considerations.html}}
     \field{title}{Security Considerations}
-  \endentry
-
-  \entry{solidityBugs}{article}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={Ethereum},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{E1}
-    \strng{fullhash}{E1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed Sep 03, 2018, [Online]. Available:
-  \url{https://solidity.readthedocs.io/en/v0.4.24/bugs.html#known-bugs}}
-    \field{title}{List of Known Bugs}
   \endentry
 
   \entry{christianson1996isn}{inproceedings}{}
@@ -2567,39 +2501,19 @@
     \field{year}{2016}
   \endentry
 
-  \entry{zeppelin-solidity}{online}{}
-    \name{author}{1}{}{%
-      {{hash=SSC}{%
-         family={Solutions},
-         familyi={S\bibinitperiod},
-         given={Smart\bibnamedelima Contract},
-         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{SSC1}
-    \strng{fullhash}{SSC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed Sep 05, 2018, [Online]. Available:
-  \url{https://openzeppelin.org/api/docs/open-zeppelin.html/}}
-    \field{title}{zeppelin-solidity, Docs}
-    \field{year}{2016}
-  \endentry
-
   \entry{web3}{online}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={Ethereum},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{E1}
-    \strng{fullhash}{E1}
-    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed Sep 05, 2018, [Online]. Available:
   \url{{https://web3js.readthedocs.io/en/1.0/}}}
     \field{title}{web3.js - Ethereum JavaScript API}
+    \field{year}{2016}
+  \endentry
+
+  \entry{zeppelin-solidity}{online}{}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed Sep 05, 2018, [Online]. Available:
+  \url{{https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts}}}
+    \field{title}{zeppelin-solidity, Docs}
     \field{year}{2016}
   \endentry
 

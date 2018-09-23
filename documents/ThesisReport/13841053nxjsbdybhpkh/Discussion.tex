@@ -14,12 +14,12 @@ account by the endorsement model. To briefly summarize each of them:
 
 \paragraph{Self-policing:}By deploying a decentralized endorsement system on a
 public permission-less blockchain network and allowing anyone to execute the
-contract code and change the contract's state by performing endorsement
-interactions, the role of a trusted central entity is removed. The
-specifications of user interaction and the method to compute the trust score
-are defined by the smart contract. As such, the peers in the endorsement system
-are responsible for writing or modifying the reputation data that complies with
-the specified logic.   
+contract code and change the state of contract by performing endorsement
+interactions, the role of a trusted central entity is removed. The endorsement
+contract defines the specifications of user interactions and the method to
+compute the trust score. As such, the peers in the endorsement system are
+responsible for writing or modifying the reputation data that complies with the
+specified logic.   
 \paragraph{Anonymity:} The reputation of a peer is associated with the public
 key hash of the account, i.e., the account identifier and not with the
 externally associated identity such as their IP address or a government-issued
@@ -102,7 +102,7 @@ trustworthy nodes can be picked after the aggregation of enough interactions
 that results in the significant impact for nodes. As shown by the results in
 Section~\ref{sec:interaction}, the distribution of higher reputation value
 among nodes is very few. Almost only 1 \% of the nodes had a significant impact
-value (5 out of 496 nodes had an impact above 115) which is given by the
+value (5 out of 496 nodes had an impact above 115) which is given by
 Figure~\ref{table:totalimpact} in Section~\ref{par:TEI}. These nodes can act as
 pre-trusted nodes (or trusted nodes) after several steps of aggregation so that
 their endorsement can be more impactful for other nodes they endorse. Given the

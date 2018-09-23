@@ -113,8 +113,8 @@ users and avoid them from harming other users in the system. Rasmusson, and
 Jansson~\cite{rasmusson1996simulated} first used the term "soft security" to
 describe the idea of identifying malicious users and preventing harm to other
 users in the context of secure open electronic commerce. Reputation systems
-need to continuously receive feedback about the user's behavior and maintain an
-updated record of user reputation. It provides a way to calculate the
+need to continuously receive feedback about the behavior of users and maintain
+an updated record of user reputation. It provides a way to calculate the
 probability of success or risk of failure of a transaction between interacting
 parties.
 %gather statistics on attacks, fraud data. 
@@ -123,10 +123,10 @@ parties.
 %should give a higher accuracy for trustworthiness measure of entities(assumption)
 \section{Threat scenarios in trust and reputation systems}
 A reputation system should provide correct and reliable information such that
-users can correctly infer the trustworthiness of the entity in question.
+users can correctly infer the trustworthiness of an entity in question.
 Therefore, it is crucial to discuss several threat scenarios and methods to
 mitigate them in an online interaction system. Several classes of attack that
-can exist in trust and reputation system, as mentioned
+can exist in trust and reputation systems, as mentioned
 by~\cite{hoffman2009survey,marmol2009security} are:  
 \paragraph{Self-promoting attack:} In this case, an attacker tries to inflate
 his/her reputation score by falsely increasing it. This attack is more likely
@@ -143,20 +143,18 @@ colluding identities can mutually participate to generate real feedback.
 Defense techniques for such attack can be requiring the user to provide proof
 of successful transactions, and the ability to limit or prevent an attacker
 from obtaining multiple identities. 
-\paragraph{Whitewashing:} Whitewashing is the process of exiting a system with
-an account with a bad reputation and entering afresh with a neutral or
-non-negative account. This attack exploits the system's formulation of
-reputation score. For instance, eBay's rating system uses a range of values
-\{1, 0, -1\} for representing positive, neutral and negative rating
-respectively. The formulation of the final score is done by calculating the
-difference between the number of positive and negative scores. In this case, it
-makes more sense for an identity with 100 negative and 5 positive scores to
-create a new account that gives a neutral score and start afresh. Another
-problem that can be observed in this formulation is that a user with 50
-positive and 10 negative is the same as the user with 40 positive and no
-negative scores. A technique to defend against whitewashing attack is to have a
-better method for formulation of final score such that a new user would be
-distinguished from an old user. 
+\paragraph{Whitewashing:}Whitewashing is the process of exiting the system with
+an account that has a bad reputation and entering afresh with a new account.
+This attack exploits the formulation method of reputation score used by the
+online interaction system. For instance, eBay allows its users to rate other
+users as either positive, negative or neutral. The formulation of the final
+reputation score is done by calculating the difference between the total number
+of positive and negative ratings made by an account. As such, it is more
+profitable for a user with 100 negative ratings and only 5 positive ratings to
+create a new account that gives a neutral score and start afresh. A technique
+to defend against whitewashing attack is to have a better method for
+formulation of final score such that a new user would be distinguished from an
+old user.  
 \paragraph{Slandering:} Slandering attack is the form of attack when an
 attacker (or groups) create false negative feedback about other identities with
 an aim to damage their reputation. Lack of mechanisms for data source
@@ -169,10 +167,10 @@ negative score, then the amount of time an actual dishonest identity can live
 in the system to deal damage raises. Therefore, an optimal balance needs to be
 found by the reputation system to address this trade-off. Techniques to defend
 against this attack include employing stricter feedback authentication
-mechanism, validating input to make sure that feedback is actually tied to some
+mechanism, validating input to make sure that feedback is tied to some
 transaction, and incorporating methods to limit the number of malicious
-identities nodes can assume.   
-\paragraph{Orchestrated:} In an orchestrated attack, attackers, collude with
+identities nodes can assume.
+\paragraph{Orchestrated:}In an orchestrated attack, attackers collude with
 each other and combine multiple strategies to form a coordinated attack. They
 employ different attack vectors, change their behavior over time, and divide up
 identities to target. For instance, attackers can form teams with different
@@ -187,26 +185,8 @@ This form of attack is difficult to detect as there is no pattern to detect an
 anomaly in the network and they keep adapting to the situation. In such an
 attack, it is challenging to make a distinction between honest and malicious
 nodes. 
-\paragraph{Denial of Service:} Denial of service is prevalent in systems that
-employ a centralized system and have no mechanism for load balancing. Attackers
-can send too many requests to the central entity and overload the system
-thereby, preventing the reputation system to operate correctly. These attacks
-target the calculation and dissemination of reputation information and
-therefore affects the data availability aspect of the network.  
-\paragraph{Free riders:} Free-riding is a problem mostly associated with P2P
-systems. Usually, P2P systems rely on voluntary contributions. As such,
-individual rationality results in free riding among peers, at the expense of
-collective welfare~\cite{feldman2006free}. The reputation system that aims to
-address this behavior differs from the classic use of reputation systems where
-the aim is to enhance the quality of transactions. In P2P systems that seeks to
-address free-riding behavior, the goal is to encourage contributors by giving
-them more benefits over consumers. The reputation system that addresses this
-behavior differs from classic reputation systems in the sense that it does not
-seek to increase the quality of transactions. Andrade, Nazareno, et
-al.~\cite{andrade2004can} discusses the use of an autonomous reputation scheme
-by prioritizing resource allocation to peers with higher reputation. 
-
-
+\paragraph{Denial of Service:}Denial of service is prevalent in centralized systems that employ a client-server architecture and have no mechanism for load balancing. Attackers can send too many requests to the central server and overload the system thereby, preventing the reputation system to operate correctly. This form of attack targets the calculation and dissemination of reputation information and affects the data availability aspect of the network.  
+\paragraph{Free riders:}Free-riding is a problem mostly associated with ~\ac{P2P} systems. Usually, ~\ac{P2P} systems rely on voluntary contributions. As such, individual rationality results in free riding among peers, at the expense of collective welfare~\cite{feldman2006free}. The reputation system that aims to address this behavior differs from the classic use of reputation systems where the aim is to enhance the quality of transactions. In ~\ac{P2P} systems that seeks to address free-riding behavior, the goal is to encourage contributors by giving them more benefits over consumers. The reputation systems that address this behavior differs from classic reputation systems in the sense that it does not seek to increase the quality of transactions. Andrade, Nazareno, et al.~\cite{andrade2004can} discusses the use of an autonomous reputation scheme by prioritizing resource allocation to peers with higher reputation. 
 %The most known internet reputation is assumed to be that of
 %eBay~\cite{resnick2002trust}~\footnote{https://www.ebay.com/}. It uses a
 %feedback based rating system where a user can rate a transaction along with
@@ -263,7 +243,7 @@ G)$ where:
 	\item $e$ connects two vertices, where, $v \in V$ and $e \in E$.
 	\item $\phi_G$ is an incidence function that assigns pair of vertices to
 		each edge of graph $G$. 
-	\item $\phi_G(e) = uv$ represents that e is an edge that joins vertices $u$
+	\item $\phi_G(e) = uv$ represents that $e$ is an edge that joins vertices $u$
 		and $v$.
 \end{itemize}
 Based on these properties, any online interaction system can be modeled
@@ -274,12 +254,11 @@ data between the nodes can be quantified to represent the weight of the edge.
 This weight value can be used to determine the strength or weakness of
 relationship between the nodes. Modeling the interaction as a graph can help to
 understand and analyze its complexity at different levels. By observing the
-local properties of a particular node such as its activity, connection degree,
-its neighbors, and interactions, one can derive useful information about a
-node. Similarly, the node’s relative position in a given graph can help to
+local properties of a node such as its activity, connection degree, its
+neighbors, and interactions, one can derive useful information about it.
+Similarly, the relative position of a node in a given graph can help to
 determine its centrality and connectivity. An overall structure of the network
-(graph topology) can help to study the global properties of the graph. \par
-
+(graph topology) can help to study the global properties of the graph.
 %Network metrics that are helpful in analyzing the complexity of interactions at
 %different levels~\cite{gkorou2014exploiting} and used for evaluation of results
 %in this project are:
@@ -318,7 +297,8 @@ A cryptosystem can be defined as a five-tuple $(P, C, K, E, D)$ where:
 \begin{itemize}
 	\item $P$ is a finite set of plain texts.
 	\item $C$ is a finite set of ciphertexts.
-	\item $K$, the keyspace is a finite set of keys.
+	\item $K$ is a finite set of keys.
+	%\item $K$, the keyspace is a finite set of keys.
 	\item $E$ is a set of encryption transformations such that $e_{k}:P \Rightarrow C$.
 	\item $D$ is a set of decryption transformations such that $d_{k}:C \Rightarrow P$. 
 	\item For each $k \in K$, there is $e_k \in E$ and $d_k \in D$ such that
@@ -334,16 +314,15 @@ $e_{k}(m) = c$. This property implies that given $e$ it is infeasible to
 determine the corresponding decryption key $d_{k}$. This is unlike
 symmetric-key ciphers where $e_{k}$ and $d_{k}$ are essentially the same.
 Consider two-party communication between Alice and Bob where Bob selects a key
-pair $(e_{k},d_{k})$. Bob can send the encryption key $e_{k}$ over any channel
+pair $(e_{k}, d_{k})$. Bob can send the encryption key $e_{k}$ over any channel
 while keeping the decryption key $d_{k}$ secure and secret. Alice can send the
-message $m$ to Bob by applying the encryption transformation determined by
-Bob's public key to form ciphertext $c$. Upon receiving $c$, Bob can decrypt it
-using the corresponding private key $d_{k}$ that is only known to Bob and
+message $m$ to Bob by applying the encryption transformation determined by the
+public key of Bob to form ciphertext $c$. Upon receiving $c$, Bob can decrypt
+it using the corresponding private key $d_{k}$ that is only known to Bob and
 corresponds to the public key that was used to form $c$. Besides public-key
 encryption, public-key cryptography also has use in the digital signature as
-discussed in section~\ref{subsec:digitalsignature}.
-RSA~\cite{rivest1978method} is one example of a public-private cryptosystem.
-
+discussed in Section~\ref{subsec:digitalsignature}. RSA~\cite{rivest1978method}
+is one example of a public-private cryptosystem. 
 \subsection{Hash functions}
 Cryptographic hash functions are one-way functions, also known as mathematical
 trapdoor functions that transform an input message into a fixed length binary
@@ -393,10 +372,10 @@ needed for the homogeneous cluster to produce collision is 95 k40-years. Given
 that a K40~\cite{k40} has a compute performance of 1.43 TFLOP and
 V100~\cite{v100} has 7 TFLOP, the time would be reduced to approximately 12.297
 hours.\par
-Applications of hashing algorithms include a digital signature, file checksums
+Applications of hashing algorithms include digital signature, file checksums
 (i.e., generate a checksum value for a given file and check against the value
-that was originally distributed by the developer/creator of the file). If the
-checksum match then it ensures that the integrity of data is preserved.
+that was originally distributed by developer/creator of the file and if the
+checksum matches then it ensures the integrity of data is preserved). 
 %Applications of hashing algorithms include a digital signature, creating a
 %fingerprint of data to identify it uniquely, e.g., given an input data of
 %arbitrary length, its fingerprint can be generated by applying a hash function
@@ -409,10 +388,10 @@ checksum match then it ensures that the integrity of data is preserved.
 %checksum matches then it ensures that the integrity of data is preserved. \par
 
 Merkle tree~\cite{becker2008merkle} is a hash tree that is used by blockchain
-to verify the integrity and inclusion of data in a block. The
+to verify the integrity and inclusion of data in a block.
 Figure~\ref{fig:merkleTree} shows a binary hash tree where the leaf nodes at
-height 0 ($H_{A}, H_{B}, ......., H_{P}$) represent the data block. These
-nodes are paired and hashed together. As we can see in the figure, $H_A$ and
+height 0 ($H_{A}, H_{B}, ......., H_{P}$) represent the data block. These nodes
+are paired and hashed together. As we can see in the figure that $H_A$ and
 $H_{B}$ are paired and hashed together to form $H_{AB}$. This process of
 pairing and hashing continues until there is only one hash value left. This
 final hash value which is the root node of the tree is also known as a root
@@ -436,7 +415,7 @@ below:
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{Images/MerkleeTree.eps}
-		\caption{Merkle root and data inclusion verification}
+		\caption{Merkle root and data inclusion verification taken from~\cite{merklepath}}
 		\label{fig:merkleTree}
 	\end{center}
 \end{figure}
@@ -479,10 +458,10 @@ Two significant aspects of the digital signature scheme are signing algorithm
 and verification algorithm. If Alice wants to send a signed message to Bob,
 then she can create the signature using her private key and send the message
 along with the signature to Bob. Bob can verify that the message originated
-from Alice by using the verification algorithm on the signature using Alice's
-public key. If the verification function returns true, then Alice cannot deny
-having sent the message. Similarly, if the verification algorithm returns
-false, then that would imply that the signature is invalid. \par   
+from Alice by using the verification algorithm on the signature using the
+public key of Alice. If the verification function returns true, then Alice
+cannot deny having sent the message. Similarly, if the verification algorithm
+returns false, then that would imply that the signature is invalid. \par   
 
 In the context of the blockchain, if Alice wanted to send a value (transaction)
 to Bob, the following steps would have to take place. Alice has to create a
@@ -590,10 +569,10 @@ a node halfway around the ID space from it, a quarter-of-the-way, an
 eighth-of-the-way, and so forth, in powers of two, in a structure that
 resembles a skiplist data structure. This structure of chord ensures that the
 node can always forward the query at least half of the remaining ID-space
-distance to $k$, leading to O(log N) messages to resolve a query. The distance
-functions or the lookup schemes can vary in different ~\ac{DHT} based systems.
-In all the cases, each forwarding step should reduce the closeness between the
-current node handling the query and the key.
+distance to $k$, leading to $O(log N)$ messages to resolve a query. The
+distance functions or the lookup schemes can vary in different ~\ac{DHT} based
+systems.  In all the cases, each forwarding step should reduce the closeness
+between the current node handling the query and the key.
 
 \section{Blockchain Technology} \label{sec:blockchain}
 %Blockchain technology can be defined as a distributed record of transactions
@@ -614,7 +593,7 @@ current node handling the query and the key.
 Blockchain technology can be defined as a distributed record of transactions
 that lets anyone on the network to audit state changes and prove with
 mathematical certainty that the transactions transpired according to the
-blockchain protocol~\cite{enoughBitcoinForEthereum}. There are several ways to
+blockchain protocol~\cite{pilkington201611}. There are several ways to
 define blockchain, and every definition is relevant to its specific use cases.
 A formal standard definition of blockchain is under development as ISO/TC
 307~\cite{ISOTC307}. As pointed out by Antonopoulos, Andreas M., and Wood,
@@ -664,15 +643,10 @@ guaranteed by the blockchain protocol. The illustration of a blockchain
 structure is given by Figure~\ref{BlockchainStructure}. As we can see that
 Block 10, Block 11 and Block 12 are chained together by a cryptographic hash
 and shows the chronological ordering of blocks.
-%A malicious node attempting to
-%change the transaction data in Block 11 will need to find a hash value
-%equivalent to the associated transaction root with a modified transaction data.
-%The second pre-image resistant property of a hash function ensures that finding
-%such a value is computationally infeasible.  
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{Images/BlockchainStructure.eps}
-	\caption{Blockchain Structure taken}
+	\caption{Blockchain structure taken from~\cite{Bitcoin_Satoshi} }
 	\label{BlockchainStructure}
 \end{figure}
 %Blockchain technology is a variant of distributed database implemented on a P2P
@@ -704,7 +678,7 @@ and shows the chronological ordering of blocks.
 %~\cite{pilkington201611}
 %\subsection{Basic Concepts}
 %transaction, message, signature, broadcast, verify, network, miners, validate, write blocks 
-%~\cite{voronchenko2017you} provides a detailed discussion on various blockchain
+%~\cite{vwust2017you,oronchenko2017you} provides a detailed discussion on various blockchain
 %types and their uses.
 \subsection{Consensus Mechanisms}\label{subsec:consensus}
 Blockchain, being a distributed database with multiple writers, should have a
@@ -714,17 +688,17 @@ be distinctly categorized into~\cite{mingxiao2017review}:
 \paragraph{\ac{PoW}:}This is the most widely used consensus mechanism in public
 permissionless setup. As the name suggests, a validator node (miner node) needs
 to provide the proof to the network that it has done a significant amount of
-work.  This work requires them to invest a substantial amount of computational
+work. This work requires them to invest a substantial amount of computational
 resources. The reason for this is that all the validator nodes compete to be
 the writer of the next block for which they need to solve a cryptographic
-puzzle. The puzzle requires miners to perform a hash operation on the data
+puzzle. The puzzle requires the miners to perform a hash operation on the data
 (hash function applied to the concatenation of message and nonce) until the
 output hash is less than a specific target value. As the hash function produces
-a random output each time, given an n-bit number, the probability that the
+a random output, given an n-bit number, the probability that the
 first bit of the generated output hash is 0 is 50 \%, the probability that the
 first two bits are 0 is 25 \%, for the first three bits it becomes 12.5\% and
 so on. In numeric terms (base 10 number), we can refer to it as the difficulty
-of finding a value less than $2^{n}$, $2^{n-1}$, $2^{n-2}$ and so on. As such,
+of finding a value less than $2^{n-1}$, $2^{n-2}$, $2^{n-3}$ and so on. As such,
 lower the target value (also known as difficulty target), lower is the
 probability of finding such a value and therefore higher is the difficulty of
 the puzzle. The process of repeatedly finding the nonce value until the output
@@ -756,7 +730,7 @@ eventually stabilized. Examples include Bitcoin~\cite{Bitcoin_Satoshi},
 Ethereum~\cite{buterin2013ethereum}. 
 \begin{figure}
 	\begin{center}
-	\includegraphics[width=0.5\textwidth]{Images/CryptographicPuzzle.eps}
+	\includegraphics[width=0.4\textwidth]{Images/cryptographicpuzzle.eps}
 	\caption{Cryptographic Puzzle}
 	\label{fig:cryptographicPuzzle}
 	\end{center}
@@ -766,21 +740,19 @@ Ethereum~\cite{buterin2013ethereum}.
 not compete with each other to be the writer of the next block thus saving lots
 of computational resources. The general idea is that participants can put the
 respective platform based native token they own at stake to validate a block.
-Whoever has the higher value at stake gets to be the writer of the next block.
-Casper solves the problem of nothing at stake by penalizing the node that is
-detected to have validated two blocks at the same height. ~\ac{DPoS} differs
-from ~\ac{PoS} in that, the stakers do not directly involve in writing a block
-but rather vote for delegates/witnesses to assign this responsibility. The
-elected delegates (node with majority of votes) gets to write its block to the
-blockchain. Compared to PoW, it is computationally efficient as it does not
-need to invest substantial resources. However, this also leads to the problem
-of nothing at stake~\cite{houy2014will}, i.e., a node could vouch for two forks
-of the same blockchain. With this setup, a user could try to double spend the
-amount they have to two different accounts, and two different forks would be
-validating them both. Examples include Casper~\cite{buterin2017casper},
-Ouroboros~\cite{kiayias2017ouroboros}. Casper solves the problem of nothing at
-stake by penalizing the node that is detected to have validated two blocks at
-the same height.  
+Whoever has the higher value at stake gets to be the writer of the next
+block.~\ac{DPoS} differs from ~\ac{PoS} in that, the stakers do not directly
+involve in writing a block but rather vote for delegates/witnesses to assign
+this responsibility. The elected delegates (node with majority of votes) gets
+to write its block to the blockchain. Compared to PoW, it is computationally
+efficient as it does not need to invest substantial resources. However, this
+also leads to the problem of nothing at stake~\cite{houy2014will}, i.e., a node
+could vouch for two forks of the same blockchain. With this setup, a user could
+try to double spend the amount they have to two different accounts, and two
+different forks would be validating them both. Examples include
+Casper~\cite{buterin2017casper}, Ouroboros~\cite{kiayias2017ouroboros}. Casper
+solves the problem of nothing at stake by penalizing the node that is detected
+to have validated two blocks at the same height.  
 %The PoW consensus mechanism, relies on SHA-256 hash (in Bitcoin)
 %applied to the block header and nonce to produce a verifiable fingerprint of
 %data. This is discussed in more detail in~\ref{sec:blockchain}. Proof-of-work
@@ -808,22 +780,23 @@ ordering, validation, and commitment of transactions) is considered to be part
 of the consensus algorithm~\cite{hyperledgerfabric,hyperledgerfabric2}, unlike
 in other systems where consensus relates to the ordering of transactions. It
 makes use of leader election mechanism to elect a leader that is responsible
-for ordering transactions. \par
-Examples of leader based algorithms are \ac{PBFT}~\cite{castro1999practical},
-RAFT~\cite{ongaro2014search}. \ac{PBFT} comprises of several steps to reach
-consensus which is briefly explained here. The client first makes a request to
-the master server node. The master server node gives a timestamp to the
-request, records the request message and broadcasts a pre-prepare message to
-other server nodes. Other server nodes can either choose to accept or reject
-the request. The server nodes that accept the request will broadcast a prepare
-message to other server nodes and also receive a prepare message from other
-nodes. After having collected 2f+1 messages, if majority of the nodes choose to
-accept the request, then it will enter the commit state. If the server node
-receives 2f + 1 commit messages, then it believes that the nodes reached a
-consensus and executes the instructions in the request message. In the final
-stage, the server nodes only need to send a reply message to the client.
+for ordering transactions. Examples of leader based algorithms are
+\ac{PBFT}~\cite{castro1999practical}, RAFT~\cite{ongaro2014search}. 
+
+%\ac{PBFT} comprises of several steps to reach
+%consensus which is briefly explained here. The client first makes a request to
+%the master server node. The master server node gives a timestamp to the
+%request, records the request message and broadcasts a pre-prepare message to
+%other server nodes. Other server nodes can either choose to accept or reject
+%the request. The server nodes that accept the request will broadcast a prepare
+%message to other server nodes and also receive a prepare message from other
+%nodes. After having collected 2f+1 messages, if majority of the nodes choose to
+%accept the request, then it will enter the commit state. If the server node
+%receives 2f + 1 commit messages, then it believes that the nodes reached a
+%consensus and executes the instructions in the request message. In the final
+%stage, the server nodes only need to send a reply message to the client.
 \subsection{Categories}
-Along the dimension of validation and access control~\cite{voronchenko2017you},
+Along the dimension of validation and access control~\cite{wust2017you},
 Blockchain can be categorized as a public permissionless system, public
 permissioned, and private permissioned. 
 \begin{itemize}
@@ -845,9 +818,9 @@ A contract in a classical sense is a set of rules with pre-defined obligations
 and permissions that participants are assumed to follow. It does not
 necessarily need to be legally binding or even associated with the outside
 world. The term Smart contact was first coined by Cryptographer Nick Szabo, in
-1994~\cite{SzaboSmart1994} and defined as a computerized transaction protocol
+1994~\cite{Szabo1996smart} and defined as a computerized transaction protocol
 that can execute the terms of a contract. Szabo points out that the contract
-design should fulfill four objectives~\cite{szabo1996smart}: 
+design should fulfill four objectives}: 
 %\footnote{https://universe.ida.dk/media/23422289/fritz-henglein.pdf}.
 \paragraph{Observability,}ability to observe the contract, performance of
 principal (agents who have agreed to the contract) and prove their
@@ -918,7 +891,7 @@ expenditures and is paid for exclusively in ether, which is the unit of
 currency in Ethereum. The smallest unit of currency in Ethereum is Wei ($1 Wei
 = 10^{-18}$ ether). To store any state, or execute any operation, gas needs to
 be supplied. Thus, a program that has a bug or a non-terminating intention will
-eventually run out of gas and stop~\cite{whataresmartcontracts}. 
+eventually run out of gas and stop. 
 %The Ethereum Protocol~\cite{ethereumbiegepaper} is a deterministic but
 %practically unbounded state machine~\footnote{A state machine reads a series of
 %inputs and when it reads an input, switches to a different state} with two
@@ -932,6 +905,8 @@ eventually run out of gas and stop~\cite{whataresmartcontracts}.
 %store" represents a store that can hold any data expressible as a key-value
 %tuple~\cite{MasteringEthereum}. Some of the key components of Ethereum are
 %presented below:  
+
+
 \paragraph{Accounts:}Accounts in Ethereum can be either \ac{EOA} (user account)
 which is controlled by the private key of the user or contract account, which
 is controlled by code. Every account is associated with a unique identifier
@@ -945,6 +920,8 @@ by executing a special transaction namely, CONTRACT CREATION which is sent to a
 special address, 0x0. The address of the contract is then derived from the
 contract creation transaction as a function of the originating account and
 nonce. 
+
+
 %The nonce is one of four variables that make up the account state each
 %of which is discussed below: 
 %\begin{itemize}

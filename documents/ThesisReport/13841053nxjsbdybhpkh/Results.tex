@@ -6,26 +6,26 @@ functionality are assessed and final results are presented. It begins by
 discussing the relevant threat models and how the endorsement model addresses
 them. 
 
-\section{Threat models}\label{sec:threatModel}
+\section{Threat Models}\label{sec:threatModel}
 Relevant threat models and how the endorsement system addresses them is
 presented in this section. 
-\paragraph{Sybil attack:} The endorsement system addresses the Sybil attack by
-requiring the endorsers of a peer to have a high impact value as well. A peer
-can create multiple identities and self-interact to send a large number of
+\paragraph{Sybil attack:}The endorsement system addresses the Sybil attack by
+requiring the endorsers of a peer to have a high ~\ac{TEI} value as well. A
+peer can create multiple identities and self-interact to send a large number of
 endorsements to direct to themselves. However, being endorsed by a new set of
 endorsers (or endorsers with no activity on the network) does not help to get a
 higher value as discussed earlier in Section~\ref{sec:interaction}. To overcome
 this, a malicious node may try to send endorsements among each other such that
 each identity has a significant impact value leading to a better trust score on
 the identity they intend to inflate the score of. However, doing so requires
-sending many endorsement transactions over to the etherum network and raises
-the cost of operation. 
-\paragraph{whitewashing:}The idea of rewards and punishment discussed in
+sending many endorsement transactions over to the ethereum network and raises
+the cost of operation.   
+\paragraph{whitewashing:} The idea of rewards and punishment as discussed in
 Section~\ref{rewardpunishment} aids in lessening a whitewashing behavior. By
 punishing the misbehaving nodes in a way that decreases their score made so far
 significantly but still preventing the value to be lower than a new user,
 whitewashing is addressed. The punishment of a node requires communication with
-the transaction network to receive the feedback on a transactional outcome. 
+the transaction network to receive the feedback on a transactional outcome.  
 \paragraph{Free riders:} Free riders issue is addressed by requiring the nodes
 to have a balanced ratio of outgoing and incoming connections.
 \paragraph{Denial of service:} Denial of service is addressed by deploying the
@@ -37,11 +37,11 @@ intrude the operation of endorsement transactions.
 the blockchain solve the possibility of this attack due to lack of data source
 authentication or data integrity verification, and once the transaction is
 added to the blockchain, the blockchain protocol provides the guarantee of the
-immutability of data and offers public verifiability of data.  Another reason
-this attack is possible is by creating multiple Sybil identity which is
+immutability of data and offers public verifiability of data. Another reason
+this attack is possible is by creating multiple Sybil identities. This is
 addressed by the cost of operation to do so, i.e., the account that initiates
 the transaction (joining the network or sending endorsements) has to pay the
-cost of each operation.
+cost of each operation.   
 \paragraph{Malicious collective:}Malicious nodes can form a collective group
 and endorse each other until they all have a high \ac{TEI} value to be
 considered trustworthy in the endorsement network. The endorsement system
@@ -68,8 +68,8 @@ has the symmetric trust relation with.
 \end{equation}
 As we can see that the intersection set includes the same list as the list of
 endorsers and endorsees, it is most likely that these entities are forming a
-malicious collective to inflate each other's trust scores. However, this does
-not provide enough information to infer that a node is malicious with
+malicious collective to inflate the trust scores of each other. However, this
+does not provide enough information to infer that a node is malicious with
 certainty. We cannot ignore the possibility that they know each other and the
 endorsement interaction is an honest one. The characteristic of trust as being
 asymmetric does not invalidate the existence of the symmetric trust, i.e., $A$
@@ -105,7 +105,7 @@ of structural/unit testing was performed. The purpose of this project was a PoC
 design to demonstrate the reputation model as a use case via the use of smart
 contracts and blockchain technology. An extensive experiment to simulate a
 real-world usage was not performed. However, manual testing was done during
-development using ganache~\footnote{https://github.com/trufflesuite/ganache}
+development using ganache~\footnote{https://github.com/trufflesuite/ganache/}
 and deployment of contract on a local network. Additionally, front-end was
 developed to test contract function calls and communicate with contracts on
 blockchain network from the browser itself.  
@@ -119,14 +119,17 @@ smart contract code, refer to the appendix~\ref{smartcontracts}.
 The fulfillment of non-functional system requirements is discussed below:
 \paragraph{Smart contract security:}Based on the recommendations by
 Solidity~\cite{soliditySecurity}, contract function code was ordered as
-conditions, actions, and interactions where relevant. Doing so can avoid
-Re-entrancy bug, e.g., interrupting a function call in the middle of execution
-and re-entering before the previous execution is over. The function call can be
-made by both ~\ac{EOA} or by a contract address. A maliciously crafted contract
-can make a function call repeatedly before the execution of the function ends
-or throws an exception which can cause the function to interact in unintended
-ways. As such, failing early by making the checks first in a function can avoid
-such a bug. 
+conditions, actions, and interactions where relevant. For example, execution of
+a function to join the endorsement network first makes a check to see if the
+user has already been registered. If the check fails, then further execution of
+the function is stopped. Only if the checks pass then remaining parts of the
+function gets executed. Doing so can avoid Re-entrancy bug, e.g., interrupting
+a function call in the middle of execution and re-entering before the previous
+execution is over. The function call can be made by both ~\ac{EOA} or by a
+contract address. A maliciously crafted contract can make a function call
+repeatedly before the execution of the function ends or throws an exception
+which can cause the function to interact in unintended ways. As such, failing
+early by making the checks first in a function can avoid such a bug. 
 %The security considerations by
 %Solidity~\cite{soliditySecurity} was followed for the contract code. Not all
 %the recommendations presented there were relevant for the endorsement contract.
@@ -141,56 +144,64 @@ such a bug.
 %or throws an exception which can cause the function to interact in unintended
 %ways. As such, failing early by making the checks first in a function can avoid
 %such bugs. 
-\paragraph{Reliability:}This requirement relates to the immutability of data
-stored on the blockchain network which is ensured by~\ac{PoW} consensus
-algorithm. The data is stored on a public, permission less blockchain network
-which allows any node to commit a block of transactions to the blockchain. A
-validator node collates the list of transactions into a block. A malicious node
-that intends to double spend a transaction can do so by solving the
-cryptographic puzzle in parallel with the rest of the network. If the malicious
-does not broadcast the solved blocks to the network and instead keeps solving
-the puzzle in isolation with the network. The transactions that the malicious
-node spent can be included in the blockchain that the network is in agreement
-with currently. After a certain length of blocks has been solved, the malicious
-node can then decide to broadcast his version of blockchain to the network.
-Blockchain protocol ensures that the network switches to the longest chain in
-the event of a fork. Since the malicious node is in the race with rest of the
-network, this form of attack is only possible if the malicious node owns more
-than 51\% of the hashing power compared to the rest of the network. As long as
-honest nodes control half of the network, the~\ac{PoW} mechanism ensures an
-immutable record of transactions to be stored in the blockchain.
-
+\paragraph{Reliability:}The endorsement interactions and the variables required
+to compute the trust score of participants are stored on the public,
+permissionless blockchain network. As such, the data and variables of the
+endorsement system are publicly verifiable information. The \ac{PoW} consensus
+algorithm ensures the immutability of data. As there is no central entity to
+add or modify the data, the system is resilient to internal modifications. 
+%
+%This requirement relates to the immutability of data
+%stored on the blockchain network which is ensured by~\ac{PoW} consensus
+%algorithm. The reputation data is stored on a public, permission less
+%blockchain network which allows any node to commit a block of transactions to
+%the blockchain. A validator node collates the list of transactions into a
+%block. A malicious node that intends to double spend a transaction can do so by
+%solving the cryptographic puzzle in parallel with the rest of the network. If
+%the malicious does not broadcast the solved blocks to the network and instead
+%keeps solving the puzzle in isolation with the network. The transactions that
+%the malicious node spent can be included in the blockchain that the network is
+%in agreement with currently. After a certain length of blocks has been solved,
+%the malicious node can then decide to broadcast his version of blockchain to
+%the network.  Blockchain protocol ensures that the network switches to the
+%longest chain in the event of a fork. Since the malicious node is in the race
+%with rest of the network, this form of attack is only possible if the malicious
+%node owns more than 51\% of the hashing power compared to the rest of the
+%network. As long as honest nodes control half of the network, the~\ac{PoW}
+%mechanism ensures an immutable record of transactions to be stored in the
+%blockchain.
+%
 \begin{center} \label{table:fulfillment} 
 	\begin{table}
 		\begin{tabular} {| l | l | p{9cm} | }
 		\hline
-		\textbf{User}  & \textbf{Traceability}   & \textbf{Motivation for fulfillment} \\
+		\textbf{User}  & \textbf{Requirement Id}   & \textbf{Motivation for fulfillment} \\
 		\hline
 		\multirow{2}{*}{Endorser} & R1 & Any registered participant can make a
 		call to endorse() function to send an endorsement to other registered
-		participants on the network.      
+		participants on the network. 
 		\\\cline{2-3} 
-		& R2  & Any registered participant can call removeEndorsement()
-		function just by providing the address of the endorsee they wish to
-		remove.  \\\cline{2-3}
-		& R3 & Each call to endorse() function updates the state variable of
-		the current endorser and endorsee, storing and updating the respective
-		state variables. i.e., nEG, nER, index. This function call also invokes
-		updateEndorsee() function to update the endorsee information
-		accordingly.  \\\cline{2-3}
+		& R2  & Any participant in the list of endorsers for another
+		participant $A$ can call removeEndorsement() function to the address of
+		$A$.
+		\\\cline{2-3}
+		& R3 & The call to endorse() function updates the state variables
+		\ac{nEG} and the list of endorsees for the endorser. It also invokes
+		updateEndorsee() function to update the information (\ac{nER}, list of
+		endorsers) of endorsee accordingly. 
+		\\\cline{2-3}
 		\hline
-		\multirow{2}{*}{Endorsee} & R5.& The storage of personal information
-		was not fully implemented by the endorsement PoC, therefore, editing
-		personal information is irrelevant. However, change to pseudonym can be
-		possible by just making a call to editProfile() by the participant.
+		\multirow{2}{*}{Endorsee} & R5.& The call to editProfile() function
+		allows participants to edit their stored pseudonym.
 		\\\cline{2-3}
 		\hline
 		\multirow{2}{*}{other users} & R4.1 & Anyone can make a call to
-		computeImpact() function to get the final computed score of a
-		participant based on public key hash registered on the endorsement
-		network. \\\cline{2-3}
-		& R4.2 &  Anyone can make a call to joinNetwork() function and become a
-		registered participant of the network immediately.  \\\cline{2-3}
+		computeImpact() function to get the final computed score of the
+		participant based on their account identifier.
+		\\\cline{2-3}
+		& R4.2 & Anyone can make a call to joinNetwork() function and become a
+		registered participant of the network immediately.  
+		\\\cline{2-3}
 		\hline
 	\end{tabular}
 	\caption{Fulfillment of User stories and Requirements for Endorsement PoC}
@@ -222,17 +233,17 @@ and analyzing different scenarios in the network. The
 Section~\ref{sec:interaction} presents the details regarding this requirement. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interaction graph} \label{sec:interaction}
-For the simulation of user interaction in endorsement network and the resulting
-impact value, a real-world data set was used. The dataset was extracted from
-Bitcoin Alpha trust~\footnote{https://alphabtc.com/blockchain/} weighted signed
-network which is a who-trusts-whom network of people that trade on Bitcoin
-Alpha platform. Participants on this network rated each other on a scale of -10
-to +10 where negative value represented total distrust whereas positive value
-represented total trust. It consisted of 3,783 nodes that made 24,186 edges out
-of which 93\% of the edges were marked as positive edges\cite{kumar2016edge}.
-The available information in the dataset for all the nodes was source, target,
-rating, and timestamp. All of which is essential information for endorsement
-network.
+For the simulation of user interaction in the endorsement network and the
+resulting impact value, a real-world data set was used. The dataset was
+extracted from Bitcoin Alpha trust~\footnote{https://alphabtc.com/blockchain/}
+weighted signed network which is a who-trusts-whom network of people that trade
+on Bitcoin Alpha platform. Participants on this network rated each other on a
+scale of -10 to +10 where negative value represented total distrust whereas
+positive value represented total trust. It consisted of 3,783 nodes that made
+24,186 edges out of which 93\% of the edges were marked as positive
+edges\cite{kumar2016edge}.  The available information in the dataset for all
+the nodes was source, target, rating, and timestamp, all of which are essential
+information for the endorsement network. 
 \begin{figure}
 	\includegraphics[width=0.95\textwidth]{Images/in_out.eps} 
 	\caption{Distribution of degree of incoming and outgoing connections} 
@@ -259,7 +270,7 @@ on their incoming and outgoing connections.
 degree of connections (~\ac{nEG}, ~\ac{nER})and ~\ac{TRP} for each node. Out of
 1677 nodes, there were 1175 nodes (70\%) that turned out to have a ~\ac{TEI}
 score of zero. On examining the nodes, they were found to have only one
-incoming or outgoing connections, i.e., the value of~\ac{nEG} or~\ac{nEG} was
+incoming or outgoing connections, i.e., the value of~\ac{nEG} or~\ac{nER} was
 only one. As such, the \ac{TEI} score of zero was expected because a node would
 only be considered for making an impact on the endorsement system if the number
 of connections is more than one. The score of zero, in this case, is not
@@ -267,7 +278,13 @@ representative of a non-trustworthy node, but a starting node. Thus, we can say
 that 70\% of the nodes in this network are new users. This computation leaves
 us with only 502 nodes to account for having a considerable \ac{TEI} score. The
 distribution of \ac{nEG} and \ac{nER} among the participants of the network is
-given by Figure~\ref{inOut}.
+given by Figure~\ref{inOut}. As we can see in the figure that most of the nodes
+have a low incoming and outgoing connection whereas only a few nodes seem to
+have a high degree of connections. We can also see a few nodes that have
+maintained a high number of incoming connections but relatively very few
+outgoing connections. The impact made by the nodes based on this behavior
+(distribution of indegree and outdegree) is discussed in the subsequent
+sections.
 \begin{figure}[H]
 	\includegraphics[width=0.95\textwidth]{Images/nodesWithImpactZero.eps}
 	\caption{Interaction subgraph of nodes with zero impact}
@@ -303,14 +320,14 @@ no-
 \end{center}
 \vspace{-15mm}
 des is given by Figure~\ref{fig:zeroimpact}. As we can see from the figure,
-none of the endorsers for the five nodes have a significant number of
+none of the endorsers for these five nodes have a significant number of
 connections for being an impactful node. This factor \ac{TRP} corresponds to
 the prestige centrality metrics of a graph network where the significance of
 adjacent nodes determines the significance of a node. In this case, the
 significance of a node is not directly associated with \ac{TEI} of the endorser
 but the value of \ac{CP} of each endorser that accumulatively contributes to
 \ac{TRP} for the respective node. Table~\ref{table:receivedpoints} shows the
-\ac{TRP} values across all the factors for these five nodes that explain why
+\ac{TRP} values across all the factors for these five nodes that explains why
 the \ac{TRP} is zero which leads to them having a \ac{TEI} score of zero too. 
 %\begin{figure}
 %	\includegraphics[width=1.0\textwidth]{Images/TRPVsTEIFontSize.eps}
@@ -342,17 +359,16 @@ network. As such, it is difficult to say if a node is impactful or not merely
 by looking at the ratio. A node that has a good ratio does not necessarily
 imply that it has a good \ac{TEI} but a node with a good \ac{TEI} value should
 have a higher ratio (value equal or approaching 1). This aspect is discussed in
-more detail by Section~\ref{Allcases}. \par
-The distribution of \ac{TEI} score over all nodes is given by
-Figure~\ref{table:totalimpact}. As the endorsement system follows the ranking
-mechanism to rank the trustworthiness of nodes, the higher the value of
-\ac{TEI} score higher is the trustworthiness of the given node. We can see from
-the Figure~\ref{table:totalimpact} that most of the nodes have a lower impact
-value within the range, i.e., about 400 of the nodes have the \ac{TEI} in the
-range of 0-5. On the other hand, very few nodes have a high impact value, i.e.,
-about 1\% of the total nodes have \ac{TEI} score above the range of 100. Thus,
-these few nodes can be considered relatively much trustworthy than any other
-nodes in the network. The nodes labeled 4 and 2 in
+more detail by Section~\ref{Allcases}. \par The distribution of \ac{TEI} score
+over all nodes is given by Figure~\ref{table:totalimpact}. As the endorsement
+system follows the ranking mechanism to rank the trustworthiness of nodes, the
+higher the value of \ac{TEI} score higher is the trustworthiness of the given
+node. We can see in Figure~\ref{table:totalimpact} that most of the nodes
+have a lower impact value, i.e., about 400 of the nodes have the \ac{TEI} in
+the range of 0-5. On the other hand, very few nodes have a high impact value,
+i.e., about 1\% of the total nodes have \ac{TEI} score above the range of 100.
+Thus, these few nodes can be considered relatively much trustworthy than any
+other nodes in the network. The nodes labeled 4 and 2 in
 Figure~\ref{fig:highImpactNode} shows the interaction behavior of nodes with
 high \ac{TEI} score. 
 %Section~\ref{subsec:bcConsensus}, they can be termed as a group of reputable
@@ -417,7 +433,7 @@ distributed for both high impact and low impact nodes. We have seen earlier
 that a high or low value of the ratio is not a useful measure to distinguish
 between a high impact or low impact node. Additionally, we also claimed that
 even though a high ratio value does not imply a high impact node, a high impact
-node should have a higher ratio (value equal to or approaching 1 and not 0 or
+node should have a higher ratio (value equal to or approaching 1 and not
 approaching 0). Thus, we will consider four different scenarios here to test
 this behavior. The first two case takes a look at the node with a maximum
 impact value whereas the last two case (case 3 and case 4) looks at the node
@@ -461,13 +477,13 @@ Figure~\ref{fig:case3andcase4}. Based on our earlier assumption about the
 relation between ratio and \ac{TEI}, these nodes can have a maximum ratio
 despite having a low \ac{TEI} score. We can see from the figure that case 3 has
 too many outgoing connections but relatively very few incoming connections. As
-such the minimum possible ratio for this node is lower also that approaches
-zero. Similarly, case 4 shows the maximum possible ratio of a low impact node
-which is 1. Given that the node does not have enough incoming and outgoing
-connections yet, it has a very low impact value. This case shows the behavior
-of a starting node. The third case shows the behavior of a node that shows an
-extreme one-way connection whereas case 4 shows the behavior of the starting
-node. As such, the low impact made by these nodes is expected. 
+such the minimum possible ratio for this node is also lower, i.e., it
+approaches zero. Similarly, case 4 shows the maximum possible ratio of a low
+impact node which is 1. Given that the node does not have enough incoming and
+outgoing connections yet, it cannot have a very high impact value and therefore
+its \ac{TEI} value is negligible. The third case shows the behavior of a node
+that shows an extreme one-way connection whereas case 4 shows the behavior of
+the starting node. As such, the low impact made by these nodes are expected. 
 %\section{Summary of Results}
 
 %\section{Blockchain: Gas Consumption, Block size, Transactions}

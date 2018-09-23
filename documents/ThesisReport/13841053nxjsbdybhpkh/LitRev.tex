@@ -40,25 +40,25 @@ system~\cite{resnick2006value} could be judged as working based on the sales
 volume and the observation that more than half the buyers usually engage in
 providing feedback. However, this method fails to address issues such as Sybil
 attack, inactive participation (users fear retaliation from giving negative
-feedback), whitewashing attack. There are many non-eCommerce online systems
-such as StackExchange, yelp, Reddit that make use of similar reputation
-mechanism to filter the participating users and avoid serving malicious
-participation. Most of the eCommerce systems employ a client-server
-architecture which lets a central entity in control of stored data. A single
-point of control is a single point of failure. In light of this, there have
-been studies and proposals on decentralized reputation methods for a
-distributed system. Especially significant for P2P systems such as file-sharing
-or content delivery applications for detecting the quality of file or content
-and the owner of those files. \par   
+feedback), whitewashing attack. Other systems that are not E-commerce based and
+make use of similar reputation mechanism to filter the participating users and
+avoid serving malicious participation are StackExchange, yelp, Reddit. Most of
+the E-commerce systems employ a client-server architecture which lets a central
+entity in control of stored data. A single point of control is a single point
+of failure. In light of this, there have been studies and proposals on
+decentralized reputation methods for a distributed system. Especially
+significant for P2P systems such as file-sharing or content delivery
+applications for detecting the quality of file or content and the owner of
+ithose files. \par   
 
 TrustDavis~\cite{defigueiredo2005trustdavis} is a reputation system that
 addresses the concerns mentioned by Resnick et al.~\cite{resnick2002trust} by
 discouraging malicious participation and incentivizing honest participation and
 does so without a centralized service. It introduces the role of insurers
 between interacting entities such that a user can ask to be insured for their
-transaction or insure someone else transaction in exchange for a reward. If the
-transaction succeeds then the buyer receives the product, and the seller gets
-his/her payment as agreed upon. If the transaction fails, however, and the
+transaction or insure the transaction of someone else in exchange for a reward.
+If the transaction succeeds then the buyer receives the product, and the seller
+gets his/her payment as agreed upon. If the transaction fails, however, and the
 buyer does not receive the product (or receives an inferior quality product)
 then the buyer can contact the insurer and ask for the insured amount. The
 seller can do the same if the buyer acts maliciously. The system relies on the
@@ -68,7 +68,7 @@ capability of an insurer to estimate failure probability. \par
 %reference to $B$ valued at 100\$ then $A$ is willing to reimburse the buyer for
 %a bad trade caused by $B$ up to the amount of 100\$) to trusted parties. 
 Schaub, Alexander, et al.~\cite{schaub2016trustless} proposes a
-Blockchain-based reputation model that recommends the use of blind
+blockchain-based reputation model that recommends the use of blind
 signature~\footnote{Blind signature schemes~\cite{katz1996handbook} is
 two-party protocols between a sender $A$ and a signer $B$. $A$ sends a piece of
 information to $B$ which $B$ signs and returns to $A$. From this signature, $A$
@@ -125,11 +125,11 @@ regardless of who (peer) owns or serves it.
 AuthenticPeer++~\cite{alkharji2017authenticpeer++} is a trust management system
 for P2P networks that combines both, i.e., it shares the notion of both trusted
 peers and trusted files. It only allows trusted peers to rank the file after
-they have downloaded it and uses a DHT-based structure to manage the integrity
-of file information. \par
+they have downloaded it and uses a ~\ac{DHT}-based structure to manage the
+integrity of file information. \par
 
 Bartercast~\cite{meulpolder2009bartercast} is a distributed reputation
-mechanism designed for P2P file-sharing systems. It creates a graph based on
+mechanism designed for ~\ac{P2P} file-sharing systems. It creates a graph based on
 data transfers between peers and uses the max flow algorithm to compute the
 reputation values for each node. Tribler~\cite{pouwelse2008tribler} is a
 BitTorrent based torrent client that uses Bartercast to rank its peers.  
@@ -150,7 +150,7 @@ representation. The dimension of trust values can be either one or
 multi-dimensional. In a one-dimensional approach, the value represents the
 degree of trust an agent assigns to another one whereas, in a multi-dimensional
 approach, the uncertainty of trust value is also allowed. The semantics of
-trust values can be in the set: rating, ranking, probability, belief, and fuzzy
+trust values can be in the set of rating, ranking, probability, belief, and fuzzy
 value. Ratings can be specified by a range of values on a scale, such as [1,4],
 where 1 can represent more trustworthy, and 4 can represent less trustworthy.
 Rankings are expressed in a relative way, such that a higher value means higher
@@ -194,32 +194,31 @@ The significant attributes that constitute the blockchain are distributed,
 decentralized and time-stamped transactions that are stored in a
 cryptographically secure manner such that they are immutable and verifiable.
 There are several use cases and applications that require these attributes to
-implement a secure system. Trust and reputation system being one example. As
+implement a secure system, trust and reputation system being one example. As
 mentioned earlier, the formulation and storage of reputation information need
-to be secure enough so that participants can rely on it. Verifiable information
-aids in predicting the outcome of a transaction correctly. \par 
+to be secure enough so that participants can rely on it. Presence of verifiable
+information aids in predicting the outcome of a transaction correctly. \par 
 
 There are several blockchain platforms in operation today that allow for the
 creation of distributed and decentralized applications. Based on the use case,
 they vary in design goals and principles. Bitcoin~\cite{Bitcoin_Satoshi} is
 said to be the first application that made use of blockchain technology. The
-purpose of bitcoin as the first application was to have a P2P electronic cash
-system in an open, public, distributed, decentralized and trustless (without
-the need to trust the participating nodes and without a trusted intermediary)
-environment. The idea of digital cash had been around since the 1990's with
-cryptographer David Chaum discussing untraceable electronic
-cash~\cite{chaum1988untraceable}. However, bitcoin was able to solve the flaw
-of a digital cash scheme, namely double spending problem, i.e., if $A$ had $10$
-units of digital cash and sent it to $B$, then $A$ should have this amount
-deducted from his account such that he is not able to spend the same amount
-again. Bitcoin solved this problem without the use of trusted intermediaries
-and without requiring participating entities to trust each other. Similarly, it
-solved the Byzantine General's
+purpose of bitcoin was to have a P2P electronic cash system in an open, public,
+distributed, decentralized and trustless (without the need to trust the
+participating nodes and without a trusted intermediary) environment. The idea
+of digital cash had been around since the 1990's with cryptographer David Chaum
+discussing untraceable electronic cash~\cite{chaum1988untraceable}. However,
+bitcoin was able to solve the flaw of a digital cash scheme, namely double
+spending problem, i.e., if $A$ had $10$ units of digital cash and sent it to
+$B$, then $A$ should have this amount deducted from his account such that he is
+not able to spend the same amount again. Bitcoin solved this problem without
+the use of trusted intermediaries and without requiring participating entities
+to trust each other. Similarly, it solved the Byzantine General's
 problem~\cite{lamport1982byzantine,miller2014anonymous} probabilistically by
-using Proof-Of-Work, which is a problem in distributed computing where several
+using ~\ac{PoW}, which is a problem in distributed computing where several
 agents need to agree on a state over an unreliable network and without a
 trusted intermediary. Proof-of-work is discussed in more details by
-section~\ref{subsec:consensus}. Examples of other platforms that extends
+Section~\ref{subsec:consensus}. Examples of other platforms that extends
 bitcoin are Namecoin~\cite{kalodner2015empirical}, which offers decentralized
 name resolution system, counterparty~\footnote{https://counterparty.io/docs/},
 which provides a platform for creating P2P financial applications. Hyperledger

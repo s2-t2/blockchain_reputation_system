@@ -38,10 +38,11 @@
 	year={2000},
 	publisher={IEEE}
 }
-@misc{cohen2008bittorrent,
+@online{cohen2008bittorrent,
   title={The BitTorrent protocol specification},
-  author={Cohen, Bram},
   year={2008},
+  note={Accessed Sep 22, 2018, [Online]. Available: \url{{http://www.bittorrent.org/beps/bep_0003.html}}},
+  author={Cohen, Bram},
   publisher={BITTORRENT}
 }
 @inproceedings{cohen2003incentives,
@@ -52,22 +53,63 @@
   pages={68--72},
   year={2003}
 }
-@article{atzori2015blockchain,
-	title={Blockchain technology and decentralized governance: Is the state still necessary?},
-	author={Atzori, Marcella},
-	year={2015}
+@article{pilkington201611,
+  title={Blockchain technology: principles and applications},
+  author={Pilkington, Marc},
+  journal={Research handbook on digital transformations},
+  pages={225},
+  year={2016},
+  publisher={Edward Elgar Publishing}
 }
+%article{atzori2015blockchain,
+%	title={Blockchain technology and decentralized governance: Is the state still necessary?},
+%	author={Atzori, Marcella},
+%	year={2015}
+%}
+@misc{experian,
+	title="The 2018 Global Fraud and Identity Report",
+	year="2018",
+	note = {Accessed Aug 17, 2018, [Online]. Available: \url{{https://www.experian.com/assets/decision-analytics/reports/global-fraud-report-2018.pdf}}}
+}
+@misc{javelin,
+	author="Al Pascual, Kyle Marchini, Sarah Miller",
+	year="2018",
+	note= {Accessed Aug 17, 2018, [Online]. Available: \url{https://www.javelinstrategy.com/coverage-area/2018-identity-fraud-fraud-enters-new-era-complexity#/}}
+}
+%misc{finland,
+%	author="Helsinki Times",
+%	title="130,000 login credentials compromised in large-scale hacking",
+%	year="2018",
+%	note= {Accessed Aug 17, 2018, [Online]. Available: \url{http://www.helsinkitimes.fi/finland/finland-news/domestic/15448-130-000-login-credentials-compromised-in-large-scale-hacking.html/}}
+%}
 @online{macy,
 	title={Macy’s \& Bloomingdale’s Data Breach: What You Need to Know},
 	year= 2018,
 	note= {Accessed Sep 05, 2018, [Online]. Available: \url{{https://www.experian.com/blogs/ask-experian/macys-bloomingdales-data-breach-what-you-need-to-know/}}
 	}
 }
-@article{mcknight1996meanings,
-	title={The meanings of trust},
-	author={McKnight, D Harrison and Chervany, Norman L},
-	year={1996},
-	publisher={Citeseer}
+%%%%% BEGIN CHAPTER 2 Background %%%%%%%%%%%%%%%%%%%%%%
+@inproceedings{kosba2016hawk,
+  title={Hawk: The blockchain model of cryptography and privacy-preserving smart contracts},
+  author={Kosba, Ahmed and Miller, Andrew and Shi, Elaine and Wen, Zikai and Papamanthou, Charalampos},
+  booktitle={2016 IEEE symposium on security and privacy (SP)},
+  pages={839--858},
+  year={2016},
+  organization={IEEE}
+}
+@inproceedings{zyskind2015decentralizing,
+  title={Decentralizing privacy: Using blockchain to protect personal data},
+  author={Zyskind, Guy and Nathan, Oz and others},
+  booktitle={Security and Privacy Workshops (SPW), 2015 IEEE},
+  pages={180--184},
+  year={2015},
+  organization={IEEE}
+}
+@inproceedings{mcknight1996meanings,
+  title={The meanings of trust},
+  author={McKnight, D Harrison and Chervany, Norman L},
+  year={1996},
+  publisher={Citeseer}
 }
 @incollection{mcknight2001trust,
 	title={Trust and distrust definitions: One bite at a time},
@@ -95,16 +137,6 @@
 	year={2000},
 	publisher={Elsevier}
 }
-@article{josang2007survey,
-	title={A survey of trust and reputation systems for online service provision},
-	author={J{\o}sang, Audun and Ismail, Roslan and Boyd, Colin},
-	journal={Decision support systems},
-	volume={43},
-	number={2},
-	pages={618--644},
-	year={2007},
-	publisher={Elsevier}
-}
 @Article{Sabater2005,
 	author="Sabater, Jordi
 		and Sierra, Carles",
@@ -121,12 +153,6 @@ issn="1573-7462",
 doi="10.1007/s10462-004-0041-5",
 url="https://doi.org/10.1007/s10462-004-0041-5/"
 }
-@book{stallings2017cryptography,
-  title={Cryptography and network security: principles and practice},
-  author={Stallings, William},
-  year={2017},
-  publisher={Pearson Upper Saddle River, NJ}
-}
 @article{castelfranchi2000trust,
   title={Trust and control: A dialectic link},
   author={Castelfranchi, Cristiano and Falcone, Rino},
@@ -137,10 +163,21 @@ url="https://doi.org/10.1007/s10462-004-0041-5/"
   year={2000},
   publisher={Taylor \& Francis}
 }
-@online{VitalikVisions,
-	title={The Value of Blockchain Technology},
-	year= 2015,
-	note={Accessed Aug 22, 2018, [Online]. Available: \url{https://ethereum.github.io/blog/2015/04/13/visions-part-1-the-value-of-blockchain-technology/}}
+@article{josang2007survey,
+	title={A survey of trust and reputation systems for online service provision},
+	author={J{\o}sang, Audun and Ismail, Roslan and Boyd, Colin},
+	journal={Decision support systems},
+	volume={43},
+	number={2},
+	pages={618--644},
+	year={2007},
+	publisher={Elsevier}
+}
+@book{stallings2017cryptography,
+  title={Cryptography and network security: principles and practice},
+  author={Stallings, William},
+  year={2017},
+  publisher={Pearson Upper Saddle River, NJ}
 }
 @inproceedings{rasmusson1996simulated,
   title={Simulated social control for secure Internet commerce},
@@ -150,60 +187,118 @@ url="https://doi.org/10.1007/s10462-004-0041-5/"
   year={1996},
   organization={ACM}
 }
-@inproceedings{mui2002notions,
-  title={Notions of reputation in multi-agents systems: a review},
-  author={Mui, Lik and Mohtashemi, Mojdeh and Halberstadt, Ari},
-  booktitle={Proceedings of the first international joint conference on Autonomous agents and multiagent systems: part 1},
-  pages={280--287},
-  year={2002},
-  organization={ACM}
+@article{hoffman2009survey,
+  title={A survey of attack and defense techniques for reputation systems},
+  author={Hoffman, Kevin and Zage, David and Nita-Rotaru, Cristina},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={42},
+  number={1},
+  pages={1},
+  year={2009},
+  publisher={ACM}
 }
-@inproceedings{carbone2003formal,
-  title={A formal model for trust in dynamic networks},
-  author={Carbone, Marco and Nielsen, Mogens and Sassone, Vladimiro},
-  booktitle={Software Engineering and Formal Methods, 2003. Proceedings. First International Conference on},
-  pages={54--61},
-  year={2003},
-  organization={IEEE}
+@article{marmol2009security,
+  title={Security threats scenarios in trust and reputation models for distributed systems},
+  author={M{\'a}rmol, F{\'e}lix G{\'o}mez and P{\'e}rez, Gregorio Mart{\'\i}nez},
+  journal={computers \& security},
+  volume={28},
+  number={7},
+  pages={545--556},
+  year={2009},
+  publisher={Elsevier}
 }
-@inproceedings{ISOTC307,
-type = {Standard},
-key = {ISO/CD 22739},
-year = {2016},
-note={ISO/TC 307},
-title = {{Blockchain and distributed ledger technologies}},
-address = {Standards Australia},
-institution = {International Organization for Standardization}
-}
-@inproceedings{enoughBitcoinForEthereum,
-  title={Just Enough Bitcoin for Ethereum},
-  author={Goldin Mike},
-  note = {Accessed 23 Dec 2017, [Online]. Available: \url{https://media.consensys.net/time-sure-does-fly-ed4518792679/}},
-  year={Oct 12, 2015},
-  organization={Consensys}
-}
-@inproceedings{Bitcoin_Satoshi,
-  title={Bitcoin: A Peer-to-Peer Electronic Cash System},
-  author={Nakamoto Satoshi},
-  note = {Accessed 23 Dec 2017, [Online]. Available: \url{https://bitcoin.org/bitcoin.pdf/}},
-  year={Oct 31, 2008},
-  organization={Bitcoin}
-}
-@article{miller2010trust,
-  title={In trust we trust},
-  author={Miller, Keith W and Voas, Jeffrey and Laplante, Phil},
-  journal={Computer},
-  volume={43},
-  number={10},
-  pages={85--87},
-  year={2010},
+@article{feldman2006free,
+  title={Free-riding and whitewashing in peer-to-peer systems},
+  author={Feldman, Michal and Papadimitriou, Christos and Chuang, John and Stoica, Ion},
+  journal={IEEE Journal on Selected Areas in Communications},
+  volume={24},
+  number={5},
+  pages={1010--1019},
+  year={2006},
   publisher={IEEE}
 }
-@book{swan2015blockchain,
-  title={Blockchain: Blueprint for a new economy},
-  author={Swan, Melanie},
-  year={2015},
-  publisher={" O'Reilly Media, Inc."}
+@inproceedings{andrade2004can,
+  title={When can an autonomous reputation scheme discourage free-riding in a peer-to-peer system?},
+  author={Andrade, Nazareno and Mowbray, Miranda and Cirne, Walfredo and Brasileiro, Francisco},
+  booktitle={Cluster Computing and the Grid, 2004. CCGrid 2004. IEEE International Symposium on},
+  pages={440--448},
+  year={2004},
+  organization={IEEE}
+}
+@book{bondy1976graph,
+  title={Graph theory with applications},
+  author={Bondy, John Adrian and Murty, Uppaluri Siva Ramachandra and others},
+  volume={290},
+  year={1976},
+  publisher={Citeseer}
+}
+@book{katz1996handbook,
+  title={Handbook of applied cryptography},
+  author={Katz, Jonathan and Menezes, Alfred J and Van Oorschot, Paul C and Vanstone, Scott A},
+  year={1996},
+  publisher={CRC press}
+}
+@article{rivest1978method,
+  title={A method for obtaining digital signatures and public-key cryptosystems},
+  author={Rivest, Ronald L and Shamir, Adi and Adleman, Leonard},
+  journal={Communications of the ACM},
+  volume={21},
+  number={2},
+  pages={120--126},
+  year={1978},
+  publisher={ACM}
+}
+@inproceedings{wang2005break,
+  title={How to break MD5 and other hash functions},
+  author={Wang, Xiaoyun and Yu, Hongbo},
+  booktitle={Annual international conference on the theory and applications of cryptographic techniques},
+  pages={19--35},
+  year={2005},
+  organization={Springer}
+}
+@inproceedings{stevens2017first,
+  title={The first collision for full SHA-1},
+  author={Stevens, Marc and Bursztein, Elie and Karpman, Pierre and Albertini, Ange and Markov, Yarik},
+  booktitle={Annual International Cryptology Conference},
+  pages={570--596},
+  year={2017},
+  organization={Springer}
+}
+@online{merklepath,
+	title={Mastering Bitcoin},
+	author={Andreas M. Antonopoulos},
+	booktitle={Bitcoinbook},
+	journal={O' Reilly Media},
+	note={Accessed Sep 05, 2018, [Online]. Available: \url{{https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch09.asciidoc}}},
+	year={2014}
+
+}
+@online{oakridge,
+	title={Oak Ridge National Laboratory's next High Performance Supercomputer},
+	note={Accessed Sep 05, 2018, [Online]. Available: \url{https://www.olcf.ornl.gov/olcf-resources/compute-systems/summit/}},
+	year={2018}
+}
+@online{top500,
+	title={Top500 List - June 2018},
+	note={Accessed Sep 05, 2018, [Online]. Available: \url{https://www.top500.org/list/2018/06/} },
+	year={2018}
+}
+@online{k40,
+	title={NVIDIA TESLA GPU ACCELERATORS },
+	note={Accessed Sep 05, 2018, [Online]. Available:\url{https://www.nvidia.com/content/tesla/pdf/NVIDIA-Tesla-Kepler-Family-Datasheet.pdf}},
+	year={2018}
+}
+@online{v100,
+	title={NVIDIA TESLA V100 GPU ARCHITECTURE},
+	note={Accessed Sep 05, 2018, [Online]. Available:\url{http://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf}},
+	year={2018}
+}
+@article{becker2008merkle,
+  title={Merkle signature schemes, merkle trees and their cryptanalysis},
+  author={Becker, Georg},
+  journal={Ruhr-University Bochum, Tech. Rep},
+  year={2008},
+  publisher={Citeseer}
 }
 @article{balakrishnan2003looking,
   title={Looking up data in P2P systems},
@@ -231,15 +326,173 @@ institution = {International Organization for Standardization}
   year={2001},
   publisher={ACM}
 }
-%%%% Chapter 2
-@incollection{resnick2002trust,
-  title={Trust among strangers in Internet transactions: Empirical analysis of eBay's reputation system},
-  author={Resnick, Paul and Zeckhauser, Richard},
-  booktitle={The Economics of the Internet and E-commerce},
-  pages={127--157},
-  year={2002},
-  publisher={Emerald Group Publishing Limited}
+%%inproceedings{enoughBitcoinForEthereum,
+%  title={Just Enough Bitcoin for Ethereum},
+%  author={Goldin Mike},
+%  note = {Accessed 23 Dec 2017, [Online]. Available: \url{https://media.consensys.net/time-sure-does-fly-ed4518792679/}},
+%  year={Oct 12, 2015},
+%  organization={Consensys}
+%}
+@inproceedings{ISOTC307,
+type = {Standard},
+key = {ISO/CD 22739},
+year = {2016},
+note={ISO/TC 307},
+title = {{Blockchain and distributed ledger technologies}},
+address = {Standards Australia},
+institution = {International Organization for Standardization}
 }
+@book{MasteringEthereum,
+  title = {Mastering Ethereum},
+  subtitle = {Building Smart Contracts and Dapps},
+  author = {Andreas M. Antonopoulos and Gavin Wood},
+  year = {2017},
+  publisher = {O'Reilly Media}
+}
+@inproceedings{Bitcoin_Satoshi,
+  title={Bitcoin: A Peer-to-Peer Electronic Cash System},
+  author={Nakamoto Satoshi},
+  note = {Accessed 23 Dec 2017, [Online]. Available: \url{https://bitcoin.org/bitcoin.pdf/}},
+  year={Oct 31, 2008},
+  organization={Bitcoin}
+}
+@inproceedings{mingxiao2017review,
+  title={A review on consensus algorithm of blockchain},
+  author={Mingxiao, Du and Xiaofeng, Ma and Zhe, Zhang and Xiangwei, Wang and Qijun, Chen},
+  booktitle={Systems, Man, and Cybernetics (SMC), 2017 IEEE International Conference on},
+  pages={2567--2572},
+  year={2017},
+  organization={IEEE}
+}
+@article{buterin2013ethereum,
+  title={Ethereum white paper},
+  author={Buterin, Vitalik and others},
+  journal={GitHub repository},
+  year={2013},
+  note={Accessed Sep 22, 2018, [Online]. Available: \url{{https://github.com/ethereum/wiki/wiki/White-Paper}}}
+}
+%online{Berkeley,
+%	title={Workshop 5: Data Structures, Consensus Algorithms, Bitcoin Scripting},
+%	author= {Blockchain at Berkeley},
+%	note= {Accessed Aug 22, 2018, [Online]. Available: \url{{https://drive.google.com/file/d/0ByBe1QJVC-EJVVBZeEFJNGFTbTA/view/}}
+%}
+%}
+@article{houy2014will,
+  title={It will cost you nothing to” kill” a proof-of-stake crypto-currency,” 2014},
+  author={Houy, Nicolas},
+  journal={Lyon University, France},
+  year={2014}
+}
+@article{buterin2017casper,
+  title={Casper the friendly finality gadget},
+  author={Buterin, Vitalik and Griffith, Virgil},
+  journal={arXiv preprint arXiv:1710.09437},
+  year={2017}
+}
+@inproceedings{kiayias2017ouroboros,
+  title={Ouroboros: A provably secure proof-of-stake blockchain protocol},
+  author={Kiayias, Aggelos and Russell, Alexander and David, Bernardo and Oliynykov, Roman},
+  booktitle={Annual International Cryptology Conference},
+  pages={357--388},
+  year={2017},
+  organization={Springer}
+}
+@inproceedings{androulaki2018hyperledger,
+  title={Hyperledger fabric: a distributed operating system for permissioned blockchains},
+  author={Androulaki, Elli and Barger, Artem and Bortnikov, Vita and Cachin, Christian and Christidis, Konstantinos and De Caro, Angelo and Enyeart, David and Ferris, Christopher and Laventman, Gennady and Manevich, Yacov and others},
+  booktitle={Proceedings of the Thirteenth EuroSys Conference},
+  pages={30},
+  year={2018},
+  organization={ACM}
+}
+@article{brown2016corda,
+  title={Corda: An introduction},
+  author={Brown, Richard Gendal and Carlyle, James and Grigg, Ian and Hearn, Mike},
+  journal={R3 CEV, August},
+  year={2016}
+}
+@online{hyperledgerfabric,
+	title={Gossip data dissemination protocol},
+	year= {2017},
+	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/gossip.html}}
+}
+}
+@online{hyperledgerfabric2,
+	title={HyperLedger Fabric Model},
+	year= {2017},
+	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/fabric_model.html}}
+}
+}
+@inproceedings{castro1999practical,
+  title={Practical Byzantine fault tolerance},
+  author={Castro, Miguel and Liskov, Barbara and others},
+  booktitle={OSDI},
+  volume={99},
+  pages={173--186},
+  year={1999}
+}
+@inproceedings{ongaro2014search,
+  title={In search of an understandable consensus algorithm.},
+  author={Ongaro, Diego and Ousterhout, John K},
+  booktitle={USENIX Annual Technical Conference},
+  pages={305--319},
+  year={2014}
+}
+@article{wust2017you,
+  title={Do you need a Blockchain?},
+  author={W{\"u}st, Karl and Gervais, Arthur},
+  journal={IACR Cryptology ePrint Archive},
+  volume={2017},
+  pages={375},
+  year={2017}
+}
+%%article{voronchenko2017you,
+%  title={Do you need a Blockchain?},
+%  author={Voronchenko, Kyrylo},
+%  year={2017}
+%}
+% %misc{SzaboSmart1994,
+%	title={Smart Contracts}},
+%	author={Szabo, Nick},
+%	year={1994}
+%	note={Accessed Aug 22, 2018, [Online]. Available: \url{{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html}}}
+%}
+@article{szabo1996smart,
+  title={Smart contracts: building blocks for digital markets},
+  author={Szabo, Nick},
+  journal={EXTROPY: The Journal of Transhumanist Thought,(16)},
+  year={1996},
+	note= {Accessed Sep 20, 2018, [Online]. Available: \url{{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html}}
+	}
+}
+@article{szabo1997formalizing,
+  title={Formalizing and securing relationships on public networks},
+  author={Szabo, Nick},
+  journal={First Monday},
+  volume={2},
+  number={9},
+  year={1997}
+}
+@online{SolidityDocs,
+	title={Introduction to Smart Contracts},
+	year={2018},
+	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html}}
+}
+}
+@online{LLL,
+	title={LLL Introduction},
+	year= {2017},
+	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://lll-docs.readthedocs.io/en/latest/lll_introduction.html}}
+}
+}
+@online{ethereumbiegepaper,
+	title={Beigepaper: An Ethereum Technical Specification},
+	year = {2018},
+	note={Accessed Sep 07, 2018, [Online]. Available: \url{https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf}}
+}
+%%%%%%%% END CHAPTER 2 BACKGROUND %%%%%%%%%%%
+
+%%%%%%%% BEGIN CHAPTER 3 RELATED WORKS %%%%%%%%
 @article{resnick2000reputation,
   title={Reputation systems},
   author={Resnick, Paul and Kuwabara, Ko and Zeckhauser, Richard and Friedman, Eric},
@@ -250,6 +503,14 @@ institution = {International Organization for Standardization}
   year={2000},
   publisher={ACM}
 }
+@incollection{resnick2002trust,
+  title={Trust among strangers in Internet transactions: Empirical analysis of eBay's reputation system},
+  author={Resnick, Paul and Zeckhauser, Richard},
+  booktitle={The Economics of the Internet and E-commerce},
+  pages={127--157},
+  year={2002},
+  publisher={Emerald Group Publishing Limited}
+}
 @article{resnick2006value,
   title={The value of reputation on eBay: A controlled experiment},
   author={Resnick, Paul and Zeckhauser, Richard and Swanson, John and Lockwood, Kate},
@@ -259,23 +520,6 @@ institution = {International Organization for Standardization}
   pages={79--101},
   year={2006},
   publisher={Springer}
-}
-@misc{experian,
-	author="Experian",
-	title="The 2018 Global Fraud and Identity Report",
-	year="2018",
-  note = {Accessed Aug 17, 2018, [Online]. Available: \url{https://www.experian.com/assets/decision-analytics/reports/global-fraud-report-2018.pdf/}}
-}
-@misc{javelin,
-	author="Al Pascual, Kyle Marchini, Sarah Miller",
-	year="2018",
-	note= {Accessed Aug 17, 2018, [Online]. Available: \url{https://www.javelinstrategy.com/coverage-area/2018-identity-fraud-fraud-enters-new-era-complexity#/}}
-}
-@misc{finland,
-	author="Helsinki Times",
-	title="130,000 login credentials compromised in large-scale hacking",
-	year="2018",
-	note= {Accessed Aug 17, 2018, [Online]. Available: \url{http://www.helsinkitimes.fi/finland/finland-news/domestic/15448-130-000-login-credentials-compromised-in-large-scale-hacking.html/}}
 }
 @inproceedings{defigueiredo2005trustdavis,
   title={Trustdavis: A non-exploitable online reputation system},
@@ -293,21 +537,16 @@ institution = {International Organization for Standardization}
   year={2016},
   organization={Springer}
 }
-@phdthesis{kalala2017trust,
-  title={Trust and Reputation Algorithms for Hierarchically Structured Peer-to-Peer Systems},
-  author={Kalala, Kalonji},
-  year={2017},
-  school={Universit{\'e} d'Ottawa/University of Ottawa},
-  note={Accessed Sep 05, 2018, [Online]. Available:\url{ } }
-}`
-@inproceedings{dennis2015rep,
-  title={Rep on the block: A next generation reputation system based on the blockchain},
-  author={Dennis, Richard and Owen, Gareth},
-  booktitle={Internet Technology and Secured Transactions (ICITST), 2015 10th International Conference for},
-  pages={131--138},
-  year={2015},
-  organization={IEEE}
+@inproceedings{chiluka2012personalizing,
+  title={Personalizing eigentrust in the face of communities and centrality attack},
+  author={Chiluka, Nitin and Andrade, Nazareno and Gkorou, Dimitra and Pouwelse, Johan},
+  booktitle={Advanced Information Networking and Applications (AINA), 2012 IEEE 26th International Conference on},
+  pages={503--510},
+  year={2012},
+  organization={IEEE},
 }
+
+%note={Accessed Sep 05, 2018, [Online] Available:\url{ https://www.researchgate.net/profile/Dimitra_Gkorou/publication/229059481_Personalizing_EigenTrust_in_the_Face_of_Communities_and_Centrality_Attack/links/551afadd0cf2bb75407877f8.pdf}}
 @inproceedings{kamvar2003eigentrust,
   title={The eigentrust algorithm for reputation management in p2p networks},
   author={Kamvar, Sepandar D and Schlosser, Mario T and Garcia-Molina, Hector},
@@ -316,20 +555,21 @@ institution = {International Organization for Standardization}
   year={2003},
   organization={ACM}
 }
-@inproceedings{chiluka2012personalizing,
-  title={Personalizing eigentrust in the face of communities and centrality attack},
-  author={Chiluka, Nitin and Andrade, Nazareno and Gkorou, Dimitra and Pouwelse, Johan},
-  booktitle={Advanced Information Networking and Applications (AINA), 2012 IEEE 26th International Conference on},
-  pages={503--510},
-  year={2012},
-  organization={IEEE},
-  note={Accessed Sep 05, 2018, [Online] Available:\url{ https://www.researchgate.net/profile/Dimitra_Gkorou/publication/229059481_Personalizing_EigenTrust_in_the_Face_of_Communities_and_Centrality_Attack/links/551afadd0cf2bb75407877f8.pdf}}
+@inproceedings{alkharji2017authenticpeer++,
+  title={AuthenticPeer++: A Trust Management System for P2P Networks},
+  author={Alkharji, Sarah and Kurdi, Heba and Altamimi, Rasha and Aloboud, Ebtesam},
+  booktitle={European Modelling Symposium (EMS), 2017},
+  pages={191--196},
+  year={2017},
+  organization={IEEE}
 }
-
-@misc{levien2003advogato,
-  title={Advogato’s trust metric},
-  author={Levien, Raph},
-  year={2003}
+@inproceedings{meulpolder2009bartercast,
+  title={Bartercast: A practical approach to prevent lazy freeriding in p2p networks},
+  author={Meulpolder, Michel and Pouwelse, Johan A and Epema, Dick HJ and Sips, Henk J},
+  booktitle={Parallel \& Distributed Processing, 2009. IPDPS 2009. IEEE International Symposium on},
+  pages={1--8},
+  year={2009},
+  organization={IEEE}
 }
 @article{kurdi2015honestpeer,
   title={HonestPeer: An enhanced EigenTrust algorithm for reputation management in P2P systems},
@@ -341,14 +581,6 @@ institution = {International Organization for Standardization}
   year={2015},
   publisher={Elsevier}
 }
-@inproceedings{alkharji2017authenticpeer++,
-  title={AuthenticPeer++: A Trust Management System for P2P Networks},
-  author={Alkharji, Sarah and Kurdi, Heba and Altamimi, Rasha and Aloboud, Ebtesam},
-  booktitle={European Modelling Symposium (EMS), 2017},
-  pages={191--196},
-  year={2017},
-  organization={IEEE}
-}
 @article{pouwelse2008tribler,
   title={TRIBLER: a social-based peer-to-peer system},
   author={Pouwelse, Johan A and Garbacki, Pawel and Wang, Jun and Bakker, Arno and Yang, Jie and Iosup, Alexandru and Epema, Dick HJ and Reinders, Marcel and Van Steen, Maarten R and Sips, Henk J},
@@ -358,14 +590,6 @@ institution = {International Organization for Standardization}
   pages={127--138},
   year={2008},
   publisher={Wiley Online Library}
-}
-@inproceedings{meulpolder2009bartercast,
-  title={Bartercast: A practical approach to prevent lazy freeriding in p2p networks},
-  author={Meulpolder, Michel and Pouwelse, Johan A and Epema, Dick HJ and Sips, Henk J},
-  booktitle={Parallel \& Distributed Processing, 2009. IPDPS 2009. IEEE International Symposium on},
-  pages={1--8},
-  year={2009},
-  organization={IEEE}
 }
 @article{zhou2007powertrust,
   title={Powertrust: A robust and scalable reputation system for trusted peer-to-peer computing},
@@ -377,6 +601,11 @@ institution = {International Organization for Standardization}
   year={2007},
   publisher={IEEE}
 }
+@misc{levien2003advogato,
+  title={Advogato’s trust metric},
+  author={Levien, Raph},
+  year={2003}
+}
 @inproceedings{ries2006classification,
   title={A classification of trust systems},
   author={Ries, Sebastian and Kangasharju, Jussi and M{\"u}hlh{\"a}user, Max},
@@ -385,14 +614,6 @@ institution = {International Organization for Standardization}
   year={2006},
   organization={Springer}
 }
-@inproceedings{abdul1998distributed,
-  title={A distributed trust model},
-  author={Abdul-Rahman, Alfarez and Hailes, Stephen},
-  booktitle={Proceedings of the 1997 workshop on New security paradigms},
-  pages={48--60},
-  year={1998},
-  organization={ACM}
-}
 @inproceedings{abdul2000supporting,
   title={Supporting trust in virtual communities},
   author={Abdul-Rahman, Alfarez and Hailes, Stephen},
@@ -400,6 +621,14 @@ institution = {International Organization for Standardization}
   pages={9--pp},
   year={2000},
   organization={IEEE}
+}
+@inproceedings{abdul1998distributed,
+  title={A distributed trust model},
+  author={Abdul-Rahman, Alfarez and Hailes, Stephen},
+  booktitle={Proceedings of the 1997 workshop on New security paradigms},
+  pages={48--60},
+  year={1998},
+  organization={ACM}
 }
 @inproceedings{abdul1997pgp,
   title={The pgp trust model},
@@ -419,230 +648,6 @@ institution = {International Organization for Standardization}
   pages={80},
   year={1999}
 }
-@article{cahill2003using,
-  title={Using trust for secure collaboration in uncertain environments},
-  author={Cahill, Vinny and Gray, Elizabeth and Seigneur, J-M and Jensen, Christian Damsgaard and Chen, Yong and Shand, Brian and Dimmock, Nathan and Twigg, Andrew and Bacon, Jean and English, Colin and others},
-  journal={IEEE pervasive computing},
-  volume={2},
-  number={3},
-  pages={52--61},
-  year={2003},
-  publisher={IEEE}
-}
-@inproceedings{kalodner2015empirical,
-  title={An Empirical Study of Namecoin and Lessons for Decentralized Namespace Design.},
-  author={Kalodner, Harry A and Carlsten, Miles and Ellenbogen, Paul and Bonneau, Joseph and Narayanan, Arvind},
-  booktitle={WEIS},
-  year={2015},
-  organization={Citeseer}
-}
-@MISC{counterparty,
-   author =       "Connoly, Darlene",
-   title =        "Controversy in the Maldives",
-   editor =       "Surfline.com",
-   month =        "August",
-   year =         "2012",
-   url =          "\url{https://counterparty.io/docs}",
-   note =         "[Online; Accessed 31-August-2018]",
-} 
-@inproceedings{cachin2016architecture,
-  title={Architecture of the hyperledger blockchain fabric},
-  author={Cachin, Christian},
-  booktitle={Workshop on Distributed Cryptocurrencies and Consensus Ledgers},
-  volume={310},
-  year={2016}
-}
-@article{lomas2015everledger,
-  title={Everledger is using blockchain to combat fraud, starting with diamonds},
-  author={Lomas, Natasha},
-  journal={URL: https://techcrunch. com/2015/06/29/everledger},
-  year={2015}
-}
-@article{wood2014ethereum,
-  title={Ethereum: A secure decentralised generalised transaction ledger},
-  author={Wood, Gavin},
-  journal={Ethereum project yellow paper},
-  volume={151},
-  pages={1--32},
-  year={2014}
-}
-@online{SolidityDocs,
-	title={Introduction to Smart Contracts},
-	year= {2016-2018},
-	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html}}
-}
-}
-@online{LLL,
-	title={LLL Introduction},
-	year= {2017},
-	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://lll-docs.readthedocs.io/en/latest/lll_introduction.html}}
-}
-}
-@online{TendermintDocs,
-	title={What is Tendermint?},
-	year= {2018},
-	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://github.com/tendermint/tendermint/blob/master/docs/introduction/introduction.md}}
-}
-}
-@online{ethereumbiegepaper,
-	title={Beigepaper: An Ethereum Technical Specification},
-	year = {2018},
-	note={Accessed Sep 07, 2018, [Online]. Available: \url{https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf}}
-}
-%%%%%END CHAPTER 2
-
-%%%%% BEGIN CHAPTER 3 %%%%%%%%%%%%%%%%%%%%%%
-@inproceedings{kosba2016hawk,
-  title={Hawk: The blockchain model of cryptography and privacy-preserving smart contracts},
-  author={Kosba, Ahmed and Miller, Andrew and Shi, Elaine and Wen, Zikai and Papamanthou, Charalampos},
-  booktitle={2016 IEEE symposium on security and privacy (SP)},
-  pages={839--858},
-  year={2016},
-  organization={IEEE}
-}
-@inproceedings{zyskind2015decentralizing,
-  title={Decentralizing privacy: Using blockchain to protect personal data},
-  author={Zyskind, Guy and Nathan, Oz and others},
-  booktitle={Security and Privacy Workshops (SPW), 2015 IEEE},
-  pages={180--184},
-  year={2015},
-  organization={IEEE}
-}
-@article{becker2008merkle,
-  title={Merkle signature schemes, merkle trees and their cryptanalysis},
-  author={Becker, Georg},
-  journal={Ruhr-University Bochum, Tech. Rep},
-  year={2008},
-  publisher={Citeseer}
-}
-@online{Berkeley,
-	title={Workshop 5: Data Structures, Consensus Algorithms, Bitcoin Scripting},
-	author= {Blockchain at Berkeley},
-	note= {Accessed Aug 22, 2018, [Online]. Available: \url{{https://drive.google.com/file/d/0ByBe1QJVC-EJVVBZeEFJNGFTbTA/view/}}
-}
-}
-@online{HashgraphConsensusCategory,
-	title={Hashgraph: Consensus in Blockchain},
-	year= 2018,
-	note= {Accessed Aug 22, 2018, [Online]. Available: \url{{https://www.foundery.co.za/blog/hashgraph-consensus-in-blockchain/}}
-}
-}
-@inproceedings{mingxiao2017review,
-  title={A review on consensus algorithm of blockchain},
-  author={Mingxiao, Du and Xiaofeng, Ma and Zhe, Zhang and Xiangwei, Wang and Qijun, Chen},
-  booktitle={Systems, Man, and Cybernetics (SMC), 2017 IEEE International Conference on},
-  pages={2567--2572},
-  year={2017},
-  organization={IEEE}
-}
-@online{hyperledgerfabric,
-	title={Gossip data dissemination protocol},
-	year= 2017,
-	author= {Hyperledger Fabric},
-	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/gossip.html}}
-}
-}
-@online{hyperledgerfabric2,
-	title={HyperLedger Fabric Model},
-	year= 2017,
-	author= {Hyperledger Fabric},
-	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://hyperledger-fabric.readthedocs.io/en/release-1.2/fabric_model.html}}
-}
-}
-@inproceedings{kiayias2017ouroboros,
-  title={Ouroboros: A provably secure proof-of-stake blockchain protocol},
-  author={Kiayias, Aggelos and Russell, Alexander and David, Bernardo and Oliynykov, Roman},
-  booktitle={Annual International Cryptology Conference},
-  pages={357--388},
-  year={2017},
-  organization={Springer}
-}
-@inproceedings{ongaro2014search,
-  title={In search of an understandable consensus algorithm.},
-  author={Ongaro, Diego and Ousterhout, John K},
-  booktitle={USENIX Annual Technical Conference},
-  pages={305--319},
-  year={2014}
-}
-@inproceedings{castro1999practical,
-  title={Practical Byzantine fault tolerance},
-  author={Castro, Miguel and Liskov, Barbara and others},
-  booktitle={OSDI},
-  volume={99},
-  pages={173--186},
-  year={1999}
-}
-@book{bondy1976graph,
-  title={Graph theory with applications},
-  author={Bondy, John Adrian and Murty, Uppaluri Siva Ramachandra and others},
-  volume={290},
-  year={1976},
-  publisher={Citeseer}
-}
-@article{gkorou2014exploiting,
-  title={Exploiting Graph Properties for Decentralized Reputation Systems},
-  author={Gkorou, Dimitra},
-  year={2014}
-}
-@book{katz1996handbook,
-  title={Handbook of applied cryptography},
-  author={Katz, Jonathan and Menezes, Alfred J and Van Oorschot, Paul C and Vanstone, Scott A},
-  year={1996},
-  publisher={CRC press}
-}
-@online{oakridge,
-	title={Oak Ridge National Laboratory's next High Performance Supercomputer},
-	note={Accessed Sep 05, 2018, [Online]. Available: \url{https://www.olcf.ornl.gov/olcf-resources/compute-systems/summit/}}
-}
-@online{top500,
-	title={Top500 List - June 2018},
-	note={Accessed Sep 05, 2018, [Online]. Available: \url{https://www.top500.org/list/2018/06/} }
-}
-@online{k40,
-	title={NVIDIA TESLA GPU ACCELERATORS },
-	note={Accessed Sep 05, 2018, [Online]. Available:\url{https://www.nvidia.com/content/tesla/pdf/NVIDIA-Tesla-Kepler-Family-Datasheet.pdf}}
-}
-@online{v100,
-	title={NVIDIA TESLA V100 GPU ARCHITECTURE},
-	note={Accessed Sep 05, 2018, [Online]. Available:\url{http://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf}}
-}
-@article{rivest1978method,
-  title={A method for obtaining digital signatures and public-key cryptosystems},
-  author={Rivest, Ronald L and Shamir, Adi and Adleman, Leonard},
-  journal={Communications of the ACM},
-  volume={21},
-  number={2},
-  pages={120--126},
-  year={1978},
-  publisher={ACM}
-}
-@inproceedings{wang2005break,
-  title={How to break MD5 and other hash functions},
-  author={Wang, Xiaoyun and Yu, Hongbo},
-  booktitle={Annual international conference on the theory and applications of cryptographic techniques},
-  pages={19--35},
-  year={2005},
-  organization={Springer}
-}
-@article{mironov2005hash,
-  title={Hash functions: Theory, attacks, and applications},
-  author={Mironov, Ilya and others},
-  journal={Microsoft Research, Silicon Valley Campus. Noviembre de},
-  year={2005}
-}
-@inproceedings{stevens2017first,
-  title={The first collision for full SHA-1},
-  author={Stevens, Marc and Bursztein, Elie and Karpman, Pierre and Albertini, Ange and Markov, Yarik},
-  booktitle={Annual International Cryptology Conference},
-  pages={570--596},
-  year={2017},
-  organization={Springer}
-}
-@article{back2002hashcash,
-  title={Hashcash-a denial of service counter-measure},
-  author={Back, Adam and others},
-  year={2002}
-}
 @inproceedings{chaum1988untraceable,
   title={Untraceable electronic cash},
   author={Chaum, David and Fiat, Amos and Naor, Moni},
@@ -650,13 +655,6 @@ institution = {International Organization for Standardization}
   pages={319--327},
   year={1988},
   organization={Springer}
-}
-@BOOK{MasteringEthereum,
-  TITLE = {MASTERING ETHEREUM},
-  SUBTITLE = {Building Smart Contracts and Dapps},
-  AUTHOR = {ANDREAS M ANTONOPOULOS},
-  YEAR = {2017},
-  PUBLISHER = {O'REILLY MEDIA}
 }
 @article{lamport1982byzantine,
   title={The Byzantine generals problem},
@@ -671,59 +669,75 @@ institution = {International Organization for Standardization}
 @article{miller2014anonymous,
   title={Anonymous byzantine consensus from moderately-hard puzzles: A model for bitcoin},
   author={Miller, Andrew and LaViola Jr, Joseph J},
-  journal={Available on line: http://nakamotoinstitute. org/research/anonymous-byzantine-consensus},
-  year={2014}
+  year={2014},
+  note= {Accessed Sep 20, 2018, [Online]. Available: \url{{https://nakamotoinstitute.org/static/docs/anonymous-byzantine-consensus.pdf}}}
 }
-@inproceedings{androulaki2018hyperledger,
-  title={Hyperledger fabric: a distributed operating system for permissioned blockchains},
-  author={Androulaki, Elli and Barger, Artem and Bortnikov, Vita and Cachin, Christian and Christidis, Konstantinos and De Caro, Angelo and Enyeart, David and Ferris, Christopher and Laventman, Gennady and Manevich, Yacov and others},
-  booktitle={Proceedings of the Thirteenth EuroSys Conference},
-  pages={30},
-  year={2018},
-  organization={ACM}
+@inproceedings{kalodner2015empirical,
+  title={An Empirical Study of Namecoin and Lessons for Decentralized Namespace Design.},
+  author={Kalodner, Harry A and Carlsten, Miles and Ellenbogen, Paul and Bonneau, Joseph and Narayanan, Arvind},
+  booktitle={WEIS},
+  year={2015},
+  organization={Citeseer}
 }
-@article{brown2016corda,
-  title={Corda: An introduction},
-  author={Brown, Richard Gendal and Carlyle, James and Grigg, Ian and Hearn, Mike},
-  journal={R3 CEV, August},
+@inproceedings{cachin2016architecture,
+  title={Architecture of the hyperledger blockchain fabric},
+  author={Cachin, Christian},
+  booktitle={Workshop on Distributed Cryptocurrencies and Consensus Ledgers},
+  volume={310},
   year={2016}
 }
-@article{buterin2017casper,
-  title={Casper the friendly finality gadget},
-  author={Buterin, Vitalik and Griffith, Virgil},
-  journal={arXiv preprint arXiv:1710.09437},
-  year={2017}
+@article{lomas2015everledger,
+  title={Everledger is using blockchain to combat fraud, starting with diamonds},
+  author={Lomas, Natasha},
+  note={[Online]. Available: \url{{https://techcrunch.com/2015/06/29/everledger}} },
+  year={2015}
 }
-@book{dannen2017introducing,
-  title={Introducing Ethereum and Solidity},
-  author={Dannen, Chris},
-  year={2017},
-  publisher={Springer}
-}
-@inproceedings{symmetrickey,
-  title={Symmetric Key in Use},
-  author={Goldin Mike},
-  note = {Accessed 27 Feb 2018, [Online]. Available: \url{http://securitycerts.org/review/symmetric-key-in-use.htm/}},
-  year={Oct 12, 2015},
-  organization={SecurITyCerts dot Org}
-}
-@article{voronchenko2017you,
-  title={Do you need a Blockchain?},
-  author={Voronchenko, Kyrylo},
-  year={2017}
-}
-@article{pilkington201611,
-  title={11 Blockchain technology: principles and applications},
-  author={Pilkington, Marc},
-  journal={Research handbook on digital transformations},
-  pages={225},
-  year={2016},
-  publisher={Edward Elgar Publishing}
-}
-@article{houy2014will,
-  title={It Will Cost You Nothing to'Kill'a Proof-of-Stake Crypto-Currency},
-  author={Houy, Nicolas},
+@article{wood2014ethereum,
+  title={Ethereum: A secure decentralised generalised transaction ledger},
+  author={Wood, Gavin},
+  journal={Ethereum project yellow paper},
+  volume={151},
+  pages={1--32},
   year={2014}
+}
+@online{TendermintDocs,
+	title={What is Tendermint?},
+	year= {2018},
+	note= {Accessed Aug 31, 2018, [Online]. Available: \url{{https://github.com/tendermint/tendermint/blob/master/docs/introduction/introduction.md}}
+}
+}
+%%%%%%% END CHAPTER 3 RELATED WORKS
+
+%%%%%% BEGIN CHAPTER 4 METHOD & IMPLEMENTATION %%%%%%%%%%%
+@book{cohn2004user,
+  title={User stories applied: For agile software development},
+  author={Cohn, Mike},
+  year={2004},
+  publisher={Addison-Wesley Professional}
+}
+@article{soliditySecurity,
+	title={Security Considerations},
+	author={Ethereum},
+	note={Accessed Sep 03, 2018, [Online]. Available: \url{https://solidity.readthedocs.io/en/v0.4.24/security-considerations.html}}
+}
+@article{solidityBugs,
+	title={List of Known Bugs},
+	author={Ethereum},
+	note={Accessed Sep 03, 2018, [Online]. Available: \url{https://solidity.readthedocs.io/en/v0.4.24/bugs.html#known-bugs}}
+}
+@inproceedings{christianson1996isn,
+  title={Why isn't trust transitive?},
+  author={Christianson, Bruce and Harbison, William S},
+  booktitle={International workshop on security protocols},
+  pages={171--176},
+  year={1996},
+  organization={Springer}
+}
+@book{myerson2013game,
+  title={Game theory},
+  author={Myerson, Roger B},
+  year={2013},
+  publisher={Harvard university press}
 }
 @article{hill2003social,
   title={Social network size in humans},
@@ -745,150 +759,17 @@ institution = {International Organization for Standardization}
   year={2016},
   publisher={The Royal Society}
 }
-@misc{SzaboSmart1994,
-	title={Smart Contracts \url{http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html/}},
-	author={Szabo, Nick},
-	year={1994}
-}
-@article{szabo1996smart,
-  title={Smart contracts: building blocks for digital markets},
-  author={Szabo, Nick},
-  journal={EXTROPY: The Journal of Transhumanist Thought,(16)},
-  year={1996}
-}
-@article{szabo1997formalizing,
-  title={Formalizing and securing relationships on public networks},
-  author={Szabo, Nick},
-  journal={First Monday},
-  volume={2},
-  number={9},
-  year={1997}
-}
-@inproceedings{luu2016making,
-  title={Making smart contracts smarter},
-  author={Luu, Loi and Chu, Duc-Hiep and Olickel, Hrishi and Saxena, Prateek and Hobor, Aquinas},
-  booktitle={Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security},
-  pages={254--269},
-  year={2016},
-  organization={ACM}
-}
-@misc{whataresmartcontracts,
-	title={What are Smart Contracts, \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf/}},
-	year={2017},
-	organization={ChainFrog}
-}
-@article{hoffman2009survey,
-  title={A survey of attack and defense techniques for reputation systems},
-  author={Hoffman, Kevin and Zage, David and Nita-Rotaru, Cristina},
-  journal={ACM Computing Surveys (CSUR)},
-  volume={42},
-  number={1},
-  pages={1},
-  year={2009},
-  publisher={ACM}
-}
-%%%%%%%%%CHAPTER 4 %%%%%%%%%%%%%%%%%
-@online{agile1,
-	title={USER STORIES AND STORY SPLITTING},
-	author={MISHKIN BERTEIG},
-	year={2014},
-	note= {Accessed Sep 03, 2018, [Online]. Available: \url{{http://www.agileadvice.com/2014/03/06/referenceinformation/user-stories-and-story-splitting/}}
-	}
-}
-@book{cohn2004user,
-  title={User stories applied: For agile software development},
-  author={Cohn, Mike},
-  year={2004},
-  publisher={Addison-Wesley Professional}
-}
-@article{soliditySecurity,
-	title={Security Considerations},
-	author={Ethereum},
-	note={Accessed Sep 03, 2018, [Online]. Available: \url{https://solidity.readthedocs.io/en/v0.4.24/security-considerations.html}}
-}
-@article{solidityBugs,
-	title={List of Known Bugs},
-	author={Ethereum},
-	note={Accessed Sep 03, 2018, [Online]. Available: \url{https://solidity.readthedocs.io/en/v0.4.24/bugs.html#known-bugs}}
-}
-@article{marmol2009security,
-  title={Security threats scenarios in trust and reputation models for distributed systems},
-  author={M{\'a}rmol, F{\'e}lix G{\'o}mez and P{\'e}rez, Gregorio Mart{\'\i}nez},
-  journal={computers \& security},
-  volume={28},
-  number={7},
-  pages={545--556},
-  year={2009},
-  publisher={Elsevier}
-}
-@article{johann2015software,
-  title={Software architecture for developers},
-  author={Johann, Sven},
-  journal={IEEE Software},
-  number={5},
-  pages={93--96},
-  year={2015},
-  publisher={IEEE}
-}
-@inproceedings{christianson1996isn,
-  title={Why isn't trust transitive?},
-  author={Christianson, Bruce and Harbison, William S},
-  booktitle={International workshop on security protocols},
-  pages={171--176},
-  year={1996},
-  organization={Springer}
-}
-@book{myerson2013game,
-  title={Game theory},
-  author={Myerson, Roger B},
-  year={2013},
-  publisher={Harvard university press}
-}
-@article{brown2013software,
-  title={Software Architecture for Developers},
-  author={Brown, Simon},
-  journal={Coding the Architecture},
-  year={2013}
-}
-@online{solc,
-	title={Using the compiler},
-	author={Ethereum},
-	note={Accessed Sep 05, 2018, [Online]. Available:
-		\url{https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html?highlight=solc}}
+@online{web3,
+	title={web3.js - Ethereum JavaScript API},
+	note= {Accessed Sep 05, 2018, [Online]. Available: \url{{https://web3js.readthedocs.io/en/1.0/}}
+	},
+	year={2016}
 }
 @online{zeppelin-solidity,
 	title={zeppelin-solidity, Docs},
-	author={Smart Contract Solutions},
 	year={2016},
 	note={Accessed Sep 05, 2018, [Online]. Available:
-		\url{https://openzeppelin.org/api/docs/open-zeppelin.html/}}
-}
-@online{web3,
-	title={web3.js - Ethereum JavaScript API},
-	author={Ethereum},
-	year={2016},
-	note= {Accessed Sep 05, 2018, [Online]. Available: \url{{https://web3js.readthedocs.io/en/1.0/}}
-	}
-}
-@article{alharby2017blockchain,
-  title={Blockchain-based Smart Contracts: A Systematic Mapping Study},
-  author={Alharby, Maher and van Moorsel, Aad},
-  journal={arXiv preprint arXiv:1710.06372},
-  year={2017}
-}
-@inproceedings{delmolino2016step,
-  title={Step by step towards creating a safe smart contract: Lessons and insights from a cryptocurrency lab},
-  author={Delmolino, Kevin and Arnett, Mitchell and Kosba, Ahmed and Miller, Andrew and Shi, Elaine},
-  booktitle={International Conference on Financial Cryptography and Data Security},
-  pages={79--94},
-  year={2016},
-  organization={Springer}
-}
-@article{buterin2013ethereum,
-  title={Ethereum white paper},
-  author={Buterin, Vitalik and others},
-  journal={GitHub repository},
-  year={2013}
+		\url{{https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts}}}
 }
 @article{benet2014ipfs,
   title={IPFS-content addressed, versioned, P2P file system},
@@ -908,9 +789,23 @@ institution = {International Organization for Standardization}
   journal={The Sovrin Foundation},
   year={2016}
 }
-%%%%%%%%%%%%%%END OF CHAPTER 4
+%%%%%%%END CHAPTER 4 METHOD & IMPLEMENTATION %%%%%%%%
+%online{HashgraphConsensusCategory,
+%	title={Hashgraph: Consensus in Blockchain},
+%	year= {2018},
+%	note= {Accessed Aug 22, 2018, [Online]. Available: \url{{https://www.foundery.co.za/blog/hashgraph-consensus-in-blockchain/}}
+%}
+%}
 
-%%%%% CHAPTER 5 %%%%%%%%%%
+%%%% BEGIN CHAPTER 5 results and evaluation %%%%%%%%%%
+@book{cormen2009introduction,
+  title={Introduction to algorithms},
+  author={Cormen, Thomas H and Leiserson, Charles E and Rivest, Ronald L and Stein, Clifford},
+  year={2009},
+  publisher={MIT press},
+  note= {Accessed Sep 04, 2018, [Online]. Available: \url{{http://thuvien.thanglong.edu.vn:8081/dspace/bitstream/DHTL_123456789/3760/2/introduction-to-algorithms-3rd-edition.pdf}}
+	}
+}
 @incollection{hevner2010design,
   title={Design science research in information systems},
   author={Hevner, Alan and Chatterjee, Samir},
@@ -919,20 +814,13 @@ institution = {International Organization for Standardization}
   year={2010},
   publisher={Springer}
 }
-@misc{Bergquist1107612,
-   author = {Bergquist, Jonatan},
-   institution = {Uppsala University, Division of Computing Science},
-   note = {Presentation held externally at Technical University Munich on the 29-5-2017 10.50.},
-   pages = {62},
-   school = {Uppsala University, Division of Computing Science},
-   title = {Blockchain Technology and Smart Contracts: Privacy-preserving Tools},
-   series = {UPTEC F},
-   ISSN = {1401-5757},
-   number = {17023},
-   keywords = {blockchain, smart contracts},
-   abstract = {The purpose of this Master's thesis is to explore blockchain technology and smart contracts as a way of building privacy-sensitive applications. The main focus is on a medication plan containing prescriptions, built on a blockchain system of smart contracts. This is an example use case, but the results can be transferred to other ones where sensitive data is being shared and a proof of validity or authentication is needed. First the problem is presented, why medication plans are in need of digitalisation and why blockchain technology is a fitting technology for implementing such an application. Then blockchain technology is explained, since it is a very new and relatively unfamiliar IT construct. Thereafter, a design is proposed for solving the problem. A system of smart contracts was built to prove how such an application can be built, and suggested guidelines for how a blockchain system should be designed to fulfil the requirements that were defined. Finally, a discussion is held regarding the applicability of different blockchain designs to the problem of privacy-handling applications. },
-   year = {2017}
+
+@article{gkorou2014exploiting,
+  title={Exploiting Graph Properties for Decentralized Reputation Systems},
+  author={Gkorou, Dimitra},
+  year={2014}
 }
+
 @misc{snapnets,
   author       = {Jure Leskovec and Andrej Krevl},
   title        = {{SNAP Datasets}: {Stanford} Large Network Dataset Collection},
@@ -948,30 +836,189 @@ institution = {International Organization for Standardization}
   year={2016},
   organization={IEEE}
 }
-@article{feldman2006free,
-  title={Free-riding and whitewashing in peer-to-peer systems},
-  author={Feldman, Michal and Papadimitriou, Christos and Chuang, John and Stoica, Ion},
-  journal={IEEE Journal on Selected Areas in Communications},
-  volume={24},
-  number={5},
-  pages={1010--1019},
-  year={2006},
-  publisher={IEEE}
-}
-@inproceedings{andrade2004can,
-  title={When can an autonomous reputation scheme discourage free-riding in a peer-to-peer system?},
-  author={Andrade, Nazareno and Mowbray, Miranda and Cirne, Walfredo and Brasileiro, Francisco},
-  booktitle={Cluster Computing and the Grid, 2004. CCGrid 2004. IEEE International Symposium on},
-  pages={440--448},
-  year={2004},
-  organization={IEEE}
-}
 @techreport{buechler2015decentralized,
   title={Decentralized reputation system for transaction networks},
   author={Buechler, Matthew and Eerabathini, Manosai and Hockenbrocht, Christopher and Wan, Defu},
   year={2015},
   institution={Technical report, University of Pennsylvania}
 }
+%%%%%% END CHAPTER 5 %%%%%%%%%%%%%%
+@article{mironov2005hash,
+  title={Hash functions: Theory, attacks, and applications},
+  author={Mironov, Ilya and others},
+  journal={Microsoft Research, Silicon Valley Campus. Noviembre de},
+  year={2005}
+}
+@article{back2002hashcash,
+  title={Hashcash-a denial of service counter-measure},
+  author={Back, Adam and others},
+  year={2002}
+}
+@book{dannen2017introducing,
+  title={Introducing Ethereum and Solidity},
+  author={Dannen, Chris},
+  year={2017},
+  publisher={Springer}
+}
+@inproceedings{symmetrickey,
+  title={Symmetric Key in Use},
+  author={Goldin Mike},
+  note = {Accessed 27 Feb 2018, [Online]. Available: \url{http://securitycerts.org/review/symmetric-key-in-use.htm/}},
+  year={Oct 12, 2015},
+  organization={SecurITyCerts dot Org}
+}
+@online{VitalikVisions,
+	title={The Value of Blockchain Technology},
+	year= 2015,
+	note={Accessed Aug 22, 2018, [Online]. Available: \url{https://ethereum.github.io/blog/2015/04/13/visions-part-1-the-value-of-blockchain-technology/}}
+}
+@inproceedings{mui2002notions,
+  title={Notions of reputation in multi-agents systems: a review},
+  author={Mui, Lik and Mohtashemi, Mojdeh and Halberstadt, Ari},
+  booktitle={Proceedings of the first international joint conference on Autonomous agents and multiagent systems: part 1},
+  pages={280--287},
+  year={2002},
+  organization={ACM}
+}
+@inproceedings{carbone2003formal,
+  title={A formal model for trust in dynamic networks},
+  author={Carbone, Marco and Nielsen, Mogens and Sassone, Vladimiro},
+  booktitle={Software Engineering and Formal Methods, 2003. Proceedings. First International Conference on},
+  pages={54--61},
+  year={2003},
+  organization={IEEE}
+}
+@article{miller2010trust,
+  title={In trust we trust},
+  author={Miller, Keith W and Voas, Jeffrey and Laplante, Phil},
+  journal={Computer},
+  volume={43},
+  number={10},
+  pages={85--87},
+  year={2010},
+  publisher={IEEE}
+}
+@book{swan2015blockchain,
+  title={Blockchain: Blueprint for a new economy},
+  author={Swan, Melanie},
+  year={2015},
+  publisher={" O'Reilly Media, Inc."}
+}
+%%%% Chapter 2
+@phdthesis{kalala2017trust,
+  title={Trust and Reputation Algorithms for Hierarchically Structured Peer-to-Peer Systems},
+  author={Kalala, Kalonji},
+  year={2017},
+  school={Universit{\'e} d'Ottawa/University of Ottawa},
+  note={Accessed Sep 05, 2018, [Online]. Available:\url{ } }
+}`
+@inproceedings{dennis2015rep,
+  title={Rep on the block: A next generation reputation system based on the blockchain},
+  author={Dennis, Richard and Owen, Gareth},
+  booktitle={Internet Technology and Secured Transactions (ICITST), 2015 10th International Conference for},
+  pages={131--138},
+  year={2015},
+  organization={IEEE}
+}
+@article{cahill2003using,
+  title={Using trust for secure collaboration in uncertain environments},
+  author={Cahill, Vinny and Gray, Elizabeth and Seigneur, J-M and Jensen, Christian Damsgaard and Chen, Yong and Shand, Brian and Dimmock, Nathan and Twigg, Andrew and Bacon, Jean and English, Colin and others},
+  journal={IEEE pervasive computing},
+  volume={2},
+  number={3},
+  pages={52--61},
+  year={2003},
+  publisher={IEEE}
+}
+@MISC{counterparty,
+   author =       "Connoly, Darlene",
+   title =        "Controversy in the Maldives",
+   editor =       "Surfline.com",
+   month =        "August",
+   year =         "2012",
+   url =          "\url{https://counterparty.io/docs}",
+   note =         "[Online; Accessed 31-August-2018]",
+} 
+%%%%%END CHAPTER 2
+@inproceedings{luu2016making,
+  title={Making smart contracts smarter},
+  author={Luu, Loi and Chu, Duc-Hiep and Olickel, Hrishi and Saxena, Prateek and Hobor, Aquinas},
+  booktitle={Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security},
+  pages={254--269},
+  year={2016},
+  organization={ACM}
+}
+%misc{whataresmartcontracts,
+%	title={What are Smart Contracts, \url{http://www.chainfrog.com/wp-content/uploads/2017/08/smart-contracts-1.pdf/}},
+%	year={2017},
+%	organization={ChainFrog}
+%}
+%%%%%%%%%CHAPTER 4 %%%%%%%%%%%%%%%%%
+%book{agile1,
+%  title={Agile principles, patterns, and practices in C},
+%  author={Martin, Robert C and Martin, Micah},
+%  year={2006},
+%  publisher={Pearson Education}
+%}
+%online{agile1,
+%	title={USER STORIES AND STORY SPLITTING},
+%	author={MISHKIN BERTEIG},
+%	year={2014},
+%	note= {Accessed Sep 03, 2018, [Online]. Available: \url{{http://www.agileadvice.com/2014/03/06/referenceinformation/user-stories-and-story-splitting/}}
+%	}
+%}
+@article{johann2015software,
+  title={Software architecture for developers},
+  author={Johann, Sven},
+  journal={IEEE Software},
+  number={5},
+  pages={93--96},
+  year={2015},
+  publisher={IEEE}
+}
+@article{brown2013software,
+  title={Software Architecture for Developers},
+  author={Brown, Simon},
+  journal={Coding the Architecture},
+  year={2013}
+}
+@online{solc,
+	title={Using the compiler},
+	author={Ethereum},
+	note={Accessed Sep 05, 2018, [Online]. Available:
+		\url{https://solidity.readthedocs.io/en/v0.4.24/using-the-compiler.html?highlight=solc}}
+}
+@article{alharby2017blockchain,
+  title={Blockchain-based Smart Contracts: A Systematic Mapping Study},
+  author={Alharby, Maher and van Moorsel, Aad},
+  journal={arXiv preprint arXiv:1710.06372},
+  year={2017}
+}
+@inproceedings{delmolino2016step,
+  title={Step by step towards creating a safe smart contract: Lessons and insights from a cryptocurrency lab},
+  author={Delmolino, Kevin and Arnett, Mitchell and Kosba, Ahmed and Miller, Andrew and Shi, Elaine},
+  booktitle={International Conference on Financial Cryptography and Data Security},
+  pages={79--94},
+  year={2016},
+  organization={Springer}
+}
+%%%%%%%%%%%%%%END OF CHAPTER 4
+
+%%%%% CHAPTER 5 %%%%%%%%%%
+%misc{Bergquist1107612,
+%   author = {Bergquist, Jonatan},
+%   institution = {Uppsala University, Division of Computing Science},
+%   note = {Presentation held externally at Technical University Munich on the 29-5-2017 10.50.},
+%   pages = {62},
+%   school = {Uppsala University, Division of Computing Science},
+%   title = {Blockchain Technology and Smart Contracts: Privacy-preserving Tools},
+%   series = {UPTEC F},
+%   ISSN = {1401-5757},
+%   number = {17023},
+%   keywords = {blockchain, smart contracts},
+%   abstract = {The purpose of this Master's thesis is to explore blockchain technology and smart contracts as a way of building privacy-sensitive applications. The main focus is on a medication plan containing prescriptions, built on a blockchain system of smart contracts. This is an example use case, but the results can be transferred to other ones where sensitive data is being shared and a proof of validity or authentication is needed. First the problem is presented, why medication plans are in need of digitalisation and why blockchain technology is a fitting technology for implementing such an application. Then blockchain technology is explained, since it is a very new and relatively unfamiliar IT construct. Thereafter, a design is proposed for solving the problem. A system of smart contracts was built to prove how such an application can be built, and suggested guidelines for how a blockchain system should be designed to fulfil the requirements that were defined. Finally, a discussion is held regarding the applicability of different blockchain designs to the problem of privacy-handling applications. },
+%   year = {2017}
+%}
 @inproceedings{douceur2002sybil,
   title={The sybil attack},
   author={Douceur, John R},
@@ -980,15 +1027,6 @@ institution = {International Organization for Standardization}
   year={2002},
   organization={Springer}
 }
-@book{cormen2009introduction,
-  title={Introduction to algorithms},
-  author={Cormen, Thomas H and Leiserson, Charles E and Rivest, Ronald L and Stein, Clifford},
-  year={2009},
-  publisher={MIT press},
-  note= {Accessed Sep 04, 2018, [Online]. Available: \url{{http://thuvien.thanglong.edu.vn:8081/dspace/bitstream/DHTL_123456789/3760/2/introduction-to-algorithms-3rd-edition.pdf}}
-	}
-}
-
 
 
 
