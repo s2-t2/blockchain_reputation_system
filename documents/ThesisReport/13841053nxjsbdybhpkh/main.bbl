@@ -106,7 +106,7 @@
     \field{labeltitlesource}{title}
     \field{booktitle}{Workshop on Economics of Peer-to-Peer systems}
     \field{pages}{68\bibrangedash 72}
-    \field{title}{Incentives build robustness in BitTorrent}
+    \field{title}{Incentives build robustness in {BitTorrent}}
     \field{volume}{6}
     \field{year}{2003}
   \endentry
@@ -129,7 +129,7 @@
     \field{labeltitlesource}{title}
     \field{note}{Accessed Sep 22, 2018, [Online]. Available:
   \url{{http://www.bittorrent.org/beps/bep_0003.html}}}
-    \field{title}{The BitTorrent protocol specification}
+    \field{title}{The {BitTorrent} protocol specification}
     \field{year}{2008}
   \endentry
 
@@ -151,7 +151,7 @@
     \field{labeltitlesource}{title}
     \field{pages}{225}
     \field{title}{Blockchain technology: principles and applications}
-    \field{journaltitle}{Research handbook on digital transformations}
+    \field{journaltitle}{Research Handbook on {Digital Transformations}}
     \field{year}{2016}
   \endentry
 
@@ -164,22 +164,32 @@
   \endentry
 
   \entry{javelin}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=APSMKM}{%
-         family={Al\bibnamedelima Pascual},
-         familyi={A\bibinitperiod\bibinitdelim P\bibinitperiod},
-         suffix={Kyle\bibnamedelima Marchini},
-         suffixi={K\bibinitperiod\bibinitdelim M\bibinitperiod},
-         given={Sarah\bibnamedelima Miller},
-         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+    \name{author}{3}{}{%
+      {{hash=PA}{%
+         family={Pascual},
+         familyi={P\bibinitperiod},
+         given={Al},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Marchini},
+         familyi={M\bibinitperiod},
+         given={Kyle},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Miller},
+         familyi={M\bibinitperiod},
+         given={Sarah},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{APKMSM1}
-    \strng{fullhash}{APKMSM1}
+    \strng{namehash}{PA+1}
+    \strng{fullhash}{PAMKMS1}
     \field{labelnamesource}{author}
     \field{note}{Accessed Aug 17, 2018, [Online]. Available:
   \url{https://www.javelinstrategy.com/coverage-area/2018-identity-fraud-fraud-enters-new-era-complexity#/}}
-    \field{year}{2018}
+    \field{year}{"2018"}
   \endentry
 
   \entry{macy}{online}{}
@@ -231,7 +241,7 @@
     \strng{fullhash}{KAMASEWZPC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{2016 IEEE symposium on security and privacy (SP)}
+    \field{booktitle}{2016 IEEE symposium on {Security} and Privacy (SP)}
     \field{pages}{839\bibrangedash 858}
     \field{title}{Hawk: The blockchain model of cryptography and
   privacy-preserving smart contracts}
@@ -268,7 +278,7 @@
     \field{year}{2015}
   \endentry
 
-  \entry{mcknight1996meanings}{inproceedings}{}
+  \entry{mcknight1996meanings}{report}{}
     \name{author}{2}{}{%
       {{hash=MDH}{%
          family={McKnight},
@@ -283,14 +293,18 @@
          giveni={N\bibinitperiod\bibinitdelim L\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Citeseer}%
-    }
     \strng{namehash}{MDHCNL1}
     \strng{fullhash}{MDHCNL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{MISRC Working paper Series 96-04, Accessed Sep 30, 2018,
+  [Online]. Available:
+  \url{{http://www.misrc.umn.edu/workingpapers/abstracts/9604.aspx}}}
     \field{title}{The meanings of trust}
+    \list{institution}{1}{%
+      {University of Minnesota}%
+    }
+    \field{type}{techreport}
     \field{year}{1996}
   \endentry
 
@@ -376,7 +390,7 @@
     \field{title}{Collaborative reputation mechanisms for electronic
   marketplaces}
     \field{volume}{29}
-    \field{journaltitle}{Decision support systems}
+    \field{journaltitle}{Decision {Support} Systems}
     \field{year}{2000}
   \endentry
 
@@ -493,7 +507,7 @@
     \field{title}{A survey of trust and reputation systems for online service
   provision}
     \field{volume}{43}
-    \field{journaltitle}{Decision support systems}
+    \field{journaltitle}{Decision {Support} Systems}
     \field{year}{2007}
   \endentry
 
@@ -513,7 +527,7 @@
     \strng{fullhash}{SW1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Cryptography and network security: principles and practice}
+    \field{title}{Cryptography and Network Security: Principles and Practices}
     \field{year}{2017}
   \endentry
 
@@ -539,8 +553,8 @@
     \strng{fullhash}{RLJS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1996 workshop on New security
-  paradigms}
+    \field{booktitle}{Proceedings of the 1996 workshop on New Security
+  Paradigms}
     \field{pages}{18\bibrangedash 25}
     \field{title}{Simulated social control for secure Internet commerce}
     \field{year}{1996}
@@ -610,7 +624,7 @@
     \field{title}{Security threats scenarios in trust and reputation models for
   distributed systems}
     \field{volume}{28}
-    \field{journaltitle}{computers \& security}
+    \field{journaltitle}{{Computers} \& {Security}}
     \field{year}{2009}
   \endentry
 
@@ -650,7 +664,7 @@
     \field{labeltitlesource}{title}
     \field{number}{5}
     \field{pages}{1010\bibrangedash 1019}
-    \field{title}{Free-riding and whitewashing in peer-to-peer systems}
+    \field{title}{Free-riding and {Whitewashing} in peer-to-peer systems}
     \field{volume}{24}
     \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
     \field{year}{2006}
@@ -699,7 +713,6 @@
   \endentry
 
   \entry{bondy1976graph}{book}{}
-    \true{moreauthor}
     \name{author}{2}{}{%
       {{hash=BJA}{%
          family={Bondy},
@@ -715,15 +728,16 @@
   R\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Citeseer}%
-    }
-    \strng{namehash}{BJAMUSR+1}
-    \strng{fullhash}{BJAMUSR+1}
+    \strng{namehash}{BJAMUSR1}
+    \strng{fullhash}{BJAMUSR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Graph theory with applications}
-    \field{volume}{290}
+    \field{note}{Accessed Sep 30, 2018, [Online]. Available:
+  \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.721.3161}}
+    \field{title}{Graph Theory with Applications}
+    \list{location}{1}{%
+      {North-Holland, New York}%
+    }
     \field{year}{1976}
   \endentry
 
@@ -761,7 +775,7 @@
     \strng{fullhash}{KJMAJVOPCVSA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Handbook of applied cryptography}
+    \field{title}{Handbook of Applied Cryptography}
     \field{year}{1996}
   \endentry
 
@@ -827,7 +841,7 @@
     \field{booktitle}{Annual international conference on the theory and
   applications of cryptographic techniques}
     \field{pages}{19\bibrangedash 35}
-    \field{title}{How to break MD5 and other hash functions}
+    \field{title}{How to break {MD5} and other hash functions}
     \field{year}{2005}
   \endentry
 
@@ -898,7 +912,7 @@
     \field{labeltitlesource}{title}
     \field{note}{Accessed Sep 05, 2018, [Online].
   Available:\url{https://www.nvidia.com/content/tesla/pdf/NVIDIA-Tesla-Kepler-Family-Datasheet.pdf}}
-    \field{title}{NVIDIA TESLA GPU ACCELERATORS}
+    \field{title}{Nvidia {Tesla} {GPU} Accelerators}
     \field{year}{2018}
   \endentry
 
@@ -906,7 +920,7 @@
     \field{labeltitlesource}{title}
     \field{note}{Accessed Sep 05, 2018, [Online].
   Available:\url{http://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf}}
-    \field{title}{NVIDIA TESLA V100 GPU ARCHITECTURE}
+    \field{title}{Nvidia {Tesla} {V100} {GPU} {Architecture}}
     \field{year}{2018}
   \endentry
 
@@ -926,7 +940,7 @@
     \strng{fullhash}{BG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Merkle signature schemes, merkle trees and their
+    \field{title}{Merkle signature schemes, {Merkle} trees and their
   cryptanalysis}
     \field{journaltitle}{Ruhr-University Bochum, Tech. Rep}
     \field{year}{2008}
@@ -995,7 +1009,7 @@
     \field{labeltitlesource}{title}
     \field{number}{2}
     \field{pages}{43\bibrangedash 48}
-    \field{title}{Looking up data in P2P systems}
+    \field{title}{Looking up data in {P2P} systems}
     \field{volume}{46}
     \field{journaltitle}{Communications of the ACM}
     \field{year}{2003}
@@ -1023,7 +1037,7 @@
     \strng{fullhash}{TASVSM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Distributed systems: principles and paradigms}
+    \field{title}{Distributed Systems: Principles and Paradigms}
     \field{year}{2007}
   \endentry
 
@@ -1134,7 +1148,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{note}{Accessed 23 Dec 2017, [Online]. Available:
-  \url{https://bitcoin.org/bitcoin.pdf/}}
+  \url{https://bitcoin.org/bitcoin.pdf}}
     \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
     \field{year}{Oct 31, 2008}
   \endentry
@@ -1220,8 +1234,8 @@
     \strng{fullhash}{HN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{It will cost you nothing to” kill” a proof-of-stake
-  crypto-currency,” 2014}
+    \field{title}{It will cost you nothing to ”kill” a proof-of-stake
+  crypto-currency,2014}
     \field{journaltitle}{Lyon University, France}
     \field{year}{2014}
   \endentry
@@ -1551,7 +1565,7 @@
     \field{labeltitlesource}{title}
     \field{note}{Accessed Aug 31, 2018, [Online]. Available:
   \url{{https://lll-docs.readthedocs.io/en/latest/lll_introduction.html}}}
-    \field{title}{LLL Introduction}
+    \field{title}{{LLL} Introduction}
     \field{year}{2017}
   \endentry
 
@@ -1672,7 +1686,7 @@
     \field{pages}{79\bibrangedash 101}
     \field{title}{The value of reputation on eBay: A controlled experiment}
     \field{volume}{9}
-    \field{journaltitle}{Experimental economics}
+    \field{journaltitle}{Experimental Economics}
     \field{year}{2006}
   \endentry
 
@@ -1980,7 +1994,7 @@
     \field{pages}{127\bibrangedash 138}
     \field{title}{TRIBLER: a social-based peer-to-peer system}
     \field{volume}{20}
-    \field{journaltitle}{Concurrency and computation: Practice and experience}
+    \field{journaltitle}{Concurrency and Computation: Practice and Experience}
     \field{year}{2008}
   \endentry
 
@@ -2011,7 +2025,7 @@
     \field{title}{Powertrust: A robust and scalable reputation system for
   trusted peer-to-peer computing}
     \field{volume}{18}
-    \field{journaltitle}{IEEE Transactions on parallel and distributed systems}
+    \field{journaltitle}{IEEE Transactions on Parallel and Distributed systems}
     \field{year}{2007}
   \endentry
 
@@ -2101,8 +2115,8 @@
     \strng{fullhash}{ARAHS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1997 workshop on New security
-  paradigms}
+    \field{booktitle}{Proceedings of the 1997 workshop on New Security
+  Paradigms}
     \field{pages}{48\bibrangedash 60}
     \field{title}{A distributed trust model}
     \field{year}{1998}
@@ -2124,7 +2138,7 @@
     \field{booktitle}{EDI-Forum: the Journal of Electronic Commerce}
     \field{number}{3}
     \field{pages}{27\bibrangedash 31}
-    \field{title}{The pgp trust model}
+    \field{title}{The \uppercase{PGP} trust model}
     \field{volume}{10}
     \field{year}{1997}
   \endentry
@@ -2420,7 +2434,7 @@
     \strng{fullhash}{CBHWS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{International workshop on security protocols}
+    \field{booktitle}{International Workshop on Security Protocols}
     \field{pages}{171\bibrangedash 176}
     \field{title}{Why isn't trust transitive?}
     \field{year}{1996}
@@ -2436,7 +2450,7 @@
       }}%
     }
     \list{publisher}{1}{%
-      {Harvard university press}%
+      {Harvard {University} Press}%
     }
     \strng{namehash}{MRB1}
     \strng{fullhash}{MRB1}
@@ -2642,7 +2656,7 @@
     \strng{fullhash}{HACS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Design research in information systems}
+    \field{booktitle}{Design Research in Information Systems}
     \field{pages}{9\bibrangedash 22}
     \field{title}{Design science research in information systems}
     \field{year}{2010}
@@ -2671,6 +2685,40 @@
     \field{title}{{SNAP Datasets}: {Stanford} Large Network Dataset Collection}
     \field{month}{06}
     \field{year}{2014}
+  \endentry
+
+  \entry{atzei2017survey}{incollection}{}
+    \name{author}{3}{}{%
+      {{hash=AN}{%
+         family={Atzei},
+         familyi={A\bibinitperiod},
+         given={Nicola},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bartoletti},
+         familyi={B\bibinitperiod},
+         given={Massimo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Cimoli},
+         familyi={C\bibinitperiod},
+         given={Tiziana},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{AN+2}
+    \strng{fullhash}{ANBMCT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Principles of Security and Trust}
+    \field{pages}{164\bibrangedash 186}
+    \field{title}{A survey of attacks on ethereum smart contracts (sok)}
+    \field{year}{2017}
   \endentry
 
   \entry{kumar2016edge}{inproceedings}{}

@@ -312,9 +312,9 @@ pair has the property that knowing  $e_{k}$ it is computationally infeasible,
 given a random ciphertext $c \in C$, to find the message $m \in P$ such that
 $e_{k}(m) = c$. This property implies that given $e$ it is infeasible to
 determine the corresponding decryption key $d_{k}$. This is unlike
-symmetric-key ciphers where $e_{k}$ and $d_{k}$ are essentially the same.
-Consider two-party communication between Alice and Bob where Bob selects a key
-pair $(e_{k}, d_{k})$. Bob can send the encryption key $e_{k}$ over any channel
+symmetric-key ciphers where $e_{k}$ and $d_{k}$ are the same.  Consider
+two-party communication between Alice and Bob where Bob selects a key pair
+$(e_{k}, d_{k})$. Bob can send the encryption key $e_{k}$ over any channel
 while keeping the decryption key $d_{k}$ secure and secret. Alice can send the
 message $m$ to Bob by applying the encryption transformation determined by the
 public key of Bob to form ciphertext $c$. Upon receiving $c$, Bob can decrypt
@@ -372,9 +372,9 @@ needed for the homogeneous cluster to produce collision is 95 k40-years. Given
 that a K40~\cite{k40} has a compute performance of 1.43 TFLOP and
 V100~\cite{v100} has 7 TFLOP, the time would be reduced to approximately 12.297
 hours.\par
-Applications of hashing algorithms include digital signature, file checksums
-(i.e., generate a checksum value for a given file and check against the value
-that was originally distributed by developer/creator of the file and if the
+Applications of hashing algorithms include digital signature, data checksums
+(i.e., generate a checksum value for a given data and check against the value
+that was originally distributed by developer/creator of the data and if the
 checksum matches then it ensures the integrity of data is preserved). 
 %Applications of hashing algorithms include a digital signature, creating a
 %fingerprint of data to identify it uniquely, e.g., given an input data of

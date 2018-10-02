@@ -20,7 +20,7 @@ each identity has a significant impact value leading to a better trust score on
 the identity they intend to inflate the score of. However, doing so requires
 sending many endorsement transactions over to the ethereum network and raises
 the cost of operation.   
-\paragraph{whitewashing:} The idea of rewards and punishment as discussed in
+\paragraph{Whitewashing:} The idea of rewards and punishment as discussed in
 Section~\ref{rewardpunishment} aids in lessening a whitewashing behavior. By
 punishing the misbehaving nodes in a way that decreases their score made so far
 significantly but still preventing the value to be lower than a new user,
@@ -113,23 +113,71 @@ blockchain network from the browser itself.
 \section{Fulfillment of User stories and Requirements}\label{fulfillment}
 The method to examine fulfillment of user stories and requirement follows the
 method used by Hevner's descriptive design evaluation
-approach~\cite{hevner2010design}. The table~\ref{table:fulfillment} presents
+approach~\cite{hevner2010design}. Table~\ref{table:fulfillment} presents
 the motivation for fulfillment of functional requirements. For the relevant
-smart contract code, refer to the appendix~\ref{smartcontracts}. 
+smart contract code, refer to Appendix~\ref{smartcontracts}. 
 The fulfillment of non-functional system requirements is discussed below:
-\paragraph{Smart contract security:}Based on the recommendations by
-Solidity~\cite{soliditySecurity}, contract function code was ordered as
-conditions, actions, and interactions where relevant. For example, execution of
-a function to join the endorsement network first makes a check to see if the
-user has already been registered. If the check fails, then further execution of
-the function is stopped. Only if the checks pass then remaining parts of the
-function gets executed. Doing so can avoid Re-entrancy bug, e.g., interrupting
-a function call in the middle of execution and re-entering before the previous
-execution is over. The function call can be made by both ~\ac{EOA} or by a
-contract address. A maliciously crafted contract can make a function call
-repeatedly before the execution of the function ends or throws an exception
-which can cause the function to interact in unintended ways. As such, failing
-early by making the checks first in a function can avoid such a bug. 
+\paragraph{Smart contract security:} Solidity~\cite{soliditySecurity}
+recommends ordering the contract code as conditions, actions and interactions,
+i.e., first make all the necessary checks (e.g., who called the function, if
+arguments are in range) and only if these checks pass then perform the actions
+that change the state of the current contract. Interaction with other contracts
+(calling another contract) should be the last step in any function. Following
+this pattern can avoid Re-entrancy bug~\cite{atzei2017survey}, i.e.,
+interrupting a function call in the middle of execution and re-entering before
+the previous execution is over. The function call can be made by both ~\ac{EOA}
+or by a contract address. A maliciously crafted contract can make a function
+call repeatedly before the execution of the function ends or throws an
+exception which can cause the function to interact in unintended ways. As such,
+failing early by making the checks first in a function can avoid such a bug. \par
+The contracts written for the endorsement system followed this approach. A
+snippet of function to join the network is given by
+Listing~\ref{contractsecurity}. As we can see, the "joinNetwork" function
+first makes a check to see if the user has already been registered. If the
+check fails, then further execution of the function is stopped. Only if the
+checks pass then it moves further to remaining parts of the function that deals
+with actions to change the state of contract, i.e., change the state of
+"joined" for the message sender (new user), add this new user in the list of
+participants and increment the number of registered participants. These are
+examples of actions that update the state variables of the endorsement
+contract. The rest of the contracts function is written following the same
+pattern of making checks before changing the state whenever relevant (i.e., any
+function call that can change the state). An endorsement contract is a single
+contract that performs all the core logic of the endorsement system and
+therefore, interaction with other contracts is not required. 
+%Based on the recommendations by
+%Solidity~\cite{soliditySecurity}, contract function code was ordered as
+%conditions, actions, and interactions where relevant. For example, execution of
+%a function to join the endorsement network first makes a check to see if the
+%user has already been registered. If the check fails, then further execution of
+%the function is stopped. Only if the checks pass then remaining parts of the
+%function gets executed. Doing so can avoid Re-entrancy bug, e.g., interrupting
+%a function call in the middle of execution and re-entering before the previous
+%execution is over. The function call can be made by both ~\ac{EOA} or by a
+%contract address. A maliciously crafted contract can make a function call
+%repeatedly before the execution of the function ends or throws an exception
+%which can cause the function to interact in unintended ways. As such, failing
+%early by making the checks first in a function can avoid such a bug. 
+\begin{lstlisting}[language=Solidity, label=contractsecurity, caption=Function to Join Network] 
+	function joinNetwork(string _userName) public{
+		//conditions: only allow unregistered participant
+		require(!joined[msg.sender]);
+
+		//actions
+		joined[msg.sender] = true;
+		
+		Participant memory newParticipant = Participant({
+				identifier: msg.sender,
+				name: _userName
+        });
+		participants.push(newParticipant);
+        LogJoinNetwork(msg.sender, _userName);
+        numberOfParticipants++;
+        participantIndex[msg.sender] = numberOfParticipants-1;
+    }
+\end{lstlisting}
+
+
 %The security considerations by
 %Solidity~\cite{soliditySecurity} was followed for the contract code. Not all
 %the recommendations presented there were relevant for the endorsement contract.
@@ -207,25 +255,6 @@ add or modify the data, the system is resilient to internal modifications.
 	\caption{Fulfillment of User stories and Requirements for Endorsement PoC}
 \end{table}
 \end{center}
-%\begin{lstlisting}[language=Solidity]
-%	function joinNetwork(string _userName) public{
-%		//conditions: only allow unregistered participant
-%		require(!joined[msg.sender]);
-%
-%		//actions
-%		joined[msg.sender] = true;
-%		
-%        //Interaction
-%		Participant memory newParticipant = Participant({
-%				identifier: msg.sender,
-%				name: _userName
-%        });
-%		participants.push(newParticipant);
-%        LogJoinNetwork(msg.sender, _userName);
-%        numberOfParticipants++;
-%        participantIndex[msg.sender] = numberOfParticipants-1;
-%    }
-%\end{lstlisting}
 \vspace{-15mm}
 \paragraph{Trust metrics correctly describe the actual trust of the nodes:}The
 fulfillment of this requirement is assessed by simulating an interaction graph
@@ -347,7 +376,7 @@ the \ac{TRP} is zero which leads to them having a \ac{TEI} score of zero too.
 %	\label{fig:ratioimpact}
 %\end{figure}
 \begin{figure}[H]
-	\includegraphics[width=1.0\textwidth]{Images/TEIRanges.eps}
+	\includegraphics[width=1.0\textwidth]{Images/TEIRangesScaled.eps}
 	\caption{Distribution of \ac{TEI} score over all nodes}
 	\label{table:totalimpact}
 \end{figure}
