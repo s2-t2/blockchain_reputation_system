@@ -553,7 +553,7 @@
     \strng{fullhash}{RLJS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1996 workshop on New Security
+    \field{booktitle}{Proceedings of the 1996 Workshop on New Security
   Paradigms}
     \field{pages}{18\bibrangedash 25}
     \field{title}{Simulated social control for secure Internet commerce}
@@ -838,8 +838,8 @@
     \strng{fullhash}{WXYH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Annual international conference on the theory and
-  applications of cryptographic techniques}
+    \field{booktitle}{Annual International Conference on the Theory and
+  Applications of Cryptographic Techniques}
     \field{pages}{19\bibrangedash 35}
     \field{title}{How to break {MD5} and other hash functions}
     \field{year}{2005}
@@ -1830,7 +1830,7 @@
     \strng{fullhash}{KSDSMTGMH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 12th international conference on World
+    \field{booktitle}{Proceedings of the 12th International Conference on World
   Wide Web}
     \field{pages}{640\bibrangedash 651}
     \field{title}{The eigentrust algorithm for reputation management in p2p
@@ -2115,7 +2115,7 @@
     \strng{fullhash}{ARAHS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Proceedings of the 1997 workshop on New Security
+    \field{booktitle}{Proceedings of the 1997 Workshop on New Security
   Paradigms}
     \field{pages}{48\bibrangedash 60}
     \field{title}{A distributed trust model}
