@@ -1,15 +1,13 @@
 import Web3 from 'web3';
 
-//Assuming that metamask has already injected a web3 instance onto the page.
-//window is a global variable "only" available in the browser.
-
+//Metamask has injected web3 instance on the page
 let web3;
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
-	//In the browser, metamask has already injected web3
+	//In the browser where metamask has already injected web3
 	web3 = new Web3(window.web3.currentProvider);
 } else {
-	//on server OR user is not running metamask
+	//on server /Metamask is not running 
 	const provider = new Web3.providers.HttpProvider(
 		'http://localhost:7545'
 	);

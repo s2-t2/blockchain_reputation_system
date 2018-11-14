@@ -3,15 +3,15 @@ const solc = require('solc');
 const fs = require('fs-extra');
 
 const buildPath = path.resolve(__dirname, 'build');
-//1.Delete entire build folder
+// Delete the build folder
 fs.removeSync(buildPath);
 
 
 const edsPath = path.resolve(__dirname, 'contracts', 'Endorsement.sol');
-//2. Read Endorsement.sol from contracts folder
+// Read Endorsement.sol from contracts folder
 const source = fs.readFileSync(edsPath,'utf8');
 
-//3. Use solidity compiler to compile the contract
+//Compile the contract
 const output = solc.compile(source, 1 ).contracts;
 
 //check if dir exists, if not create it
