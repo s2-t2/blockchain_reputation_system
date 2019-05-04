@@ -17,7 +17,8 @@
 
 <img align="left" src="images/ClientApplication.png" alt="Client Application" title="Client Application" hspace="20"/>
 <img align="right" src="images/DeployContract.png" alt="Contract deployment" title="Contract deployment" hspace="20"/>
-</br>
+
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
 
  
  ### Single Page React application (screenshots)
