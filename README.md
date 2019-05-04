@@ -10,10 +10,15 @@
   
   
  ## Single Page React application (screenshots)
- ####
+ 
+ #### New User Registration
 
 ![Register new user](images/frontend-metamask/1.JoinNetwork.png "Register as New user")
-![Incoming endorsement recorded](images/frontend-metamask/2.Endorse_IncomingConnectionsRecorded.png "Incoming endorsement recorded")
+
+ #### Record incoming endorsement connection
+ ![Incoming endorsement recorded](images/frontend-metamask/2.Endorse_IncomingConnectionsRecorded.png "Incoming endorsement recorded")
+ 
+  #### Incoming and outgoing endorsements recorded
 ![Incoming and outgoing endorsements](images/frontend-metamask/3.RecordedByEndorsementApp.png "Incoming and outgoing endorsements")
 
 
