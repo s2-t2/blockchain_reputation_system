@@ -12,14 +12,15 @@
 #### Container diagram
 ![Container diagram](images/ContainerDiagram.png "Container Diagram")
 
-#### Client application
-![Client application](images/ClientApplication.png "Client Application")
 
-#### Solidity contract deployment
-![Contract deployment](images/DeployContract.png "Contract deployment")
+#### Client application and solidity contract deployment
+
+<img align="left" src="images/ClientApplication.png" alt="Client Application" title="Client Application" hspace="20"/>
+<img align="right" src="images/DeployContract.png" alt="Contract deployment" title="Contract deployment" hspace="20"/>
+</br>
 
  
- ## Single Page React application (screenshots)
+ ### Single Page React application (screenshots)
  
  #### New User Registration
 
