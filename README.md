@@ -7,8 +7,18 @@
 * Web application: React.js for frontend and node.js as a backend server 
 * External libraries and APIs used: Metamask wallet, neo4j and its cypher query for graph simulation, Python for simple scripts, mocha for unit testing.
 
-  
-  
+### System Architecture:
+
+#### Container diagram
+![Container diagram](images/ContainerDiagram.png "Container Diagram")
+
+#### Client application
+![Client application](images/ClientApplication.png "Client Application")
+
+#### Solidity contract deployment
+![Contract deployment](images/DeployContract.png "Contract deployment")
+
+ 
  ## Single Page React application (screenshots)
  
  #### New User Registration
